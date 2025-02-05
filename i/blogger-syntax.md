@@ -1,0 +1,428 @@
+---
+layout: independent
+title: 블로거 문법 정리
+---
+
+<div class="sidebar-container">
+  <div class="sidebar-bar" style="width:10em">
+    <nav>
+      <div style="text-align:center;">목차</div>
+      <hr class="line" style="width:50%">
+      <ul class="index" style="padding:1rem 0">
+        <li><a href="#p-bloggersyntax-m-main" onclick="sidebarMC(&quot;p-bloggersyntax-m-main&quot;)">메인</a></li>
+        <li><a href="#p-bloggersyntax-m-explain" onclick="sidebarMC(&quot;p-bloggersyntax-m-explain&quot;)">설명</a></li>
+        <li><a href="#p-bloggersyntax-m-data" onclick="sidebarMC(&quot;p-bloggersyntax-m-data&quot;)">data:</a></li>
+        <li><a href="#p-bloggersyntax-m-expr" onclick="sidebarMC(&quot;p-bloggersyntax-m-expr&quot;)">expr:</a></li>
+        <li><a href="#p-bloggersyntax-m-beval" onclick="sidebarMC(&quot;p-bloggersyntax-m-beval&quot;)">&lt;b:eval&gt;</a></li>
+        <li>
+          <details>
+            <summary>조건문</summary>
+            <ul>
+              <li><a href="#p-bloggersyntax-m-cond" onclick="sidebarMC(&quot;p-bloggersyntax-m-cond&quot;)">cond=' '</a></li>
+              <li><a href="#p-bloggersyntax-m-bif" onclick="sidebarMC(&quot;p-bloggersyntax-m-bif&quot;)">&lt;b:if&gt;</a></li>
+              <li><a href="#p-bloggersyntax-m-bswitch" onclick="sidebarMC(&quot;p-bloggersyntax-m-bswitch&quot;)">&lt;b:switch&gt;</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a href="#p-bloggersyntax-m-bloop" onclick="sidebarMC(&quot;p-bloggersyntax-m-bloop&quot;)">&lt;b:loop&gt;</a></li>
+        <li><a href="#p-bloggersyntax-m-bcomment" onclick="sidebarMC(&quot;p-bloggersyntax-m-bcomment&quot;)">&lt;b:comment&gt;</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class='sidebar-main' data-display="p-bloggersyntax-m-main">
+    <section id="p-bloggersyntax-m-main">
+      
+      <img class="image center" src="https://1001parts.co.kr/web/upload/NNEditor/20210811/17-5_shop1_114115.jpg" style="width:20em;height:auto">
+      <p style="text-align:center">블로거(블로그스팟) 문법 알아보다 화딱지나서 직접 정리하려고 만드는 중입니다.<br>비어있는 문서가 있을수도 없을수도</p>
+      
+      <h3 content="들어가기 전에">들어가기 전에</h3>
+      <p>여기서 대괄호([])는 설명을 위해 넣은 표현입니다. 진짜로 코드에 대괄호가 들어가는 것은 아닙니다!</p>
+      
+    </section>
+    <section hidden="" id="p-bloggersyntax-m-explain">
+      
+      <h2 content="설명">설명</h2>
+      
+      <p>구글 블로거에는 고유의 HTML 문법이 있습니다. 블로그 꾸미려고 HTML 편집을 눌러본 분들이라면 보셨을 거예요. '<code>&lt;b:</code>'로 시작하는 태그들을요. 이것들을 실제 태그처럼 사용하면 됩니다.</p>
+      
+      <h3 content="기본 형태들">기본 형태들</h3>
+      
+      <ul>
+        <li><code>&lt;b:[이름]&gt;&lt;/b:[이름]&gt;</code></li>
+        <li><code>&lt;b:[이름]/&gt;</code></li>
+        <li><code>&lt;data:[값]/&gt;</code></li>
+      </ul>
+      
+      <h3 content="주의사항">주의사항</h3>
+      
+      <ul>
+        <li><p>열었으면 꼭 닫아줘야 합니다. <code>&lt;br&gt;</code> 비슷하게 닫지 않는 태그도 있는데 이 경우 꼭 태그 안에 <mark>/</mark>를 넣어줘야 합니다.</p><p>예) <code>&lt;b:if&gt; &lt;b:else/&gt; &lt;/b:if&gt;</code></p></li>
+      </ul>
+      
+    </section>
+    <section hidden="" id="p-bloggersyntax-m-data">
+      
+      <h2 content="data:">data:</h2>
+      
+      <p>블로거에서 제공하는 값들을 쓸 수 있습니다.</p>
+      
+      <h3 content="구조">구조</h3>
+      
+      <div class="script"><code>&lt;data:[값]/&gt;</code></div>
+      <div class="script"><code>&lt;[아무 태그] expr:[속성]='data:[값]'&gt;</code></div>
+      
+      <h3 content="설명">설명</h3>
+      
+      <p>태그 형식으로 쓰면 그 자리가 값으로 대체됩니다. 예를 들어 <code>blog.title</code>은 블로그 이름인데요, <code>&lt;p&gt;&lt;data:blog.title/&gt;&lt;/p&gt;</code> 하면 p 태그 안에 블로그 이름이 적힙니다.</p>
+      <p>근데 이것보다 중요한 건 <code>expr:</code>입니다. 태그 속성 앞에 저걸 붙이면 그 안에 <code>data;</code>를 쓸 수 있어요. 예를 들어 <code>&lt;meta property='og:site_name' expr:content='data:blog.title'&gt;</code> 하면 메타 태그에 자동으로 블로그 이름을 넣을 수 있습니다. <code>expr:</code>의 문법 설명은 <a title="expr:" href="#p-bloggersyntax-m-expr" onclick="sidebarMC(&quot;p-bloggersyntax-m-expr&quot;)">여기</a>를 참조.</p>
+      
+      <h3 content="주의사항">주의사항</h3>
+      <p>제 추측으로는 맨 앞 접두사에 따라서 쓸 수 있는 위치가 정해지는 것 같습니다. <code>blog.</code>로 시작하면 모든 곳에서 사용 가능하지만, <code>post.</code>로 시작하면 포스트 태그 안에서만 가능하더라고요. (정확히는 <code>&lt;b:includable id='post' var='post'&gt;&lt;/b:includable&gt;</code> 안입니다.)</p>
+      
+      <h3 content="목록">목록</h3>
+      
+      <style>
+        @media (hover:none){#p-bloggersyntax-table-data{overflow-x:auto}}
+        @media (max-width:650px){@media (hover:hover){#p-bloggersyntax-table-data>table{font-size:2vw}}}
+      </style>
+      <div id="p-bloggersyntax-table-data">
+        <table class="table-yesspace innerline">
+          <tbody>
+            <tr style="text-align:center;border-bottom:.1em var(--gr-2) solid">
+              <th>data:</th>
+              <th>값</th>
+              <th>설명</th>
+              <th colspan="2">구분</th>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>blog.url</code></td>
+              <td>https://[...].blogspot.com/[...]</td>
+              <td>퍼머링크까지</td> 
+              <td rowspan="3" style="border-right:hidden">URL</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>blog.homepageUrl</code></td>
+              <td>https://[...].blogspot.com/</td>
+              <td>홈페이지만</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>view.url</code></td>
+              <td>https://[...].blogspot.com/[...]</td>
+              <td>전체 URL</td>
+            </tr>
+            <tr>
+              <td style="text-align:right" rowspan="4"><code>blog.pageType</code></td>
+              <td>index</td>
+              <td>홈</td>
+              <td rowspan="14" style="border-right:hidden">종류 구분</td>
+            </tr>
+            <tr>
+              <td>item</td>
+              <td>포스트</td>
+            </tr>
+            <tr>
+              <td>static_page</td>
+              <td>페이지</td>
+            </tr>
+            <tr>
+              <td>error_page</td>
+              <td>에러 페이지</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>view.isArchive</code></td>
+              <td>[true/false]</td>
+              <td>아카이브 페이지면 참<br>(이 아카이브가 뭔지는 모르겠음)</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>view.isError</code></td>
+              <td>[true/false]</td>
+              <td>에러 페이지면 참</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>view.isHomepage</code></td>
+              <td>[true/false]</td>
+              <td>홈페이지면 참</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>view.isLabelSearch</code></td>
+              <td>[true/false]</td>
+              <td>레이블 검색 페이지면 참</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>view.isMultipleItems</code></td>
+              <td>[true/false]</td>
+              <td>포스트 목록을 보여주는 페이지(홈페이지, 검색, 레이블 등)면 참</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>view.isMobile</code></td>
+              <td>[true/false]</td>
+              <td>모바일이면 참<br>(url 뒤에 m=1 붙으면)</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>view.isPage</code></td>
+              <td>[true/false]</td>
+              <td>페이지면 참<br>(static_page)</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>view.isPost</code></td>
+              <td>[true/false]</td>
+              <td>포스트면 참</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>view.isPreview</code></td>
+              <td>[true/false]</td>
+              <td>미리보기면 참</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>view.isSearch</code></td>
+              <td>[true/false]</td>
+              <td>검색 페이지면 참</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>view.isSingleItem</code></td>
+              <td>[true/false]</td>
+              <td>포스트나 페이지면 참</td>
+            </tr>
+            <tr>
+            </tr><tr>
+              <td style="text-align:right"><code>blog.pageName</code></td>
+              <td>[글]</td>
+              <td>글(포스트) 제목</td>
+              <td rowspan="2" style="border-right:hidden">제목</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>view.title</code></td>
+              <td>[글]</td>
+              <td>제목</td>
+            </tr><tr>
+              <td style="text-align:right"><code>blog.metaDescription</code></td>
+              <td>[글]</td>
+              <td>검색 설명란에 적은 거</td>
+              <td rowspan="2" style="border-right:hidden">설명</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>view.description</code></td>
+              <td>[글]</td>
+              <td>검색 설명란에 적은 거</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>blog.postImageUrl</code></td>
+              <td>https://[...]</td>
+              <td>포스트(페이지 안됨) 첫 번째 이미지 url</td>
+              <td rowspan="3" style="border-right:hidden">이미지 URL</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>blog.postImageThumbnailUrl</code></td>
+              <td>https://[...]</td>
+              <td>포스트(페이지 안됨) 첫 번째 이미지 정사각형 썸네일 버전 url</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>view.featuredImage</code></td>
+              <td>https://[...]</td>
+              <td>대표 이미지 url(프록시)</td>
+            </tr>
+            <tr>
+              <td style="text-align:right"><code>blog.feedLinks</code></td>
+              <td>&lt;link rel='[alternate/service.post]' type='application/[attom/rss]+xml' [...]'&gt;<br>&lt;link rel='[alternate/service.post]' type='application/[attom/rss]+xml' [...]'&gt;<br>&lt;link rel='[alternate/service.post]' type='application/[attom/rss]+xml' [...]'&gt;</td>
+              <td>Atom RSS 링크</td>
+              <td style="border-right:hidden"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <h3 content="여담">여담</h3>
+      
+      <p>이 문서는 이거 정리하려고 만들었다고 해도 과언이 아닙니다. 이거 어디 진짜 제대로 정리해놓은 곳이 없어요</p>
+      
+    </section>
+    <section hidden="" id="p-bloggersyntax-m-expr">
+      
+      <h2 content="expr:">expr:</h2>
+      
+      <p>속성 앞에 붙이면 그 값에 블로거 변수를 사용할 수 있습니다.</p>
+      
+      <h3 content="구조">구조</h3>
+      
+      <div class="script"><code>&lt;[태그] expr:[속성]='[내용]'&gt;</code></div>
+      
+      <h3 content="설명">설명</h3>
+      
+      <p>[내용]에 코딩 언어처럼 변수와 문자열을 넣을 수 있습니다. <code>data:blog.title</code>은 블로그 이름을 표현하는 변수인데요, 오픈그래프 메타 태그에 '~ 블로그'라 하고 싶다면 <code>&lt;meta property='og:site_name' expr:content='data:blog.title + " 블로그"'&gt;</code>라 적으시면 돼요. 그러니까 변수는 그냥 적고, 그냥 내용은 큰따옴표 안에 적고, 그 사이를 +로 연결해주세요. (<code>data:</code>에 대해 더 알고 싶다면 <a href="#p-bloggersyntax-m-data" onclick="sidebarMC(&quot;p-bloggersyntax-m-data&quot;)">여기</a>로.)</p>
+      
+      <h3 content="주의사항">주의사항</h3>
+      
+      <ul>
+        <li><p>b: 태그 속성 중에 expr:을 붙이지 않아도 붙인 것처럼 쓰는 속성이 있어요. 이것들에 expr: 붙이면 오류남.</p></li>
+        <li><p>바깥쪽 따옴표를 큰따옴표로 하면 안이랑 겹쳐서 오류나요. 꼭 바깥쪽이 작은따옴표, 안쪽이 큰따옴표여야 하는지는 모르겠지만 저는 그렇게 씁니다.</p></li>
+      </ul>
+      
+    </section>
+    <section hidden="" id="p-bloggersyntax-m-beval">
+      
+      <h2 content="&lt;b:eval&gt;">&lt;b:eval&gt;</h2>
+      
+      <p><a href="#p-bloggersyntax-m-expr" onclick="sidebarMC(&quot;p-bloggersyntax-m-expr&quot;)" title="expr:">expr:</a>의 결과를 바로 출력해주는 태그입니다.</p>
+      
+      <h3 content="구조">구조</h3>
+      
+      <div class="script">
+        <code>&lt;b:eval expr='[표현식]'/&gt;</code>
+      </div>
+      
+      <h3 content="설명">설명</h3>
+      
+      <p>진짜 <a href="#p-bloggersyntax-m-expr" onclick="sidebarMC(&quot;p-bloggersyntax-m-expr&quot;)" title="expr:">expr:</a>을 출력해주는 태그입니다. 여기다가 순수하게 <a href="#p-bloggersyntax-m-data" onclick="sidebarMC(&quot;p-bloggersyntax-m-data&quot;)" title="data:">data:</a>만 넣으면 <a href="#p-bloggersyntax-m-data" onclick="sidebarMC(&quot;p-bloggersyntax-m-data&quot;)" title="data:">&lt;data:&gt;</a>랑 똑같습니다.</p>
+      
+    </section>
+    <section hidden="" id="p-bloggersyntax-m-cond">
+      
+      <h2 content="cond=' '">cond=' '</h2>
+      
+      <p>조건문을 작성할 때 쓰입니다. 주로 조건문 태그의 속성으로 들어갑니다.</p>
+      <p><a href="#p-bloggersyntax-m-expr" onclick="sidebarMC(&quot;p-bloggersyntax-m-expr&quot;)" title="expr:">expr:</a>의 규칙도 따라갑니다.</p>
+      
+      <h3 content="문법">문법</h3>
+      
+      <table class="table-yesspace innerline">
+        <tbody>
+          <tr>
+            <td style="text-align:right"><code>[A] == [B]</code></td>
+            <td>A와 B가 같으면 참</td>
+          </tr>
+          <tr>
+            <td style="text-align:right"><code>[A] != [B]</code></td>
+            <td>A와 B가다르면 참 (저거 !=임)</td>
+          </tr>
+          <tr>
+            <td style="text-align:right"><code>![A]</code></td>
+            <td>A의 값을 거꾸로 (참 → 거짓, 거짓 → 참)</td>
+          </tr>
+          <tr>
+            <td style="text-align:right"><code>[A] in {x,y,z}</code></td>
+            <td>A가 x y z 중에 하나라도 있으면 참 (집합에 포함 여부)</td>
+          </tr>
+          <tr>
+            <td style="text-align:right"><code>[A] and [B]</code></td>
+            <td>A와 B 모두 만족해야 참</td>
+          </tr>
+          <tr>
+            <td style="text-align:right"><code>[A] or [B]</code></td>
+            <td>A와 B 중 하나라도 만족하면 참</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3 content="사용되는 태그">사용되는 태그</h3>
+      <ul>
+        <li><a href="#p-bloggersyntax-m-bif" onclick="sidebarMC(&quot;p-bloggersyntax-m-bif&quot;)">&lt;b:if&gt;</a></li>
+        <li>&lt;b:include&gt;</li>
+      </ul>
+      
+    </section>
+    <section hidden="" id="p-bloggersyntax-m-bif">
+      
+      <h2 content="&lt;b:if&gt;">&lt;b:if&gt;</h2>
+      
+      <p>if문입니다. 조건을 하나하나씩 차례대로 검토합니다.</p>
+      
+      <h3 content="구조">구조</h3>
+      
+      <div class="script">
+        <code>&lt;b:if cond='[조건]'&gt;<br>&nbsp;&nbsp;[내용]<br>&lt;b:elseif cond='[조건]/;&gt;<br>&nbsp;&nbsp;[내용]<br>&lt;b:else/&gt;<br>&nbsp;&nbsp;[내용]<br>&lt;/b:if&gt;</code>
+      </div>
+      
+      <h3 content="설명">설명</h3>
+      
+      <p><code><a title="cond=' '" href="#p-bloggersyntax-m-cond" onclick="sidebarMC(&quot;p-bloggersyntax-m-cond&quot;)">cond=' '</a></code>가 참일 때 실행됩니다. 코딩을 해 보신 분들이라면 익숙하실 거예요.</p>
+      <img class="image" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb068GW%2Fbtrq6vgfZUW%2Fa8zwmdx6rYgFKT8N4BKb40%2Fimg.jpg" style="width:20em">
+      <p>혹시 모르시는 분들은 <a title="if문 구글 검색" href="https://www.google.com/search?q=if문" target="_blank" rel="noopener">if문을 검색</a>하시면 기초 설명이 잔뜩 나옵니다.</p>
+      
+    </section>
+    <section hidden="" id="p-bloggersyntax-m-bswitch">
+      
+      <h2 content="&lt;b:switch&gt;">&lt;b:switch&gt;</h2>
+      
+      <p>switch문입니다. 어떤 변수가 특정 값일 경우의 수를 하나씩 설정합니다. 병렬적인 조건문이라고도 할 수 있겠습니다.</p>
+      
+      <h3 content="구조">구조</h3>
+      
+      <div class="script">
+        <code>&lt;b:switch var=[변수]&gt;<br>&nbsp;&nbsp;&lt;b:case value='[값1]'/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;[내용1]<br>&nbsp;&nbsp;&lt;b:case value='[값2]'/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;[내용2]<br>&nbsp;&nbsp;&lt;b:default/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;[내용3]<br>&lt;/b:switch&gt;</code>
+      </div>
+      
+      <h3 content="설명">설명</h3>
+      
+      <p>[변수]가 [값1]과 같으면 [내용1]을, [값2]와 같으면 [내용2]를, 같은 것이 없으면 [내용3]을 실행하는 구문입니다. <code>var=' '</code>은 <a title="expr:" href="#p-bloggersyntax-m-expr" onclick="sidebarMC(&quot;p-bloggersyntax-m-expr&quot;)">expr:</a>의 규칙을 따릅니다.</p>
+      
+      <h3 content="주의사항">주의사항</h3>
+      
+      <p>이거 url로는 작동이 안되더라고요. 왜 그런지는 모르겠습니다. 해결법 아시면 공유좀...</p>
+      
+    </section>
+    <section hidden="" id="p-bloggersyntax-m-bloop">
+      
+      <h2 content="&lt;b:loop&gt;">&lt;b:loop&gt;</h2>
+      
+      <p>반복문입니다.</p>
+      
+      <h3 content="구조">구조</h3>
+      
+      <div class="script">
+        <pre>&lt;b:loop values='[집합(변수/["내용", "내용", ...])]' var='[변수이름1]' index='[변수이름2]' reverse='[true/false]'&gt;
+  [내용(변수이름1, 변수이름2 포함)]
+&lt;/b:loop&gt;</pre>
+      </div>
+      
+      <h3 content="설명">설명</h3>
+      
+      <p>values의 내용 개수만큼 반복합니다. 현재 해당하는 내용은 [변수이름1]으로 쓸 수 있고요, [변수이름2]로 반복한 수만큼 늘어나는 숫자를 쓸 수 있고요, reverse에 true를 넣으면 반대 순서로 합니다.</p>
+      <p>여기서 집합은 대괄호로 표현할 수 있습니다.(이건 표현을 위한 대괄호가 아니라 진짜 코드에 들어가는 대괄호입니다.) ["사과", "배, "감"] 이런 식으로요. 이걸로 예시를 들어볼까요?</p>
+      <div class="script">
+        <pre>&lt;ul&gt;
+  &lt;b:loop values='["사과, "배", "감"] var='fruit' index='number' reverse='true'&gt;
+    &lt;li&gt;&lt;eval expr='data:number + 1'/&gt;번째 과일은 &lt;data:fruit&gt;입니다.&lt;/li&gt;
+  &lt;/b:loop&gt;
+&lt;/ul&gt;&lt;/data:fruit&gt;</pre>
+      </div>
+      <p>이렇게 하면</p>
+      <ul>
+        <li>1번째 과일은 감입니다.</li>
+        <li>2번째 과일은 배입니다.</li>
+        <li>3번째 과일은 사과입니다.</li>
+      </ul>
+      <p>요게 됩니다.</p>
+      
+      <h3 content="쓸 수 있는 집합 변수 모음">쓸 수 있는 집합 변수 모음</h3>
+      
+      <p>여기 있는 것들은 전부 앞에 <code>data: </code>를 붙여야 사용가능합니다.</p>
+      
+      <table class="table-yesspace innerline">
+        <tbody>
+          <tr>
+            <td style="text-align:right">posts</td><td>포스트 목록</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </section>
+    <section hidden="" id="p-bloggersyntax-m-bcomment">
+      
+      <h2 content="&lt;b:comment&gt;">&lt;b:comment&gt;</h2>
+      
+      <p>주석을 만드는 태그입니다.</p>
+      
+      <h3 content="구조">구조</h3>
+      
+      <div class="script"><code>&lt;b:comment render='[true/false]'&gt;<br>&nbsp;&nbsp;[내용]<br>&lt;/b:comment&gt;</code></div>
+      
+      <h3 content="설명">설명</h3>
+      
+      <p>주석입니다. 근데 HTML상에 표시되지 않고 블로거 관리창에서만 볼 수 있는 주석이예요. 근데 <code>render='true'</code> 넣으면 HTML 주석하고 똑같이 표시됩니다.</p>
+      <p>진짜 유용한 용도가 있습니다. 자바스크립트의 <code>console.log()</code>같이 쓸 수 있어요. 주석으로 변수 확인이 가능합니다.</p>
+      
+    </section>
+  </div>
+</div>
+
+<script src='/import/scripts/functions/sidebar.js'></script>

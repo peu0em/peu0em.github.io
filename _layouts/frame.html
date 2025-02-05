@@ -1,9 +1,22 @@
 <!doctype html>
-<html>
+<htm lang='ko'>
   <head>
-    <title>{{page.title}}</title>
+    <title>{% if page.title==null %}프엠{% else %}{{page.title}}{% endif %}</title>
+
+    <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0' name='viewport'/>
+    <meta name='robots' content='{% if page.robots==null %}all{% else %}{{page.robots}}{% endif %}
+    '>
+
+    <!-- need to fill opengraph-->
+
+    <link href='/import/scripts/style.css' rel='stylesheet'>
+    {% include scriptsPre.html %}
   </head>
-<body>
-  {{content}}
-</body>
+  <body>
+    {% include upbar.html %}
+    {{content}}
+    
+    {% include fonts.html %}
+    {% include scriptsPost.html %}
+  </body>
 </html>
