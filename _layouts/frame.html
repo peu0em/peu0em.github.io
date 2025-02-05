@@ -1,10 +1,17 @@
 <!doctype html>
-<htm lang='ko'>
+<html lang='ko'>
   <head>
     <title>{% if page.title==null %}프엠{% else %}{{page.title}}{% endif %}</title>
 
     <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0' name='viewport'/>
-    <meta name='robots' content='{% if page.robots==null %}all{% else %}{{page.robots}}{% endif %}
+    <meta name='robots' content='
+      {%-if page.robots==null-%}
+        all
+      {%-else-%}
+        {%-for i in page.robots-%}
+          {{i}},
+        {%-endfor-%}
+      {%-endif-%}
     '>
 
     <!-- need to fill opengraph-->

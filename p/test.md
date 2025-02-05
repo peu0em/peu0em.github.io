@@ -1,6 +1,6 @@
 ---
 layout: post
 title: test
-robots: noodp
+robots: [noodp,nofollow]
 ---
 <p>test</p>
