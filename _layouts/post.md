@@ -1,5 +1,12 @@
 ---
 layout: frame
 ---
-<h1>{{page.title}}</h1>
-<main>{{content}}</main>
+<div class='post'>
+  <div class='title'>
+    <h1><a href='{{page.url}}'>{{page.title}}</a></h1>
+  </div>
+  <main>{{content}}</main>
+</div>
+<div class='bottom'>
+  {%include tagsCurrent.html%}
+</div>

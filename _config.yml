@@ -1,3 +1,8 @@
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+kramdwon:
+    auto_ids: false
+
+#permalinks
+permalink: pretty

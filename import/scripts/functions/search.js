@@ -7,7 +7,7 @@ function searchStringChange(str) {
 function upbarSearchF(){
   upbarSearchTyped = document.getElementById("upbar-search-bar").value;
   if(!/^\s*\t*$/.test(upbarSearchTyped)){
-    location.href="https://peu0em.blogspot.com/search/?q="+searchStringChange(upbarSearchTyped);
+    location.href='/list/?search='+searchStringChange(upbarSearchTyped);
   }
 }
 function upbarSearchIsitenter(cPressed){if (cPressed == 13){upbarSearchF();}}

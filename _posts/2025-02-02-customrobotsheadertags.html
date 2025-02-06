@@ -1,0 +1,35 @@
+---
+layout: post
+title: 맞춤 로봇 헤더 태그의 동작 원리
+tags: 블로그스팟 정보
+description: 구글 블로거(블로그스팟) 설정의 "맞춤 로봇 헤더 태그" 기능이 어떻게 동작하는지 설명합니다.
+thumbnail: https://i.postimg.cc/j2QxpGYm/custom-Robot-Header-Tags.jpg
+---
+<p>이 글은 robots 태그의 기능 자체를 설명하는 것이 아닙니다. 그와 관련된 자료는 <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Robots-Tag#directives' title='Directives' rel='noopener'>이 문서</a>를 참고하세요.</p>
+
+<nav>
+  <details>
+    <summary>목차</summary>
+    <ol class='index'>
+      <li><a href='#p-250202-h-robots'>robots</a></li>
+      <li><a href='#p-250202-h-customrobotsheadertags'>맞춤 로봇 헤더 태그</a></li>
+    </ol>
+  </details>
+</nav>
+
+<h2 content='robots' id='p-250202-h-robots'><a href='#p-250202-h-robots'>robots</a></h2>
+
+<p>웹에서 robots라 함은 크롤러를 의미합니다. 구글, 네이버 같은 검색 엔진이 기용하는 일꾼입니다. 이 일꾼은 인터넷을 돌아다니며 검색 엔진에 표시할 사이트를 찾습니다. robots 설정은 이 일꾼에게 보여주는 안내문입니다.</p>
+<p>가장 보편적인 방식은 robots.txt 파일을 만들어 두는 것입니다. 그러나 도메인 전체를 한 번에 관리하기 때문에 유연성이 부족합니다. 그래서 robots tag가 존재합니다.</p>
+
+<h2 content='맞춤 로봇 헤더 태그' id='p-250202-h-customrobotsheadertags'><a href='#p-250202-h-customrobotsheadertags'>맞춤 로봇 헤더 태그</a></h2>
+
+<a href='https://i.postimg.cc/j2QxpGYm/custom-Robot-Header-Tags.jpg' target='_blank' rel='noopener' class='noDeco center image'>
+  <picture>
+    <source srcset='https://i.postimg.cc/SQWxYzYd/custom-Robot-Header-Tags.webp' type='image/webp'>
+    <img style='width:20em' src='https://i.postimg.cc/j2QxpGYm/custom-Robot-Header-Tags.jpg' alt='맞춤 로봇 태그' width='352' height='241'>
+  </picture>
+</a>
+<p>블로그스팟의 이 설정도 그것을 위해 존재합니다. 이것은 페이지 종류별로, 나아가 각각 포스트별로 다른 robots 설정을 할 수 있게 해 줍니다.</p>
+<p>그리고 이것은 <a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Robots-Tag' taget='_blank' rel='noopener' title='X-Robots-Tag'>X-Robots-Tag</a> 방식을 사용합니다.</p>
+<p>네트워크 신호에 정보를 실어 보내는 방식입니다. 그래서 HTML 소스 내에서는 이 기능이 제대로 작동 중인 것인지 알 길이 없습니다. 작동되는지 점검해 보려면 우선 <mark>개발자 도구 &gt; 네트워크 탭</mark>으로 가서 맨 위에 있는 HTML 항목을 클릭해 보세요. <mark>응답 헤더</mark>에 <mark>x-robots-tag</mark> 항목이 있을 것입니다.</p>

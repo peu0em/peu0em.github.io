@@ -1,0 +1,5 @@
+    <link href='/import/scripts/style.css' rel='stylesheet'>
+    {%include scriptsPre.html%}
+    {%if page.header!=none%}
+      {%for line in page.header%}{{line}}{%endfor%}
+    {%endif%}

@@ -1,0 +1,27 @@
+---
+layout: frame
+title: 목록
+robots: none
+permalink: /list
+header:
+  - <link href='/import/scripts/conditional/list.css' rel='stylesheet'>
+  - <link href='/import/scripts/functions/badge.css' rel='stylesheet'>
+---
+<main>
+  <ul class='post-list'>
+    {%for n in (0..19)%}
+      {%if site.posts[n]!=null%}
+        {%assign post=site.posts[n]%}
+        <a href='{{post.url}}'>
+          <li class='badge'>
+            {%if post.thumbnail!=null %}
+              <div class='thumbnail'><img class='thumbnail' src='{{post.thumbnail}}'></div>
+            {%endif%}
+            <div class='title'>{{post.title}}</div>
+            <div class='description'>{{post.description}}</div>
+          </li>
+        </a>
+      {%endif%}
+    {%endfor%}
+  </ul>
+</main>

@@ -1,0 +1,14 @@
+.sidebar-container{display:flex}
+.sidebar-bar {
+  position:sticky;
+  max-height:100vh;height:max-content;
+  display:block;
+  top:5rem;
+  overflow:auto;
+}
+.sidebar-bar nav ul.index li{list-style:none;}
+.sidebar-bar nav ul.index ul{margin-left:1rem}
+.sidebar-bar,.sidebar-bar summary,.sidebar-bar ul{padding:0}
+.sidebar-bar nav ul.index details{margin:0;border:none;}
+.sidebar-bar nav li>:not(details){margin-left:1rem}
+.sidebar-container .sidebar-main{width:100%;margin-left:1rem}
