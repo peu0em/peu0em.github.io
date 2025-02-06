@@ -1,0 +1,45 @@
+---
+layout: post
+title: 이 페이지는 다른 탭으로 전환하면 원래 제목이 보입니다
+description: 사용자가 탭 전환 시 탭 이름이 바뀌게 만드는 법
+tags: 정보 자바스크립트
+---
+<p>
+  이게 진짜 되네...
+</p>
+
+
+<script>
+  let p_230611_title = document.title;
+  window.addEventListener("focus", () => {document.title = "👀";});
+  window.addEventListener("blur", () => {document.title = p_230611_title;});
+</script>
+
+<h2 content="방법">방법</h2>
+
+<p>
+  &lt;script&gt; 태그를 사용할 수 있는 경우에만 가능합니다.
+  <br>달리 말하면 &lt;script&gt;를 사용할 수만 있다면 가능하다..!
+</p>
+
+<div class='script'>
+  <pre>window.addEventListener( "focus" , () => {
+  document.title = "보고 있을 때";
+});
+window.addEventListener( "blur", () => {
+  document.title = "전환됐을 때";
+});</pre>
+</div>
+
+<p>
+  이 코드를 &lt;script&gt;&lt;/script&gt; 안에 넣으면 됩니다.
+  <br>블로그처럼 원래 페이지에서 제공하는 제목이 있다면 먼저 변수로 지정해놓고 사용하세요.
+</p>
+
+<div class="script">
+  <pre>let 변수이름 = document.title;</pre>
+</div>
+
+<p>
+  위와 같이 미리 저장해둔 후에 원래의 제목을 사용할 부분에 사용하시면 됩니다.
+</p>

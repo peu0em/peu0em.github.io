@@ -1,0 +1,31 @@
+---
+layout: post
+title: 블로거(블로그스팟)가 영문 모를 이유로 로딩이 느리다면
+description: 블로거(블로그스팟)가 렌더링되지 않는 로딩이 길 경우 해결법.
+tags: 블로그스팟 정보 문제_해결
+---
+<p style='font-size:.9em;text-align:center'>(방법만 알고 싶으신 분은 <a href='#p-240627-solution'>여기</a>로)</p>
+
+<p>저는 항상 이 문제에 대해서 고민해왔습니다. 노트북 하나로 살던 시절이 있었기 때문에 저사양 환경을 항상 고려하는 습관이 있어요. 그런데 무슨 짓을 해도 블로그가 로딩되기 전 딜레이를 잡을 수가 없었습니다. 뭐라도 로딩되다가 버벅이면 "아 이거 때문이구나" 하고 알 수 있었을 텐데 하얀 백지에서 멈췄으니까요. 게다가 <a title="PageSpeed Insights" href='//pagespeed.web.dev/' target="_blank" rel='noopener'>PageSpeed Insights</a>에서 살펴보니 블로거 자체 자바스크립트가 원인이었습니다. 구글 자체 블로그라 추적 스크립트가 자동으로 붙어서 그런가보다 했죠.</p>
+<!--more-->
+<p>그렇게 긴 시간이 흐르고 오늘, 저는 <a title="GTmetrix" href='//gtmetrix.com/' target='_blank' rel='noopener'>GTmetrix</a>에서 웹페이지 검사를 해봤습니다. First Paint 어쩌고 하는 시간이 1.6초나 되더라고요. 이대로는 안되겠다 해서 폰트 로딩 부분을 body 맨 뒤로 보냈어요. 평가는 올라갔는데 저 렌더링 딜레이는 그대로였습니다. 그러던 와중 body 맨 끝에 있는 '그' 코드를 발견했습니다.</p>
+
+<div class='script'>
+  <pre>&lt;script type='text/javascript'&gt;
+  window.setTimeout(function(){document.body.className=document.body.className.replace(&quot;loading&quot;,&quot;&quot;)},10);
+&lt;/script&gt;</pre>
+</div>
+
+<p>이상했습니다. <code>setTimeout()</code>은 로딩을 기다리는게 아니라 일정 시간을 기다리는 것일 텐데. 아마도 다른 블로거에서 보던 로딩 화면을 구현하는 부분인가 했습니다.</p>
+<p>그런데 저는 필요 없었어요. 빼봤습니다. 어라? 1.6초가 사라졌습니다.</p>
+
+<h2 content='결론' id='p-240627-h-conclusion'><a href='#p-240627-h-conclusion'>결론</a></h2>
+
+<ol id='p-240627-solution'>
+  <li><code>&lt;script type='text/javascript'&gt;window.setTimeout(function(){document.body.className=document.body.className.replace(&quot;loading&quot;,&quot;&quot;)},10);&lt;/script&gt;</code>를 지운다.</li>
+  <li><code>&lt;body expr:class='loading'&gt;</code>를 <code>&lt;body&gt;</code>로 바꾼다.</li>
+</ol>
+
+<h2 content='사실은' id='p-240627-h-infact'><a href='#p-240627-h-infact'>사실은</a></h2>
+
+<p>이게 원인이라고 정확히 확신하지는 못하겠습니다. 지웠다 살렸다 하며 비교해보지는 않았으니까요. 그런데 사진 없는 글에서 <a title="PageSpeed Insights" href='//pagespeed.web.dev/' target="_blank" rel='noopener'>PageSpeed Insights</a> 데스크탑 성능 점수가 99점이 나왔습니다. 아무튼 기분은 좋네요.</p>

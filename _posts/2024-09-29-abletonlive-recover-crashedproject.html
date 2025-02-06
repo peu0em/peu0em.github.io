@@ -1,0 +1,42 @@
+---
+layout: post
+title: 에이블톤&#58; 튕긴 후 연 복구 프로젝트를 실수로 저장하지 않고 꺼버렸을 때
+description: 에이블톤 튕기고 다시 켰을 때 나온 복구 프로젝트를 실수로 저장하지 않고 꺼버렸을 때 프로젝트 복구하는 법.
+tags: 에이블톤 정보 문제_해결
+thumbnail: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjioKnGnlDou7FfPOmbIRpMw_bXT-3p9rjbC05bkYTC_gNkzlLlxmu8-Gbb9Vy1OS7Y2NV10IgWqmsAJ8jdL-I2CRNNahG_jTqTGU7DZh2Nk7sLDuFVv72Ephyphenhypheng5MTU1gL_qBIHssuKO-9J7_ei6VdRznShJCwOlM7UHo0gzEDNrqakSU8PZL8RfGG6NPs/s1600/ableton%20alert.webp
+---
+<img alt='에이블톤 복구 알림창' class= 'image center' style='height:20em;' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjioKnGnlDou7FfPOmbIRpMw_bXT-3p9rjbC05bkYTC_gNkzlLlxmu8-Gbb9Vy1OS7Y2NV10IgWqmsAJ8jdL-I2CRNNahG_jTqTGU7DZh2Nk7sLDuFVv72Ephyphenhypheng5MTU1gL_qBIHssuKO-9J7_ei6VdRznShJCwOlM7UHo0gzEDNrqakSU8PZL8RfGG6NPs/s1600/ableton%20alert.webp' height='600'>
+
+<p>에이블톤은 튕기면 복구할 수 있는 기회를 줍니다. 다음 번에 프로그램을 키면 튕기기 직전 프로젝트를 열 수 있습니다. 그런데 그 프로젝트를 저장하지 않고 꺼버린 경우에는 어떻게 할까요? 그런 실수를 누가 하냐고 물으신다면 그것은 접니다. 그냥 무의식적으로 저장 안하고 꺼버렸어요.</p>
+
+<p>사실 이 설명은 <a target='_blank' rel='noopenner' href='https://help.ableton.com/hc/en-us/articles/115001878844-Recovering-a-Set-manually-after-a-crash'>이 공식 페이지</a>에 다 나와있기는 한데 이게 한국어로 검색했을 때는 찾기 힘들어서 이 글을 썼습니다.</p>
+
+<!-- more -->
+
+<h2 content='방법'>방법</h2>
+
+<h3 content='1. 폴더 찾기'>1. 폴더 찾기</h3>
+
+<p>아래의 경로를 찾습니다.</p>
+<ul>
+  <li>윈도우: <code>Users\[Username]\AppData\Roaming\Ableton\Live x.x.x\Preferences\Crash\</code></li>
+  <li>맥: <code>Users/[Username]/Library/Preferences/Ableton/Live x.x.x/Crash/</code></li>
+</ul>
+<p>윈도우의 경우 Win+R키를 누르고 <mark><code>%appdata%</code></mark>를 입력하면 곧바로 ~<code>\Roaming</code> 폴더를 열 수 있습니다. 그 뒤 <code>Ableton</code> 폴더를 찾아 차례차례 진행하시면 됩니다.</p>
+
+<h3 content='2. 이름 바꾸기'>2. 이름 바꾸기</h3>
+
+<img alt='이름을 바꿔야할 폴더 목록' class= 'image center' style='height:7em' src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjB-_v9ZlLISL4UhDS8nap5VaI7JTYo0StZTa_BMmonzQ-5AXrlxoIK3ZuHjZDFw-zMyoIJPjgPel8zzFzFWimSoOSUrPNORESJbj1ve35D3ZJ5yyqGjpLEZN4Rp7quIkm9K8M3UTzEL5ocT_HmgOaAlCTVzw6aiz6jcYTqVD3EfEk5XuIQQCkn3VporQ4/s1600/folders.webp' height='600'>
+
+<p>그러면 위 같은 폴더와 파일들이 보일 거예요. 이것들의 숫자 부분을 지우고 영어만 남겨주세요. (내용물이 다를 수 있습니다. 모두 똑같이 진행하면 됩니다.)
+  <br>
+  예) <code>2024_09_29__00_55_19_BaseFiles</code> → <code>BaseFiles</code>
+</p>
+
+<h3 content='3. 옮기기'>3. 옮기기</h3>
+
+<p>이것들을 전부 상위 폴더(윈도우: <code>Preferences</code> 폴더, 맥: <code>Live x.x.x</code> 폴더)로 옮겨주세요. 같은 이름의 파일이 있다면 덮어쓰기 해주세요.</p>
+
+<h3 content='4. 프로그램 켜기'>4. 프로그램 켜기</h3>
+
+<p>이제 프로그램을 키면 처음 튕겼을 때와 같이 복구하겠냐는 알림이 뜹니다! yes를 누르고 저장하면 끝!</p>

@@ -1,0 +1,517 @@
+---
+layout: post
+title: 상세&#58; Deadlock
+robots: noindex
+tags: 자료
+---
+<!--more-->
+
+<h2 class= 'first' content='CBT' id='p-240911-h-cbt'><a href='#p-240911-h-cbt'>CBT</a></h2>
+
+<h3 id='p-240911-v-1' content='밸브 신작은 도타와 팀포의 융합체'><a href='#p-240911-v-1'>밸브 신작은 도타와 팀포의 융합체</a></h3>
+
+<div class= 'c-display r-169-h '>
+  <iframe title='유튜브: 밸브 신작은 도타와 팀포의 융합체' src= '//www.youtube.com/embed/jZ564oKUsS8 ' loading='lazy' alt= 'Youtube Player ' width= '560 ' height= '315 ' frameborder= '0 ' allow= 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture ' allowfullscreen></iframe>
+</div>
+
+<details>
+  <summary>게임</summary>
+  <ul>
+    <li>설정
+      <ul>
+        <li>비디오
+          <ul>
+            <li>해상도
+              <ul>
+                <li>⊙ 기본 해상도 사용</li>
+              </ul>
+            </li>
+            <li>옵션
+              <ul>
+                <li>랜더링: Direct3D 11 (-dx11)</li>
+                <li>▣ 전체 화면 포커스 동작</li>
+                <li>□ 깜빡임 효과 감소</li>
+              </ul>
+            </li>
+            <li>랜더링
+              <ul>
+                <li>⊙ 고급 설정 사용
+                  <ul>
+                    <li>업스케일링 기술: FSR2 (TAA)</li>
+                    <li>배율 모드: 품질</li>
+                    <li>스크린 공간 AO: 매우 높음</li>
+                    <li>거리 필드 AO: 높음</li>
+                    <li>모션 블러: 켜기</li>
+                    <li>텍스쳐 품질: 높음</li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>▣ 거리 필드 그림자</li>
+                    <li>▣ 변위 매핑</li>
+                    <li>▣ 후처리 블룸</li>
+                    <li>▣ 효과 블룸</li>
+                    <li>□ VSync</li>
+                    <li>▣ 면광원</li>
+                    <li>▣ 피사계 심도</li>
+                    <li>□ MBOIT</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>한글 패치: <a title='Deadlock 한글번역 패치' href='https://gall.dcinside.com/mgallery/board/view/?id=deadlock&no=1034' target='_blank' rel='noopener'>데드락 갤러리</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary>PC</summary>
+  <ul>
+    <li>CPU: Intel Core i9 13700K</li>
+    <li>메모리: 삼성 DDR4 16gb × 2</li>
+    <li>그래픽 카드: NVIDIA GeForce RTX 4090 24GB</li>
+  </ul>
+</details>
+
+<details>
+  <summary>녹화</summary>
+  <ul>
+    <li>OBS
+      <ul>
+        <li>Recording Settings
+          <ul>
+            <li>Recording Format: Matroska Video (.mkv)</li>
+            <li>Video Encoder: NVIDIA NVENC HEVC</li>
+            <li>Audio Encoder: FFmpeg AAC</li>
+            <li>Rescale Output: Disabled</li>
+            <li>Custom Muxer Settings: </li>
+            <li>Automatic File Splitting: □</li>
+          </ul>
+        </li>
+        <li>Encoder Settings
+          <ul>
+            <li>Rate Control: VBR</li>
+            <li>Bitrate: 80000 Kbps</li>
+            <li>Max Bitrate: 160000 Kbps</li>
+            <li>Keyframe Interval (0=auto): 0s</li>
+            <li>Preset: P5: Slow (Good Quality)</li>
+            <li>Tuning: High Quality</li>
+            <li>Multipass Mode: Single Pass</li>
+            <li>Profile: main10</li>
+            <li>□ Look-ahead</li>
+            <li>□ Psycho Visual Tuning</li>
+            <li>Max B-frames: 2</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</details>
+
+<details>
+  <summary>출력</summary>
+  <ul>
+    <li>Adobe Media Encoder
+      <ul>
+        <li>Export Settings
+          <ul>
+            <li>Format: HEVC(H.265)</li>
+          </ul>
+        </li>
+        <li>Video
+          <ul>
+            <li>Basic Video Settings
+              <ul>
+                <li>Width: 3,840</li>
+                <li>Height: 2,160</li>
+                <li>Frame Rate: 60</li>
+                <li>Aspect: Square Pixels (1.0)</li>
+                <li>☑ Render at Maximum Depth</li>
+              </ul>
+            </li>
+            <li>Encoding Settings
+              <ul>
+                <li>Performance: Hardware Encoding</li>
+                <li>Profile: Main 10</li>
+                <li>Level: 5.1</li>
+                <li>Tier: High</li>
+               <li>Export Color Space: Rec.709</li>
+                <li>HDR Graphics White (Nits): 203 (75% HLG, 58% PQ)</li>
+              </ul>
+            </li>
+            <li>Bitrate Settings
+              <ul>
+                <li>Bitrate Encoding: VBR, 1 pass</li>
+                <li>Target Bitrate [Mbps]: 80</li>
+                <li>Quality: Highest (slowest)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Audio
+          <ul>
+            <li>Audio Format: AAC</li>
+            <li>Basic Audio Settings
+              <ul>
+                <li>Audio Codec: AAC</li>
+                <li>Sample Rate: 48000 Hz</li>
+                <li>Channels: Stereo</li>
+              </ul>
+            </li>
+            <li>Bitrate Settings
+              <ul>
+                <li>Bitrate [kbps]: 512</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>☑ Use Maximum Render Quality</li>
+      </ul>
+    </li>
+    <li>길이: 6:45:49</li>
+    <li>크기: 236,207,248,985 byte</li>
+  </ul>
+</details>
+
+<h3 id='p-240911-v-2' content='열 번 못해도 한 번 잘하면 그것만 기억남'><a href='#p-240911-v-2'>열 번 못해도 한 번 잘하면 그것만 기억남</a></h3>
+
+<div class= 'c-display r-169-h '>
+  <iframe title='유튜브: 열 번 못해도 한 번 잘하면 그것만 기억남' src= '//www.youtube.com/embed/xDMVgeVoUD4 ' loading='lazy' alt= 'Youtube Player ' width= '560 ' height= '315 ' frameborder= '0 ' allow= 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture ' allowfullscreen></iframe>
+</div>
+
+<details>
+  <summary>게임</summary>
+  <ul>
+    <li>설정
+      <ul>
+        <li>비디오
+          <ul>
+            <li>해상도
+              <ul>
+                <li>⊙ 기본 해상도 사용</li>
+              </ul>
+            </li>
+            <li>옵션
+              <ul>
+                <li>랜더링: Direct3D 11 (-dx11)</li>
+                <li>▣ 전체 화면 포커스 동작</li>
+                <li>□ 깜빡임 효과 감소</li>
+              </ul>
+            </li>
+            <li>랜더링
+              <ul>
+                <li>⊙ 고급 설정 사용
+                  <ul>
+                    <li>업스케일링 기술: FSR2 (TAA)</li>
+                    <li>배율 모드: 품질</li>
+                    <li>스크린 공간 AO: 매우 높음</li>
+                    <li>거리 필드 AO: 높음</li>
+                    <li>모션 블러: 켜기</li>
+                    <li>텍스쳐 품질: 높음</li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>▣ 거리 필드 그림자</li>
+                    <li>▣ 변위 매핑</li>
+                    <li>▣ 후처리 블룸</li>
+                    <li>▣ 효과 블룸</li>
+                    <li>□ VSync</li>
+                    <li>▣ 면광원</li>
+                    <li>▣ 피사계 심도</li>
+                    <li>□ MBOIT</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>한글 패치: <a title='Deadlock 한글번역 패치' href='https://gall.dcinside.com/mgallery/board/view/?id=deadlock&no=1034' target='_blank' rel='noopener'>데드락 갤러리</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary>PC</summary>
+  <ul>
+    <li>CPU: Intel Core i9 13700K</li>
+    <li>메모리: 삼성 DDR4 16gb × 2</li>
+    <li>그래픽 카드: NVIDIA GeForce RTX 4090 24GB</li>
+  </ul>
+</details>
+
+<details>
+  <summary>녹화</summary>
+  <ul>
+    <li>OBS
+      <ul>
+        <li>Recording Settings
+          <ul>
+            <li>Recording Format: Matroska Video (.mkv)</li>
+            <li>Video Encoder: NVIDIA NVENC HEVC</li>
+            <li>Audio Encoder: FFmpeg AAC</li>
+            <li>Rescale Output: Disabled</li>
+            <li>Custom Muxer Settings: </li>
+            <li>Automatic File Splitting: □</li>
+          </ul>
+        </li>
+        <li>Encoder Settings
+          <ul>
+            <li>Rate Control: VBR</li>
+            <li>Bitrate: 80000 Kbps</li>
+            <li>Max Bitrate: 160000 Kbps</li>
+            <li>Keyframe Interval (0=auto): 0s</li>
+            <li>Preset: P5: Slow (Good Quality)</li>
+            <li>Tuning: High Quality</li>
+            <li>Multipass Mode: Single Pass</li>
+            <li>Profile: main10</li>
+            <li>□ Look-ahead</li>
+            <li>□ Psycho Visual Tuning</li>
+            <li>Max B-frames: 2</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</details>
+
+<details>
+  <summary>출력</summary>
+  <ul>
+    <li>Adobe Media Encoder
+      <ul>
+        <li>Export Settings
+          <ul>
+            <li>Format: HEVC(H.265)</li>
+          </ul>
+        </li>
+        <li>Video
+          <ul>
+            <li>Basic Video Settings
+              <ul>
+                <li>Width: 3,840</li>
+                <li>Height: 2,160</li>
+                <li>Frame Rate: 60</li>
+                <li>Aspect: Square Pixels (1.0)</li>
+                <li>☑ Render at Maximum Depth</li>
+              </ul>
+            </li>
+            <li>Encoding Settings
+              <ul>
+                <li>Performance: Hardware Encoding</li>
+                <li>Profile: Main 10</li>
+                <li>Level: 5.1</li>
+                <li>Tier: High</li>
+               <li>Export Color Space: Rec.709</li>
+                <li>HDR Graphics White (Nits): 203 (75% HLG, 58% PQ)</li>
+              </ul>
+            </li>
+            <li>Bitrate Settings
+              <ul>
+                <li>Bitrate Encoding: VBR, 1 pass</li>
+                <li>Target Bitrate [Mbps]: 80</li>
+                <li>Quality: Highest (slowest)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Audio
+          <ul>
+            <li>Audio Format: AAC</li>
+            <li>Basic Audio Settings
+              <ul>
+                <li>Audio Codec: AAC</li>
+                <li>Sample Rate: 48000 Hz</li>
+                <li>Channels: Stereo</li>
+              </ul>
+            </li>
+            <li>Bitrate Settings
+              <ul>
+                <li>Bitrate [kbps]: 512</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>☑ Use Maximum Render Quality</li>
+      </ul>
+    </li>
+    <li>길이: 5:00:47</li>
+    <li>크기: 178,733,364,066 byte</li>
+  </ul>
+</details>
+
+<h3 id='p-240911-v-3' content='헤이즈 해보기, 비스쿠스 연구'><a href='#p-240911-v-3'>헤이즈 해보기, 비스쿠스 연구</a></h3>
+
+<div class= 'c-display r-169-h '>
+  <iframe title='유튜브: 헤이즈 해보기, 비스쿠스 연구' src= '//www.youtube.com/embed/w2P5f1KJMuU ' loading='lazy' alt= 'Youtube Player ' width= '560 ' height= '315 ' frameborder= '0 ' allow= 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture ' allowfullscreen></iframe>
+</div>
+
+<details>
+  <summary>게임</summary>
+  <ul>
+    <li>설정
+      <ul>
+        <li>비디오
+          <ul>
+            <li>해상도
+              <ul>
+                <li>⊙ 기본 해상도 사용</li>
+              </ul>
+            </li>
+            <li>옵션
+              <ul>
+                <li>랜더링: Direct3D 11 (-dx11)</li>
+                <li>▣ 전체 화면 포커스 동작</li>
+                <li>□ 깜빡임 효과 감소</li>
+                <li>대시보드 최대 초당 프레임 수: 120</li>
+              </ul>
+            </li>
+            <li>랜더링
+              <ul>
+                <li>⊙ 고급 설정 사용
+                  <ul>
+                    <li>업스케일링 기술: FSR2 (TAA)</li>
+                    <li>스케일링 모드: 품질</li>
+                    <li>FSR2 선명도: 100%</li>
+                    <li>스크린 공간 앰비언트 오클루전(AO): 초고성능</li>
+                    <li>거리 필드 AO: 높음</li>
+                    <li>모션 블러: 켜기</li>
+                    <li>그림자 품질: 초고성능</li>
+                    <li>텍스쳐 품질: 높음</li>
+                  </ul>
+                </li>
+                <li>
+                  <ul>
+                    <li>▣ 거리 필드 그림자</li>
+                    <li>▣ 변위 매핑</li>
+                    <li>▣ 후처리 블룸</li>
+                    <li>▣ 효과 블룸</li>
+                    <li>□ 수직 동기화</li>
+                    <li>▣ 영역 조명</li>
+                    <li>▣ 피사계 심도</li>
+                    <li>□ MBOIT</li>
+                  </ul>
+                </li>
+                <li>게임 내 최대 초당 프레임 수: 240</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>한글 패치: <a title='Deadlock 한글번역 패치' href='https://gall.dcinside.com/mgallery/board/view/?id=deadlock&no=1034' target='_blank' rel='noopener'>데드락 갤러리</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary>PC</summary>
+  <ul>
+    <li>CPU: Intel Core i9 13700K</li>
+    <li>메모리: 삼성 DDR4 16gb × 2</li>
+    <li>그래픽 카드: NVIDIA GeForce RTX 4090 24GB</li>
+  </ul>
+</details>
+
+<details>
+  <summary>녹화</summary>
+  <ul>
+    <li>OBS
+      <ul>
+        <li>Recording Settings
+          <ul>
+            <li>Recording Format: Matroska Video (.mkv)</li>
+            <li>Video Encoder: NVIDIA NVENC HEVC</li>
+            <li>Audio Encoder: FFmpeg AAC</li>
+            <li>Rescale Output: Disabled</li>
+            <li>Custom Muxer Settings: </li>
+            <li>Automatic File Splitting: □</li>
+          </ul>
+        </li>
+        <li>Encoder Settings
+          <ul>
+            <li>Rate Control: VBR</li>
+            <li>Bitrate: 80000 Kbps</li>
+            <li>Max Bitrate: 160000 Kbps</li>
+            <li>Keyframe Interval (0=auto): 0s</li>
+            <li>Preset: P5: Slow (Good Quality)</li>
+            <li>Tuning: High Quality</li>
+            <li>Multipass Mode: Single Pass</li>
+            <li>Profile: main10</li>
+            <li>□ Look-ahead</li>
+            <li>□ Psycho Visual Tuning</li>
+            <li>Max B-frames: 2</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</details>
+
+<details>
+  <summary>출력</summary>
+  <ul>
+    <li>Adobe Media Encoder
+      <ul>
+        <li>Export Settings
+          <ul>
+            <li>Format: HEVC(H.265)</li>
+          </ul>
+        </li>
+        <li>Video
+          <ul>
+            <li>Basic Video Settings
+              <ul>
+                <li>Width: 3,840</li>
+                <li>Height: 2,160</li>
+                <li>Frame Rate: 60</li>
+                <li>Aspect: Square Pixels (1.0)</li>
+                <li>☑ Render at Maximum Depth</li>
+              </ul>
+            </li>
+            <li>Encoding Settings
+              <ul>
+                <li>Performance: Hardware Encoding</li>
+                <li>Profile: Main 10</li>
+                <li>Level: 5.1</li>
+                <li>Tier: High</li>
+               <li>Export Color Space: Rec.709</li>
+                <li>HDR Graphics White (Nits): 203 (75% HLG, 58% PQ)</li>
+              </ul>
+            </li>
+            <li>Bitrate Settings
+              <ul>
+                <li>Bitrate Encoding: VBR, 1 pass</li>
+                <li>Target Bitrate [Mbps]: 80</li>
+                <li>Quality: Highest (slowest)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>Audio
+          <ul>
+            <li>Audio Format: AAC</li>
+            <li>Basic Audio Settings
+              <ul>
+                <li>Audio Codec: AAC</li>
+                <li>Sample Rate: 48000 Hz</li>
+                <li>Channels: Stereo</li>
+              </ul>
+            </li>
+            <li>Bitrate Settings
+              <ul>
+                <li>Bitrate [kbps]: 512</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li>☑ Use Maximum Render Quality</li>
+      </ul>
+    </li>
+    <li>길이: 2:35:53</li>
+    <li>크기: 89,567,740,177 byte</li>
+  </ul>
+</details>

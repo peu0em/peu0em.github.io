@@ -1,0 +1,102 @@
+---
+layout: post
+title: 블로거(블로그스팟)에 검색 기능을 추가하는 두 가지 방법
+description: 구글 블로거에는 이미 검색기능이 포함되어 있었습니다. HTML과 자바스크립트로 그 기능을 사용해 보겠습니다. 이렇게 간단한 사실을 모르고 어떻게든 검색기능을 구현해 보려고 했다가 그 꿈을 포기하고 레이블을 검색하는 기능을 넣는 것으로 만족했었습니다.
+tags: CSS 블로그스팟 정보 HTML 자바스크립트
+thumbnails: //blogger.googleusercontent.com/img/a/AVvXsEiNeZJjvg4lH_6d5DwRjOdbLIvqKaLVHCGILewPehBmBx5ERzGW-bbe6Ipu53V2iz4zvcqpolkGxe2cX7Izxr3JsFB-5ki3atWHWKi6TqiIbqz-xnfLCKICHcDxAQczj0WNoV2VZ0R9t0YbtHge5MGgVf6kZHQhW3b55M8TEGxMCeIe8Wb5cUfqoItX
+---
+<h2 content="원리" style="margin-top:0;">원리</h2>
+<p>
+  블로거는 이미 검색 기능이 탑재되어 있습니다.<br>
+  혹시 구글 검색결과의 URL을 자세히 살펴보신 적 있으신가요?<br>
+  <a href="//www.google.com/search?q=%ED%94%84%EC%97%A0" target="_blank" rel='noopener'>https://www.google.com/search?q=프엠</a> 이 주소가 그렇듯 어떤 것을 검색하는지 그 주제를 URL에 내포하고 있습니다.<br>
+  이는 블로거에도 적용되는데요, 대표적으로 레이블 주소가 있습니다. <mark>...blogspot.com/search/label/프엠</mark>은 '프엠' 레이블을 가진 게시물들을 보여줍니다.<br>
+  그런데, 진짜 검색 기능이 존재했습니다. <mark>...blogspot.com/search?q=프엠</mark>는 이 문구가 포함된 게시글들을 유사성을 기준으로 표시해줍니다!
+</p>
+<img style="width:99%;height:auto;margin:1em auto;border:3px solid #ffe7ee;" alt="Image: 검색 결과 예시" border="0" original-height="1102" original-width="2034" src="//blogger.googleusercontent.com/img/a/AVvXsEiNeZJjvg4lH_6d5DwRjOdbLIvqKaLVHCGILewPehBmBx5ERzGW-bbe6Ipu53V2iz4zvcqpolkGxe2cX7Izxr3JsFB-5ki3atWHWKi6TqiIbqz-xnfLCKICHcDxAQczj0WNoV2VZ0R9t0YbtHge5MGgVf6kZHQhW3b55M8TEGxMCeIe8Wb5cUfqoItX"/>
+<p>
+  제 검색 실력이 하찮아서 그런 것일까요? 이렇게 간단한 사실을 모르고 어떻게든 검색기능을 구현해 보려고 했다가 그 꿈을 포기하고 레이블을 검색하는 기능을 넣는 것으로 만족했었습니다.<br>
+  (이거 찾았을 때 정말 신났었습니다.. 진짜로.)
+</p>
+<!--more-->
+<h2 content="구현">구현</h2>
+<p>
+  이 기능을 구현하는데는 두 부분이 필요합니다.<br>
+  검색할 Input 텍스트박스를 넣을 HTML 부분과, 검색 기능을 함수로 처리할 자바스크립트 부분입니다.
+</p>
+
+<h3 content="HTML">HTML</h3>
+<p>
+  우선 텍스트를 입력받을 박스를 만듭니다.
+</p>
+<div class="script">
+  <pre>&lt;input id='박스아이디' type='text' onkeypress='키확인함수(event.keyCode);'/&gt;</pre>
+</div>
+<p>
+  &#160;한글로 된 부분은 영어로 바꿔주세요. 나머지에 추가되는 것은 가능하지만 뭔가 빠지게 되면 작동하지 않습니다.<br>
+  &#160;저기서 키확인 함수라는 것은 후에 자바스크립트에서 만들 함수입니다. 엔터키가 눌렸는지 확인하는 용도입니다.
+</p>
+<p>그 다음은 버튼입니다. 엔터키가 같은 역할을 해 줄 것이기 때문에 생략하셔도 됩니다.</p>
+<div class="script">
+  <pre>&lt;button id='버튼아이디' onclick='검색함수()' type='button'>버튼 안 글자 혹은 이미지&lt;/button&gt;</pre>
+</div>
+<p>
+  &#160;동일하게 한글 부분을 영어로 치환하시면 됩니다.<br>
+  &#160;검색 함수는 검색 페이지로 넘겨주는 함수입니다.
+</p>
+
+<h3 content="Javascript">Javascript</h3>
+<p>
+  &#160;이제는 자바스트립트입니다. 스크립트는 헤드 태그 안에 &lt;script&gt;와 &lt;/script&gt;로 장소를 만들어서 기입하시면 됩니다.<br>
+  &#160;총 두 가지 함수를 만들겠습니다. 엔터인지 확인하는 함수와, 입력을 인식하고 URL을 만들어주는 함수입니다.
+</p>
+<p>&#160;그 전에 변수 하나 선언하고 시작하겠습니다. 입력한 글자를 저장하는 곳입니다.</p>
+<div class="script">
+  var 입력;
+</div>
+<p>&#160;스크립트에서도 마찬가지로 한글 부분은 영어로 바꿔주세요.</p>
+<p>&#160;이제 후자 함수인 입력받는 함수를 만들겠습니다.</p>
+<div class="script">
+  <pre>function 검색함수()
+{
+  입력 = document.getElementById('박스아이디').value;
+  if( !/^\s*\t*$/.test(입력) )
+  {
+    location.href="블로거주소/search/뒤에설명드리겠습니다부분" + 입력;
+  }</pre>
+</div>
+<p>
+  &#160;제가 같은 한글 단어로 써놓은 것은 영어로 바꿨을 때도 같아야 합니다!</p>
+<p>
+  &#160;우선 function을 통해 '검색함수'라는 이름을 가진 함수를 만듭니다.<br>
+  &#160;그 기능이라 함은.. '입력' 변수에 '박스아이디'의 아이디를 가진 곳에 입력된 값을 넣습니다.
+</p>
+<p>
+  &#160;if 부분은 선택입니다. 만약 검색하는 문구가 공백이나 탭으로만 이루어졌을 경우. 즉, 아무 글자도 없을 경우가 아닐 때만 검색을 한다는 조건입니다.<br>
+  &#160;제가 넣은 이 기능처럼 이 부분에는 검색할 문구에 여러가지 옵션을 가할 수 있습니다. 영어 대문자를 전부 소문자로 바꾼다던가, 공백을 '+'로 바꾼다던가, 너무 길면 자른다던가...
+</p>
+<p>
+  &#160;location.href는 페이지를 이동시킵니다. 검색 결과로 보내주는 역할입니다.<br>
+  &#160;여기서 처음에 언급됐던 레이블 방식과 검색 방식이 나뉩니다.<br>
+  &#160;레이블은 <mark>lable/</mark>이 되겠고 검색은 <mark>?q=</mark>이 되겠습니다.<br>
+  이 뒤에 우리가 입력받은 글자를 붙여주는 것입니다. '프엠'을 입력했다면 <mark>...blogspot.com/search/lable/프엠</mark>이나 <mark>...blogspot.com/search/?q=프엠</mark>이 될 것입니다.
+</p>
+<p>
+  이제 엔터로 검색하는 기능을 끼워넣어 보겠습니다.
+</p>
+<div class="script">
+  <pre>function 키확인함수(눌린것)
+{
+  if (눌린것 == 13)
+  {
+    검색함수();
+  }
+}</pre>
+</div>
+<p>
+  &#160;갑자기 '눌린것'이라는게 튀어나왔는데 새로 등장한 거 맞습니다. 걱정하지 마시고 작명하시면 됩니다.<br>
+  &#160;똑같이 '키확인함수'라는 함수를 만듭니다. 만약 입력된 것이 13(Enter의 아스키코드)이면 아까 만들었던 함수를 실행합니다.
+</p>
+
+<h2 content="끝!">끝!</h2>
+<p>사실 이 자체를 만드는 시간보다 디자인 하는데 시간이 더 걸렸습니다.. 예쁜거 많이 사용해 주세요..</p>

@@ -4,9 +4,9 @@
 }
 .badge:not(.nothover):hover{transform:translate(-.1rem,-.1rem)}
 img.badge:not(.nothover):hover,svg.badge:not(.nothover):hover{
-  filter:drop-shadow(.3rem .3rem .5rem rgba(0,0,0,.2));
+  filter:drop-shadow(.3rem .3rem .5rem rgba(0.0.0.,2));
   -webkit-filter:drop-shadow(.3rem .3rem .5rem rgba(0,0,0,.2));
 }
 .badge:not(.nothover,img,svg):hover{
-  box-shadow:.3rem .3rem .5rem rgba(0,0,0,.2);
+  box-shadow:.3rem .3rem .5rem var(--c-tm-c);
 }

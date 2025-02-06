@@ -1,0 +1,27 @@
+---
+layout: post
+title: 구글 블로거(블로그스팟)에서 viewport 적용 안될 때 해결법
+description: 블로거(블로그스팟)에서는 이미 viewport 태그가 사용되고 있습니다. 이것을 지워주면 viewport 태그를 사용할 수 있게 됩니다.
+tags: 블로그스팟 정보 HTML 문제_해결
+---
+<p>
+  블로거 모바일 화면은 구립니다. 특히 페이지 선택 메뉴가 구려요.
+  <br>블로거에서 모바일페이지를 구성하는 방식은 이렇습니다:
+  <ol>
+    <li>&lt;meta&gt;로 뷰포트를 설정합니다.</li>
+    <li>자바스크립트(추정)로 화면 크기를 인식하고 &lt;body&gt;에 mobile 클래스를 붙입니다.</li>
+    <li>mobile 클래스가 붙은 것들을 수정합니다.</li>
+  </ol>
+  그렇습니다. 이미 &lt;meta name="viewport" … /&gt;를 사용합니다. 심지어 width를 1100px로 고정시킵니다.
+</p>
+
+<!--more-->
+
+<p>
+  형태는 아마 이상할 겁니다. 태그 내의 특수문자들도 &amp;quot&semi;같은 형식으로 대체되어 있거든요.
+  <br>아무튼 이것을 지워주시면 해결됩니다!
+</p>
+<p>
+  ※ 꼭 테마 옆 화살표에서 모바일 사용 설정을 데스크탑으로 설정해주셔야 합니다.
+  <br>※ 덤으로 알아가는 국민 뷰포트 설정값: <mark>&lt;meta name="viewport" content="width=device-width,initial-scale=1.0" /&gt;</mark>
+</p>

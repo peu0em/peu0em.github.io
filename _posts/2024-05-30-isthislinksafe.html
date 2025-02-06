@@ -1,0 +1,79 @@
+---
+layout: post
+title: 링크가 안전한지 확인하는 방법
+description: 링크(URL)이 안전한지 확인하는 3가지 단계.
+tags: 정보
+thumbnail: //www.whatismyip.com/static/d24063283370ed9b47abb3d83a9c3bf4/components-of-a-url.webp
+---
+<p>최근에 피싱 문자가 기승을 부리면서 링크에 대한 막연한 공포감을 가지게 되신 분들이 많아진 것 같습니다. 그래서 이 링크가 안전한 것인지 확인하는 방법을 공유드리고자 합니다.</p>
+
+<!--more-->
+
+<details>
+  <summary>목차</summary>
+  <ol class='index'>
+    <li><a href="#p-240530-h-linkshape" class="noHighlight">판단 1: 링크 생김새</a>
+      <ol>
+        <li><a href='#p-240530-h-baseexplain'>기본 설명</a></li>
+        <li><a href='#p-240530-h-shorturl'>단축 URL인가?</a></li>
+      </ol>
+    </li>
+    <li><a href='#p-240530-h-domainsearch'>판단 2: 도메인 검색</a></li>
+    <li><a href='#p-240530-h-scansite'>판단 3: 검사 사이트 활용</a>
+      <ol>
+        <li><a href='#p-240530-h-countrycheck'>국가 확인</a></li>
+        <li><a href='#p-240530-h-sitedangercheck'>사이트 자체가 위험한지 확인</a></li>
+      </ol>
+    </li>
+    <li><a href='#p-240530-h-fin'>마무리</a></li>
+  </ol>
+</details>
+
+<h2 content="판단 1: 링크 생김새" id="p-240530-h-linkshape"><a href="#p-240530-h-linkshape">판단 1: 링크 생김새</a></h2>
+
+<h3 content='기본 설명' id='p-240530-h-baseexplain'><a href='#p-240530-h-baseexplain'>기본 설명</a></h3>
+
+<p>URL은 크게 세 부분으로 나뉩니다. 이름 역할을 하는 앞부분, 특징을 나타내는 뒷부분, 그리고 기타 세세한 부분을 담당하는 꼬리가 있습니다. 예시를 볼까요?</p>
+<div class='image center group'>
+  <img width='704' height='236' src="//www.whatismyip.com/static/d24063283370ed9b47abb3d83a9c3bf4/components-of-a-url.webp" style='width:40em' />
+  <span class='footnote t' id='p-240530-fn-1-t'><a href='#p-240530-fn-1-b' class='n' onmouseover='cFootnoteP(this)'>1</a><span><a href='https://www.whatismyip.com/what-is-a-url/' target='_blank' rel='noopener'>WHATISMYIP.com</a></span></span>
+</div>
+<p>여기서 DOMAIN 부분은 익숙하실 거예요. <code>website</code> 부분은 naver나 google 같은 그 정체성을 드러내는 단어가 주로 들어갑니다. 그 뒤 <code>.com</code> 부분은 특징을 나타냅니다. <code>.co.kr</code>이면 한국의 회사를, <code>.go.jp</code>면 일본의 정부기관을 나타내는 식으로요.</p>
+<p><code>/</code> 뒤의 것들은 몰라도 됩니다. 중요한건 뒤에 어떤게 오던 그 앞의 주소가 중요하다는 거예요. 예를 들어 <code>naver.com/</code> 뒤에는 어떤 것이 와도 위험해 질 수 없어요. 네이버는 이미 신뢰할 수 있는 주소니까요.</p>
+<p>주의해야 할 점이 있습니다. 슬래시 없이 다른 내용이 계속 이어진다면 그건 위험할 수 있습니다. 예를 들어 <a href='naver.com@google.com' target='_blank' rel='noopner'><code>naver.com@google.com</code></a> 이 주소는 어디로 연결될까요? <a href='naver.com/@google.com' target='_blank' rel='noopner'><code>naver.com/@google.com</code></a> 이 주소는요? 직접 확인해 보세요. 슬래시가 이렇게나 중요합니다.</p>
+
+<h3 content='단축 URL인가?' id='p-240530-h-shorturl'><a href='#p-240530-h-shorturl'>단축 URL인가?</a></h3>
+
+<p>단축 URL은 너무 긴 주소를 공유하기 쉬운 짧은 주소로 연결시켜주는 서비스입니다. 이것이 위험한 이유는 이게 어떤 도메인으로 이동되는지 알 수 없기 때문이예요. 이걸 검사하는 사이트도 <a href='https://웹툴.com/blog/web-follow' target='_blank' rel='noopener'>존재</a>합니다. 검사까지 해보면 확실하겠지만, 모르는 번호로 온 단축 URL은 너무 위험해요. 여러 가지 회사가 있기 때문에 딱 잘라 말할 수는 없습니다. 근데 대부분의 단축 url들은 위에서 언급했던 <code>.co.kr</code>과 같은 뒷부분이 낯설어요. 가장 유명한 회사의 주소는 <code>bit.ly/</code>로 시작합니다.</p>
+
+<h2 content='판단 2: 도메인 검색' id='p-240530-h-domainsearch'><a href='#p-240530-h-domainsearch'>판단 2: 도메인 검색</a></h2>
+
+<p>이게 단축 URL인지도 모르겠고 어떤 회사인지도 모르겠다면 그 주소를 그대로 복사해서 검색해보면 됩니다. <code>/</code> 앞쪽만 검색해보면 됩니다. <code>https://www.google.com/search?q=text</code>와 같은 링크가 있다고 하면, <code>google.com</code>만 검색하시면 돼요. 그게 정상적으로 운영되는 사이트라면 분명 상위에 보일거예요. 아이콘과 제목이 깔끔하게 정리된 채로요.</p>
+
+<h2 content='판단 3: 검사 사이트 활용' id='p-240530-h-scansite'><a href='#p-240530-h-scansite'>판단 3: 검사 사이트 활용</a></h2>
+
+<p>솔직히 이 정도 단계까지 왔으면 피싱이거나 친구가 자기 웹사이트를 새로 만들어서 자랑하려고 보낸 경우일까요? 그냥 넘어가기는 너무 찜찜해서 확인을 해봐야 하겠다 할 때 사용해 주세요.</p>
+
+<h3 content='국가 확인' id='p-240530-h-countrycheck'><a href='#p-240530-h-countrycheck'>국가 확인</a></h3>
+
+<p>URL의 서비스 국가를 알 수 있는 검사기가 있습니다. 당장 검색해서 상위에 나오는 사이트는 <a href='https://www.urlvoid.com/' target='_blank' rel='noopener'>이게</a> 있네요. 피싱용 사이트들은 십중팔구 서버가 해외에 있습니다. 그렇지만 피싱 내용은 국내의 것이 많을 거예요. 그럴 때 서버 국가를 확인해서 괴리가 있으면 대부분 피싱입니다.</p>
+
+<h3 content='사이트 자체가 위험한지 확인' id='p-240530-h-sitedangercheck'><a href='#p-240530-h-sitedangercheck'>사이트 자체가 위험한지 확인</a></h3>
+
+<p>검사기 중에 악성 코드 여부를 검사하는 종류도 있습니다. 저도 문외한이라 정확히는 모릅니다. 근데 굳이 꼽으라면 회사에 대한 신뢰도가 있는 <a href='https://nordvpn.com/ko/link-checker/' target='_blank' rel='noopener'>NordVPN의 것</a>이 있고, 검사 결과를 구체적으로 알려주는 <a href='https://www.virustotal.com/gui/home/url' target='_blank' rel='noopener'>VirusTotal</a>이 있겠네요.</p>
+
+<h2 content='마무리' id='p-240530-h-fin'><a href='#p-240530-h-fin'>마무리</a></h2>
+
+<p>컴퓨터에 익숙하면 나름대로 판단 기준이 생기지만 그렇지 못한 경우에 감도 못 잡으시는 경우를 많이 봤습니다. 피싱 걱정 때문에 정말 중요한 내용까지 놓치지 마시고 천천히 확인해보세요.</p>
+<p>추가로 전문가의 설명이 궁금하시다면 이 영상을 시청해보세요.</p>
+
+<div class='display 169-h'>
+  <iframe loading='lazy' title='피싱 세상에서 살아남기! URL 주소의 구조를 알아보자!' width="560" height="315" src="https://www.youtube.com/embed/8Lbajd-diLM?si=Yu8HgVLgti8gXF0Y" alt="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<div class='footnote b'>
+  <div id='p-240530-fn-1-b'>
+    <a class='n' href='#p-240530-fn-1-t'>1</a>
+    <span><a href='https://www.whatismyip.com/what-is-a-url/' target='_blank' rel='noopener'>WHATISMYIP.com</a></span>
+  </div>
+</div>

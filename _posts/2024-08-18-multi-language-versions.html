@@ -1,0 +1,97 @@
+---
+layout: post
+title: 블로그를 여러 언어 버전으로 바꾸는 기능을 구현하는데 성공했지만 이게 의미가 있는 건가 싶어 여기에 기록하고 지우려고 합니다
+description: 블로그 여러가지 언어 버전 구현해보기
+tags: HTML 자바스크립트
+---
+<p>정확히는 언어별로 버전을 나누고, 브라우저 언어가 어떤 것인지, 또 그 후에 어떤 언어를 선택하는지에 따라 다른 버전을 보여주는 기능입니다.</p>
+
+<!--more-->
+
+<h2 id='p-240818-h-know' content='무슨 언어인지 알기'><a href='#p-240818-h-know'>무슨 언어인지 알기</a></h2>
+
+<div class='script'>
+  <pre>function langAlt(lang){
+  switch(lang){
+    case &quot;ko-KR&quot;: return &quot;kr&quot;; break;
+    case &quot;en-US&quot;: return &quot;en&quot;; break;
+    default: return lang;
+    }
+  }
+  if(!localStorage.getItem(&quot;lang&quot;)) localStorage.setItem(&quot;lang&quot;,langAlt(navigator.language));
+  var lang = localStorage.getItem(&quot;lang&quot;);</pre>
+</div>
+
+<p>대충 복잡한 언어 코드들을 단순하게 바꾸는 함수를 만들고, 로컬 스토리지에 lang 값이 없다면 브라우저의 언어 설정을 가져와 입력하고 변수에도 넣어놓는다는 내용입니다. 왜 굳이 변수에 넣냐면, 그게 더 빠를 것 같았기 때문입니다. 매번 저 값이 필요할 때마다 로컬 스토리지를 참조하면 가성비가 좋지 않을 것 같아서요.</p>
+
+<h2 id='p-240818-h-display' content='바꿔치기'><a href='#p-240818-h-display'>바꿔치기</a></h2>
+
+<div class='script'>
+  <pre>function langDisplay(){
+  let langTags = document.querySelectorAll(&quot;[data-langlist]&quot;);
+  for(let i=0;i&lt;langTags.length;i++) {
+    if(langTags[i].dataset.langlist.split(&quot; &quot;).includes(lang)){
+      let langParts = langTags[i].querySelectorAll(&quot;[data-lang]&quot;);
+      for(let j=0;j&lt;langParts.length;j++) {
+        if(langParts[j].dataset.lang == lang){
+          langParts[j].removeAttribute(&quot;hidden&quot;);
+          let p = langParts[j].parentNode
+          if(p.getAttribute(&quot;content&quot;)) p.setAttribute(&quot;content&quot;,langParts[j].innerText);
+        }
+        else langParts[j].setAttribute(&quot;hidden&quot;,&quot;&quot;);
+      }
+    }
+  }
+  return 0;
+}</pre>
+</div>
+
+<p><code>data-langlist</code>이 있는 애들 하위에 <code>data-lang</code>이 있는 것들을 찾아서 언어 설정과 같으면 <code>hidden</code> 속성을 없애고, 다르면 만드는 함수입니다. 중간에 부모 태그의 <code>content</code>를 설정하는 내용은 제가 그걸 이용하는 태그가 있기 때문입니다. 혹 비슷한 상황인 분들 쓰라고 지우지 않은 것이니 그렇지 않은 분들은 지우셔도 되는 부분입니다.</p>
+
+<p>특히한 부분은 미리 사용한 언어 리스트를 알려주고, 그 아래에서는 그만큼만 확인하는 방식입니다.</p>
+
+<h2 id='p-240818-h-change' content='언어 바꾸기'><a href='#p-240818-h-change'>언어 바꾸기</a></h2>
+
+<div class='script'>
+  <pre>function langChange(langin){
+  localStorage.setItem(&quot;lang&quot;,langin);
+  lang = langin;
+  langDisplay();
+  return 0;
+}</pre>
+</div>
+
+<p>입력값으로 저장된 언어 설정을 바꾸고 위의 <a href='#p-240818-h-display'>바꿔치기</a>를 한번 돌려줍니다.</p>
+
+<h2 content='언어 고르는 부분' id='p-240818-h-selector'><a href='#p-240818-h-selector'>언어 고르는 부분</a></h2>
+
+<p>위의 <a href='#p-240818-h-change'>바꾸기</a>를 실행하는 <code>&lt;select&gt;</code> 태그입니다.</p>
+
+<div class='script'>
+  <pre>&lt;select id='lang-select' onchange='langChange(this.value)'&gt;
+  &lt;option value="en"/&gt;English
+  &lt;option value="kr"/&gt;한국어
+&lt;/select&gt;
+
+&lt;script&gt;
+  document.getElementById("lang-select").querySelector("[value="+lang+"]").setAttribute("selected","");
+&lt;/script&gt;</pre>
+</div>
+
+<p>심플합니다. 아래 스크립트는 현재 언어 설정에 따라 선택돼있는 항목을 바꾸는 부분입니다.</p>
+
+<h2 id='p-240818-h-use' content='사용'><a href='#p-240818-h-use'>사용</a></h2>
+
+<div class='script'>
+  <pre>&lt;span data-langlist='kr en'&gt;
+  &lt;span lang='kr'&gt;여기는 한국어로 표시&lt;/span&gt;
+  &lt;span hidden lang='en'&gt;여기는 영어로 표시&lt;/span&gt;
+&lt;/span&gt;</pre>
+</div>
+
+<p>기본 골자는 저런 형태입니다. 언어 목록은 빈칸으로 구분합니다. 기본적으로 한 부분 빼고는 <code>hidden</code> 속성을 넣어주셔야 합니다.</p>
+<p>다만 무조건 <code>&lt;span&gt;</code>으로 억지로 감쌀 필요는 없습니다. 이미 감싸는 형태의 태그가 있다면 그 곳에 <code>data-langlist</code>를 넣기만 하면 됩니다. 바로 아래에 있지 않아도 됩니다. 뭣하면 body에 넣어도 돼요. 근데 굳이 전체에 작동시키지 않는 이유는 제가 최적화를 좋아하기 때문이고, 부분마다 지원하는 언어 종류가 다를 경우도 생각했기 때문입니다.</p>
+
+<h2 id='p-240818-h-reason' content='쓰지 않기로 한 이유'><a href='#p-240818-h-reason'>쓰지 않기로 한 이유</a></h2>
+
+<p>사실 정석은 언어별로 다른 서브도메인을 두는 것입니다. 그러나 블로그를 처음부터 만들지는 않은 우리는 그럴 수 없잖아요. 그래서 이런 방식으로 해결해보려고 했는데요, 이거 하나하나 바꾸다보니까 이게 무슨 의미인가 싶더라고요. 차라리 싹 긁어서 블로그나 포스트를 하나 새로 파는게 나을 것 같았어요. 어차피 검색엔진 니네 한글 섞여있으면 영어 사용자한테 노출시켜주지도 않을거자나.</p>

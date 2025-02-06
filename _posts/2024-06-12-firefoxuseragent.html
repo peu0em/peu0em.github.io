@@ -1,0 +1,45 @@
+---
+layout: post
+title: 파이어폭스에서 문제가 생길 때는 User Agent를 바꿔보세요
+description: 파이어폭스에게만 문제가 발생했을 때는 User Agent를 바꿔보자.
+tags: 파이어폭스 정보 문제_해결
+---
+<p>저도 이것이 원인이라 말하고 싶지 않아요. 그런데 해결됐는데 어쩌겠어요... 이 경험을 공유해드리는 수밖에...</p>
+
+<h2 content="방법" id="p-240612-h-howto"><a href="#p-240612-h-howto">방법</a></h2>
+
+<ol>
+  <li>User Agent를 바꾸는 <a target="_blank" rel='noopener' href="//addons.mozilla.org/ko/firefox/addon/user-agent-string-switcher/">부가기능</a>을 설치한다.</li>
+  <li>뭐든 크롬 계열을 선택한다.</li>
+  <li>화이트리스트 설정을 하면 편하다.</li>
+</ol>
+
+<!--more-->
+
+<h2 content="설명" id="p-240612-h-info"><a href="#p-240612-h-info">설명</a></h2>
+
+<h3 content="User Agent란?" id="p-240612-h-whatisuseragent"><a href="#p-240612-h-whatisuseragent">User Agent란?</a></h3>
+
+<p>User Agent는 쉽게 말해 사용자 정보를 적어놓은 명찰입니다. 어떤 브라우저와 운영체제를 쓰고 있는지 적혀있어요.</p>
+<p>이게 있는 이유는 각자 환경에 맞는 웹사이트를 적절히 보여주기 위해서입니다. 브라우저마다 지원하는 기능이 다르고, 운영체제마다 또 다르거든요. 그 쉬운 예시가 액티브 엑스입니다. 인터넷 익스플로러에서만 작동 가능했었기 때문에 과거 한국의 몇몇 사이트들은 크롬 브라우저로 이용할 수가 없었어요. 지원하지 않는 기능이 있다면 다른 방법을 제시하거나, 적어도 그게 지원이 되지 않는다고 표시해줘야 할 필요가 있습니다. 그러기 위해서 User Agent가 필요합니다.</p>
+
+<h3 content='브라우저' id='p-240612-h-browsers'><a href='#p-240612-h-browsers'>브라우저</a></h3>
+
+<p>브라우저는 엔진에 따라 나눌 수 있습니다. 그 중 크로미움 계열이 가장 보편적이예요. 구글 크롬과 마이크로소프트 엣지가 이쪽입니다. 그리고 모질라 계열, 파이어폭스와 파생 브라우저들이 있습니다. 별개로 애플의 사파리가 있는데 여기도 나름의 문제가 있지만 오늘 다룰 내용은 아니니 생략하겠습니다.</p>
+<p>문제는 크로미움 계열이 구글에서 개발한 것이고, 유튜브 또한 구글이 모회사라는 점입니다. 세계 1등 브라우저와 세계 1등 동영상 스트리밍 서비스가 같은 회사니 서로 표준을 만들어냅니다. 애플은 독자적인 생태계를 구축하고 있으니 걱정할 것 없지만, 모질라는 브라우저가 웹을 따라가야 하는 실정입니다. 일례로 국내 라이브 스트리밍 사이트인 치지직의 경우에는, 파이어폭스 지원을 완벽히 해주지 않습니다. 장시간 시청하면 브라우저가 멈춘다거나 클립 기능을 이용하지 못한다거나 하는 모습으로요.<span class='footnote t' id='p-240612-fn-chzzk-t'><a class='n' onmouseover='cFootnoteP(this)' href='#p-240612-fn-chzzk-b'>1</a><span>그래서 저는 생방은 크로미움 계열로 봅니다. 사실 틀어놓는 용도로는 프로세스가 분리된게 편하기도 하구요.</span></span></p>
+
+<h2 content='사건 경위' id='p-240612-h-flow'><a href='#p-240612-h-flow'>사건 경위</a></h2>
+
+<p>그러던 와중에 최근들어 유튜브 영상 깨지며 끊기는 현상이 생겼습니다. 항상 그런 것은 아니고 가끔이요.<span class='footnote t' id='p-240612-fn-illbeback-t'><a class='n' href='#p-240612-fn-illbeback-b' onmouseover='cFootnoteP(this)'>2</a><span>그래서 사실 해결됐는지 아직 모릅니다. 증상이 다시 나타나면 수정하러 올게요.<c-linespace></c-linespace>+ 증상이 나타나긴 했는데 반만 나타났어요. 멈추기는 하는데 깨지지는 않아요... 이걸 어떻게 받아들여야 할지 ㅋㅋㅋㅋㅋ<c-linespace></c-linespace>++ 해결법은 따로 있었습니다. <a target='_blank' rel='noopener' href='https://peu0em.blogspot.com/2024/06/firefox-av1-proble.html'>이 글</a>을 봐주세요.<c-linespace></c-linespace>+++ 이 글에 나오는 방법도 같이 사용하셔야 할 것 같습니다. 아니 진짜 뭔가를 시도할 때마다 당장 해결되기는 합니다. 이거 쓸모없는 해결책이 아니예요. 근데 잘 되다가 미묘하게 다른 느낌으로 문제가 생기네요.</span></span> 그러던 와중에 어떤 글 제목을 봤습니다. 유튜브가 브라우저마다 성능 차이를 준다는 내용이었습니다. 믿고 싶지는 않았지만 혹시 몰라 시도해봤는데, 아무리 새로고침해도 깨지던 영상이 정상적으로 재생돼버렸습니다.</p>
+<p>근데 진짜 브라우저 차별은 아닐거고, 아마 기술적인 문제일 겁니다. 그래야만 해요...</p>
+  
+<div class='footnote b'>
+  <div id='p-240612-fn-chzzk-b'>
+    <a href='#p-240612-fn-chzzk-t' class='n'>1</a>
+    <span>그래서 저는 생방은 크로미움 계열로 봅니다. 사실 틀어놓는 용도로는 프로세스가 분리된게 편하기도 하구요.</span>
+  </div>
+  <div id='p-240612-fn-illbeback-b'>
+    <a class='n' href='#p-240612-fn-illbeback-t'>2</a>
+    <span>그래서 사실 해결됐는지 아직 모릅니다. 증상이 다시 나타나면 수정하러 올게요.<c-linespace></c-linespace>+ 증상이 나타나긴 했는데 반만 나타났어요. 멈추기는 하는데 깨지지는 않아요... 이걸 어떻게 받아들여야 할지 ㅋㅋㅋㅋㅋ<c-linespace></c-linespace>++ 해결법은 따로 있었습니다. <a target='_blank' href='https://peu0em.blogspot.com/2024/06/firefox-av1-proble.html'>이 글</a>을 봐주세요.<c-linespace></c-linespace>+++ 이 글에 나오는 방법도 같이 사용하셔야 할 것 같습니다. 아니 진짜 뭔가를 시도할 때마다 당장 해결되기는 합니다. 이거 쓸모없는 해결책이 아니예요. 근데 잘 되다가 미묘하게 다른 느낌으로 문제가 생기네요.</span>
+  </div>
+</div>

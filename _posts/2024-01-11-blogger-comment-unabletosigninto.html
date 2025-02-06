@@ -1,0 +1,33 @@
+---
+layout: post
+title: 블로거(블로그스팟) 「댓글을 작성하도록 로그인 할 수 없습니다.」 오류
+description: 「댓글을 작성하도록 로그인 할 수 없습니다. 로그인을 허용하려면 브라우저 구성을 확인하세요. …」의 해결법
+tags: 블로그스팟 정보 문제_해결
+thumbnail: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIRzCZoCnYbl3BIpOpL-nHDOqAWhV8_wKl4IMOqxIbxItZQdj_WCeCx7LAzfTNidWnO0HNFJnMSNFioKLJCfr3LMXagu1sMcW4Ll9zlQlCZ4qhWhpmL_q3-blr0FRMd9F01tONSMCZF3q5T6Xn0Vhio5kLmeXEYIbMr5LHD7t8LrXoNeCUGcss9YnXZ-Y/s1600/error.png
+---
+<p>블로거(혹은 블로그스팟)에 구글 계정으로 댓글을 달려고 할 때 「댓글을 작성하도록 로그인 할 수 없습니다. 로그인을 허용하려면 브라우저 구성을 확인하세요. …」라며 프로필 전환이 되지 않는 경우가 있습니다.</p>
+
+<img class="image c" style="width:100%;height:auto;" alt="" height="152" width="1991" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgIRzCZoCnYbl3BIpOpL-nHDOqAWhV8_wKl4IMOqxIbxItZQdj_WCeCx7LAzfTNidWnO0HNFJnMSNFioKLJCfr3LMXagu1sMcW4Ll9zlQlCZ4qhWhpmL_q3-blr0FRMd9F01tONSMCZF3q5T6Xn0Vhio5kLmeXEYIbMr5LHD7t8LrXoNeCUGcss9YnXZ-Y/s1600/error.png"/>
+
+<!--more-->
+
+<p>이 때는 브라우저 설정에서 서드 파티 쿠키 설정을 완화하면 됩니다.</p>
+
+<ul>
+  <li>크롬
+    <p>개인 정보 및 보안 > 서드 파티 쿠키 차단만 선택하지 않으면 됩니다. 대부분의 경우 크롬은 이러한 문제가 발생하지 않는 것 같습니다.</p>
+  </li>
+  <li>엣지<p>쿠키 및 사이트 권한 > 타사 쿠키 차단을 끄면 됩니다.</p></li>
+  <li>파이어폭스
+    <p>개인 정보 및 보안에서 <mark>교차 사이트 추적 쿠키</mark>가 기준 설정입니다. 체크 해제 이외의 선택지 중에 가장 약한 설정이라 그냥 이거 하시면 됩니다.</p>
+    <img class='image' style="max-width:40em;height:auto" alt="" border="0" height="390" width="983" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhmv2dt7vkx-eS6pRQYD4laC8o2Whg8VF2GSaQOqIMdJflPbufpWpm289GBcF9AZdbkxu_fm-KYoXXTgo4MfAtr28kN1EVaETfLsrdb-rHieYV_m0aud6pB8tn2Gjwd4Kd1EMjFExhYjwXXox3qljxfsy39K-O86DPF7aOlJ5v2vzSUBAh1G2wKlP6zN20/s1600/settings.png"/>
+  </li>
+  <li>오페라<p>개인정보 및 보안 > 쿠키 및 기타 사이트 데이터 > 타사 쿠키 차단만 선택하지 않으면 됩니다.</p></li>
+</ul>
+
+<p>브라우저 설정이 제대로 되어 있다면 부가기능이나 브라우저에 관여하는 서드파티 프로그램 설정을 살펴보세요.</p>
+
+<p>그 외에 구글과 블로그스팟을 화이트리스트로 추가하는 등의 방법으로도 해결할 수 있습니다.</p>
+
+<p>사실 이 글은 진짜로 댓글을 달려다가 실패했던 분들을 위한 것이 아닙니다. 블로거를 운영하시는 분들을 위한 것입니다. 저는 이 증상을 블로그 HTML을 뜯어고치다가 마주했습니다. 블로거 자체 자바스크립트를 비활성화 해보는 과정도 있었기 때문에 이것이 당연히 자바스크립트 문제인 줄 알았습니다. 브라우저의 쿠키 설정을 만진 기억이 없었기 때문에 그 문제였다고는 생각하지 못했어요. 하지만 진짜 브라우저 설정 문제였다는 것을 알려드리려고 이 글을 작성했습니다.</p>
+<p>여러분들은 괜히 블로그 백업했다가 복구했다가 하지 마시고 브라우저 설정부터 해보세요.</p>

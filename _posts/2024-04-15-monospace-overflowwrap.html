@@ -1,0 +1,12 @@
+---
+layout: post
+title: monospace 줄바꿈 문제
+tags: CSS 정보
+---
+<p>혹시 <code>word-break: keep-all</code> 설정을 사용하고 계신 분이라면 꼭 한번 확인해보세요. monospace 폰트에서 띄어쓰기 없이 길게 늘여쓰는 경우 일부 글자가 생략되는 상황이 생길 수 있습니다. 제가 그랬거든요. 그럴 때는 이걸 추가해주세요!</p>
+<div class='c-script'>
+  <code>overflow-wrap: word-break;</code>
+</div>
+
+<p>이게 원래 <code>word-wrap</code>으로 쓰였던 건데 비공식 속성이었나봐요. 공식 지원으로 바뀌면서 이름이 달라졌다고 합니다.</p>
+<p><code>word-break</code>와 다른 점은 조건입니다. <code>word-break</code>는 줄바꿈이 일어날 타이밍에 어떤 단위로 자를 지 정하는 속성이고, <code>overflow-wrap</code>은 한 단어가 한 줄에 다 들어가지 못할 때 어떻게 자를 지 정하는 속성입니다. 자세한 내용은 <a href='https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap' target='_blank' rel='noopener'>여기</a>에.</p>

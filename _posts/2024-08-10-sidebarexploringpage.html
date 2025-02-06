@@ -1,0 +1,188 @@
+---
+layout: post
+title: 사이드바로 탐색하는 페이지 만들기
+tags: CSS 정보 HTML 자바스크립트
+description: 한 게시물 안에서 사이드바(사이드 메뉴)로 탐색하는 페이지 구현하기.
+---
+<p>이 사이드바는 평범한 사이드바가 아닙니다. 페이지 구조까지는 건드릴 수 없는 게시물 형태 안에서도 <a title='HTML' href='https://developer.mozilla.org/ko/docs/Web/HTML' target='_blank' rel='noopener'>mdn web docs</a> 같은 아카이브 형태를 구현하고 싶었습니다. 그렇게 해서 나온 결과물이 <a title='블로거 문법 정리' href='/i/blogger-syntax'>이 페이지</a>입니다.</p>
+
+<!--more-->
+
+<details>
+  <summary>목차</summary>
+  <ol class='index'>
+    <li><a href='#p-240810-h-summary'>개요</a></li>
+    <li><a href='#p-240810-h-frame'>틀</a>
+      <ol>
+        <li><a href='#p-240810-h-html'>HTML</a></li>
+        <li><a href='#p-2240810-h-css'>CSS</a></li>
+      </ol>
+    </li>
+    <li><a href='#p-240810-h-function'>기능 구현</a>
+      <ol>
+        <li><a href='#p-240810-h-basics'>원리</a></li>
+        <li><a href='#p-240810-h-js'>Javascript</a></li>
+        <li><a href='#p-240810-h-urlinclude'>URL 반영하기</a></li>
+        <li><a href='#p-240810-h-anchor'>&lt;a&gt; 구성</a></li>
+      </ol>
+    </li>
+    <li><a href='#p-240810-h-finalform'>최종 폼</a></li>
+    <li><a href='#p-240810-h-end'>끝</a></li>
+  </ol>
+</details>
+
+<h2 content='개요' id='p-240810-h-summary'><a href='#p-240810-h-summary'>개요</a></h2>
+
+<p>앞에서 언급한대로 이 사이드바 메뉴는 한 게시물 안에서 해결하는 형태입니다. 페이지 구조까지 건드릴 수 있는 형태였으면 그냥 하위 페이지를 만들고 사이드바에는 그냥 바로가기만 줘도 되는 간단한 문제입니다. 사이드바 자체도 <code translate='no'>position: sticky</code>만 해놓으면 그냥 해결될 문제고요.</p>
+<p>근데 이걸 한 게시물 안에서 해결하려면 좀 복잡해집니다. 메뉴 하나하나 게시물을 따로 작성한다면 우선 관리가 어렵고, 게시물 목록도 복잡해지며, URL 구조도 따로놀고, 사이드바 메뉴도 일일이 동기화시켜줘야 합니다. 특정 구조 안에 사이드바를 그냥 넣어버리니까 <code>height: 100%</code>가 안 먹혀서 사이드바처럼 구현도 안되고요.</p>
+<p>그래서 제가 원했던 것은 독립적으로 운용될 수 있는 사이드바 페이지였습니다. 상위 구조에 영향받지 않고, 여러 게시물을 막 늘리지 않아도 되는. 혼자서 잘 돌아가는 그런 거요. 물론 제가 블로거밖에 안하니까 다른 환경은 잘 모르겠습니다 흐흐 (단 하나 절대 안되는 조건이 있습니다. 상위에 <code translate='no'>overflow: hidden</code>이 하나라도 있으면 안됩니다.)</p>
+
+<h2 content='틀' id='p-240810-h-frame'><a href='#p-240810-h-frame'>틀</a></h2>
+
+<h3 content='HTML' id='p-240810-h-html'><a href='#p-240810-h-html'>HTML</a></h3>
+
+<div class='script' translate='no'>
+  <pre>&lt;div class='sidebar-container'&gt;
+  &lt;aside class='sidebar'&gt;
+    [<span translate='yes'>내용</span>]
+  &lt;/aside&gt;
+  &lt;main&gt;
+    [<span translate='yes'>내용</span>]
+  &lt;/main&gt;
+&lt;/div&gt;</pre>
+</div>
+
+<p>별거 없습니다. 사실 aside 태그 main 태그로 나눈것도 의미상 딱 맞다 해서 그렇게 한거지 이렇게 안하셔도 됩니다. 포인트는 div 하나로 감싸주는 것. 그뿐입니다.</p>
+
+<h3 content='CSS' id='p-240810-h-css'><a href='#p-2240810-h-css'>CSS</a></h3>
+
+<div class='script' translate='no'>
+  <pre>.sidebar-container { display: flex }
+.sidebar {
+  position: sticky;
+  height: max-content;
+  max-height: 100vh;
+  display: block;
+  overflow: auto;
+  top: 0;
+}
+.sidebar-container > main { width: 100% }</pre>
+</div>
+
+<p>마진 같은 추가적인 디자인은 생략했습니다.</p>
+<p>여기서 제일 중요한건 <code>display: flex</code>입니다. 이런 페이지는 특성상 내용 부분의 높이가 정해져있지 않습니다. 그렇다고 <code>height: 100%</code>는 안 먹더라고요. 자바스크립트로 내용 부분 높이를 계산하는 방식까지 생각해봤는데 더 간단하게 해결할 수 있었습니다. 플렉스를 활용하면 됐습니다. 이 글을 쓰면서 찾아보니 플렉스박스에서는 원래 스티키를 안쓰는게 통념이더라고요. 높이가 같아져서요. 근데 사이드바는 애초에 높이가 꽉 차야 하니까 가능했던 것 같습니다.</p>
+<p><code translate='no'>position: sticky</code>는 핵심입니다. 스크롤해도 따라오게 만드는 거예요. 의외로 <code translate='no'>max-height: 100vh</code>도 핵심입니다. 저거 없으면 사이드바 쪽이 내용보다 길 경우에 메인쪽 아래에 공백이 추가됩니다. <code translate='no'>overflow: auto</code>도 스크롤해야 되니까 필수. <code translate='no'>top: 0</code>도 스티키 하려면 필수예요. 근데 저처럼 위에 메뉴바 같은거 있으신 분들은 그거 높이만큼 띄워주세요.</p>
+<p>메인 부분 너비 100% 저거는 필수는 아니지만 너비에 비례하는 디자인 요소 같은거 있으신 분들은 필수입니다. 당장 그런거 없으셔도 일단 해놓으시는걸 추천</p>
+
+<h2 content='기능 구현' id='p-240810-h-function'><a href='#p-240810-h-function'>기능 구현</a></h2>
+
+<p>이제 구현할 것은 사이드바에 관한 것이 아니라 메인의 내용을 적절하게 바꿔서 보여주는 부분입니다. 앞서 말씀드렸다시피 하나의 게시물 혹은 페이지에서 모든 것을 구현하기 위한게 목적이라 그렇지 않으신 분들에게는 그냥 뻘짓입니다.</p>
+
+<h3 content='원리' id='p-240810-h-basics'><a href='#p-240810-h-basics'>원리</a></h3>
+
+<p>저는 우선 <code translate='no'>&lt;main&gt;</code> 안을 여러 <code translate='no'>&lt;section&gt;</code>으로 나눴습니다. 이것도 <code translate='no'>&lt;div&gt;</code> 같은 다른 태그로 해도 상관없어요. 취향차이!</p>
+<p>그리고 기본으로 보여줄 부분(대문)을 제외하고는 전부 <code translate='no'>hidden</code> 속성을 넣어줬습니다.</p>
+<div class='script' translate='no'>
+  <pre>&lt;section id='...'&gt;
+  [<span translate='yes'>대문</span>]
+&lt;/section&gt;
+&lt;section id='...' hidden&gt;
+  [<span translate='yes'>내용</span>]
+&lt;/section&gt;
+&lt;section id='...' hidden&gt;
+  [<span translate='yes'>내용</span>]
+&lt;/section&gt;</pre>
+</div>
+<p>이런 느낌으로요.</p>
+<p><code translate='no'>hidden</code>은 그냥 안보이게 하는 속성입니다.</p>
+
+<h3 content='Javascript' id='p-240810-h-js'><a href='#p-240810-h-js'>Javascript</a></h3>
+
+<p>일단 function을 만들어줍니다.</p>
+
+<div class='script' translate='no'>
+  <pre>function sidebar(id) {
+  if(id) {
+    let m = document.getElementsByTagName("main")[0];
+    document.getElementById(m.dataset.display).setAttribute("hidden","");
+    document.getElementById(id).removeAttribute("hidden");
+    m.dataset.display = id;
+  }
+}</pre>
+</div>
+
+<p>우선 내용은 대충 표시되던 걸 숨기고 입력값과 일치하는 id를 가진 태그를 보이게 한 다음 그 id를 메인 태그에 저장한다는 뜻입니다. 이걸 위해서는 글 작성할 때 <code translate='no'>data-display</code>가 꼭 있어야 하고 거기에 <code translate='no'>hidden</code>이 없어야 합니다. 이런 식으로 말고 <code translate='no'>hidden</code>이 없는 태그를 직접 찾으면 편하지 않냐 하시면 그렇게 하셔도 됩니다. 다만 저는 제가 안 귀찮은 것보다는 속도가 조금이라도 더 빠른 걸 좋아해서요.</p>
+
+<h3 content='URL 반영하기' id='p-240810-h-urlinclude'><a href='#p-240810-h-urlinclude'>URL 반영하기</a></h3>
+
+<p>문제점이 하나 있습니다. 내가 보고 있는 이 부분을 공유하고 싶은데 이대로는 링크를 줘도 모두 대문부터 보게 됩니다. 또 새로고침하면 대문으로 돌아가게 돼요. <code translate='no'>&lt;a&gt;</code> 태그로 id를 링크하면 주소 뒤에 #id가 붙는데요, 이걸 이용할 겁니다.</p>
+
+<div class='script' translate='no'>
+  <pre>&lt;script&gt;
+  let id = window.location.href.replace(/^.+\#/, "");
+  if(id != window.location.href) sidebar(id);
+&lt;/script&gt;</pre>
+</div>
+
+<p>이걸 넣어줄 거예요. 주소에서 처음부터 #까지를 없애고 그걸 아까 만든 함수에 입력하는 스크립트입니다. 만약 URL에 파라미터가 좀 들어가시는 분들이면 이 정규식을 좀 다르게 해야할지도 모르겠어요.</p>
+
+<p>근데 위치가 중요합니다. 저 태그는 <code translate='no'>&lt;/main&gt;</code> 뒤에 있어야 해요. 렌더링되지 않은 채로 실행되면 오류가 납니다.</p>
+
+<h3 content='&lt;a&gt; 구성' id='p-240810-h-anchor'><a href='#p-240810-h-anchor'>&lt;a&gt; 구성</a></h3>
+
+<p>이제부터는 다른 페이지를 볼 때 <code translate='no'>sidebar("[보고싶은 페이지 아이디]")</code> 함수를 실행시켜야 합니다. 더해서 <code translate='no'>href='#[<span translate='yes'>아이디</span>]'</code> 속성도 있어야 하고요.</p>
+
+<div class='script' translate='no'>
+  <pre>&lt;a href='#[<span translate='yes'>아이디</span>]' onclick='sidebar("[<span translate='yes'>아이디</span>]")'&gt;&lt;/a&gt;</pre>
+</div>
+
+<p>그래서 링크 걸 때는 이렇게 걸어야 합니다.</p>
+
+<h2 content='최종 폼' id='p-240810-h-finalform'><a href='#p-240810-h-finalform'>최종 폼</a></h2>
+
+<div class='script' translate='no'>
+  <pre>&lt;script&gt;
+  function sidebar(id) {
+  if(id) {
+    let m = document.getElementsByTagName("main")[0];
+    document.getElementById(m.dataset.display).setAttribute("hidden","");
+    document.getElementById(id).removeAttribute("hidden");
+    m.dataset.display = id;
+  }
+}
+&lt;/script&gt;
+
+&lt;div class='sidebar-container'&gt;
+  &lt;aside class='sidebar'&gt;
+    &lt;a href='#[<span translate='yes'>아이디1</span>]' onclick='sidebar("[<span translate='yes'>아이디1</span>>]")'&gt;[<span translate='yes'>대문</span>]&lt;/a&gt;
+    &lt;a href='#[<span translate='yes'>아이디2</span>]' onclick='sidebar("[<span translate='yes'>아이디2</span>]")'&gt;[1]&lt;/a&gt;
+    &lt;a href='#[<span translate='yes'>아이디3</span>]' onclick='sidebar("[<span translate='yes'>아이디3</span>]")'&gt;[2]&lt;/a&gt;
+  &lt;/aside&gt;
+  &lt;main data-display='[<span translate='yes'>아이디1</span>]'&gt;
+    &lt;section id='[<span translate='yes'>아이디1</span>]'&gt;
+      [대문]
+    &lt;/section&gt;
+    &lt;section id='[<span translate='yes'>아이디2</span>]' hidden&gt;
+      [내용]
+    &lt;/section&gt;
+    &lt;section id='[<span translate='yes'>아이디3</span>]' hidden&gt;
+      [내용]
+    &lt;/section&gt;
+  &lt;/main&gt;
+  &lt;script&gt;
+  let id = window.location.href.replace(/^.+\#/, "");
+  if(id != window.location.href) sidebar(id);
+&lt;/script&gt;
+&lt;/div&gt;</pre>
+</div>
+
+<p>이렇게 됩니다. 물론 저렇게 하면 사이드바 쪽이 줄바꿈이 안돼서 이상하게 나와요. 저는 리스트 태그로 구성했지만 그런 부분까지 정해주고 싶지는 않아서 그냥 생략했습니다.</p>
+
+<h2 content='끝' id='p-240810-h-end'><a href='#p-240810-h-end'>끝</a></h2>
+
+<p>이거 진짜 별 거 없는데 쓰는데는 왜 이렇게 오래 걸리는지... 저 이거 쓰다가 한 번 잤어요... 피곤해서...</p>
+
+<section hidden>
+  <span>사이드 바, sidebar, side bar, 사이드 메뉴, 사이드메뉴, side menu, sidemenu, 포럼 페이지, 카테고리 탐색 페이지</span>
+  <script>cLangUrlEn="https://peu0em-en.blogspot.com/2024/09/sidebarexploringpage.html"</script>
+</section>

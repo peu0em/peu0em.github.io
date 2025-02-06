@@ -1,0 +1,87 @@
+---
+layout: post
+title: VST 적용시킨 마이크를 입력 기기로 쓰기 / Voicemeeter Banana + Carla
+description: Voicemeeter Banana와 Carla를 이용해 인게임 보이스나 디스코드 마이크에 VST 적용시키기.
+tags: 음향 정보
+thumbnail: //blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjV7EGFH9tQg59BLCLwrxU2591ZNuZ62XlER2BZRZI6JCglEBCwnnFQ5U_iikT2QUfQEkAyq29fqZePQpmddl3gi_umyqJPJnOMgWD3fT3T7pJhQ8_R1i0J3FPzOC_LVHVaA3uSpLwrPTfnBbvZ5sd2JedH0m6yElWsbJd89KJau8MvtdFGCDz8cg8F/s1600/vb_cable.png
+---
+<p>
+  이 글은 다이나믹 마이크의 게인이 너무 작아서 그걸 올리는 방법이 없을까 고민하던 중에 발견한 방법을 기록한 것입니다.<br>
+  이 방법은 총 세 개의 프로그램으로 구성되어 있습니다. <a href="//vb-audio.com/Cable/" target="_blank" rel='noopener'>VB Cable</a>, <a href="//vb-audio.com/Voicemeeter/banana.htm" target="_blank" rel='noopener'>Voicemeeter Banana</a>, <a href="//kx.studio/Applications:Carla" target="_blank" rel='noopener'>Carla</a> 전부 무료니까 안심하셔도 됩니다.
+</p>
+
+<!--more-->
+
+<h2 content="VB Cable">VB Cable</h2>
+<div class="display">
+  <img alt="Image: VB Cable" style="max-width:15rem;" border="0" data-original-height="550" data-original-width="678" src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjV7EGFH9tQg59BLCLwrxU2591ZNuZ62XlER2BZRZI6JCglEBCwnnFQ5U_iikT2QUfQEkAyq29fqZePQpmddl3gi_umyqJPJnOMgWD3fT3T7pJhQ8_R1i0J3FPzOC_LVHVaA3uSpLwrPTfnBbvZ5sd2JedH0m6yElWsbJd89KJau8MvtdFGCDz8cg8F/s1600/vb_cable.png"/>
+</div>
+<p>
+  <a href="//vb-audio.com/Cable/" target="_blank" rel='noopener'>VB Cable</a>은 가상 입력/출력 장치를 만들어줍니다.<br>
+  프로세스된 사운드를 가상 출력으로 보내면 그 소리를 입력 장치로 내보냅니다. 게임이나 디스코드 입력 장치 설정에서 선택할 수 있는 가상의 장치가 생기고, 이걸 선택하면 <a href="//vb-audio.com/Cable/" target="_blank" rel='noopener'>VB Cable</a>로 보낸 사운드를 입력시킬 수 있게 됩니다.
+</p>
+
+<h2 id="p220906-voicemeeter_banana" content="Voicemeeter Banana">Voicemeeter Banana</h2>
+<div class="display">
+  <img style="max-width:15rem;" alt="Image: Voicemeeter Banana" border="0" data-original-height="810" data-original-width="900" src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg5uviIbZAodHwLyjz7syWJasSyg5i02v9bBk4OSxxx7d_zYAMNrWF9i5m5DQ7ONOjeouIU-IaTYFAyPIR3_vfalIsYR7sZjcBNuKK3Tz-iAjw7BIrUjovwBgzO9LB2aMu4zNIEIStU6oi8_70hBVQOjHOoOFZ6lrEjcybC7t_7DVoGXYzXqW6ViQ9M/s1600/VoicemeeterBanana.jpg"/>
+</div>
+
+<p>
+  <a href="//vb-audio.com/Voicemeeter/banana.htm" target="_blank" rel='noopener'>Voicemeeter Banana</a>는 가상의 믹서입니다. 여러 입력들을 받고 여러 출력으로 내보내는 역할입니다. 볼륨 조절이나 패닝 등의 기능이 있지만 사실 <a href="//kx.studio/Applications:Carla" target="_blank" rel='noopener'>Carla</a>를 사용하기 위한 엔진 용도로만 쓸 겁니다.<br>
+  이 장치를 Carla와 함께 쓰기 위해서는 설정값을 변경해야 합니다.
+</p>
+  <img class='image center' style="width:70rem;" alt="Image: Voicemeeter Banana setting" border="0" data-original-height="1084" data-original-width="1728" src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8NipXRb0oWFNOAHT9ZtGClhgdaVw5-9F7MCUZDkE_hwGKAUoteyEOWjuKx0fnxHaswMZ1pbrP-b2YbzUKwy1fkUEm3JJCXQImODmrZx5FaTJ-Iz5J5npSUY2EeTwsWGsnZKzfhk6OZ6t_GSH1ZSEQ226ICdTx6fi7R27NrjbWU8BQCG7__MYxFSX8/s1600/VoicemeeterBanana-setting.png"/>
+<p>
+  설정에 들어갑니다.
+</p>
+<img class='image center' style="width:30rem;" alt="Image: Voicemeeter Banana patch setting" border="0" data-original-height="1049" data-original-width="821" src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEguRQ9FmRHsJUm6Teu4wzMX_6ngIa4uAOeC5Rn3A5I4Ji0_WU9hrbEwLVcywGteEEelBU_bO6fp40Zvh6xj8pXPFxEGHe3de55BfYpQdzu2l8cBNE2dC0G7dECquDF7PuW29fagYiVGGSfNFVPr0H1Opwf5C7WXxL7EHxykMg2DrZzkkGse4dDc7AkP/s1600/VoicemeeterBanana-setting-1.png"/>
+<p>
+  사용할 라인을 클릭해서 켜줍니다. 장치가 하나라면 첫번째 left, right만 켜도 무방합니다.
+</p>
+<img class='image center' alt="Image: Voicemeeter Banana Input line set" style="max-width:50rem;" border="0" data-original-height="925" data-original-width="1528" src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgBYg1iSa9w673QQ4DZEjgIarju-DLNVikPwFGOYYli7FvN71X8kjvK5a3H8Ut09bE3m2mWzAIs-FBFjLl3AZJuhDyTd73F3TRjVwMuX-9OFytq0JEfVPoN2J3gIS25msqkynZsoh5zYzjUFOzy5RTGcQ0HlTSR2bJCnabIv_B6ynOfGCIeEbFWNGj9/s1600/VoicemeeterBanana-line1.jpg"/>
+<p>
+  방금 전 열었던 트랙에서 자신의 마이크를 선택합니다.<br>
+  WDM이랑 MME가 있는데 저는 WDM을 선택하면 뚝뚝 끊겼습니다. MME는 지연시간이 길다고 하니 혹시 WDM이 정상적으로 되면 선택하는게 좋을 수도 있겠습니다.<br>
+  같은 방법으로 맨 오른쪽 HARDWARE OUT의 A1에서 <mark>CABLE Input(VB-Audio Virtual Cable)</mark>을 선택합니다. 마찬가지로 WDM은 끊겼어요. 저는 MME만 정상 작동했습니다.
+</p>
+
+<h2 id="p220906-carla" content="Carla">Carla</h2>
+<div class="display">
+  <img alt="Image: Carla" style="max-width:30rem;" border="0" data-original-height="974" data-original-width="1000" src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgA7ivp8DXEf_Csj8AmPvb2vyPFiCIq_K01uN7EgOoe7FULW3gGAbwIC1AXa3xuhVvhb8g2BBvHfpdMg5cka40pDIKn3YrtH8ze-5cKRg8bh_eegohprvHoRm-ABIFUMWUhCga6O4fwXOlhA2bw_m4cBuGWv0RviSXmcDuvZmBHouS9axDSKNy8GgJZ/s1600/Carla.png"/>
+</div>
+<p>
+  <a href="//kx.studio/Applications:Carla" target="_blank" rel='noopener'>Carla</a>는 vsthost 프로그램입니다. 어떤 엔진 내부의 소리에 VST를 적용할 수 있게 해줍니다. 여기서는 그 엔진이 <a href="//vb-audio.com/Voicemeeter/banana.htm" target="_blank" rel='noopener'>Voicemeeter Banana</a>가 됩니다.
+</p>
+<img class='image center' alt="Image: Carla configuration" style="width:30rem;" border="0" data-original-height="138" data-original-width="473" src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj5nZGDo-2wVHx-Tm_SpKYCp9pgDFLzyv-xW_oZ5Q42JaRpBKUNt8zXV6IXd8mjmxDXA8HcyXtntfuFreJNGgIt3MDcRhrWQ6Xxl2KDjqJcyh_v14ksnJedrwF10YPd-a11AY8ZcJd5DkQof8iAJLkInMemgBNMW6OIMV94PDtUnbo_RLbXy6TRqTvL/s1600/Carla-configure.jpg"/>
+<p>
+  이걸 눌러서 설정에 들어갑니다.
+</p>
+<img class='image center' style="width:40em;" alt="Image: Carla engine setting ..." border="0" data-original-height="1347" data-original-width="1191" src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjSvaUstuxV5a0rOuDYe9w2SZ8bvlMmwHeIYmM5Bm_KiQYTgORHAqE0R6Adde1zGVLZ9uzUs6goLkSazLLHNkxvjpyV-E3JFLrnzxPxV9hANGQNGjUMNI9ZxlIgH3CcroHy4Vm-OrQL6mlC5D1xCL-piYUJfhy7SWl9mnsiSt80MbVV1xs63ifrUoz0/s1600/Carla-setting-engine.png"/>
+<img class='image center' style="width:40em;" alt="Image: Carla engine select" border="0" data-original-height="338" data-original-width="590" src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhgjGDek76SUtkJd2b32dNh1H4dqzxZxddjHdnKNV2q82DsUXr3P9ygMVArT245-4uupKaPKAq6etA_2qO0MQHI57z_RhwJJ6aIrtddpnI6WGrSiikOW_Rx3VePTUWdQEoNFQ6TSDuprCT_wXj3RRJU-IQI4sAD5bguHU4o81Q7dv3Ru3aevB9tWvxF/s1600/Carla-engine_select.jpg"/>
+<p>
+  <mark>Voicemeeter Insert Virtual ASIO</mark>를 선택합니다.
+</p>
+<img class='image center' style="width:70rem;" alt="Image: Carla patchbay" border="0" data-original-height="1108" data-original-width="1845" src="//blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifEZT_bJyZ6R1Nlk20aeucNEnw6lhLmJFbKDyUMAMCNJND9LY8Fu9-HhOEx1JWo5ZDTbpMXjsb306LA9ix_XNqUdAte0ADStdTiUK1CBsH3BCW-mt9vzsHU6WARTpdTWikLb936AcFZzYnLVeprX_dfRNPTdaKg46jz9WDa70nrEBj9Khzoa5mLVoS/s1600/Carla-patchbay.png"/>
+<p>
+  저는 지금 VST들이 많지만 처음에는 Audio Input과 Adio Output 두 종류 밖에 없습니다.<br>
+  아까 라인 1을 열고 A1에 아웃풋 설정을 했기 때문에 시작과 끝을 1과 2에 연결해야 합니다. 1은 왼쪽, 2는 오른쪽 트랙이 될 것입니다.<br>
+  VST 폴더 위치는 상관없습니다. 자동으로 스캔하는 기능이 있긴 하지만, 왼쪽 파일 브라우저로 직접 선택해서 넣는게 더 편해요.<br>
+  드래그 해서 각 VST끼리 연결할 수 있습니다. 더블클릭하면 조정 UI가 나옵니다.<br>
+  <br>
+  전부 조정했으면 꼭 저장을 해주셔야 합니다. 다른 설정들은 유지되지만 VST 관련 설정들은 다 날라가요.<br>
+</p>
+
+<h2 content="사용법">사용법</h2>
+<p>
+  우선 <a href="//vb-audio.com/Voicemeeter/banana.htm" target="_blank" rel='noopener'>Voicemeeter Banana</a>를 켭니다. 오른쪽 위 로딩이 완료된 후에 <a href="//kx.studio/Applications:Carla" target="_blank" rel='noopener'>Carla</a>를 켭니다. 기다리지 않으면 제대로 작동하지 않습니다.<br>
+ 이제 우리는 마이크 볼륨이 작으면 키울 수도 있고, 리미터를 걸 수도 있고, 심지어 기타 앰프를 연결할 수도 있습니다. 심지어 미디 키보드를 사용해서 악기를 연주할 수도 있어요!
+</p>
+
+<h2 content="주의사항">주의사항</h2>
+
+<p>
+  특정 상황에 소리가 끊겨 들리는 현상을 발견했습니다.<br>
+  OBS에서 여러번 테스트해보고 알아낸 대처법은 이렇습니다.<br>
+  1. 적용될 프로그램<span style="font-size:.6em;">ex)OBS</span>보다 <mark>먼저</mark> 작동시킬 것!<br>
+  2. 부득이하게 1번을 지키지 못했다면, <a href="#p220906-voicemeeter_banana">Voicemeeter Banana</a>를 먼저 닫고, <a href="#p220906-carla">Carla</a>를 닫은 후 다시 올바른 순서로 켜 주세요.
+</p>
