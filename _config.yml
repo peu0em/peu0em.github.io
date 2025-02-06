@@ -1,3 +1,6 @@
+#information
+title: 프엠
+
 plugins:
   - jekyll-feed
   - jekyll-sitemap

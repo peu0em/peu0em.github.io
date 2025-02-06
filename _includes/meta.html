@@ -1,4 +1,9 @@
-<title>{%if page.title==null%}프엠{%else%}{{page.title}}{%endif%}</title>
+{%if page.title==null%}{%assign title = "프엠"%}
+{%else%}{%assign title = {{page.title}}%}
+{%endif%}
+
+<title>{{title}}</title>
+<link href='/favicon.ico' rel='icon' type='image/x-icon'>
 
 <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0' name='viewport'/>
 <meta name='robots' content='
@@ -9,4 +14,42 @@
   {%-endif-%}
 '>
 
-<!-- need to fill opengraph-->
+<!--meta-->
+<link rel='canonical' href='{{site.url}}'>
+<meta propery='og:url' content='{{page.url}}'>
+<meta name='twitter:url' content='{{page.url}}'>
+<meta property='og:title' content='{{title}}'>
+<meta property='tiwtter:title' content='{{title}}'>
+<meta property='og:site_name' content='{{site.title}}'>
+{%if page.description!=null%}
+  <meta name='description' content='{{page.description}}'>
+  <meta property='og:description' content='{{page.description}}'>
+  <meta name='twitter:description' content='{{page.description}}'>
+{%endif%}
+{%if page.thumbnail!=null%}
+  <meta property='og:image' content='{{page.thumbnail}}'>
+  <meta name='twitter:image' content='{{page.thumbnail}}'>
+{%endif%}
+<script type='application/ld+json'>
+  {
+    "@context": "http://schema.org",
+    "@type": "{%if page.type==null%}BlogPosting{%else%}{{page.type}}{%endif%}",
+    "name": "{{site.title}}",
+    "description": "{{page.description}}"
+    "image": [
+      "{{thumbnail}}"
+    ],
+    "dataPublished": "{{page.date | date:"%Y-%m-%d"}}",
+    "mainEntityOfPage": {
+      "name": "{{title}}",
+      "@type": "WebPage",
+      "@id": "{{page.url}}",
+      "url": "{{page.url}}"
+    }
+    "inLanguage": "ko"
+  }
+</script>
+
+<!--feed-->
+<link title='Atom Feed' href='/feed.xml' rel='alternate' type='application/atom+xml'>
+<link title='RSS Feed' href='/rss.xml' type='application/rss+xml' rel='alternate'>
