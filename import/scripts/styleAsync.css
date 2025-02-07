@@ -2,9 +2,9 @@
 ::selection{background-color:var(--c-tm-c);}
 ::-moz-selection{background-color:var(--c-tm-c);}
 ::-webkit-selection{background-color:var(--c-tm-c);}
-.post h1::selection{background-color:var(--c-tm-db-c);}
-.post h1::-moz-selection{background-color:var(--c-tm-db-c);}
-.post h1::-webkit-selection{background-color:var(--c-tm-db-c);}
+h1.post::selection{background-color:var(--c-tm-db-c);}
+h1.post::-moz-selection{background-color:var(--c-tm-db-c);}
+h1.post::-webkit-selection{background-color:var(--c-tm-db-c);}
 
 /* no user selection */
 .noDrag,.footnote .n,.badge
@@ -12,14 +12,6 @@
 
 /* scroll margin */
 body *{scroll-margin-top:4rem}
-
-/* frame */
-body{
-  font-family:var(--f-serif);
-}
-h1{
-  font-family:var(--f-sanserif);font-weight:100;
-}
 
 /* monospace */
 .monospace,pre,code{
@@ -37,9 +29,9 @@ h1{
 #cookieChoiceInfo .cookie-choices-buttons{font-size:1.1em;font-family:var(--f-sanserif)}
 
 /* post title */
-.post h1{pointer-events:none;}
-.post h1 a{pointer-events:auto;}
-.post h1:hover{background-color:var(--c-tm-db-c)}
+h1.post{pointer-events:none;}
+h1.post a{pointer-events:auto;}
+h1.post:hover{background-color:var(--c-tm-db-c)}
 
 /* neck */
 .neck{
@@ -95,7 +87,7 @@ mark{background:linear-gradient(to top,var(--c-tm-c) 40%,transparent 0);color:va
 h2,h3,h4,h5,h6{
   font-family:var(--f-sanserif);
 }
-.post h2,.post h3,.post h4,.post h5,.post h6{border-right:var(--s-line-t) solid var(--c-tm-c);}
+div.post h2,div.post h3,div.post h4,div.post h5,div.post h6{border-right:var(--s-line-t) solid var(--c-tm-c);}
 h2:first-child,h2+h3,h3+h4,h4+h5,h5+h6,h2.first,h3.first,h4.first,h5.first,h6.first{margin-top:0;}
 /*h2:not(.noDeco)::after,h3:not(.noDeco)::after,h4:not(.noDeco)::after,h5:not(.noDeco)::after,h6:not(.noDeco)::after{
   content:'';background-color:var(--c-tm-c);height:.2rem;
@@ -103,15 +95,6 @@ h2:first-child,h2+h3,h3+h4,h4+h5,h5+h6,h2.first,h3.first,h4.first,h5.first,h6.fi
   vertical-align:middle;
   left:.5em;margin-right:-100%;width:100%;
 }*/
-
-main details>summary{
-  padding:0 .7em;
-  width:100%;
-  cursor:pointer;
-  color:var(--c-ft);
-  box-sizing:border-box;
-}
-main details:hover{border-left-color:var(--c-tm-db-c)}
 
 /* button */
 .button{
@@ -213,10 +196,21 @@ img.badge:not(.nothover):hover,svg.badge:not(.nothover):hover{
 }
 
 /* details */
-main details{
-  border-left:var(--s-line-t) solid var(--c-tm-c);
+main details>summary{
+  padding:0 .7em;
+  width:100%;
+  cursor:pointer;
+  color:var(--c-ft);
+  box-sizing:border-box;
 }
 main details>:not(summary){margin-left:1.5em}
 main details>summary+*{margin-top:1em}
 main .index summary+*{margin-top:0}
 main details>:last-child{margin-bottom:0}
+
+/* interaction change */
+
+/* side border */
+main details:hover{
+  border-left-color:var(--c-tm-db-c);border-right-color:var(--c-tm-db-c);
+}

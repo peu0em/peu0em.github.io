@@ -1,11 +1,12 @@
 ---
 layout: frame
 ---
+<h1 class='post'><a href='{{page.url}}'>{{page.title}}</a></h1>
 <div class='post'>
-  <h1><a href='{{page.url}}'>{{page.title}}</a></h1>
   {%include neck.html content='date'%}
   <main>{{content}}</main>
+  <div class='bottom'>
+    {%include tagsCurrent.html%}
+  </div>
 </div>
-<div class='bottom'>
-  {%include tagsCurrent.html%}
-</div>
+{%include neck.html content='home list'%}
