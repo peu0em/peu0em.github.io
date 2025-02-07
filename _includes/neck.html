@@ -1,0 +1,8 @@
+<div class='neck'>
+  <div class='home badge'>
+    <a href='/'>🏠</a>
+  </div>
+  {%if page.date!=null-%}
+    <div draggable='false' class='date noDrag'>{{page.date | date:'%Y-%m-%d'}}</div>
+  {%-endif%}
+</div>
