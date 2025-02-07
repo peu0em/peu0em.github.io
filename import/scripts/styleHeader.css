@@ -79,7 +79,7 @@ h1{
 }
 h1.index{font-size:3rem;font-size:3rem;text-align:center;}
 
-/* monospace *//
+/* monospace */
 .monospace,pre,code{
   letter-spacing:0;
   overflow-wrap:break-word;white-space:preserve;
