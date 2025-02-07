@@ -6,8 +6,8 @@
 .post h1::-moz-selection{background-color:var(--c-tm-db-c);}
 .post h1::-webkit-selection{background-color:var(--c-tm-db-c);}
 
-/* user selection */
-.noDrag,.jump-link,.PageList,.hp1,.comment-reply,.comment-actions,.avatar-image-container,#blog-pager,.footnote .n
+/* no user selection */
+.noDrag,.footnote .n,.badge
 {-webkit-user-select:none!important;-moz-user-select:none!important;-ms-user-select:none!important;user-select:none!important;}
 
 /* scroll margin */
