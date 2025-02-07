@@ -1,7 +1,6 @@
 var upbarSearchTyped;
 function searchStringChange(str) {
   str = str.replace(/^[\s|\t|\,]+|[\s|\t|\,]+$/g,"");
-  str = str.replace(/[\s|\t|\,]+/g,"|") + '|label:' + str.replace(/[\s|\t|\,]+/g,"|label:");
   return str;
 }
 function upbarSearchF(){

@@ -5,19 +5,9 @@ robots: none
 permalink: /list
 addheader:
   - <link href='/import/scripts/conditional/list.css' rel='stylesheet'>
+  - <script src='/import/scripts/functions/postListListing.js' type='text/javascript'>
 ---
 <main>
   <ul class='post-list'>
-    {%for post in site.posts%}
-      <a href='{{post.url}}'>
-        <li class='badge'>
-          {%if post.thumbnail!=null %}
-            <div class='thumbnail'><img class='thumbnail' src='{{post.thumbnail}}'></div>
-          {%endif%}
-          <div class='title'>{{post.title}}</div>
-          <div class='description'>{{post.description}}</div>
-        </li>
-      </a>
-    {%endfor%}
   </ul>
 </main>
