@@ -15,9 +15,9 @@ function footnoeP(obj){
   }
 }
 {
-  let fnlist = document.querySelectorAll(".c-footnote.c-t");
+  let fnlist = document.querySelectorAll(".footnote.t");
   for(let i=0;i<fnlist.length;i++){
-    let fnnum = fnlist[i].getElementsByClassName("c-n")[0];
+    let fnnum = fnlist[i].getElementsByClassName("n")[0];
     if(fnnum){
       let fnhref = fnnum.getAttribute("href");
       if(fnhref){
@@ -37,7 +37,7 @@ function footnoeP(obj){
         }
         if(!canHover){
           let fnbar = document.createElement("span");
-          fnbar.setAttribute("class","c-bar");
+          fnbar.setAttribute("class","bar");
           fnbar.innerHTML = "<a href=\'"+fnhref+"\' onclick=\'this.parentNode.parentNode.style.display = \"none\"\;\'>↓</a><a onclick=\'this.parentNode.parentNode.style.display = \"none\"\;\'>×</a>";
           fnlist[i].querySelector(":not(.n)").prepend(fnbar);
         }

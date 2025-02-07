@@ -1,7 +1,7 @@
 {%if page.tags!=null%}
     <ul class='tags current'>
       {%for tag in page.tags%}
-        <li><a href='/list?tag={{tag}}'>{{tag}}</a></li>
+        <li><a href='/list?search={{tag}}'>{{tag}}</a></li>
       {%endfor%}
     </ul>
   {%endif%}

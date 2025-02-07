@@ -26,11 +26,12 @@
 }
 
 function listing(list){
-  let space = document.getElementsByClassName('post-list')[0];
+  let space = document.getElementById('post-list');
   list.forEach(post=>{
     let aTag = document.createElement('a');
     aTag.innerHTML = "<li class='badge'>"+(post.thumbnail?"<img class='thumbnail' src='"+post.thumbnail+"'>":"")+"<h2 class='title'>"+post.title+"</h2><div class='description'>"+post.description+"</div></li>";
     aTag.setAttribute('href',post.url);
     space.appendChild(aTag);
   })
+  if(list.length<1) document.getElementById('noResult').hidden=false;
 }
