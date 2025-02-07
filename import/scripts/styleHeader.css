@@ -86,7 +86,8 @@ h1.index{font-size:3rem;font-size:3rem;text-align:center;}
 }
 
 /* post title */
-.post h1 a{color:var(--c-ft);text-align:center;}
+.post h1{text-align:center}
+.post h1 a{color:var(--c-ft)}
 
 /* neck */
 .neck{
