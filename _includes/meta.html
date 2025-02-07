@@ -15,9 +15,10 @@
 '>
 
 <!--meta-->
-<link rel='canonical' href='{{page.url}}'>
-<meta propery='og:url' content='{{page.url}}'>
-<meta name='twitter:url' content='{{page.url}}'>
+<meta charset='UTF-8'>
+<link rel='canonical' href='{{page.url | absolute_url}}'>
+<meta propery='og:url' content='{{page.url | absolute_url}}'>
+<meta name='twitter:url' content='{{page.url | absolute_url}}'>
 <meta property='og:title' content='{{title}}'>
 <meta property='tiwtter:title' content='{{title}}'>
 <meta property='og:site_name' content='{{site.title}}'>
@@ -27,8 +28,8 @@
   <meta name='twitter:description' content='{{page.description}}'>
 {%endif%}
 {%if page.thumbnail!=null%}
-  <meta property='og:image' content='{{page.thumbnail}}'>
-  <meta name='twitter:image' content='{{page.thumbnail}}'>
+  <meta property='og:image' content='{{page.thumbnail | absolute_url}}'>
+  <meta name='twitter:image' content='{{page.thumbnail | absolute_url}}'>
 {%endif%}
 <script type='application/ld+json'>
   {
@@ -36,15 +37,13 @@
     "@type": "{%if page.type==null%}BlogPosting{%else%}{{page.type}}{%endif%}",
     "name": "{{site.title}}",
     "description": "{{page.description}}"
-    "image": [
-      "{{thumbnail}}"
-    ],
+    {%if page.thumbnail!=null%}"image": "{{page.thumbnail | absolute_url}}"{%endif%}
     "dataPublished": "{{page.date | date:"%Y-%m-%d"}}",
     "mainEntityOfPage": {
       "name": "{{title}}",
       "@type": "WebPage",
-      "@id": "{{page.url}}",
-      "url": "{{page.url}}"
+      "@id": "{{page.url | absolute_url}}",
+      "url": "{{page.url | absolute_url}}"
     }
     "inLanguage": "ko"
   }

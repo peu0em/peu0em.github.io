@@ -1,9 +1,9 @@
 <div class='neck'>
-  {%if include.content contains "home"%}
-    <div class='home badge'>
-      <a href='/'>🏠</a>
-    </div>
-  {%endif%}
+  <div class='flex'>
+    {%if include.content contains "home"%}<a class='home badge' href='/'>🏠</a>{%endif-%}
+    {%-if include.content contains "list"%}<a class='list badge' href='/list'>📑</a>{%endif%}
+  </div>
+
   {%if include.content contains "date"%}
     <div draggable='false' class='date noDrag'>{{page.date | date:'%Y-%m-%d'}}</div>
   {%-endif%}

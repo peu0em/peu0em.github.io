@@ -1,14 +1,14 @@
 <!doctype html>
 <html lang='ko'>
   <header>
+    {%include scriptsHeader.html%}
+    {%include fonts.html%}
     {%include meta.html%}
-    {%include scripts.html%}
   </header>
   <body>
-    {%include scriptsBeforeRender.html%}
+    {%include scriptsPrerender.html%}
     {{content}}
     {%include footer.html%}
-    {%include fonts.html%}
-    {%include scriptsAfterRender.html%}
+    {%include scriptsPostrender.html%}
   </body>
 </html>
