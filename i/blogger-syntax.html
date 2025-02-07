@@ -4,6 +4,7 @@ title: 블로거 문법 정리
 addheader: <link href='/import/scripts/conditional/sidebar.css' rel='stylesheet'>
 en: https://peu0em-en.blogspot.com/p/blogger-syntax.html
 ---
+{%include name.html%}
 
 <div class="sidebar-container">
   <div class="sidebar-bar" style="width:10em">
@@ -11,23 +12,23 @@ en: https://peu0em-en.blogspot.com/p/blogger-syntax.html
       <div style="text-align:center;">목차</div>
       <hr class="line" style="width:50%">
       <ul class="index" style="padding:1rem 0">
-        <li><a href="#p-bloggersyntax-m-main" onclick="sidebarMC(&quot;p-bloggersyntax-m-main&quot;)">메인</a></li>
-        <li><a href="#p-bloggersyntax-m-explain" onclick="sidebarMC(&quot;p-bloggersyntax-m-explain&quot;)">설명</a></li>
-        <li><a href="#p-bloggersyntax-m-data" onclick="sidebarMC(&quot;p-bloggersyntax-m-data&quot;)">data:</a></li>
-        <li><a href="#p-bloggersyntax-m-expr" onclick="sidebarMC(&quot;p-bloggersyntax-m-expr&quot;)">expr:</a></li>
-        <li><a href="#p-bloggersyntax-m-beval" onclick="sidebarMC(&quot;p-bloggersyntax-m-beval&quot;)">&lt;b:eval&gt;</a></li>
+        <li><a href="#p-bloggersyntax-m-main" onclick="sidebarMC('p-bloggersyntax-m-main')">메인</a></li>
+        <li><a href="#p-bloggersyntax-m-explain" onclick="sidebarMC('p-bloggersyntax-m-explain')">설명</a></li>
+        <li><a href="#p-bloggersyntax-m-data" onclick="sidebarMC('p-bloggersyntax-m-data')">data:</a></li>
+        <li><a href="#p-bloggersyntax-m-expr" onclick="sidebarMC('p-bloggersyntax-m-expr')">expr:</a></li>
+        <li><a href="#p-bloggersyntax-m-beval" onclick="sidebarMC('p-bloggersyntax-m-beval')">&lt;b:eval&gt;</a></li>
         <li>
           <details>
             <summary>조건문</summary>
             <ul>
-              <li><a href="#p-bloggersyntax-m-cond" onclick="sidebarMC(&quot;p-bloggersyntax-m-cond&quot;)">cond=' '</a></li>
-              <li><a href="#p-bloggersyntax-m-bif" onclick="sidebarMC(&quot;p-bloggersyntax-m-bif&quot;)">&lt;b:if&gt;</a></li>
-              <li><a href="#p-bloggersyntax-m-bswitch" onclick="sidebarMC(&quot;p-bloggersyntax-m-bswitch&quot;)">&lt;b:switch&gt;</a></li>
+              <li><a href="#p-bloggersyntax-m-cond" onclick="sidebarMC('p-bloggersyntax-m-cond')">cond=' '</a></li>
+              <li><a href="#p-bloggersyntax-m-bif" onclick="sidebarMC('p-bloggersyntax-m-bif')">&lt;b:if&gt;</a></li>
+              <li><a href="#p-bloggersyntax-m-bswitch" onclick="sidebarMC('p-bloggersyntax-m-bswitch')">&lt;b:switch&gt;</a></li>
             </ul>
           </details>
         </li>
-        <li><a href="#p-bloggersyntax-m-bloop" onclick="sidebarMC(&quot;p-bloggersyntax-m-bloop&quot;)">&lt;b:loop&gt;</a></li>
-        <li><a href="#p-bloggersyntax-m-bcomment" onclick="sidebarMC(&quot;p-bloggersyntax-m-bcomment&quot;)">&lt;b:comment&gt;</a></li>
+        <li><a href="#p-bloggersyntax-m-bloop" onclick="sidebarMC('p-bloggersyntax-m-bloop')">&lt;b:loop&gt;</a></li>
+        <li><a href="#p-bloggersyntax-m-bcomment" onclick="sidebarMC('p-bloggersyntax-m-bcomment')">&lt;b:comment&gt;</a></li>
       </ul>
     </nav>
   </div>
@@ -76,7 +77,7 @@ en: https://peu0em-en.blogspot.com/p/blogger-syntax.html
       <h3 content="설명">설명</h3>
       
       <p>태그 형식으로 쓰면 그 자리가 값으로 대체됩니다. 예를 들어 <code>blog.title</code>은 블로그 이름인데요, <code>&lt;p&gt;&lt;data:blog.title/&gt;&lt;/p&gt;</code> 하면 p 태그 안에 블로그 이름이 적힙니다.</p>
-      <p>근데 이것보다 중요한 건 <code>expr:</code>입니다. 태그 속성 앞에 저걸 붙이면 그 안에 <code>data;</code>를 쓸 수 있어요. 예를 들어 <code>&lt;meta property='og:site_name' expr:content='data:blog.title'&gt;</code> 하면 메타 태그에 자동으로 블로그 이름을 넣을 수 있습니다. <code>expr:</code>의 문법 설명은 <a title="expr:" href="#p-bloggersyntax-m-expr" onclick="sidebarMC(&quot;p-bloggersyntax-m-expr&quot;)">여기</a>를 참조.</p>
+      <p>근데 이것보다 중요한 건 <code>expr:</code>입니다. 태그 속성 앞에 저걸 붙이면 그 안에 <code>data;</code>를 쓸 수 있어요. 예를 들어 <code>&lt;meta property='og:site_name' expr:content='data:blog.title'&gt;</code> 하면 메타 태그에 자동으로 블로그 이름을 넣을 수 있습니다. <code>expr:</code>의 문법 설명은 <a title="expr:" href="#p-bloggersyntax-m-expr" onclick="sidebarMC('p-bloggersyntax-m-expr')">여기</a>를 참조.</p>
       
       <h3 content="주의사항">주의사항</h3>
       <p>제 추측으로는 맨 앞 접두사에 따라서 쓸 수 있는 위치가 정해지는 것 같습니다. <code>blog.</code>로 시작하면 모든 곳에서 사용 가능하지만, <code>post.</code>로 시작하면 포스트 태그 안에서만 가능하더라고요. (정확히는 <code>&lt;b:includable id='post' var='post'&gt;&lt;/b:includable&gt;</code> 안입니다.)</p>
@@ -250,7 +251,7 @@ en: https://peu0em-en.blogspot.com/p/blogger-syntax.html
       
       <h3 content="설명">설명</h3>
       
-      <p>[내용]에 코딩 언어처럼 변수와 문자열을 넣을 수 있습니다. <code>data:blog.title</code>은 블로그 이름을 표현하는 변수인데요, 오픈그래프 메타 태그에 '~ 블로그'라 하고 싶다면 <code>&lt;meta property='og:site_name' expr:content='data:blog.title + " 블로그"'&gt;</code>라 적으시면 돼요. 그러니까 변수는 그냥 적고, 그냥 내용은 큰따옴표 안에 적고, 그 사이를 +로 연결해주세요. (<code>data:</code>에 대해 더 알고 싶다면 <a href="#p-bloggersyntax-m-data" onclick="sidebarMC(&quot;p-bloggersyntax-m-data&quot;)">여기</a>로.)</p>
+      <p>[내용]에 코딩 언어처럼 변수와 문자열을 넣을 수 있습니다. <code>data:blog.title</code>은 블로그 이름을 표현하는 변수인데요, 오픈그래프 메타 태그에 '~ 블로그'라 하고 싶다면 <code>&lt;meta property='og:site_name' expr:content='data:blog.title + " 블로그"'&gt;</code>라 적으시면 돼요. 그러니까 변수는 그냥 적고, 그냥 내용은 큰따옴표 안에 적고, 그 사이를 +로 연결해주세요. (<code>data:</code>에 대해 더 알고 싶다면 <a href="#p-bloggersyntax-m-data" onclick="sidebarMC('p-bloggersyntax-m-data')">여기</a>로.)</p>
       
       <h3 content="주의사항">주의사항</h3>
       
@@ -264,7 +265,7 @@ en: https://peu0em-en.blogspot.com/p/blogger-syntax.html
       
       <h2 content="&lt;b:eval&gt;">&lt;b:eval&gt;</h2>
       
-      <p><a href="#p-bloggersyntax-m-expr" onclick="sidebarMC(&quot;p-bloggersyntax-m-expr&quot;)" title="expr:">expr:</a>의 결과를 바로 출력해주는 태그입니다.</p>
+      <p><a href="#p-bloggersyntax-m-expr" onclick="sidebarMC('p-bloggersyntax-m-expr')" title="expr:">expr:</a>의 결과를 바로 출력해주는 태그입니다.</p>
       
       <h3 content="구조">구조</h3>
       
@@ -274,7 +275,7 @@ en: https://peu0em-en.blogspot.com/p/blogger-syntax.html
       
       <h3 content="설명">설명</h3>
       
-      <p>진짜 <a href="#p-bloggersyntax-m-expr" onclick="sidebarMC(&quot;p-bloggersyntax-m-expr&quot;)" title="expr:">expr:</a>을 출력해주는 태그입니다. 여기다가 순수하게 <a href="#p-bloggersyntax-m-data" onclick="sidebarMC(&quot;p-bloggersyntax-m-data&quot;)" title="data:">data:</a>만 넣으면 <a href="#p-bloggersyntax-m-data" onclick="sidebarMC(&quot;p-bloggersyntax-m-data&quot;)" title="data:">&lt;data:&gt;</a>랑 똑같습니다.</p>
+      <p>진짜 <a href="#p-bloggersyntax-m-expr" onclick="sidebarMC('p-bloggersyntax-m-expr')" title="expr:">expr:</a>을 출력해주는 태그입니다. 여기다가 순수하게 <a href="#p-bloggersyntax-m-data" onclick="sidebarMC('p-bloggersyntax-m-data')" title="data:">data:</a>만 넣으면 <a href="#p-bloggersyntax-m-data" onclick="sidebarMC('p-bloggersyntax-m-data')" title="data:">&lt;data:&gt;</a>랑 똑같습니다.</p>
       
     </section>
     <section hidden="" id="p-bloggersyntax-m-cond">
@@ -282,7 +283,7 @@ en: https://peu0em-en.blogspot.com/p/blogger-syntax.html
       <h2 content="cond=' '">cond=' '</h2>
       
       <p>조건문을 작성할 때 쓰입니다. 주로 조건문 태그의 속성으로 들어갑니다.</p>
-      <p><a href="#p-bloggersyntax-m-expr" onclick="sidebarMC(&quot;p-bloggersyntax-m-expr&quot;)" title="expr:">expr:</a>의 규칙도 따라갑니다.</p>
+      <p><a href="#p-bloggersyntax-m-expr" onclick="sidebarMC('p-bloggersyntax-m-expr')" title="expr:">expr:</a>의 규칙도 따라갑니다.</p>
       
       <h3 content="문법">문법</h3>
       
@@ -317,7 +318,7 @@ en: https://peu0em-en.blogspot.com/p/blogger-syntax.html
       
       <h3 content="사용되는 태그">사용되는 태그</h3>
       <ul>
-        <li><a href="#p-bloggersyntax-m-bif" onclick="sidebarMC(&quot;p-bloggersyntax-m-bif&quot;)">&lt;b:if&gt;</a></li>
+        <li><a href="#p-bloggersyntax-m-bif" onclick="sidebarMC('p-bloggersyntax-m-bif')">&lt;b:if&gt;</a></li>
         <li>&lt;b:include&gt;</li>
       </ul>
       
@@ -336,7 +337,7 @@ en: https://peu0em-en.blogspot.com/p/blogger-syntax.html
       
       <h3 content="설명">설명</h3>
       
-      <p><code><a title="cond=' '" href="#p-bloggersyntax-m-cond" onclick="sidebarMC(&quot;p-bloggersyntax-m-cond&quot;)">cond=' '</a></code>가 참일 때 실행됩니다. 코딩을 해 보신 분들이라면 익숙하실 거예요.</p>
+      <p><code><a title="cond=' '" href="#p-bloggersyntax-m-cond" onclick="sidebarMC('p-bloggersyntax-m-cond')">cond=' '</a></code>가 참일 때 실행됩니다. 코딩을 해 보신 분들이라면 익숙하실 거예요.</p>
       <img class="image" src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb068GW%2Fbtrq6vgfZUW%2Fa8zwmdx6rYgFKT8N4BKb40%2Fimg.jpg" style="width:20em">
       <p>혹시 모르시는 분들은 <a title="if문 구글 검색" href="https://www.google.com/search?q=if문" target="_blank" rel="noopener">if문을 검색</a>하시면 기초 설명이 잔뜩 나옵니다.</p>
       
@@ -355,7 +356,7 @@ en: https://peu0em-en.blogspot.com/p/blogger-syntax.html
       
       <h3 content="설명">설명</h3>
       
-      <p>[변수]가 [값1]과 같으면 [내용1]을, [값2]와 같으면 [내용2]를, 같은 것이 없으면 [내용3]을 실행하는 구문입니다. <code>var=' '</code>은 <a title="expr:" href="#p-bloggersyntax-m-expr" onclick="sidebarMC(&quot;p-bloggersyntax-m-expr&quot;)">expr:</a>의 규칙을 따릅니다.</p>
+      <p>[변수]가 [값1]과 같으면 [내용1]을, [값2]와 같으면 [내용2]를, 같은 것이 없으면 [내용3]을 실행하는 구문입니다. <code>var=' '</code>은 <a title="expr:" href="#p-bloggersyntax-m-expr" onclick="sidebarMC('p-bloggersyntax-m-expr')">expr:</a>의 규칙을 따릅니다.</p>
       
       <h3 content="주의사항">주의사항</h3>
       

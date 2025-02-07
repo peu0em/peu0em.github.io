@@ -93,6 +93,10 @@ h1{
   background-color:var(--c-tm-c);padding:.25em 1em;width:100%;box-sizing:border-box;
   font-size:2.5rem; font-family:var(--f-sanserif);font-weight:100;
 }
+h1.index{
+  text-align:center;
+  font-size:3rem;
+}
 
 /* cookie notification */
 #cookieChoiceInfo{
