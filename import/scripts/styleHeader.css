@@ -76,6 +76,7 @@ h1{
   margin:0;
   background-color:var(--c-tm-c);padding:.25em 1em;width:100%;box-sizing:border-box;
   font-size:2.5rem; font-family:var(--f-sanserif);font-weight:100;
+  word-break:keep-all;
 }
 h1.index{
   text-align:center;
@@ -139,7 +140,7 @@ main{
 .bottom{padding:1rem}
 
 .tags{cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}
-.tags li a{font-family:var(--f-sanserif);font-weight:300;}
+.tags li a{font-family:var(--f-sanserif);font-weight:300;word-break:keep-all;}
 .tags li a:hover{font-weight:400}
 .tags.current{padding:1rem;font-size:1.2rem}
 .tags.current li+li{margin-left:.75em}
@@ -264,8 +265,8 @@ h2,h3,h4,h5,h6{
   overflow-wrap:break-word;
   position:relative;margin-top:1.5em;margin-bottom:calc(var(--s-font-p) * 1.5);
   overflow:hidden;
-  border-right:var(--s-line-t) solid var(--c-tm-c);
 }
+.post h2,.post h3,.post h4,.post h5,.post h6{border-right:var(--s-line-t) solid var(--c-tm-c);}
 h2:first-child,h2+h3,h3+h4,h4+h5,h5+h6,h2.first,h3.first,h4.first,h5.first,h6.first{margin-top:0;}
 /*h2:not(.noDeco)::after,h3:not(.noDeco)::after,h4:not(.noDeco)::after,h5:not(.noDeco)::after,h6:not(.noDeco)::after{
   content:'';background-color:var(--c-tm-c);height:.2rem;
