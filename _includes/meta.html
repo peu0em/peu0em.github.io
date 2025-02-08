@@ -1,6 +1,9 @@
 {%if page.title==null%}{%assign title = "프엠"%}
 {%else%}{%assign title = {{page.title}}%}
 {%endif%}
+{%if page.thumbnail==null%}{%assign thumbnail = "/import/images/logo-default-square.jpg"%}
+{%else%}{%assign thumbnail = page.thumbnail | absolute_url%}
+{%endif%}
 
 <title>{{title}}</title>
 <link href='/favicon.ico' rel='icon' type='image/x-icon'>
@@ -27,17 +30,15 @@
   <meta property='og:description' content='{{page.description}}'>
   <meta name='twitter:description' content='{{page.description}}'>
 {%endif%}
-{%if page.thumbnail!=null%}
-  <meta property='og:image' content='{{page.thumbnail | absolute_url}}'>
-  <meta name='twitter:image' content='{{page.thumbnail | absolute_url}}'>
-{%endif%}
+<meta property='og:image' content='{{thumbnail}}'>
+<meta name='twitter:image' content='{{thumbnail}}'>
 <script type='application/ld+json'>
   {
     "@context": "http://schema.org",
     "@type": "{%if page.type==null%}BlogPosting{%else%}{{page.type}}{%endif%}",
     "name": "{{site.title}}",
     "description": "{{page.description}}"
-    {%if page.thumbnail!=null%}"image": "{{page.thumbnail | absolute_url}}"{%endif%}
+    "image": "{{thumbnail}}"
     "dataPublished": "{{page.date | date:"%Y-%m-%d"}}",
     "mainEntityOfPage": {
       "name": "{{title}}",
