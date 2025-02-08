@@ -1,9 +1,7 @@
 {%if page.title==null%}{%assign title = "프엠"%}
 {%else%}{%assign title = {{page.title}}%}
 {%endif%}
-{%if page.description==null%}{%assign description = "프엠의 블로그입니다."%}
-{%else%}{%assign description = page.description | replace: '"',"&quot;"%}
-{%endif%}
+{%assign description = page.description | replace: '"',"&quot;"%}
 {%if page.thumbnail==null%}{%assign thumbnail = "/import/images/logo-default-square.jpg" | absolute_url%}
 {%else%}{%assign thumbnail = page.thumbnail | absolute_url%}
 {%endif%}
@@ -29,9 +27,11 @@
 <meta property='og:title' content='{{title}}'>
 <meta property='twitter:title' content='{{title}}'>
 <meta property='og:site_name' content='{{site.title}}'>
-<meta name='description' content='{{description}}'>
-<meta property='og:description' content='{{description}}'>
-<meta name='twitter:description' content='{{description}}'>
+{%if description!=""%}
+  <meta name='description' content='{{description}}'>
+  <meta property='og:description' content='{{description}}'>
+  <meta name='twitter:description' content='{{description}}'>
+{%endif%}
 <meta property='og:image' content='{{thumbnail}}'>
 <meta name='twitter:image' content='{{thumbnail}}'>
 <script type='application/ld+json'>
