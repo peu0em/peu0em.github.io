@@ -52,6 +52,9 @@ body[data-theme="dark"]{
   --f-monospace:'NanumGothicCodingLigature',monospace;
 }
 
+/* scroll margin */
+body *{scroll-margin-top:4rem}
+
 /* anchor */
 a{text-decoration:none;color:var(--c-ft);}
 .highlight,main a:not(.noDeco,.noDeco a,.noUnderline,.noUnderline a,.footnote.t a,.footnote .n,.footnote .n *,.jump-link a,h1.post a,.index a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge),.footnote.t>:not(.n) a{
