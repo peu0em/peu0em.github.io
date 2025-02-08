@@ -9,3 +9,12 @@ kramdwon:
 
 #permalinks
 permalink: pretty
+
+#default
+defaults:
+    -
+        scope:
+            type: "posts"
+        values:
+            layout: "post"
+            permalink: "/p/:year/:month/:day/:title/"
