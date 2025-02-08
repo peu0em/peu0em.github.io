@@ -1,12 +1,13 @@
 {%if page.title==null%}{%assign title = "프엠"%}
 {%else%}{%assign title = {{page.title}}%}
 {%endif%}
-{%if page.description==null%}{%assign description = ""%}
+{%if page.description==null%}{%assign description = "프엠의 블로그입니다."%}
 {%else%}{%assign description = page.description | replace: '"',"&quot;"%}
 {%endif%}
 {%if page.thumbnail==null%}{%assign thumbnail = "/import/images/logo-default-square.jpg" | absolute_url%}
 {%else%}{%assign thumbnail = page.thumbnail | absolute_url%}
 {%endif%}
+{%assign url = page.url |  absolute_url%}
 
 <title>{{title}}</title>
 <link href='/favicon.ico' rel='icon' type='image/x-icon'>
@@ -22,9 +23,9 @@
 
 <!--meta-->
 <meta charset='UTF-8'>
-<link rel='canonical' href='{{page.url | absolute_url}}'>
-<meta propery='og:url' content='{{page.url | absolute_url}}'>
-<meta name='twitter:url' content='{{page.url | absolute_url}}'>
+<link rel='canonical' href='{{url}}'>
+<meta propery='og:url' content='{{url}}'>
+<meta name='twitter:url' content='{{url}}'>
 <meta property='og:title' content='{{title}}'>
 <meta property='twitter:title' content='{{title}}'>
 <meta property='og:site_name' content='{{site.title}}'>
@@ -44,8 +45,8 @@
     "mainEntityOfPage": {
       "name": "{{title}}",
       "@type": "WebPage",
-      "@id": "{{page.url | absolute_url}}",
-      "url": "{{page.url | absolute_url}}"
+      "@id": "{{url}}",
+      "url": "{{url}}"
     }
     "inLanguage": "ko"
   }
