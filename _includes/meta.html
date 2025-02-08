@@ -1,6 +1,9 @@
 {%if page.title==null%}{%assign title = "프엠"%}
 {%else%}{%assign title = {{page.title}}%}
 {%endif%}
+{%if page.description==null%}{%assign description = ""%}
+{%else%}{%assign description = page.description | replace: '"',"&quot;"%}
+{%endif%}
 {%if page.thumbnail==null%}{%assign thumbnail = "/import/images/logo-default-square.jpg" | absolute_url%}
 {%else%}{%assign thumbnail = page.thumbnail | absolute_url%}
 {%endif%}
@@ -25,11 +28,9 @@
 <meta property='og:title' content='{{title}}'>
 <meta property='twitter:title' content='{{title}}'>
 <meta property='og:site_name' content='{{site.title}}'>
-{%if page.description!=null%}
-  <meta name='description' content='{{page.description}}'>
-  <meta property='og:description' content='{{page.description}}'>
-  <meta name='twitter:description' content='{{page.description}}'>
-{%endif%}
+<meta name='description' content='{{description}}'>
+<meta property='og:description' content='{{description}}'>
+<meta name='twitter:description' content='{{description}}'>
 <meta property='og:image' content='{{thumbnail}}'>
 <meta name='twitter:image' content='{{thumbnail}}'>
 <script type='application/ld+json'>
@@ -37,7 +38,7 @@
     "@context": "http://schema.org",
     "@type": "{%if page.type==null%}BlogPosting{%else%}{{page.type}}{%endif%}",
     "name": "{{site.title}}",
-    "description": "{{page.description}}"
+    "description": "{{description}}"
     "image": "{{thumbnail}}"
     "dataPublished": "{{page.date | date:"%Y-%m-%d"}}",
     "mainEntityOfPage": {
