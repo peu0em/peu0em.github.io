@@ -1,13 +1,15 @@
-let reg, filtered, paramSearch;
+let filtered, mode, term;
 let space = document.getElementById('post-list');
 let params = new URLSearchParams(window.location.search);
 if(params.has('search')){
-  paramSearch = params.get('search').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    if(!/\s/.test(paramSearch)) reg = new RegExp(paramSearch,'i');
-    else reg = new RegExp(paramSearch.split(' ').join('|'), 'i');
-}else{
-  reg = /./;
-}
+  mode='search';
+  let paramSearch = params.get('search').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  if(!/\s/.test(paramSearch)) term = new RegExp(paramSearch,'i');
+  else term = new RegExp(paramSearch.split(' ').join('|'), 'i');
+}else if(params.has('tag')){
+  mode='tag';
+  term = params.get('tag');
+}else mode='all';
 
 fetch("/import/data/postList.json")
   .then(response => {
@@ -15,7 +17,18 @@ fetch("/import/data/postList.json")
   })
   .then(data => {
     filtered = data.posts.filter(post=>{
-      return reg.test(post.title) || reg.test(post.description) || reg.test(post.tags);
+      switch(mode){
+        case 'search':
+          return term.test(post.title) || term.test(post.description) || term.test(post.tags);
+        break;
+        case 'tag':
+          return post.tags.includes(term);
+        break;
+        case 'all':
+          return true;
+        break;
+        default: console.log('error');
+      }
     });
     if(filtered.length > 0){
       listing(filtered);
@@ -26,6 +39,7 @@ fetch("/import/data/postList.json")
   })
   .catch(error => console.log('post listing error: ',error))
 ;
+
 
 async function listing(list){
   try{

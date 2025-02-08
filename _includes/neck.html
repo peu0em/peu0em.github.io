@@ -1,7 +1,8 @@
 <div class='neck'>
   <div class='flex'>
-    {%if include.content contains "home"%}<a class='home badge' href='/' draggable='false'>🏠</a>{%endif-%}
-    {%-if include.content contains "list"%}<a class='list badge' href='/list' draggable='false'>📑</a>{%endif%}
+    {%if include.content contains "home"%}<a class='badge' href='/' draggable='false'>🏠</a>{%endif-%}
+    {%-if include.content contains "list"%}<a class='badge' href='/list' draggable='false'>📑</a>{%endif%}
+    {%-if include.content contains "roundabout"%}<a class='badge' href='/i/roundabout' draggable='false'>🔗</a>{%-endif%}
   </div>
 
   {%if include.content contains "date"%}
