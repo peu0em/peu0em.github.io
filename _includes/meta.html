@@ -1,7 +1,7 @@
 {%if page.title==null%}{%assign title = "프엠"%}
 {%else%}{%assign title = {{page.title}}%}
 {%endif%}
-{%if page.thumbnail==null%}{%assign thumbnail = "/import/images/logo-default-square.jpg"%}
+{%if page.thumbnail==null%}{%assign thumbnail = "/import/images/logo-default-square.jpg" | absolute_url%}
 {%else%}{%assign thumbnail = page.thumbnail | absolute_url%}
 {%endif%}
 
