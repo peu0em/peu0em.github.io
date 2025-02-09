@@ -1,5 +1,5 @@
 // footnote
-function footnoeP(obj){
+function footnoe_position(obj){
   let pst = obj.getBoundingClientRect().left;
   let blln = obj.parentNode.querySelector(":not(.n)");
   let wdth = blln.offsetWidth;
@@ -36,21 +36,21 @@ function footnoeP(obj){
             }
           }
         }
-        if(!canHover){
+        if(!can_hover){
           let fnbar = document.createElement("span");
           fnbar.setAttribute("class","bar");
           fnbar.innerHTML = "<a href=\'"+fnhref+"\' onclick=\'this.parentNode.parentNode.style.display = \"none\"\;\'>↓</a><a onclick=\'this.parentNode.parentNode.style.display = \"none\"\;\'>×</a>";
           fnlist[i].querySelector(":not(.n)").prepend(fnbar);
         }
       }
-      switch(canHover){
-        case true: fnlist[i].addEventListener("mouseover",()=>{footnoeP(fnnum);}); break;
+      switch(can_hover){
+        case true: fnlist[i].addEventListener("mouseover",()=>{footnoe_position(fnnum);}); break;
         case false:{
           fnnum.removeAttribute("href");
           fnnum.addEventListener("click",()=>{
             let fnbl = fnlist[i].querySelector(":not(.n)");
             if(fnbl) fnbl.style.display = "block";
-            footnoeP(fnnum);
+            footnoe_position(fnnum);
           });
         } break;
       }
@@ -59,11 +59,11 @@ function footnoeP(obj){
 }
 
 // scroll
-function upbarScrollU(){window.scrollTo(0,0);}
-function upbarScrollD(){window.scrollTo(0,document.body.scrollHeight);}
+function upbar_scroll_up(){window.scrollTo(0,0);}
+function upbar_scroll_down(){window.scrollTo(0,document.body.scrollHeight);}
 
 // theme
-function themeChange(){
+function theme_change(){
   switch(document.body.dataset.theme){
     case "default":
       document.body.dataset.theme = "dark";
@@ -80,41 +80,39 @@ function themeChange(){
 
 // language
 {
-  let current=document.documentElement.getAttribute('lang');
+  let current = document.documentElement.getAttribute('lang');
   let selector = document.getElementById("lang-select");
   selector.addEventListener("change",()=>{
-    if(selector.value!=current){
-      window.location.href = (window['langUrl_'+selector.value])?window['langUrl_'+selector.value]:"/404-language";
-    }
+    if(selector.value!=current) window.location.href = (window['lang_url_'+selector.value])?window['lang_url_'+selector.value]:"/404-language";
   });
 }
 
 // postshare
-var postShareTimeout;
-let postShareTimeoutOn = false;
-function postShare() {
+var post_share_timeout;
+let post_share_timeout_on = false;
+function post_share() {
   window.navigator.clipboard.writeText(window.location.href.replace(/#.*/,""));
-  if(postShareTimeoutOn) clearTimeout(postShareTimeout)
+  if(post_share_timeout_on) clearTimeout(post_share_timeout)
   else{
-    postShareTimeoutOn = true;
-    document.getElementById("upbar-shareB-noti").classList.toggle("v");
+    post_share_timeout_on = true;
+    document.getElementById("upbar-share-button-noti").classList.toggle("v");
   }
-  postShareTimeout = setTimeout(() => {
-    document.getElementById("upbar-shareB-noti").classList.toggle("v");
-    postShareTimeoutOn = false;
+  post_share_timeout = setTimeout(() => {
+    document.getElementById("upbar-share-button-noti").classList.toggle("v");
+    post_share_timeout_on = false;
   },2200);
 }
 
 // search
-var upbarSearchTyped;
-function searchStringChange(str) {
+var upbar_search_typed;
+function search_string_change(str) {
   str = str.replace(/^[\s|\t|\,]+|[\s|\t|\,]+$/g,"");
   return str;
 }
-function upbarSearchF(){
-  upbarSearchTyped = document.getElementById("upbar-search-bar").value;
-  if(!/^\s*\t*$/.test(upbarSearchTyped)){
-    location.href='/list?search='+searchStringChange(upbarSearchTyped);
+function upbar_search_function(){
+  upbar_search_typed = document.getElementById("upbar-search-bar").value;
+  if(!/^\s*\t*$/.test(upbar_search_typed)){
+    location.href='/list?search='+search_string_change(upbar_search_typed);
   }
 }
-function upbarSearchIsitenter(cPressed){if (cPressed == 13){upbarSearchF();}}
+function upbar_search_isitenter(pressed){if (pressed == 13){upbar_search_function();}}

@@ -7,7 +7,7 @@ h1.post::-moz-selection{background-color:var(--c-tm-db-c);}
 h1.post::-webkit-selection{background-color:var(--c-tm-db-c);}
 
 /* no user selection */
-.noDrag,.footnote .n,.badge
+.no-drag,.footnote .n,.badge
 {-webkit-user-select:none!important;-moz-user-select:none!important;-ms-user-select:none!important;user-select:none!important;}
 
 /* monospace */
@@ -15,7 +15,7 @@ h1.post::-webkit-selection{background-color:var(--c-tm-db-c);}
   font-family:var(--f-monospace);
 }
 
-/* cookie notification */
+/* cookie notification 
 #cookieChoiceInfo{
   bottom:0;top:auto;font-size:var(--s-font-p);
   background-color:var(--c-tm-c);
@@ -23,7 +23,7 @@ h1.post::-webkit-selection{background-color:var(--c-tm-db-c);}
 }
 #cookieChoiceInfo *{color:var(--c-ft)}
 #cookieChoiceInfo .cookie-choices-text{font-size:1em;font-family:var(--f-sanserif);word-break:keep-all;}
-#cookieChoiceInfo .cookie-choices-buttons{font-size:1.1em;font-family:var(--f-sanserif)}
+#cookieChoiceInfo .cookie-choices-buttons{font-size:1.1em;font-family:var(--f-sanserif)} */
 
 /* post title */
 h1.post{pointer-events:none;}
@@ -56,11 +56,11 @@ h1.post:hover{background-color:var(--c-tm-db-c)}
   cursor:pointer;
 }
 #upbar-search-button:active{box-shadow:none;outline:none;-webkit-box-shadow:none;}
-#upbar-moveB-up,#upbar-moveB-down,#upbar-shareB{
+#upbar-move-button-up,#upbar-move-button-down,#upbar-share-button{
   background-color:transparent;box-shadow:none;border:none;
   cursor:pointer;
 }
-#upbar-shareB-noti{
+#upbar-share-button-noti{
   top:2.7rem;left:-2rem;
   width:7rem;
   font-size:1rem;text-align:center;
@@ -86,7 +86,7 @@ h2,h3,h4,h5,h6{
 }
 div.post h2,div.post h3,div.post h4,div.post h5,div.post h6{border-right:var(--s-line-t) solid var(--c-tm-c);}
 h2:first-child,h2+h3,h3+h4,h4+h5,h5+h6,h2.first,h3.first,h4.first,h5.first,h6.first{margin-top:0;}
-/*h2:not(.noDeco)::after,h3:not(.noDeco)::after,h4:not(.noDeco)::after,h5:not(.noDeco)::after,h6:not(.noDeco)::after{
+/*h2:not(.no-deco)::after,h3:not(.no-deco)::after,h4:not(.no-deco)::after,h5:not(.no-deco)::after,h6:not(.no-deco)::after{
   content:'';background-color:var(--c-tm-c);height:.2rem;
   position:relative;display:inline-block;
   vertical-align:middle;

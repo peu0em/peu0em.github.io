@@ -57,11 +57,11 @@ body *{scroll-margin-top:4rem}
 
 /* anchor */
 a{text-decoration:none;color:var(--c-ft);}
-.highlight,main a:not(.noDeco,.noDeco a,.noUnderline,.noUnderline a,.footnote.t a,.footnote .n,.footnote .n *,.jump-link a,h1.post a,.index a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge),.footnote.t>:not(.n) a{
+.highlight,main a:not(.no-deco,.no-deco a,.no-underline,.no-underline a,.footnote.t a,.footnote .n,.footnote .n *,.jump-link a,h1.post a,.index a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge),.footnote.t>:not(.n) a{
   position:relative;
   border-bottom:.2em var(--c-tm-c) solid;
 }
-.highlight,main a:not(.noDeco,.noDeco *,.footnote.t a,.footnote .n,.footnote .n *,h1.post a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge):hover{
+.highlight,main a:not(.no-deco,.no-deco *,.footnote.t a,.footnote .n,.footnote .n *,h1.post a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge):hover{
   border-bottom:.2em var(--c-tm-db-c) solid;
 }
 
@@ -161,23 +161,23 @@ div.post{width:100%;padding:1.5rem;box-sizing:border-box;}
   float:right;position:relative;
   font-size:1.56rem;color:var(--c-tm-gr);
 }
-#upbar-moveB{position:relative;font-size:0;float:left;margin:.25rem 0 .25rem .5rem;}
-@-moz-document url-prefix(){#upbar-moveB{top:-.12rem;}}
-#upbar-moveB-up,#upbar-moveB-down,#upbar-shareB{
+#upbar-move-button{position:relative;font-size:0;float:left;margin:.25rem 0 .25rem .5rem;}
+@-moz-document url-prefix(){#upbar-move-button{top:-.12rem;}}
+#upbar-move-button-up,#upbar-move-button-down,#upbar-share-button{
   padding:0;
 }
-#upbar-moveB svg{height:1rem;width:2.5rem;}
-#upbar-moveB button{width:2.5rem;height:1rem;display:block;}
-#upbar-moveB-down{margin-top:.5rem;}
-#upbar-shareB svg{height:2.5rem;width:2.5rem;}
-#upbar-shareB{
+#upbar-move-button svg{height:1rem;width:2.5rem;}
+#upbar-move-button button{width:2.5rem;height:1rem;display:block;}
+#upbar-move-button-down{margin-top:.5rem;}
+#upbar-share-button svg{height:2.5rem;width:2.5rem;}
+#upbar-share-button{
   float:left;margin:.25rem 0 .25rem .5rem;width:2.5rem;height:2.5rem;
   position:relative;
 }
-#upbar-moveB svg{fill:var(--c-ct-r)}
-#upbar-shareB svg{stroke:var(--c-ct-r)}
-#upbar-moveB button:hover svg{fill:var(--c-tm-db-c)}
-#upbar-shareB:hover svg{stroke:var(--c-tm-db-c)}
+#upbar-move-button svg{fill:var(--c-ct-r)}
+#upbar-share-button svg{stroke:var(--c-ct-r)}
+#upbar-move-button button:hover svg{fill:var(--c-tm-db-c)}
+#upbar-share-button:hover svg{stroke:var(--c-tm-db-c)}
 #upbar-search-button:hover{background-color:var(--c-tm-db-c);color:var(--c-ct-r)}
 
 /* noti */

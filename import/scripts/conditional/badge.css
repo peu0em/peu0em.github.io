@@ -1,9 +1,0 @@
-.badge{width:100%;text-align:center;}
-.badge img,.badge svg{
-  border-radius:10%;
-  height:auto;width:auto;
-}
-.badge:not(.nothover) img:hover,.badge:not(.nothover) svg:hover{
-  filter:drop-shadow(.3rem .3rem .5rem rgba(0,0,0,.2));transform:translate(-.1rem,-.1rem);
-  -webkit-filter:drop-shadow(.3rem .3rem .5rem rgba(0,0,0,.2));
-}

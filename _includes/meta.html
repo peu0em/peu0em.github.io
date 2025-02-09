@@ -6,7 +6,6 @@
 {%else%}{%assign thumbnail = page.thumbnail | absolute_url%}
 {%endif%}
 {%assign url = page.url |  absolute_url%}
-{%assign date = page.date | date:"%Y-%m-%d"%}
 
 <title>{{title}}</title>
 <link href='/favicon.ico' rel='icon' type='image/x-icon'>
@@ -42,7 +41,7 @@
     "name": "{{site.title}}",
     "description": "{{description}}",
     "image": "{{thumbnail}}",
-    {%if page.date!="" %}"datePublished": "{{date}}",{%endif%}
+    {%if page.date!=null %}"datePublished": "{{page.date | date:"%Y-%m-d"}}",{%endif%}
     "mainEntityOfPage": {
       "name": "{{title}}",
       "@type": "WebPage",

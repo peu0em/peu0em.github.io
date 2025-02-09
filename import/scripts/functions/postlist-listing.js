@@ -33,7 +33,7 @@ fetch("/import/data/postList.json")
     if(filtered.length > 0){
       listing(filtered);
     }else{
-      document.getElementById('noResult').hidden=false;
+      document.getElementById('no-result').hidden=false;
     }
 
   })
@@ -44,10 +44,10 @@ fetch("/import/data/postList.json")
 async function listing(list){
   try{
     for(let post of list){
-      let aTag = document.createElement('a');
-      aTag.innerHTML = "<li class='badge'>"+(post.thumbnail?"<img class='thumbnail' src='"+post.thumbnail+"'>":"")+"<h2 class='title'>"+post.title+"</h2><div class='description'>"+post.description+"</div></li>";
-      aTag.setAttribute('href',post.url);
-      space.appendChild(aTag);
+      let a_tag = document.createElement('a');
+      a_tag.innerHTML = "<li class='badge'>"+(post.thumbnail?"<img class='thumbnail' src='"+post.thumbnail+"'>":"")+"<h2 class='title'>"+post.title+"</h2><div class='description'>"+post.description+"</div></li>";
+      a_tag.setAttribute('href',post.url);
+      space.appendChild(a_tag);
       await new Promise((resolve)=>{
         let observer = new IntersectionObserver((block)=>{
           block.forEach((block)=>{

@@ -1,0 +1,10 @@
+{%assign langlist="ko en" | split:" "%}
+<script>
+  {%for lang in langlist-%}
+    {%if page.lang[lang]!=null-%}
+      var lang_url_{{lang}}="{{page.lang[lang]}}";
+    {%else-%}
+      var lang_url_{{lang}}=false;
+    {%-endif%}
+  {%-endfor%}
+</script>
