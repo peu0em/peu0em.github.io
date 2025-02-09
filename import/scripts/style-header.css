@@ -154,17 +154,21 @@ div.post{width:100%;padding:1.5rem;box-sizing:border-box;}
   width:30rem;max-width:calc(100% - 10rem);height:2.5rem;border:0;
   font-size:1rem;
   background-color:var(--c-bg-g);color:var(--c-ft);
+  outline:none;
 }
 #upbar-search-button{
   background-color:var(--c-bg-g);
   width:2.5rem;height:2.5rem; border:0;margin:.25rem .5rem .25rem 0;
   float:right;position:relative;
   font-size:1.56rem;color:var(--c-tm-gr);
+  text-align:center;
+  box-shadow:none;
 }
 #upbar-move-button{position:relative;font-size:0;float:left;margin:.25rem 0 .25rem .5rem;}
 @-moz-document url-prefix(){#upbar-move-button{top:-.12rem;}}
 #upbar-move-button-up,#upbar-move-button-down,#upbar-share-button{
   padding:0;
+  background-color:transparent;box-shadow:none;border:none;
 }
 #upbar-move-button svg{height:1rem;width:2.5rem;}
 #upbar-move-button button{width:2.5rem;height:1rem;display:block;}
@@ -227,7 +231,10 @@ h2,h3,h4,h5,h6{
   overflow-wrap:break-word;
   position:relative;margin-top:1.5em;margin-bottom:calc(var(--s-font-p) * 1.5);
   overflow:hidden;
+  font-family:var(--f-sanserif);
 }
+div.post h2,div.post h3,div.post h4,div.post h5,div.post h6{border-right:var(--s-line-t) solid var(--c-tm-c);}
+h2:first-child,h2+h3,h3+h4,h4+h5,h5+h6,h2.first,h3.first,h4.first,h5.first,h6.first{margin-top:0;}
 h2{font-size:4em;font-weight:200;}
 h3{font-size:2em;font-weight:200;}
 h4{font-size:1.5em;font-weight:300;}
@@ -236,12 +243,14 @@ h6{font-size:1em;font-weight:300;}
 
 /* button */
 .button{
+  font-family:var(--f-sanserif);
   border:unset;
   padding:.1em .5em;background-color:var(--c-tm-c);
 }
 .button.i{
   font-size:0;
   padding:0;
+  border-radius:30%;
 }
 
 /* image */
@@ -277,13 +286,16 @@ table.image.center tbody{display:block;width:max-content;margin-left:auto;margin
 .footnote.b{
   padding-top:.3rem;padding-left:.6rem;
   margin-top:2rem;
+  border-top:.2rem solid var(--c-tm-c);
 }
 .footnote.b>*{display:flex}
 .footnote.b:not(.n){font-size:.8em;}
 .footnote.t>:not(.n){
   display:none;
+  z-index:3;position:absolute;
 }
 .footnote.b>*>:not(.n){float:left;margin-left:.7em;max-width:calc(100% - 2em);}
+.footnote.t .bar{position:absolute}
 
 /* script */
 .script{margin: 2em 0;padding-left:1em;}
@@ -319,6 +331,7 @@ hr.line{height:.2rem;width:80%;}
 /* badge */
 .badge{
   height:auto;width:auto;
+  border-radius:2.5rem;
 }
 
 /* details */
