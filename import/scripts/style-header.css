@@ -353,6 +353,12 @@ hr.line{height:.2rem;width:80%;}
 main details{
   margin:1.3em 0;overflow:hidden;
 }
+main details>summary{
+  padding:0 .7em;
+  width:100%;
+  color:var(--c-ft);
+  box-sizing:border-box;
+}
 
 /* center */
 center{display:block;width:100%;}

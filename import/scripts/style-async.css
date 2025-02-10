@@ -147,13 +147,7 @@ img.badge:not(.nothover):hover,svg.badge:not(.nothover):hover{
 }
 
 /* details */
-main details>summary{
-  padding:0 .7em;
-  width:100%;
-  cursor:pointer;
-  color:var(--c-ft);
-  box-sizing:border-box;
-}
+main details>summary{cursor:pointer;}
 main details>:not(summary){margin-left:1.5em;margin-right:1.5em;box-sizing:border-box;}
 main details>summary+*{margin-top:1em}
 main .index summary+*{margin-top:0}
