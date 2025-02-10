@@ -62,7 +62,7 @@ a{text-decoration:none;color:var(--c-ft);}
   position:relative;
   border-bottom:.2em var(--c-tm-c) solid;
 }
-.highlight,main a:not(.no-deco,.no-deco *,.footnote.t a,.footnote .n,.footnote .n *,h1.post a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge):hover{
+.highlight,main a:not(.no-deco,.no-deco *,.footnote.t a,.footnote .n,.footnote .n *,h1.post a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,ol.index a):hover{
   border-bottom:.2em var(--c-tm-db-c) solid;
 }
 
@@ -299,18 +299,29 @@ table.image.center tbody{display:block;width:max-content;margin-left:auto;margin
 .footnote.t .bar{position:absolute}
 
 /* script */
-.script{margin: 2em 0;padding-left:1em;}
+.script:not(details>.script){margin-top:2em;margin-bottom:2em;}
+.script{padding:0 1em;}
 
 /* list */
-ul,ol{padding-right:1.5em;border-right:var(--s-line-t) solid var(--c-tm-c);}
-ol{padding-left:1em}
-ul{padding-left:.75em}
+main li{white-space:normal;overflow-wrap:break-word;}
+ol>li::marker{font-weight:bold;}
+ol.index,.index ol{counter-reset:index;list-style-type:none;}
+ol.index li{counter-increment:index;display:table;}
+ol.index li::before{
+  content:counters(index,". ") ".\00a0";
+  color:var(--c-tm-db-c);font-weight:bold;display:table-cell;white-space:nowrap;
+}
+main ul,main ol{padding-right:1.5em;box-sizing:border-box;}
+main ol{padding-left:1em}
+main ul{padding-left:.75em;list-style-type:square;}
 li::marker{color:var(--c-tm-db-c)}
-ol.index ol{padding-left:0;}
+main ol.index ol{padding-left:0;}
 ul.horizontal,ol.horizontal{display:flex;justify-content:space-evenly}
 ul.horizontal>li,ol.horizontal>li{margin-right:2rem}
 li .flex{display:flex;flex-wrap:wrap;}
-li .flex>ol,li .flex>ul{margin:-.25em 0}
+li .flex>ol,li .flex>ul{margin-left:.5em}
+li .flex *{min-width:1px}
+
 
 /* display */
 .display>*{
@@ -320,9 +331,10 @@ li .flex>ol,li .flex>ul{margin:-.25em 0}
   width:100%; height:100%;
 }
 .display{
-  width:auto;margin:3em auto;
+  width:auto;
   box-sizing:border-box;display:block;
 }
+.display:not(details>.display){margin:3em 0}
 .r-169-h>*{aspect-ratio:16/9;max-width:65rem;}
 .r-169-v>*{aspect-ratio:9/16;max-width:25rem;}
 

@@ -121,19 +121,6 @@ mark{background:linear-gradient(to top,var(--c-tm-c) 40%,transparent 0);color:va
   width:1.7em;
 }
 
-/* list */
-li{white-space:normal;overflow-wrap:break-word;}
-ul{list-style-type:square;}
-ol>li::marker{font-weight:bold;}
-ol.index,.index ol{counter-reset:index;list-style-type:none;}
-ol.index li{counter-increment:index;display:table;}
-ol.index li::before{
-  content:counters(index,". ") ".\00a0";
-  color:var(--c-tm-db-c);font-weight:bold;display:table-cell;white-space:nowrap;
-}
-details>ul,details>ol{padding-left:0}
-li .flex *{min-width:1px}
-
 /* table */
 .table-nospace{border-collapse:collapse;border-spacing:0;border-style:none;padding:0;}
 .table-nospace td ,.table-nospace tr{border-spacing:0;border-style:none;padding:0;margin:0;}
@@ -167,10 +154,11 @@ main details>summary{
   color:var(--c-ft);
   box-sizing:border-box;
 }
-main details>:not(summary){margin-left:1.5em;margin-right:1.5em;}
+main details>:not(summary){margin-left:1.5em;margin-right:1.5em;box-sizing:border-box;}
 main details>summary+*{margin-top:1em}
 main .index summary+*{margin-top:0}
 main details>:last-child{margin-bottom:0}
+details>ul,details>ol{padding-left:0}
 
 /* interaction change */
 
