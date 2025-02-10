@@ -311,7 +311,6 @@ ol.index li::before{
   content:counters(index,". ") ".\00a0";
   color:var(--c-tm-db-c);font-weight:bold;display:table-cell;white-space:nowrap;
 }
-main ul,main ol{padding-right:1.5em;box-sizing:border-box;}
 main ol{padding-left:1em}
 main ul{padding-left:.75em;list-style-type:square;}
 li::marker{color:var(--c-tm-db-c)}
