@@ -10,6 +10,11 @@ h1.post::-webkit-selection{background-color:var(--c-tm-db-c);}
 .no-drag,.footnote .n,.badge
 {-webkit-user-select:none!important;-moz-user-select:none!important;-ms-user-select:none!important;user-select:none!important;}
 
+/* anchor */
+.highlight,main a:not(.no-deco,.no-deco *,.footnote.t a,.footnote .n,.footnote .n *,h1.post a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,ol.index a,a.image):hover{
+  border-bottom:.2em var(--c-tm-db-c) solid;
+}
+
 /* monospace */
 .monospace,pre,code{
   font-family:var(--f-monospace);
