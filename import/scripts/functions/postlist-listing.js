@@ -19,7 +19,7 @@ fetch("/import/data/postList.json")
     filtered = data.posts.filter(post=>{
       switch(mode){
         case 'search':
-          return term.test(post.title) || term.test(post.description) || term.test(post.tags);
+          return term.test(post.title) || term.test(post.description) || term.test(post.tags) || term.test(post.keywords);
         break;
         case 'tag':
           return post.tags.includes(term);

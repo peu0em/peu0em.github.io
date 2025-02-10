@@ -1,23 +1,33 @@
-{%if page.title==null%}{%assign title = "프엠"%}
-{%else%}{%assign title = {{page.title}}%}
-{%endif%}
-{%assign description = page.description | replace: '"',"&quot;"%}
-{%if page.thumbnail==null%}{%assign thumbnail = "/import/images/logo-default-square.jpg" | absolute_url%}
-{%else%}{%assign thumbnail = page.thumbnail | absolute_url%}
-{%endif%}
-{%assign url = page.url |  absolute_url%}
+{%-if page.title==null-%}{%-assign title = "프엠"-%}
+{%-else-%}{%-assign title = {{page.title}}-%}
+{%-endif-%}
+{%-if page.description!=null-%}
+  {%-assign description = page.description | replace: '"',"&quot;"-%}
+{%-endif-%}
+{%-if page.thumbnail==null-%}{%-assign thumbnail = "/import/images/logo-default-square.jpg" | absolute_url-%}
+{%-else-%}{%-assign thumbnail = page.thumbnail | absolute_url-%}
+{%-endif-%}
+{%-assign url = page.url |  absolute_url-%}
+{%-if page.keywords!=null-%}
+  {%-capture keywords-%}
+    {%-for content in page.keywords-%}
+      {{content}}{%-unless forloop.last-%},{%-endunless-%}
+    {%-endfor-%}
+  {%-endcapture-%}
+{%-endif-%}
+{%-if page.robots!=null-%}
+  {%-capture robots-%}
+    {%-for content in page.robots-%}
+      {{content | replace:" ",","}}{%-unless forloop.last-%},{%-endunless-%}
+    {%-endfor-%}
+  {%-endcapture-%}
+{%-endif-%}
 
 <title>{{title}}</title>
 <link href='/favicon.ico' rel='icon' type='image/x-icon'>
 
 <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0' name='viewport'/>
-<meta name='robots' content='
-  {%-if page.robots==null-%}
-    all
-  {%-else-%}
-    {{page.robots|replace:" ",","}}
-  {%-endif-%}
-'>
+<meta name='robots' content='{{robots}}'>
 
 <!--meta-->
 <meta charset='UTF-8'>
@@ -27,11 +37,14 @@
 <meta property='og:title' content='{{title}}'>
 <meta property='twitter:title' content='{{title}}'>
 <meta property='og:site_name' content='{{site.title}}'>
-{%if description!=""%}
+{%-if description!=null-%}
   <meta name='description' content='{{description}}'>
   <meta property='og:description' content='{{description}}'>
   <meta name='twitter:description' content='{{description}}'>
-{%endif%}
+{%-endif-%}
+{%-if keywords!=null-%}
+  <meta name='keywords' content='{{keywords}}'>
+{%-endif-%}
 <meta property='og:image' content='{{thumbnail}}'>
 <meta name='twitter:image' content='{{thumbnail}}'>
 <script type='application/ld+json'>
