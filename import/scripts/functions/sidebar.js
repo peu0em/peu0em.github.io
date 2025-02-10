@@ -1,4 +1,4 @@
-function sidebar_mainchange(id){
+function sidebar_mc(id){
   if(id){
     let main = document.getElementsByClassName("sidebar-main")[0];
     document.getElementById(main.dataset.display).setAttribute("hidden","");
@@ -6,7 +6,7 @@ function sidebar_mainchange(id){
     main.dataset.display = id;
   }
 }
-function sidebar_bottomscript(){
+{
   let cId = get_id_from_url();
-  if(cId) sidebar_mainchange(cId);
+  if(cId) sidebar_mc(cId);
 }
