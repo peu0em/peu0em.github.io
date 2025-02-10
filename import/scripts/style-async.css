@@ -167,7 +167,7 @@ main details>summary{
   color:var(--c-ft);
   box-sizing:border-box;
 }
-main details>:not(summary){margin-left:1.5em}
+main details>:not(summary){margin-left:1.5em;margin-right:1.5em;}
 main details>summary+*{margin-top:1em}
 main .index summary+*{margin-top:0}
 main details>:last-child{margin-bottom:0}

@@ -302,7 +302,7 @@ table.image.center tbody{display:block;width:max-content;margin-left:auto;margin
 .script{margin: 2em 0;padding-left:1em;}
 
 /* list */
-ul,ol{padding-left:1em}
+ul,ol{padding-left:1em;padding-right:1.5em;border-right:var(--s-line-t) solid var(--c-tm-c);}
 li::marker{color:var(--c-tm-db-c)}
 ol.index ol{padding-left:0;}
 ul.horizontal,ol.horizontal{display:flex;justify-content:space-evenly}
