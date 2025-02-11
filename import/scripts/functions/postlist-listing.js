@@ -11,7 +11,7 @@ if(params.has('search')){
   term = params.get('tag');
 }else mode='all';
 
-fetch("/import/data/postList.json")
+fetch("/import/data/postlist.json")
   .then(response => {
     if(response.ok) return response.json();
   })
