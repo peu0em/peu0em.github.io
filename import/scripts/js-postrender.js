@@ -61,6 +61,8 @@ function footnoe_position(obj){
 // scroll
 function upbar_scroll_up(){window.scrollTo(0,0);}
 function upbar_scroll_down(){window.scrollTo(0,document.body.scrollHeight);}
+document.getElementById('upbar-move-button-up').addEventListener('click',upbar_scroll_up);
+document.getElementById('upbar-move-button-down').addEventListener('click',upbar_scroll_down);
 
 // theme
 function theme_change(){
@@ -102,17 +104,22 @@ function post_share() {
     post_share_timeout_on = false;
   },2200);
 }
+document.getElementById('upbar-share-button').addEventListener('click',post_share);
 
 // search
-var upbar_search_typed;
-function search_string_change(str) {
-  str = str.replace(/^[\s|\t|\,]+|[\s|\t|\,]+$/g,"");
-  return str;
-}
-function upbar_search_function(){
-  upbar_search_typed = document.getElementById("upbar-search-bar").value;
-  if(!/^\s*\t*$/.test(upbar_search_typed)){
-    location.href='/list?search='+search_string_change(upbar_search_typed);
+{
+  let upbar_search_typed;
+  function search_string_change(str) {
+    str = str.replace(/^[\s|\t|\,]+|[\s|\t|\,]+$/g,"");
+    return str;
   }
+  function upbar_search_function(){
+    upbar_search_typed = document.getElementById("upbar-search-bar").value;
+    if(!/^\s*\t*$/.test(upbar_search_typed)){
+      location.href='/list?search='+search_string_change(upbar_search_typed);
+    }
+  }
+  function upbar_search_isitenter(pressed){if (pressed == "Enter"){upbar_search_function();}}
 }
-function upbar_search_isitenter(pressed){if (pressed == 13){upbar_search_function();}}
+document.getElementById('upbar-search-button').addEventListener('click',upbar_search_function);
+document.getElementById('upbar-search-bar').addEventListener('keydown',(event) => upbar_search_isitenter(event.key));
