@@ -34,6 +34,7 @@ fetch("/import/data/postlist.json")
       listing(filtered);
     }else{
       document.getElementById('no-result').hidden=false;
+      document.getElementById('post-list').hidden=true;
     }
 
   })
