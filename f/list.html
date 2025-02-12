@@ -10,14 +10,7 @@ addheader:
 <main>
   <ul id='post-list' aria-label='글 목록'>
   </ul>
-  <div hidden id='no-result'>
-    <picture>
-      <source srcset='/import/images/cat-sadonphone.avif' type='image/avif'>
-      <source srcset='/import/images/cat-sadonphone.webp' type='image/webp'>
-      <img class='image center' src='/import/images/cat-sadonphone.jpg' style='width:20em;' width='624' height='524' alt='슬픈 고양이'>
-    </picture>
-    <p style='text-align:center'>결과가 없습니다! 이럴수가!</p>
-  </div>
+  {%include no-result.html%}
 </main>
 
 <script src='/import/scripts/functions/postlist-listing.js' type='text/javascript'></script>
