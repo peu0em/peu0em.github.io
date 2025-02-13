@@ -1,5 +1,12 @@
-<ul>
-  {%for tag in site.tags-%}
-    <li>{{tag|first}}</li>
+{%assign max = site.posts.size%}
+{%capture taglist-%}
+  {%-for tag in site.tags-%}
+    {{max | minus: tag[1].size | prepend:"00000" | slice: -5,5}}<!num!><li><a href='/list/?tag={{tag[0]}}'>{{tag[0]}}</a></li><!split!>
+  {%-endfor-%}
+{%-endcapture%}
+{%assign taglist = taglist | split:"<!split!>" | sort%}
+<ul class='tags all'>
+  {%for line in taglist-%}
+    {{line | split:"<!num!>" | last}}
   {%endfor%}
 </ul>

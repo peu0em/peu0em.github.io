@@ -157,7 +157,7 @@ details>ul,details>ol{padding-left:0}
 /* interaction change */
 
 /* anchor */
-.highlight,main a:not(.no-deco,.no-deco *,.footnote.t a,.footnote .n,.footnote .n *,h1.post a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,a.image):hover{
+.highlight,main a:not(.no-deco,.no-deco *,.footnote.t a,.footnote .n,.footnote .n *,h1.post a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,a.image,.tags a):hover{
   border-bottom:.2em var(--c-tm-db-c) solid;
 }
 
