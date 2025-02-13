@@ -30,10 +30,8 @@ fetch("/import/data/postlist.json")
         default: console.log('error');
       }
     });
-    if(filtered.length > 0){
-      document.getElementById('loading').hidden=true;
-      listing(filtered);
-    }else{
+    if(filtered.length > 0) listing(filtered);
+    else{
       document.getElementById('no-result').hidden=false;
       document.getElementById('post-list').hidden=true;
     }
@@ -62,6 +60,7 @@ async function listing(list){
         observer.observe(space.lastElementChild);
       });
     }
+    document.getElementById('loading').hidden=true;
   }catch(error){
     console.log('listing error: '+error);
   }
