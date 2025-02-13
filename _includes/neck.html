@@ -1,11 +1,11 @@
 <div class='neck'>
-  <div class='flex'>
+  <div class='flex' role='group'>
     {%if include.content contains "home"%}<a class='badge' href='/' draggable='false' aria-label='홈'>🏠</a>{%endif-%}
     {%-if include.content contains "list"%}<a class='badge' href='/list' draggable='false' aria-label='글 목록'>📑</a>{%endif%}
     {%-if include.content contains "roundabout"%}<a class='badge' href='/i/roundabout' draggable='false' aria-label='링크'>🔗</a>{%-endif%}
   </div>
 
   {%if include.content contains "date"%}
-    <div draggable='false' class='date no-drag' aria-label='날짜'>{{page.date | date:'%Y-%m-%d'}}</div>
+    <div draggable='false' class='date no-drag' aria-label='날짜'><time datetime='{{page.date | date:"%Y-%m-%d"}}'>{{page.date | date:'%Y-%m-%d'}}</time></div>
   {%-endif%}
 </div>

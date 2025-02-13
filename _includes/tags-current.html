@@ -1,5 +1,5 @@
 {%if page.tags!=null%}
-    <ul class='tags current' aria-label='태그'>
+    <ul class='tags current' aria-label='태그 목록'>
       {%for tag in page.tags%}
         <li><a href='/list?tag={{tag}}'>{{tag}}</a></li>
       {%endfor%}

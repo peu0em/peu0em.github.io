@@ -5,7 +5,7 @@
   {%-endfor-%}
 {%-endcapture%}
 {%assign taglist = taglist | split:"<!split!>" | sort%}
-<ul class='tags all'>
+<ul class='tags all' aria-label='태그 전체 목록'>
   {%for line in taglist-%}
     {{line | split:"<!num!>" | last}}
   {%endfor%}
