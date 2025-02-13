@@ -31,6 +31,7 @@ fetch("/import/data/postlist.json")
       }
     });
     if(filtered.length > 0){
+      document.getElementById('loading').hidden=true;
       listing(filtered);
     }else{
       document.getElementById('no-result').hidden=false;
