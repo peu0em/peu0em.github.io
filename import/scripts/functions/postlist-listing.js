@@ -32,6 +32,7 @@ fetch("/import/data/postlist.json")
     });
     if(filtered.length > 0) listing(filtered);
     else{
+      document.getElementById('loading').hidden=true;
       document.getElementById('no-result').hidden=false;
       document.getElementById('post-list').hidden=true;
     }
