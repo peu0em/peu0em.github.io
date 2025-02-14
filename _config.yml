@@ -1,9 +1,8 @@
 #information
 title: 프엠
 
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
+#plugins:
+
 kramdwon:
     auto_ids: false
 

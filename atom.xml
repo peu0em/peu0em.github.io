@@ -1,0 +1,23 @@
+---
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title>{{site.title | xml_escape}}</title>
+  <author><name>프엠</name></author>
+  <generator>Jekyll</generator>
+  <logo>{{"/favicon.ico" | absolute_url}}</logo>
+  <link href="{{page.url | absolute_url}}" rel="self"/>
+  <link href="{{site.url | absolute_url}}"/>
+  <link href="{{"/rss.xml" | absolute_url}}" rel="alternate"/>
+
+  {%-for post in site.posts limit:10%}
+  <entry>
+    <title>{%if post.title!=null%}{{post.title | xml_escape}}{%else%}{{post.name | xml_escape}}{%endif%}</title>
+    <link href="{{post.url | absolute_url}}"/>
+    <updated>{{post.date | date:"%Y-%m-%d"}}</updated>
+    {%if post.description!=null%}<summary>{{post.description | xml_escape}}</summary>{%endif%}
+    <content type="html">{{post.content | xml_escape}}</content>
+  </entry>
+  {%-endfor-%}
+</feed>
