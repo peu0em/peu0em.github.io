@@ -1,0 +1,9 @@
+<link href='/import/scripts/style-head.css' rel='stylesheet'>
+<script src='/import/scripts/js-head.js' type='text/javascript'></script>
+<link  href="/import/scripts/style-async.css" rel="stylesheet" media="print" onload='this.media="all"'>
+{%include check-language.html%}
+<!---->
+{%if page.addhead!=none%}
+  {%for line in page.addhead%}{{line}}{%endfor%}
+{%endif%}
+<!---->

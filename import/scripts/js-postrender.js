@@ -58,12 +58,6 @@ function footnoe_position(obj){
   }
 }
 
-// scroll
-function upbar_scroll_up(){window.scrollTo(0,0);}
-function upbar_scroll_down(){window.scrollTo(0,document.body.scrollHeight);}
-document.getElementById('upbar-move-button-up').addEventListener('click',upbar_scroll_up);
-document.getElementById('upbar-move-button-down').addEventListener('click',upbar_scroll_down);
-
 // theme
 function theme_change(){
   switch(document.body.dataset.theme){
@@ -79,47 +73,61 @@ function theme_change(){
       console.log("No Theme");
   }
 }
+{
+  let theme_button = document.getElementById('theme-button');
+  if(theme_button) theme_button.addEventListener('click',theme_change);
+}
 
 // language
 {
   let current = document.documentElement.getAttribute('lang');
   let selector = document.getElementById("lang-select");
-  selector.addEventListener("change",()=>{
-    if(selector.value!=current) window.location.href = (window['lang_url_'+selector.value])?window['lang_url_'+selector.value]:"/404-language";
-  });
+  if(selector){
+    selector.addEventListener("change",()=>{
+      if(selector.value!=current) window.location.href = (window['lang_url_'+selector.value])?window['lang_url_'+selector.value]:"/404-language";
+    });
+  }
 }
 
-// postshare
-var post_share_timeout;
-let post_share_timeout_on = false;
-function post_share() {
-  window.navigator.clipboard.writeText(window.location.href.replace(/#.*/,""));
-  if(post_share_timeout_on) clearTimeout(post_share_timeout)
-  else{
-    post_share_timeout_on = true;
-    document.getElementById("upbar-share-button-noti").classList.toggle("v");
-  }
-  post_share_timeout = setTimeout(() => {
-    document.getElementById("upbar-share-button-noti").classList.toggle("v");
-    post_share_timeout_on = false;
-  },2200);
-}
-document.getElementById('upbar-share-button').addEventListener('click',post_share);
+// upbar 
+if(document.getElementById('upbar')){
 
-// search
-{
-  let upbar_search_typed;
-  function search_string_change(str) {
-    str = str.replace(/^[\s|\t|\,]+|[\s|\t|\,]+$/g,"");
-    return str;
-  }
-  function upbar_search_function(){
-    upbar_search_typed = document.getElementById("upbar-search-bar").value;
-    if(!/^\s*\t*$/.test(upbar_search_typed)){
-      location.href='/list?search='+search_string_change(upbar_search_typed);
+  function upbar_scroll_up(){window.scrollTo(-1,0);}
+  function upbar_scroll_down(){window.scrollTo(-1,document.body.scrollHeight);}
+  document.getElementById('upbar-move-button-up').addEventListener('click',upbar_scroll_up);
+  document.getElementById('upbar-move-button-down').addEventListener('click',upbar_scroll_down);
+
+  var post_share_timeout;
+  let post_share_timeout_on = false;
+  function post_share() {
+    window.navigator.clipboard.writeText(window.location.href.replace(/#.*/,""));
+    if(post_share_timeout_on) clearTimeout(post_share_timeout)
+    else{
+      post_share_timeout_on = true;
+      document.getElementById("upbar-share-button-noti").classList.toggle("v");
     }
+    post_share_timeout = setTimeout(() => {
+      document.getElementById("upbar-share-button-noti").classList.toggle("v");
+      post_share_timeout_on = false;
+    },2200);
   }
-  function upbar_search_isitenter(pressed){if (pressed == "Enter"){upbar_search_function();}}
+  document.getElementById('upbar-share-button').addEventListener('click',post_share);
+
+  {
+    let upbar_search_typed;
+    function search_string_change(str) {
+      str = str.replace(/^[\s|\t|\,]+|[\s|\t|\,]+$/g,"");
+      return str;
+    }
+    function upbar_search_function(){
+      upbar_search_typed = document.getElementById("upbar-search-bar").value;
+      if(!/^\s*\t*$/.test(upbar_search_typed)){
+        location.href='/list?search='+search_string_change(upbar_search_typed);
+      }
+    }
+    function upbar_search_isitenter(pressed){if (pressed == "Enter"){upbar_search_function();}}
+  }
+  document.getElementById('upbar-search-button').addEventListener('click',upbar_search_function);
+  document.getElementById('upbar-search-bar').addEventListener('keydown',(event) => upbar_search_isitenter(event.key));
+
 }
-document.getElementById('upbar-search-button').addEventListener('click',upbar_search_function);
-document.getElementById('upbar-search-bar').addEventListener('keydown',(event) => upbar_search_isitenter(event.key));

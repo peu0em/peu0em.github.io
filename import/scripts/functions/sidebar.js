@@ -7,6 +7,5 @@ function sidebar_mc(id){
   }
 }
 {
-  let cId = get_id_from_url();
-  if(cId) sidebar_mc(cId);
+  if(id_from_url) sidebar_mc(id_from_url);
 }
