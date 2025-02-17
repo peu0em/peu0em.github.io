@@ -129,10 +129,6 @@ mark{background:linear-gradient(to top,var(--c-tm-c) 40%,transparent 0);color:va
 table.innerline td{border:.05em solid var(--c-gr-2)}
 table.innerline{border-collapse:collapse;border:hidden;}
 
-/* group */
-.group{width:max-content;height:auto;white-space:nowrap}
-.group>*{height:auto;max-height:100%;}
-
 /* hr */
 hr.dot{border-radius:50%;}
 
