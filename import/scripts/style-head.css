@@ -392,11 +392,8 @@ main details,.neck,.display,.script{
   #upbar-search-button{display:none;}
   #upbar-search-bar{max-width:calc(100% - 7rem);}
 }
-@media (max-width:768px){
-  body{max-width:768px;}
-  .sidebar-container{flex-direction:column}
-  .sidebar{width:100%!important;height:20vh;margin-bottom:1rem;position:static}
-  .sidebar-container>main{margin-left:0}
+@media (max-width:767px){
+  body{max-width:767px;}
 }
 @media (max-width:1200px){
   footer td.columns-cell{display:block;width:100%!important}
