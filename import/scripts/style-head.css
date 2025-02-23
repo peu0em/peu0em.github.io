@@ -350,9 +350,11 @@ li .flex *{min-width:1px}
 .r-169-v>*{aspect-ratio:9/16;max-width:25rem;}
 
 /* hr */
-hr{margin:1em auto;background-color:var(--c-tm-c);border:none;}
+hr{border:none}
+hr.dot,hr.line{margin:1em auto;background-color:var(--c-tm-c);}
 hr.dot{aspect-ratio:1/1;width:auto;height:.5rem;background-color:var(--c-tm-db-c)}
 hr.line{height:.2rem;width:80%;}
+hr.linespace{height:0;margin:.35em auto;}
 
 /* badge */
 .badge{
@@ -384,9 +386,6 @@ a.center,div.center{width:fit-content}
 /* group */
 .group{width:max-content;height:auto;white-space:nowrap}
 .group>*{height:auto;max-height:99%;}
-
-/* linespace */
-linespace{display:block;height:.7em}
 
 /* side border */
 main details,.neck,.display,.script{
