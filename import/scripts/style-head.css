@@ -336,7 +336,6 @@ li .flex *{min-width:1px}
 /* display */
 .display>*{
   display:block;position:relative;
-  width:100%;
   margin:0 auto;
   width:100%; height:100%;
 }
@@ -345,7 +344,7 @@ li .flex *{min-width:1px}
   box-sizing:border-box;display:block;
 }
 .display:not(details>.display){margin:3em 0}
-.r-169-h>*{aspect-ratio:16/9;max-width:65rem;}
+.r-169-h>*{aspect-ratio:16/9;}
 .r-169-v>*{aspect-ratio:9/16;max-width:25rem;}
 
 /* hr */
