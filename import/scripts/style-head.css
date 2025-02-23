@@ -272,7 +272,6 @@ h6{font-size:clac(var(--s-font-h1) * .25);font-weight:300;}
 /* image */
 .image,.image:not(img) img{width:auto;height:auto;max-width:100%;}
 .image{margin-top:calc(var(--n-lineheight) * 1em);margin-bottom:calc(var(--n-lineheight) * 1em);}
-.image+.image{margin-top:0;}
 .image:not(.center){margin:1em .5em}
 .image>*{max-width:100%}
 .image.right{float:right;margin:0 0 .5em 1em}
