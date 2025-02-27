@@ -61,7 +61,13 @@ body *{scroll-margin-top:4rem}
 a{text-decoration:none;color:var(--c-ft);}
 .highlight,main a:not(.no-deco,.no-deco a,.no-underline,.no-underline a,.footnote.t a,.footnote .n,.footnote .n *,.jump-link a,h1.post a,.index a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,a.image,.tags a),.footnote.t>:not(.n) a{
   position:relative;
-  border-bottom:.2em var(--c-tm-c) solid;
+  box-shadow: inset 0 -.31em 0 var(--c-tm-c);padding:.25em 0;
+}
+
+/* mark */
+mark{
+  background:unset;color:var(--c-ft);
+  box-shadow: inset 0 -.7em 0 var(--c-tm-c);padding:.25em 0;
 }
 
 /* frame*/
