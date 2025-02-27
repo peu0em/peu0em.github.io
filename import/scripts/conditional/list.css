@@ -20,8 +20,12 @@
 #post-list .description{grid-row:2/3;grid-column:auto;}
 
 #post-list .title{
-  font-family:var(--f-sanserif);font-size:3rem;font-weight:100;
+  font-family:var(--f-sanserif);font-size:calc(var(--s-font-h1) * 1);font-weight:100;
   margin:auto 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 #post-list .thumbnail {overflow:hidden;height:10rem;}
 #post-list .description{overflow:hidden;text-overflow:ellipsis;max-height:calc(1em * var(--n-lineheight) * 2);}
+
+@media screen and (max-width:30rem){
+  #post-list .thumbnail{max-width:30vw;height:auto;}
+}

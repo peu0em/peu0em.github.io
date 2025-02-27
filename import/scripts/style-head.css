@@ -397,15 +397,15 @@ main details,.neck,.display,.script{
 }
 
 /* mobile */
-@media (max-width:15rem){
+@media screen and (max-width:15rem){
   body.with-upbar{padding-top:0;}
   #upbar{display:none;}
 }
-@media (max-width:20rem){
+@media screen and (max-width:20rem){
   #upbar-search-button{display:none;}
   #upbar-search-bar{max-width:calc(100% - 7rem);}
 }
-@media screen and (max-width:500px){
+@media screen and (max-width:30rem){
   :root{--s-font-p:1rem}
   :root{--s-font-h1:2rem}
 }
