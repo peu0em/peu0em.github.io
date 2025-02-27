@@ -151,7 +151,7 @@ details>ul,details>ol{padding-left:0}
 
 /* anchor */
 .highlight,main a:not(.no-deco,.no-deco *,.footnote.t a,.footnote .n,.footnote .n *,h1.post a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,a.image,.tags a):hover,.sidebar-bar a:hover{
-  box-shadow: inset 0 -.31em 0 var(--c-tm-db-c);padding:.25em 0;
+  box-shadow: inset 0 -.2rem 0 var(--c-tm-db-c);padding:.3em 0;
 }
 
 /* side border */
