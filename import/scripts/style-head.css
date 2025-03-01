@@ -394,8 +394,8 @@ a.center,div.center{width:fit-content}
 .right+.right{clear:right}
 
 /* group */
-.group{width:max-content;height:auto;white-space:nowrap}
-.group>*{height:auto;max-height:99%;}
+.group{width:max-content;max-width:100%;height:auto;white-space:nowrap}
+.group>*{max-height:99%;}
 
 /* side border */
 main details,.neck,.display,.script{
