@@ -9,6 +9,7 @@
   --s-font-h1:2.5rem;
   --s-line-t:.5rem;
   --s-maxwidth:50rem;
+  --s-linespace-hf:.2em;
 }
 
 /* colors */
@@ -31,7 +32,6 @@ body:not([data-theme="dark"]){
   --c-gr-2:#cccccc;
   --c-gr-5:#808080;
 }
-
 body[data-theme="dark"]{
   --c-bg:#1a1a1a;
   --c-bg-g:#333333;
@@ -54,20 +54,26 @@ body[data-theme="dark"]{
   --f-monospace:'NanumGothicCodingLigature',monospace;
 }
 
+/* preset */
+:root{
+  --p-boxshadow-underline-2:inset 0 -.2rem 0;
+  --p-boxshadow-underline-7:inset 0 -.7rem 0;
+}
+
 /* scroll margin */
 body *{scroll-margin-top:4rem}
 
 /* anchor */
 a{text-decoration:none;color:var(--c-ft);cursor:pointer;}
-.highlight,main a:not(.no-deco,.no-deco a,.no-underline,.no-underline a,.footnote.t a,.footnote .n,.footnote .n *,.jump-link a,h1.post a,.index a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,a.image,.tags a),.footnote.t>:not(.n) a{
+.highlight,main a:not(.no-deco,.no-deco a,.no-underline,.no-underline a,.footnote.t a,.footnote .n,.footnote .n *,.jump-link a,h1.post a,.index a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,a.image,.tags a){
   position:relative;
-  box-shadow: inset 0 -.2rem 0 var(--c-tm-c);padding:.2em 0;
+  box-shadow:var(--p-boxshadow-underline-2) var(--c-tm-c);padding-bottom:var(--s-linespace-hf);
 }
 
 /* mark */
 mark{
   background:unset;color:var(--c-ft);
-  box-shadow: inset 0 -.7em 0 var(--c-tm-c);padding:.2em 0;
+  box-shadow:var(--p-boxshadow-underline-7) var(--c-tm-c);padding-bottom:var(--s-linespace-hf);
 }
 
 /* frame*/
