@@ -3,9 +3,8 @@ layout: post
 title: OBS 사운드 제대로 분리하기
 description: 원컴 OBS 세팅에서 사운드 극한으로 분리하기. 마이크, 게임, 음악, 도네이션 모두 다른 트랙으로 분리. 동시에 도네이션 소리도 듣는 세팅.
 tags: OBS 음향 정보
-thumbnail: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUky75MMjQdXClpOdIjpgciT0siYR8M83TTp3cLMGusru1_5gnTFRcgFizRt9eCl9hxx99Pw5DqCun84usPD6GK5pEp_T7kfxU8c8p0uvyOi1wEMngU_te4h64zOprvukSZPNu5Uz9heRWWjfyVJar1KrqdCdo0BwZszrabt38llKK_Hp6wheHMJfS/s1600/2_audio_tracks.jpg
+thumbnail: /files/obs-track-setting-check.jpg
 ---
-
 <details>
   <summary>목차</summary>
     <ol class="index">
@@ -47,9 +46,21 @@ thumbnail: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUky75MMjQ
 <p>
   우선 기본적으로 트랙을 분리하는 법을 알아야 합니다. (이미 아시는 분을 위한 <a title='브라우저 소스 사운드 분리' href="#p-230617-h2-3">다음 목차로 건너뛰기</a>) 이 설정은 나중에 하는 것이 낫지만, 기초가 되는 부분이라 먼저 설명드립니다.
 </p>
-<div class='c-center' style="text-align:center;">
-  <img style="height:10em;width:auto;display:inline;" class="image" alt="OBS Audio Setting Button" border="0" height="142" width="203" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgQfgKx9jmcp-RJH3ET5uqhE5TVkTZTSJ9Dih0W4r0vRUnICq0s6LqSLa30Imcbesz0G5H6W6g8iQ9OM_1E6qdI0AKs13Lj6bjsfPrIgWZ12liUu642fHf_TS2myJmqF2JOYRfFXSV6308QTEkur42F4jVTQKPc_r6Bd4624ngrSWrcuHHI84elWWJ9/s1600/1_audio_op.jpg"/>
-  <img style="height:10em;width:auto;display:inline;" class="image" alt="OBS Audio Track Setting" border="0" height="280" width="328" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUky75MMjQdXClpOdIjpgciT0siYR8M83TTp3cLMGusru1_5gnTFRcgFizRt9eCl9hxx99Pw5DqCun84usPD6GK5pEp_T7kfxU8c8p0uvyOi1wEMngU_te4h64zOprvukSZPNu5Uz9heRWWjfyVJar1KrqdCdo0BwZszrabt38llKK_Hp6wheHMJfS/s1600/2_audio_tracks.jpg"/>
+<div class='center' style="text-align:center;">
+  <a href='/files/obs-track-setting-button.jpg' target='_blank' class='image'>
+    <picture>
+      <source srcset='/files/obs-track-setting-button.avif' type='image/avif'>
+      <source srcset='/files/obs-track-setting-button.webp' type='image/webp'>
+      <img style="height:10em;width:auto;" alt="OBS 오디오 설정 버튼" height="142" width="203" src="/files/obs-track-setting-button.jpg">
+    </picture>
+  </a>
+  <a href='/files/obs-track-setting-check.jpg' target='_blank' class='image'>
+    <picture>
+      <source srcset='/files/obs-track-setting-check.avif' type='image/avif'>
+      <source srcset='/files/obs-track-setting-check.webp' type='image/webp'>
+      <img style="height:10em;width:auto;" alt="OBS 오디오 트랙 설정" height="280" width="328" src="/files/obs-track-setting-check.jpg">
+    </picture>
+  </a>
 </div>
 <p>
   OBS의 오디오 믹서에서 설정을 누릅니다. 오른쪽에서 트랙을 설정할 수 있습니다. 각 장치마다 트랙을 (중복) 선택할 수 있습니다.
@@ -59,8 +70,20 @@ thumbnail: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUky75MMjQ
 <p>
   설정의 내보내기 탭입니다.
 </p>
-<img class='image center' alt="OBS Stream Audio Track" border="0" height="178" width="613" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7UOU19xI0rQh175TWsjYGXkKjcPNEid9IlVxYY5QXDqDb3FUsGzCU5PfWQuaEhUKU-dEx4hKwzCWqHiRM-rt6UviCUMTOxeOfXMlXlRaIyA9sCpRQRXDKM_a5cZHO9PRpda8Xhka2CeyDG8_xofmx42Uy11nDbTowXu6QQOfVsSozYTl9_T5Ib2OW/s1600/3_stream_audio.jpg"/>
-<img class='image center' style="width:613px;" alt="OBS Record Audio Track" border="0" height="43" width="439" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj6XbPIA2Hq-ld9TUhI9x1IHckEvbDUiOG0k0qpMGGUM6JYzUgKRfYl3mmJVCdDpjosAGIzbZ6sCmN-UjSjml3xXdk3neoDtey0vOasGBwEepEolPs7mSIitgd2eMXl0xyBUB7psn8HhyGRVu6WzG50tKoLgiA27Dp1SVO2ftnTtYcGjqMDKjlyYZ1s/s1600/4_record_audio_track.jpg"/>
+<a href='/files/obs-stream-track.jpg' target='_blank' class='image center'>
+  <picture>
+    <source srcset='/files/obs-stream-track.avif' type='image/avif'>
+    <source srcset='/files/obs-stream-track.webp' type='image/webp'>
+    <img alt="OBS Stream Audio Track" height="178" width="613" src="/files/obs-stream-track.jpg">
+  </picture>
+</a>
+<a href='/files/obs-record-track_check.jpg' target='_blank' class='image center'>
+  <picture>
+    <source srcset='/files/obs-record-track_check.avif' type='image/avif'>
+    <source srcset='/files/obs-record-track_check.webp' type='image/webp'>
+    <img style="width:30em;" alt="OBS Record Audio Track" height="43" width="439" src="/files/obs-record-track_check.jpg">
+  </picture>
+</a>
 <p>
   송출 쪽에는 전부 다 체크한 트랙을, 녹화 쪽에는 사용한 트랙을 전부 체크해주세요.
 </p>
@@ -69,7 +92,13 @@ thumbnail: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUky75MMjQ
 
 <h3 id="p-230617-h3-donationhow" content="방법"><a href="#p-230617-h3-donationhow" >방법</a></h3>
 
-<img class="image center" alt="OBS Control Audio Via OBS" border="0" height="40" width="235" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhxbI7HLO43uHeybGTYbh7yrs6jbtyxQf9Q9-wrYlh-ec9F2A93Op-6e9AlUpXOvqwC7zp52nSYtpbajOjLKZ0ezmgrc3CR8uqSi-4JGar_OV04YlodSp5AJn5CoYxtH4LCGki6uCc-mJPoovC_W2S93Fxn-mcBIIGI2pcUYg8S2NRPKPbwiyxqFD8o/s1600/5_control_audio_obs.jpg"/>
+<a href='/files/obs-control_audio_via_obs.jpg' target='_blank' class='image center'>
+  <picture>
+    <source srcset='/files/obs-control_audio_via_obs.avif' type='image/avif'>
+    <source srcset='/files/obs-control_audio_via_obs.webp' type='image/webp'>
+    <img alt="OBS Control Audio Via OBS" height="40" width="235" src="/files/obs-control_audio_via_obs.jpg">
+  </picture>
+</a>
 <p>
   브라우저 소스 설정에서 <mark>OBS로 오디오를 재편성</mark>을 체크합니다.
 </p>
@@ -104,13 +133,29 @@ thumbnail: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUky75MMjQ
 
 <h3 id="p-230617-h3-3" content="프로그램 소리 넘기기"><a href="#p-230617-h3-3" >프로그램 소리 넘기기</a></h3>
 
-<p>
-  내가 송출하고자 하는 프로그램의 소리를 넘기도록 설정합니다. 여러가지 방법이 있는데 기본적인 방법은 이렇습니다.
-  <img alt="Windows Audio Settings" class="image center" border="0" height="142" width="220" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgXCJKYF0j99ClgyhRju7KCKtRpcKDWxm1qaC8MbHHI4EhedYnSTFSffk75aFfunk9EibRj9bXJy9VUjfYvMD3ddTn4EMyuiaKnwen3OrMdYHvO-sE5cqjzGMgzgv-q81xZDR4hqDCBNnJQDlBbHofo9p0egramMjPCRWYVXa7XtH6ExITUmKCfHJkA/s1600/7_windows_sound_settings.jpg"/>
-  상태표시줄의 볼륨 아이콘을 우클릭하여 소리 설정에 들어갑니다. (바로 위에 볼륨 믹서 열기가 있네요? 윈도우 11이신 분들은 저걸로 직접 들어가면 될 것 같습니다.)
-</p>
-  <img style="width:40rem;height:auto;" class="image center" alt="Windows Program Device Choose" border="0" height="118" width="996" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUj1nTxIByzZQ0XaI2DjOTrKdTH0eqxyrM1aqxeU9t2ydSoODLeD-cJoTqztfifUn-J3z6K0Gh55tdjqDwK3al3btEmB_TFjawE9h9k6ZU1Wsv68zTJVDICw8JcYzfRHzwg9hZVDokuWxJpRx0attZICj4WJIFrfSW7hHRYd2kZKbEQ84OA4VAW-8d/s1600/8_windows_volume_mixer.jpg"/>
-  <img style="width:40rem;height:auto;" class="image center" alt="Windos Volume Mixer" border="0" height="302" width="972" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgRiTqyDehKKnd-1yrNfeuiHUW_ML5dfIN2lhMFifadoAH6-D_fXJ2_PEaCHil5Jbm40-kpS3yaL8jVAOXNI0QenhVsKB_N15c89OZVxyQ5eRIoXAam2uFCo2INT9kqFsFjnzAfI9ZXgI4_Z1ZWadqg3mnaUmje8PilG92RloaE_uY12mGgpBkOpLWD/s1600/9_windows_set_device.jpg"/>
+<p>내가 송출하고자 하는 프로그램의 소리를 넘기도록 설정합니다. 여러가지 방법이 있는데 기본적인 방법은 이렇습니다.</p>
+<a href='/files/obs-cable_input_setting.jpg' target='_blank' class='image center'>
+  <picture>
+    <source srcset='/files/obs-cable_input_setting.avif' type='image/avif'>
+    <source srcset='/files/obs-cable_input_setting.webp' type='image/webp'>
+    <img alt="Windows Audio Settings" height="142" width="220" src="/files/obs-cable_input_setting.jpg">
+  </picture>
+</a>
+<p>상태표시줄의 볼륨 아이콘을 우클릭하여 소리 설정에 들어갑니다. (바로 위에 볼륨 믹서 열기가 있네요? 윈도우 11이신 분들은 저걸로 직접 들어가면 될 것 같습니다.)</p>
+<a href='/files/windows-settings-volume_mixer.jpg' target='_blank' class='image center'>
+  <picture>
+    <source srcset='/files/windows-settings-volume_mixer.avif' type='image/avif'>
+    <source srcset='/files/windows-settings-volume_mixer.webp' type='image/webp'>
+    <img style='width:40rem;' alt="Windows Program Device Choose" height="118" width="996" src="/files/windows-settings-volume_mixer.jpg">
+  </picture>
+</a>
+<a href='/files/windows-settings-systme_sound.jpg' target='_blank' class='image center'>
+  <picture>
+    <source srcset='/files/windows-settings-systme_sound.avif' type='image/avif'>
+    <source srcset='/files/windows-settings-systme_sound.webp' type='image/webp'>
+    <img style="width:40rem;" alt="Windos Volume Mixer" height="302" width="972" src="/files/windows-settings-systme_sound.jpg">
+  </picture>
+</a>
 <p>
   볼륨 믹서로 들어가 원하는 프로그램을 찾은 후 출력 장치를 <mark>Cable Input</mark>으로 바꿉니다. 많이 번거롭죠? 그래서 이런 전환을 도와주는 프로그램이 많이 있습니다. 다만 편하게 쓸만한 프로그램은 찾지 못했고, 현재 저는 <a title='EarTrumpet' href='https://eartrumpet.app/' target='_blank' rel='noopener'>EarTrumpet</a>을 쓰고 있습니다. 이거 너무 귀찮다! PC 소리가 통째로 들어가도 좋으니 도네이션 소리만 분리되면 된다! 생각하시는 분들은 기본 장치를 Cable Input으로 바꿔주세요.
 </p>
@@ -120,8 +165,20 @@ thumbnail: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUky75MMjQ
 <p>
   재생 장치를 Cable Input으로 바꾸면 문제가 발생합니다. 정작 내가 소리를 들을 수가 없다는 것입니다. 이것은 윈도우 자체에 내장되어 있는 모니터링 기능으로 해결합니다. 아까와 같이 소리 설정에 들어가서 '더 많은 소리 설정'에 들어갑니다. (혹은 재생 장치, 녹음 장치 설정 창에 들어갑니다.)
 </p>
-  <img style="width:30rem;height:auto;" class="image center" alt="Cable Input Device Setting" border="0" height="81" width="548" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhBjbdP-XHknerRJevt1GxOOWprVLWLr6Sbijt-HzEIVRLPBGvRSRsD-oook-Wv0KoXgQToTJW9jipjzRfB3-GKM3i6jJuxQtdsc3PXJNTc_0lXUc36NyYgnX6cbJsUr-91_TexRdDrNAVof8QPh1p6M6Kj93PnMmKZ6XKSJbZBBZcwgDwZe0qjq7Lo/s1600/10_cable_device_setting.jpg"/>
-  <img style="width:30rem;height:auto;" class="image center" alt="Cable Input Device Setting" border="0" height="846" width="646" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgoK55z4noM9SvOfZJI-xspujlnX8fa3KFe8m0UJ3u43hsWEykiuddJSnweCq1Bz-AzCexQIunjiIkG_rmkLLHcfGYwxd8tVZjIEsz4wIuya2w3-UrKcX3PaLll9avJg6YrDXqi6_sz_Mc8JEpiNeSnNMbQlfHC7DQyW7x3Gk1l_hLGE9KVlEasHG9K/s1600/11_cable_device_setting.jpg"/>
+<a href='/files/windows-device-cable_output.jpg' class='image center' target='_blank'>
+  <picture>
+    <source srcset='/files/windows-device-cable_output.avif' type='image/avif'>
+    <source srcset='/files/windows-device-cable_output.webp' type='image/webp'>
+    <img style="width:30rem" alt="Cable Input Device Setting" height="81" width="548" src="/files/windows-device-cable_output.jpg">
+  </picture>
+</a>
+<a href='/files/windows-device-cable_output-properites.jpg' target='_blank' class='image center'>
+  <picture>
+    <source srcset='/files/windows-device-cable_output-properites.avif' type='image/avif'>
+    <source srcset='/files/windows-device-cable_output-properites.webp' type='image/webp'>
+    <img style="width:30rem;" alt="Cable Input Device Setting" height="846" width="646" src="/files/windows-device-cable_output-properites.jpg">
+  </picture>
+</a>
 <p>
   <mark>이 장치로 듣기</mark>를 체크하신 다음 소리를 들을 장치를 선택해주세요. 기본 장치로 놓아도 되지만 앞에서 Cable Input을 기본 장치로 전환하는 방식을 선택하신 경우는 특정 장치를 선택해 주셔야 합니다.
 </p><p>
@@ -134,19 +191,42 @@ thumbnail: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUky75MMjQ
   하지만 <a title='Virtual Audio Cable' href="//vb-audio.com/Cable/index.htm" target="_blank" rel='noopener'>VB Virtual Audio Cable</a>에는 딜레이가 있습니다. 우리가 실제로 듣는 소리에도 딜레이가 생기니 아주 불편해집니다. 그래서 설정을 통해 딜레이를 줄여야 합니다.
 </p><p>
   <code>C:\Program Files\VB\CABLE</code>로 가시면 <mark><code>VBCABLE_ControlPanel.exe</code></mark>가 있습니다. 이게 설정 프로그램이예요. 바탕화면에 바로가기를 만들어 두시는 것을 추천드립니다. 재부팅을 아주 많이 할 거거든요.
-</p><p>
-  <img style="width:50rem;" alt="VB Cable Input & Output" class="image c" border="0" height="139" width="925" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-SgJiKdQaohB3He5zjSTebVpQliIx0LzmqJsZh2e7VAmV5JrmD2wFnN8zxO7V1TYWSkNZ5f3qUxU-KQvCIf7_abNWk1_jX_e0PKaGbBbSVJb8ccYmusFLQfGmmsLC_n14xJciM9jVGPYI_Fspj9UYxuGqP96vu7uQzXxaQ5DKNKRNipLvr7LdclMK/s1600/12_cable_input_output.jpg"/>
-  여기 Input과 Output이 있습니다. 이 둘이 같아야 합니다. 이건 아까 윈도우 재생 장치, 녹음 장치 설정에서 바꿀 수 있습니다. 48000hz를 제일 추천해요.
 </p>
-  <img style="width:20rem;" class="image center" alt="VB Cable Status" border="0" height="130" width="373" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_-p5AKfx-5Vd8ygrCvF84ekQAHiS2dU1trgXQWZJiONUFb7J8qSp7eBJnbZOVUPn0uo1FuZCrE0VXxn5cdhODdg6O18uDRsnepIZViPr_yY7SmUHJzyXgQzeWDBxkP6VrPtZJHaP2meTGAyhQAOpwoolPDw4HMewVKPK5bADH1wcV9xZIxb3kdAgr/s1600/12_cable_sr_latency.jpg"/>
+<a href='/files/vb_cable-control-input_output.jpg' target='_blank' class='image center'>
+  <picture>
+    <source srcset='/files/vb_cable-control-input_output.avif' type='image/avif'>
+    <source srcset='/files/vb_cable-control-input_output.webp' type='image/webp'>
+    <img style="width:50rem;" alt="VB Cable Input & Output" height="139" width="925" src="/files/vb_cable-control-input_output.jpg">
+  </picture>
+</a>
+<p>여기 Input과 Output이 있습니다. 이 둘이 같아야 합니다. 이건 아까 윈도우 재생 장치, 녹음 장치 설정에서 바꿀 수 있습니다. 48000hz를 제일 추천해요.</p>
+<a href='/files/vb_cable-control-info.jpg' target='_blank' class='image center'>
+  <picture>
+    <source srcset='/files/vb_cable-control-info.avif' type='image/avif'>
+    <source srcset='/files/vb_cable-control-info.webp' type='image/webp'>
+    <img style="width:20rem;" alt="VB Cable Status" height="130" width="373" src="/files/vb_cable-control-info.jpg">
+  </picture>
+</a>
 <p>여기 Internal SR이 Input과 Output이랑 일치하는지 확인하세요.</p>
-  <img alt="VB Cable Option" class="image center" border="0" height="502" width="417" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiQV36ItY454gz2RknDxqlYCQBBDtxJ5HriLveeuNF0jWntn5roSekVtM5dBaRWjt7tFo9XQW07MmkqqcyZe4LGxFya6fygHTJQOL8sFFsJV_Q0J0SzP2LmkjsnVu0JPlIYc8_1OfNkGHSbSlvjlzFnWohKbxwKqLz-Pp-f6DqueuEfS6tzbtptOE4C/s1600/13_cable_options.jpg"/>
-  <p>일치하지 않는다면 좌측 상단 Option에서 동일한 것을 선택해주세요.</p>
+<a href='/files/vb_cable-control-latency.jpg' target='_blank' class='image center'>
+  <picture>
+    <source srcset='/files/vb_cable-control-latency.avif' type='image/avif'>
+    <source srcset='/files/vb_cable-control-latency.webp' type='image/webp'>
+    <img alt="VB Cable Option" height="502" width="417" src="/files/vb_cable-control-latency.jpg">
+  </picture>
+</a>
+<p>일치하지 않는다면 좌측 상단 Option에서 동일한 것을 선택해주세요.</p>
 <p>
   이제 약간의 노가다가 있습니다.
   아까 Option 메뉴에서 <mark>Set Max Latency</mark>를 보셨나요? 이것이 딜레이 설정입니다. 너무 줄이면 사운드에 손상이 가고, 기본값인 최대는 딜레이가 깁니다.
 </p>
-  <img alt="VB Cable Buffers" class="image center" border="0" height="166" width="559" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgl3QPtz4wirXpU_X0nnq5bl82T4x9u4mqyq_ru65aDHpdr-IPsEybt_spg8Gsg2hWg2_TBxNhgUMYhxloZh5V-o39VWLnmwe--bcbwAQmBILKOMv4BNsM7xBzlFvLSNUN2NE988qSxK_Fzz2iow1H5XwHwCn11X0SCVOfWIdcuOfcPNwSEGgmeNWZJ/s1600/14_cable_buffers.jpg"/>
+<a href='/files/vb_cable-control-info.jpg' target='_blank' class='image center'>
+  <picture>
+    <source srcset='/files/vb_cable-control-info.avif' type='image/avif'>
+    <source srcset='/files/vb_cable-control-info.webp' type='image/webp'>
+    <img alt="VB Cable Buffers" height="166" width="559" src="/files/vb_cable-control-info.jpg">
+  </picture>
+</a>
 <p>
   적정값은 여기서 확인합니다. OBS도 같이 켜고 확인해주세요.
 </p><p>
@@ -191,17 +271,12 @@ thumbnail: https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgUky75MMjQ
 <div class="footnote b">
   <div id="p-230617-fn-latency-b">
     <a href="#p-230617-fn-latency-t" class="n">1</a>
-    <div>
+    <span>
       제작자 측에서 설명하는 Max Latency(이하 레이턴시)는 이 값의 세 배입니다. 들어올 때 하나, 변환 과정에서 하나, 나갈 때 하나, 총 세 부분에서 데이터가 처리되기 때문에 ×3이라는 설명입니다.
-    </div>
+    </span>
   </div>
   <div id="p-230617-fn-pushloss-b">
     <a href="#p-230617-fn-pushloss-t" class="n">2</a>
     <span>(여기는 제 추측이 들어간 설명이니 감안하고 읽어주세요)<hr class='linespace'>Push loss는 출력단(OBS와 연결된 곳)의 손실입니다. Pull loss는 입력단(프로그램과 연결된 곳)입니다. 제 상태를 보시면 입력 단에서 손실이 엄청나게 발생하고 있습니다. 그러나 듣기에는 아무런 문제가 없습니다. 추측상 진짜 장치가 아닌 디지털 컨텐츠가 연결되서 그 정보량이 과다한 것 같습니다. OBS와 연결된 곳에는 6번 손실이 발생했다고 나오는데, 이것은 제가 컴퓨터를 부팅한 후 OBS를 킨 횟수입니다. 즉, OBS와 연결되며 한 버퍼씩 손실이 발생한 것입니다.<hr class='linespace'>한 단계 차이는 그리 크지 않으니 조금 여유를 두는 것도 좋은 것 같습니다.</span>
   </div>
 </div>
-
-<section hidden>
-  <meta property='og:type' content='website'/>
-  <meta name='twitter:card' content='summary_large_image'/>
-</section>

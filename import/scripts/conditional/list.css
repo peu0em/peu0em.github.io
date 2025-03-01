@@ -1,13 +1,13 @@
 #post-list{
   padding:1rem 0;
-  max-width:var(--s-maxwidth);
+  max-width:var(--size-maxwidth);
   width:100%;
   margin:0 auto;
 }
 #post-list li{
   display:grid;
   grid-template-columns:minmax(5rem,auto) auto;
-  grid-template-rows:minmax(0,calc(3rem * var(--n-lineheight)),auto) auto;
+  grid-template-rows:minmax(0,calc(3rem * var(--number-lineheight)),auto) auto;
   column-gap:.5rem;row-gap:.5rem;
   margin:.5rem auto;
   max-height:10rem;
@@ -20,8 +20,8 @@
 #post-list .description{grid-row:2/3;grid-column:auto;}
 
 #post-list .title{
-  font-family:var(--f-sanserif);font-size:calc(var(--s-font-h1) * 1);font-weight:100;
+  font-family:var(--font-sanserif);font-size:calc(var(--size-font-h1) * 1);font-weight:100;
   margin:auto 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 #post-list .thumbnail {overflow:hidden;width:15rem;max-width:20vw;height:auto;}
-#post-list .description{overflow:hidden;text-overflow:ellipsis;max-height:calc(1em * var(--n-lineheight) * 2);}
+#post-list .description{overflow:hidden;text-overflow:ellipsis;max-height:calc(1em * var(--number-lineheight) * 2);}
