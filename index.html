@@ -7,17 +7,19 @@ lang:
 addheader:
   - <link href='/import/scripts/conditional/index.css' rel='stylesheet'>
 ---
-{%include name.html%}
+<div class='index'>
+  {%include logo.html%}
 
-<main>
-  <img alt='Jerry Bowing GIF' class='image center' style='width:30em;height:auto' width='498px' height='373px' src='https://media.tenor.com/pSuK_En8qoIAAAAC/jerry-thanks.gif'>
+  <main>
+    <img alt='Jerry Bowing GIF' class='image center' style='width:30em;height:auto' width='498px' height='373px' src='https://media.tenor.com/pSuK_En8qoIAAAAC/jerry-thanks.gif'>
 
-  {%include neck.html content='list roundabout'%}
+    {%include neck.html content='list roundabout'%}
 
-  <ul aria-label='페이지' class='horizontal no-underline'>
-    <li><a href='/i/blogger-syntax/'>블로거 문법 정리</a></li>
-  </ul>
+    <ul aria-label='페이지' class='horizontal no-underline'>
+      <li><a href='/i/blogger-syntax/'>블로거 문법 정리</a></li>
+    </ul>
 
-  {%include tags-all.html%}
+    {%include tags-all.html%}
 
-</main>
+  </main>
+</div>

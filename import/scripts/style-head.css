@@ -94,7 +94,10 @@ h1{
   word-break:keep-all;
   font-family:var(--font-sanserif);font-weight:100;
 }
-h1.index{font-size:3rem;font-size:3rem;text-align:center;}
+h1.logo{text-align:center;}
+h1.logo>:first-child{width:5rem;height:auto;vertical-align:middle;}
+h1.logo svg>*{fill:var(--color-theme-change)}
+h1.logo svg{background-color:var(--color-font)}
 
 /* monospace */
 .monospace,pre,code{
