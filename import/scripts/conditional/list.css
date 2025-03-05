@@ -23,5 +23,6 @@
   font-family:var(--font-sanserif);font-size:calc(var(--size-font-h1) * 1);font-weight:100;
   margin:auto 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
-#post-list .thumbnail {overflow:hidden;width:15rem;max-width:20vw;height:auto;}
+#post-list .thumbnail {overflow:hidden;max-width:20vw;}
+#post-list .thumbnail img{width:100%;height:100%;object-fit:cover;object-position:right top}
 #post-list .description{overflow:hidden;text-overflow:ellipsis;max-height:calc(1em * var(--number-lineheight) * 2);}
