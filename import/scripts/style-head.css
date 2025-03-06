@@ -68,7 +68,7 @@ body *{scroll-margin-top:4rem}
 
 /* anchor */
 main a{color:var(--color-font);cursor:pointer;}
-.highlight,main a:not(.no-deco,.no-deco a,.no-underline,.no-underline a,.footnote.t a,.footnote .n,.footnote .n *,.jump-link a,h1.post a,.index a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,a.image,.tags a){
+.highlight,main a:not(.no-deco,.no-deco a,.no-underline,.no-underline a,.footnote.t a,.footnote .n,.footnote .n *,.jump-link a,h1.post a,.index a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,a.image,.image a:not(figcaption *),.tags a){
   position:relative;
   box-shadow:var(--preset-boxshadow-underline-2) var(--color-theme-change);padding-bottom:var(--size-linespace-half);
 }
@@ -296,11 +296,14 @@ h6{font-size:clac(var(--size-font-h1) * .25);font-weight:300;}
 .image:not(.center){margin:1em .5em}
 .image>*{max-width:100%}
 .image.right{float:right;margin:0 0 .5em 1em}
-table.image{border-collapse:collapse;border-spacing:0;border-style:none;padding:0;display:block;}
-table.image td , .image tr {border-spacing:0;border-style:none;padding:0;margin:0;}
-table.image tr:first-child>td>*{display:block;padding:0;margin:0;overflow:hidden;width:auto;height:auto;}
-table.image tr:last-child>td{font-size:small;text-align:center;padding-top:.5em;}
-table.image.center tbody{display:block;width:max-content;margin-left:auto;margin-right:auto;}
+figure.image{display:inline-grid;align-items:center;}
+figure.image img:not(figcaption *){
+  grid-column:1/2;grid-row:1/2;
+  margin:0 auto;
+}
+figure.image figcaption{
+  grid-column:1/2;grid-row:2/3;
+  font-size:calc(var(--size-font-p) * .8);}
 
 /* icon */
 .icon{height:1.5em;width:auto;border:0px;vertical-align:bottom;display:inline;}
