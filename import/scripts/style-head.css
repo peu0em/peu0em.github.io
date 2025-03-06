@@ -61,13 +61,13 @@ body[data-theme="dark"]{
 }
 
 /* unset */
-nav{all:unset}
+a,nav{all:unset}
 
 /* scroll margin */
 body *{scroll-margin-top:4rem}
 
 /* anchor */
-a{text-decoration:none;color:var(--color-font);cursor:pointer;}
+main a{color:var(--color-font);cursor:pointer;}
 .highlight,main a:not(.no-deco,.no-deco a,.no-underline,.no-underline a,.footnote.t a,.footnote .n,.footnote .n *,.jump-link a,h1.post a,.index a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,a.image,.tags a){
   position:relative;
   box-shadow:var(--preset-boxshadow-underline-2) var(--color-theme-change);padding-bottom:var(--size-linespace-half);
