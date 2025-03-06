@@ -60,6 +60,9 @@ body[data-theme="dark"]{
   --preset-boxshadow-underline-7:inset 0 -.7rem 0;
 }
 
+/* unset */
+nav{all:unset}
+
 /* scroll margin */
 body *{scroll-margin-top:4rem}
 
