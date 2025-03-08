@@ -98,7 +98,7 @@ h1{
   font-family:var(--font-sanserif);font-weight:100;
 }
 h1.logo{text-align:center;}
-h1.logo a{cursor:pointer;}
+a.logo{cursor:pointer;}
 h1.logo>:first-child{width:5rem;height:auto;vertical-align:middle;}
 h1.logo svg>*{fill:var(--color-theme-change)}
 h1.logo svg{background-color:var(--color-font)}
@@ -112,7 +112,7 @@ h1.logo svg{background-color:var(--color-font)}
 
 /* post title */
 h1.post{text-align:center}
-h1.post a{color:var(--color-font);cursor:pointer;}
+a.post{cursor:pointer;}
 
 /* neck */
 .neck{

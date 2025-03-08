@@ -1,7 +1,7 @@
 {%if include.target!=null%}{%assign target=include.target%}{%else%}{%assign target="/"%}{%endif%}
 
-{%if include.anchor!=false%}<a href='{{target}}' draggable='false'>{%endif%}
-  <h1 class='logo'>
+{%if include.anchor!=false%}<a href='{{target}}' draggable='false' class='logo'>{%endif%}
+  <h1 class='logo' draggable='false'>
     <svg version="1.1" viewBox="0 0 1920 1080" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" draggable='false'>
       <path d="m0 541.47h839.64v220h-839.64z"/>
       <path d="m0 861.47h840v230h-840v-230z"/>
