@@ -13,7 +13,7 @@ h1.post::-webkit-selection{background-color:var(--color-theme-change);}
 /* post title */
 h1.post{pointer-events:none;}
 h1.post a{pointer-events:auto;}
-h1.post:hover{background-color:var(--color-theme-change)}
+h1.post:hover{background-color:var(--color-theme-double-change)}
 
 /* bottom */
 .tags{cursor:default;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}

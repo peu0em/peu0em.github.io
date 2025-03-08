@@ -111,7 +111,7 @@ h1.logo svg{background-color:var(--color-font)}
 
 /* post title */
 h1.post{text-align:center}
-h1.post a{color:var(--color-font)}
+h1.post a{color:var(--color-font);cursor:pointer;}
 
 /* neck */
 .neck{
@@ -128,6 +128,7 @@ h1.post a{color:var(--color-font)}
 }
 .neck .badge{
   padding:.25em;
+  cursor:pointer;
 }
 .neck .date{
   font-size:1rem;
@@ -155,7 +156,7 @@ div.post{
   display:flex;flex-wrap:wrap;
   column-gap:.75em;
 }
-.tags li a{word-break:keep-all;font-family:var(--font-sanserif);font-weight:300;}
+.tags li a{word-break:keep-all;font-family:var(--font-sanserif);font-weight:300;cursor:pointer;}
 .tags li::before{
   content:'#';color:var(--color-theme-double-change);
   display:inline;
@@ -256,6 +257,7 @@ body[data-theme="dark"] #theme-button,body:not([data-theme="dark"]) #theme-butto
   font-size:1rem;
   border:none;background-color:var(--color-theme-change);
   font-family:var(--font-serif);color:var(--color-font);
+  cursor:pointer;
 }
 #lang-select:hover{background-color:var(--color-theme-double-change)}
 
