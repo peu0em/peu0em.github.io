@@ -269,11 +269,9 @@ dfn{all:unset}
 h2,h3,h4,h5,h6{
   letter-spacing:-.02em;word-spacing:.2em;line-height:1.2;
   overflow-wrap:break-word;
-  position:relative;margin-top:1.5em;margin-bottom:calc(var(--size-font-p) * 1.5);
-  overflow:hidden;
+  margin-top:1.5em;margin-bottom:calc(var(--size-font-p) * 1.5);
   font-family:var(--font-sanserif);
 }
-/*div.post h2,div.post h3,div.post h4,div.post h5,div.post h6{border-right:var(--size-line-thick) solid var(--color-theme-change);}*/
 h2:first-child,h2+h3,h3+h4,h4+h5,h5+h6,h2.first,h3.first,h4.first,h5.first,h6.first{margin-top:0;}
 h2{font-size:calc(var(--size-font-h1) * 1.5);font-weight:200;}
 h3{font-size:calc(var(--size-font-h1) * 1);font-weight:200;}
