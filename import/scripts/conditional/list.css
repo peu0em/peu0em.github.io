@@ -7,10 +7,10 @@
 #post-list li{
   display:grid;
   grid-template-columns:minmax(5rem,auto) auto;
-  grid-template-rows:minmax(0,calc(3rem * var(--number-lineheight)),auto) auto;
+  grid-template-rows:max(calc(var(--size-font-h1) * 1 * var(--number-lineheight))) auto;
   column-gap:.5rem;row-gap:.5rem;
   margin:.5rem auto;
-  max-height:10rem;
+  max-height:calc(var(--size-font-p) * 8);
   overflow:hidden;
   padding:1rem;
 }
