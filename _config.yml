@@ -9,8 +9,6 @@ future: true
 kramdwon:
     auto_ids: false
 
-#permalinks
-permalink: pretty
 
 #default
 defaults:
@@ -26,3 +24,13 @@ defaults:
         values:
             layout: "post"
             permalink: "/p/:year/:month/:day/:title/"
+    -
+        scope:
+            path: "/i"
+        values:
+            permalink: pretty
+    -
+        scope:
+            path: "/f"
+        values:
+            permalink: pretty
