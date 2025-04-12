@@ -87,7 +87,7 @@ function theme_change(){
         let urlto = window['lang_url_'+selector.value];
         window.localStorage.setItem("language",selector.value);
         document.body.dataset.language=selector.value;
-        if(!lang_all) window.location.href = (urlto)?urlto:"/404-language";
+        if((!lang_all) && (document.documentElement.getAttribute('lang')!=selector.value)) window.location.href = (urlto)?urlto:"/404-language";
         else language_refresh();
       }
     });
