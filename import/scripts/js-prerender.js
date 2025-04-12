@@ -6,3 +6,9 @@
       themeItem:(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"default")
   ;
 }
+
+// language
+{
+  let languageItem = window.localStorage.getItem("language");
+  document.body.dataset.language = languageItem?languageItem:"kr";
+}

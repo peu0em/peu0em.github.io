@@ -1,8 +1,9 @@
 {%assign langlist="ko en" | split:" "%}
 <script>
+  var lang_all = {%if page.lang=="all"%}true{%else%}false{%endif%};
   {%for lang in langlist-%}
     {%if page.lang[lang]!=null-%}
-      var lang_url_{{lang}}="{{page.lang[lang]}}";
+      var lang_url_{{lang}}="{{page.lang[lang]|absolute_url}}";
     {%else-%}
       var lang_url_{{lang}}=false;
     {%-endif%}

@@ -2,8 +2,7 @@
 layout: frame
 
 description: 프엠의 블로그
-lang:
-  en: https://peu0em-en.blogspot.com
+lang: all
 addheader:
   - <link href='/import/scripts/conditional/index.css' rel='stylesheet'>
 ---
@@ -15,8 +14,8 @@ addheader:
 
     {%include neck.html content='list roundabout'%}
 
-    <ul aria-label='페이지' class='horizontal no-underline'>
-      <li><a href='/i/blogger-syntax/'>블로거 문법 정리</a></li>
+    <ul aria-label='페이지' aria-label-ko='페이지' aria-label-en='Pages' class='horizontal no-underline multilanguage'>
+      <li><a href='/i/blogger-syntax/' href-en'https://peu0em-en.blogspot.com/p/blogger-syntax.html' class='multilanguage' content-ko='블로거 문법 정리' content-en='Blogger Syntax'>블로거 문법 정리</a></li>
     </ul>
 
     {%include tags-all.html%}
