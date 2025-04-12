@@ -109,7 +109,7 @@ function language_refresh(){
   }
 }
 language_refresh();
-document.getElementById("lang-select").querySelector("[value='"+((document.body.dataset.language)?document.body.dataset.language:"ko")+"']").setAttribute("selected","");
+document.getElementById("lang-select").querySelector("[value='"+(document.body.dataset.language?document.body.dataset.language:(document.documentElement.getAttribute("lang")?document.documentElement.getAttribute("lang"):"ko"))+"']").setAttribute("selected","");
 
 // upbar 
 if(document.getElementById('upbar')){
