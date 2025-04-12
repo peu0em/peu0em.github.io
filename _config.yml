@@ -28,9 +28,9 @@ defaults:
         scope:
             path: "/i"
         values:
-            permalink: pretty
+            permalink: ":path/:title/"
     -
         scope:
             path: "/f"
         values:
-            permalink: pretty
+            permalink: ":path/:title/"
