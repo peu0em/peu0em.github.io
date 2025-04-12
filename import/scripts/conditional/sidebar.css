@@ -9,6 +9,7 @@
 }
 .sidebar-bar .index{overflow:scroll;}
 .sidebar-bar .index li{list-style:none;margin:.5em 0;}
+.sidebar-bar .index li a{cursor:pointer}
 .sidebar-bar .index li:first-child{margin-top:0}
 .sidebar-bar .index ul{margin-left:1rem}
 .sidebar-bar summary,.sidebar-bar ul{padding:0}
