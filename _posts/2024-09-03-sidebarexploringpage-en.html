@@ -1,0 +1,185 @@
+---
+layout: post
+title: Making Sidebar Exploring Page
+description: Making sidebar exploring page in a post.
+tags: CSS Javascript information HTML
+lang:
+  current: en
+  ko: /p/2024/08/10/sidebarexploringpage
+---
+<p>This sidebar is special. I wanted to build archive form page like the <a title='HTML' href='https://developer.mozilla.org/ko/docs/Web/HTML' target='_blank' rel='noopener'>mdn web docs</a> when it's impossible to control the page's structure. And the result is <a title='Blogger Syntax' href='https://peu0em-en.blogspot.com/p/blogger-syntax.html'>this page</a>.</p>
+
+<!--more-->
+
+<details>
+  <summary>Index</summary>
+  <ol class='index'>
+    <li><a href='#p-240810-h-summary'>Summary</a></li>
+    <li><a href='#p-240810-h-frame'>Frame</a>
+      <ol>
+        <li><a href='#p-240810-h-html'>HTML</a></li>
+        <li><a href='#p-2240810-h-css'>CSS</a></li>
+      </ol>
+    </li>
+    <li><a href='#p-240810-h-function'>Function Implementation</a>
+      <ol>
+        <li><a href='#p-240810-h-basics'>Mechanism</a></li>
+        <li><a href='#p-240810-h-js'>Javascript</a></li>
+        <li><a href='#p-240810-h-urlinclude'>Applying URL</a></li>
+        <li><a href='#p-240810-h-anchor'>&lt;a&gt; Form</a></li>
+      </ol>
+    </li>
+    <li><a href='#p-240810-h-finalform'>Final Form</a></li>
+    <li><a href='#p-240810-h-end'>Done</a></li>
+  </ol>
+</details>
+
+<h2 content='Summary' id='p-240810-h-summary'><a href='#p-240810-h-summary'>Summary</a></h2>
+
+<p>As I mentioned earlier this sidebar menu is completed in a post. If we could control page structure, this problem simply solves with sub pages. The sidebar function will be done with only <code>position: sticky</code>.</p>
+<p>But if you are going to complete all this functions in a post, it goes complicated. If you write indivisual posts for each menu, post managing will be hard, post list will be complicated, URL structure will be not uniformed, you have to syncronize sidebar menu by hand. I will be like sidebar because you can't apply <code>height: 100%</code> if you put sidebar directly in specific HTML.</p>
+<p>So I wanted a page that can indivisually works. So I wanted something that doesn't be effected by parents structure, don't need to write other posts to use, works well by own. Of course I didn't check other environment because I only do Blogger. (But I know a condition that unable to use at. You can't have <code>overflow: hidden</code> in parent nodes.)</p>
+
+<h2 content='Frame' id='p-240810-h-frame'><a href='#p-240810-h-frame'>Frame</a></h2>
+
+<h3 content='HTML' id='p-240810-h-html'><a href='#p-240810-h-html'>HTML</a></h3>
+
+<div class='script' translate='no'>
+  <pre>&lt;div class='sidebar-container'&gt;
+  &lt;aside class='sidebar'&gt;
+    [details]
+  &lt;/aside&gt;
+  &lt;main&gt;
+    [details]
+  &lt;/main&gt;
+&lt;/div&gt;</pre>
+</div>
+
+<p>It's simple. Actually deviding with aside tag and main tag is not necessary either. I just used sementic tags. The point is covering with a div. That's all.</p>
+
+<h3 content='CSS' id='p-240810-h-css'><a href='#p-2240810-h-css'>CSS</a></h3>
+
+<div class='script' translate='no'>
+  <pre>.sidebar-container { display: flex }
+.sidebar {
+  position: sticky;
+  height: max-content;
+  max-height: 100vh;
+  display: block;
+  overflow: auto;
+  top: 0;
+}
+.sidebar-container > main { width: 100% }</pre>
+</div>
+
+<p>I omitted additional design like margin.</p>
+<p>The most important thing is <code>display: flex</code>. Pages like this doesn't have fixed height. And I couldn't use <code>height: 100%</code>. I had considered calculating height through javascript but I found a easier way. Flex worked. While writing this post I found out by web search that not using sticky in flexbox is general. Because of syncronized height. But sidebar was possible because this need to have same height with other at first.</p>
+<p><code>position: sticky</code> is the core. This makes sidebar follows users scroll. Surprisingly <code>max-height: 100vh</code> is the core too. Except this, if sidebar is longer than the main part space added under the main part. <code>overflow: auto</code> needs too to scroll. <code>top: 0</code> for sticky. But if you got bar on the top like me you have to add distance on top.</p>
+<p>Width 100% on main is not necessary but required when you got width-based design. Even if you don't, I suggest you to add the code.</p>
+
+<h2 content='Function Implementation' id='p-240810-h-function'><a href='#p-240810-h-function'>Funtion Implementation</a></h2>
+
+<p>This part is not about sidebar. About showing proper contents in the main. As I mentioned before this is for completing in one post or page, so it's   wild goose chase for who don't.</p>
+
+<h3 content='Mechanism' id='p-240810-h-basics'><a href='#p-240810-h-basics'>Mechanism</a></h3>
+
+<p>First I divided <code>&lt;main&gt;</code> with multiple <code>&lt;section&gt;</code>s. This can be alternated with other tags like <code>&lt;div&gt;</code>. It's on your taste!</p>
+<p>And I put <code>hidden</code> in every sections except a default view.</p>
+<div translate='no' class='script'>
+  <pre>&lt;section id='...'&gt;
+  [main]
+&lt;/section&gt;
+&lt;section id='...' hidden&gt;
+  [details]
+&lt;/section&gt;
+&lt;section id='...' hidden&gt;
+  [details]
+&lt;/section&gt;</pre>
+</div>
+<p>Like this.</p>
+<p><code>hidden</code> is just for not showing.</p>
+
+<h3 content='Javascript' id='p-240810-h-js'><a href='#p-240810-h-js'>Javascript</a></h3>
+
+<p>First let's make a function.</p>
+
+<div class='script' translate='no'>
+  <pre>function sidebar(id) {
+  if(id) {
+    let m = document.getElementsByTagName("main")[0];
+    document.getElementById(m.dataset.display).setAttribute("hidden","");
+    document.getElementById(id).removeAttribute("hidden");
+    m.dataset.display = id;
+  }
+}</pre>
+</div>
+
+<p>This is for hide displaying part, show tag have same id with input, save that id in the main tag. For this you need to have <code>data-display</code> in the document, and you need to have no <code>hidden</code> attribute in that tag. You might say "Just find a tag that not containing <code>hidden</code> attribute.". You can do that. But I prefer performance than my convenience.</p>
+
+<h3 content='Applying URL' id='p-240810-h-urlinclude'><a href='#p-240810-h-urlinclude'>Applying URL</a></h3>
+
+<p>We have a problem. If someone just copy url and share, reciever will always start at main part wheather where viewer was at. And if you refresh the page, you will return to the main view. You got #id behind url if we links id with the <code>&lt;a&gt;</code> tag, and we'll use this.</p>
+
+<div class='script' translate='no'>
+  <pre>&lt;script&gt;
+  let id = window.location.href.replace(/^.+\#/, "");
+  if(id != window.location.href) sidebar(id);
+&lt;/script&gt;</pre>
+</div>
+
+<p>I input this. Erases first to # from URL and inputs this into the function. If you got parameters in URL you might change the regex.</p>
+<p>But position is important. That tag must be behind the <span class='monospace' tanslate='no'>&lt;/main&gt;</span>. If it runs without rendering error occurs.</p>
+
+<h3 content='&lt;a&gt; Form' id='p-240810-h-anchor'><a href='#p-240810-h-anchor'>&lt;a&gt; Form</a></h3>
+
+<p>Now you have to run the <code>sidebar("[id of wanted page]")</code> function when you view other pages. Plus you have to contain <code>href='#[id]'</code> attribute.</p>
+
+<div class='script' translate='no'>
+  <pre>&lt;a href='#[id]' onclick='sidebar("[id]")'&gt;&lt;/a&gt;</pre>
+</div>
+
+<p>So when you anchor inner links, you have to do like this.</p>
+
+<h2 content='Final Form' id='p-240810-h-finalform'><a href='#p-240810-h-finalform'>Final Form</a></h2>
+
+<div class='script' translate='no'>
+  <pre>&lt;script&gt;
+  function sidebar(id) {
+  if(id) {
+    let m = document.getElementsByTagName("main")[0];
+    document.getElementById(m.dataset.display).setAttribute("hidden","");
+    document.getElementById(id).removeAttribute("hidden");
+    m.dataset.display = id;
+  }
+}
+&lt;/script&gt;
+
+&lt;div class='sidebar-container'&gt;
+  &lt;aside class='sidebar'&gt;
+    &lt;a href='#[id1]' onclick='sidebar("[id1]")'&gt;[main]&lt;/a&gt;
+    &lt;a href='#[id2]' onclick='sidebar("[id2]")'&gt;[1]&lt;/a&gt;
+    &lt;a href='#[id3]' onclick='sidebar("[id3]")'&gt;[2]&lt;/a&gt;
+  &lt;/aside&gt;
+  &lt;main data-display='[id1]'&gt;
+    &lt;section id='[id1]'&gt;
+      [details]
+    &lt;/section&gt;
+    &lt;section id='[id2]' hidden&gt;
+      [details]
+    &lt;/section&gt;
+    &lt;section id='[id3]' hidden&gt;
+      [details]
+    &lt;/section&gt;
+  &lt;/main&gt;
+  &lt;script&gt;
+  let id = window.location.href.replace(/^.+\#/, "");
+  if(id != window.location.href) sidebar(id);
+&lt;/script&gt;
+&lt;/div&gt;</pre>
+</div>
+
+<p>Like this. Of course just with that code sidebar will be odd with no line breaks. I put list tag but I omitted because I didn't want to detemine so far.</p>
+
+<h2 content='Done' id='p-240810-h-end'><a href='#p-240810-h-end'>Done</a></h2>
+
+<p>It taked too long though there's nothing... I slept once while writing this...</p>

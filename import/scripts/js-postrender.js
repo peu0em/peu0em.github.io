@@ -94,7 +94,7 @@ function theme_change(){
   }
 }
 function lang_refresh(){
-  let lang_current = document.body.dataset.language;
+  let lang_current = document.body.dataset.lang;
   let mltag = document.getElementsByClassName("multilang");
   let prefix = "-"+lang_current;
   for(let i=0;mltag.length>i;i++){
@@ -109,7 +109,7 @@ function lang_refresh(){
   }
 }
 lang_refresh();
-document.getElementById("lang-select").querySelector("[value='"+(document.body.dataset.lang?document.body.dataset.language:(document.documentElement.getAttribute("lang")?document.documentElement.getAttribute("lang"):"ko"))+"']").setAttribute("selected","");
+document.getElementById("lang-select").querySelector("[value='"+(document.body.dataset.lang?document.body.dataset.lang:(document.documentElement.getAttribute("lang")?document.documentElement.getAttribute("lang"):"ko"))+"']").setAttribute("selected","");
 
 // upbar 
 if(document.getElementById('upbar')){
