@@ -1,0 +1,436 @@
+---
+layout: independent
+title: Blogger Syntax
+lang:
+  current: en
+  ko: "/i/blogger-syntax"
+addhead: <link href='/import/scripts/conditional/sidebar.css' rel='stylesheet'>
+---
+{%include logo.html%}
+
+<div class='sidebar-container'>
+  <div class='sidebar-bar'>
+    <nav>
+      <div style='text-align:center'>Index</div>
+      <hr class='line' style='width:50%'>
+      <ul class='index' style='padding:1rem 0'>
+        <li><a href='#p-bloggersyntax-m-main' onclick='sidebar_mc("p-bloggersyntax-m-main")'>Main</a></li>
+       <li><a href='#p-bloggersyntax-m-explain' onclick='sidebar_mc("p-bloggersyntax-m-explain")'>Explanation</a></li>
+        <li><a href='#p-bloggersyntax-m-data' onclick='sidebar_mc("p-bloggersyntax-m-data")'>data:</a></li>
+        <li><a href='#p-bloggersyntax-m-expr' onclick='sidebar_mc("p-bloggersyntax-m-expr")'>expr:</a></li>
+        <li><a href='#p-bloggersyntax-m-beval' onclick='sidebar_mc("p-bloggersyntax-m-beval")'>&lt;b:eval&gt;</a></li>
+        <li>
+          <details>
+            <summary>Conditional</summary>
+            <ul>
+              <li><a href='#p-bloggersyntax-m-cond' onclick='sidebar_mc("p-bloggersyntax-m-cond")'>cond=' '</a></li>
+              <li><a href='#p-bloggersyntax-m-bif' onclick='sidebar_mc("p-bloggersyntax-m-bif")'>&lt;b:if&gt;</a></li>
+              <li><a href='#p-bloggersyntax-m-bswitch' onclick='sidebar_mc("p-bloggersyntax-m-bswitch")'>&lt;b:switch&gt;</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a href='#p-bloggersyntax-m-bloop' onclick='sidebar_mc("p-bloggersyntax-m-bloop")'>&lt;b:loop&gt;</a></li>
+        <li><a href='#p-bloggersyntax-m-bcomment' onclick='sidebar_mc("p-bloggersyntax-m-bcomment")'>&lt;b:comment&gt;</a></li>
+      </ul>
+    </nav>
+  </div>
+  <main class='sidebar-main' data-display='p-bloggersyntax-m-main'>
+    <section id='p-bloggersyntax-m-main'>
+      
+      <img style='width:20em;height:auto' class='image center' src='https://1001parts.co.kr/web/upload/NNEditor/20210811/17-5_shop1_114115.jpg'>
+      <p style='text-align:center'>I made this because I got irritated while searching of blogger syntax.<br>Might be some empty documents.</p>
+      
+      <h3>Before we start</h3>
+      <p>Square Brackets([]) are for explain. Not be contained in actuall code!</p>
+      
+    </section>
+    <section hidden id='p-bloggersyntax-m-explain'>
+      
+      <h2>Explanation</h2>
+      
+      <p>Google Blogger has own HTML syntax. People who have clicked HTML edit for customization would know this. Tags start with '<code>&lt;b:</code>'. Just use these like real tags.</p>
+      
+      <h3>Basic Forms</h3>
+      
+      <ul>
+        <li><code>&lt;b:[name]&gt;&lt;/b:[name]&gt;</code></li>
+        <li><code>&lt;b:[name]/&gt;</code></li>
+        <li><code>&lt;data:[value]/&gt;</code></li>
+      </ul>
+      
+      <h3>Caution</h3>
+      
+      <ul>
+        <li><p>You have to close when you opened. There are some single tags like <code>&lt;br&gt;</code>, these should include <mark>/</mark></p>
+          <p>e.g.) <code>&lt;b:if&gt; &lt;b:else/&gt; &lt;/b:if&gt;</code></p></li>
+      </ul>
+      
+    </section>
+    <section hidden id='p-bloggersyntax-m-data'>
+      
+      <h2>data:</h2>
+      
+      <p>You can use values that Blogger supports.</p>
+      
+      <h3>Form</h3>
+      
+      <div class='script'><code>&lt;data:[value]/&gt;</code></div>
+      <div class='script'><code>&lt;[any tag] expr:[attribute]='data:[value]'&gt;</code></div>
+      
+      <h3>Description</h3>
+      
+      <p>If you write in tag form, this will be replaced with value. For example, <code>blog.title</code> is blog name, if you write down <code>&lt;p&gt;&lt;data:blog.title/&gt;&lt;/p&gt;</code> blog name will be in p tag.</p>
+      <p>But <code>expr:</code> is more important. If you add this in front of tag's attribute, you can use <code>data:</code>inside. For example, if you do  <code>&lt;meta property='og:site_name' expr:content='data:blog.title'&gt;</code> you can input blog name automatically in meta tag. Syntax information about <code>expr:</code> is <a title='expr:' href='#p-bloggersyntax-m-expr' onclick='sidebar_mc("p-bloggersyntax-m-expr")'>here</a>.</p>
+      
+      <h3>Caution</h3>
+      <p>In my guess usable position goes different by prefix. You can use everywhere when it starts by <code>blog.</code>, can use only in post tag when it starts by <code>post.</code>. (Technically inside of <code>&lt;b:includable id='post' var='post'&gt;&lt;/b:includable&gt;</code>.)</p>
+      
+      <h3>List</h3>
+      
+      <style>
+        @media (hover:none){#p-bloggersyntax-table-data{overflow-x:auto}}
+        @media (max-width:650px){@media (hover:hover){#p-bloggersyntax-table-data>table{font-size:2vw}}}
+      </style>
+      <div id='p-bloggersyntax-table-data'>
+        <table class='table-yesspace innerline'>
+          <tbody>
+            <tr style='text-align:center;border-bottom:.1em var(--gr-2) solid'>
+              <th>data:</th>
+              <th>VALUE</th>
+              <th>EXPLANATION</th>
+              <th colspan='2'>TYPE</th>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>blog.url</code></td>
+              <td>https://[...].blogspot.com/[...]</td>
+              <td>Until permalink</td> 
+              <td rowspan='3' style='border-right:hidden'>URL</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>blog.homepageUrl</code></td>
+              <td>https://[...].blogspot.com/</td>
+              <td>Only hompage</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>view.url</code></td>
+              <td>https://[...].blogspot.com/[...]</td>
+              <td>Entire URL</td>
+            </tr>
+            <tr>
+              <td style='text-align:right' rowspan='4'><code>blog.pageType</code></td>
+              <td>index</td>
+              <td>Home</td>
+              <td rowspan='14' style='border-right:hidden'>Type indication</td>
+            </tr>
+            <tr>
+              <td>item</td>
+              <td>Post</td>
+            </tr>
+            <tr>
+              <td>static_page</td>
+              <td>Page</td>
+            </tr>
+            <tr>
+              <td>error_page</td>
+              <td>Error page</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>view.isArchive</code></td>
+              <td>[true/false]</td>
+              <td>True on archive page<br>(I have no idea what is the archive.)</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>view.isError</code></td>
+              <td>[true/false]</td>
+              <td>True on error page</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>view.isHomepage</code></td>
+              <td>[true/false]</td>
+              <td>True on homepage</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>view.isLabelSearch</code></td>
+              <td>[true/false]</td>
+              <td>True on label search page</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>view.isMultipleItems</code></td>
+              <td>[true/false]</td>
+              <td>True when page is displaying post list(homepage, search page, label page)</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>view.isMobile</code></td>
+              <td>[true/false]</td>
+              <td>True when mobile(when m=1 parameter exists in url)</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>view.isPage</code></td>
+              <td>[true/false]</td>
+              <td>True on page<br>(static_page)</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>view.isPost</code></td>
+              <td>[true/false]</td>
+              <td>True on post</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>view.isPreview</code></td>
+              <td>[true/false]</td>
+              <td>True on preview</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>view.isSearch</code></td>
+              <td>[true/false]</td>
+              <td>True on search page</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>view.isSingleItem</code></td>
+              <td>[true/false]</td>
+              <td>True on post or page</td>
+            </tr>
+            <tr>
+            <tr>
+              <td style='text-align:right'><code>blog.pageName</code></td>
+              <td>[text]</td>
+              <td>Post title</td>
+              <td rowspan='2' style='border-right:hidden'>Title</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>view.title</code></td>
+              <td>[text]</td>
+              <td>Title</td>
+            <tr>
+              <td style='text-align:right'><code>blog.metaDescription</code></td>
+              <td>[text]</td>
+              <td>Text you wrote in search description</td>
+              <td rowspan='2' style='border-right:hidden'>Description</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>view.description</code></td>
+              <td>[text]</td>
+              <td>Text you wrote in search description</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>blog.postImageUrl</code></td>
+              <td>https://[...]</td>
+              <td>Url of a first image of the post(not page)</td>
+              <td rowspan='3' style='border-right:hidden'>Image URL</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>blog.postImageThumbnailUrl</code></td>
+              <td>https://[...]</td>
+              <td>Url of a squre thumbnail version of the first image of post(not page)</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>view.featuredImage</code></td>
+              <td>https://[...]</td>
+              <td>Url(proxy) of a featured image</td>
+            </tr>
+            <tr>
+              <td style='text-align:right'><code>blog.feedLinks</code></td>
+              <td>&lt;link rel='[alternate/service.post]' type='application/[attom/rss]+xml' [...]'&gt;<br>&lt;link rel='[alternate/service.post]' type='application/[attom/rss]+xml' [...]'&gt;<br>&lt;link rel='[alternate/service.post]' type='application/[attom/rss]+xml' [...]'&gt;</td>
+              <td>Atom RSS Links</td>
+              <td style='border-right:hidden'></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <h3>Trivia</h3>
+      
+      <p>It's no lie to say that this document is made to organaize these things. There's no place that organize these well.</p>
+      
+    </section>
+    <section hidden id='p-bloggersyntax-m-expr'>
+      
+      <h2>expr:</h2>
+      
+      <p>You can use Blogger variables when you use this in front of the attributes.</p>
+      
+      <h3>Form</h3>
+      
+      <div class='script'><code>&lt;[tag] expr:[attribute]='[expression]'&gt;</code></div>
+      
+      <h3>Explanation</h3>
+      
+      <p>You can input variables and texts in [expression]. <code>data:blog.title</code> represents for blog name, if you want to write "~ blog" in meta tag just write down <code>&lt;meta property='og:site_name' expr:content='data:blog.title + " blog"'&gt;</code>. Just write variables, text in quotation marks, then link these with +. (If you want to know more about <code>data:</code>, go to <a href='#p-bloggersyntax-m-data' onclick='sidebar_mc("p-bloggersyntax-m-data")'>here</a></p>
+      
+      <h3>Caution</h3>
+      
+      <ul>
+        <li><p>Some attributes inside of <code>b:</code> tags work like have <code>expr:</code> in front of it. You got error when you add <code>expr:</code>.</p></li>
+        <li><p>You have to use different quotation marks between inside and outside. Not sure whether double quotation marks must be inside but I use that way.</p></li>
+      </ul>
+      
+    </section>
+    <section hidden id='p-bloggersyntax-m-beval'>
+      
+      <h2>&lt;b:eval&gt;</h2>
+      
+      <p>The tag prints result of a <a href='#p-bloggersyntax-m-expr' onclick='sidebar_mc("p-bloggersyntax-m-expr")' title='expr:'>expr:</a>.</p>
+      
+      <h3>Form</h3>
+      
+      <div class='script'>
+        <code>&lt;b:eval expr='[expression]'/&gt;</code>
+      </div>
+      
+      <h3>Explanation</h3>
+      
+      <p>Really just prints <a href='#p-bloggersyntax-m-expr' onclick='sidebar_mc("p-bloggersyntax-m-expr")' title='expr:'>expr:</a>. It is same with <a href='#p-bloggersyntax-m-data' onclick='sidebar_mc("p-bloggersyntax-m-data")' title='data:'>&lt;data:&gt;</a> when you just put <a href='#p-bloggersyntax-m-data' onclick='sidebar_mc("p-bloggersyntax-m-data")' title='data:'>data:</a>.</p>
+      
+    </section>
+    <section hidden id='p-bloggersyntax-m-cond'>
+      
+      <h2 content="cond=' '">cond=' '</h2>
+      
+      <p>Use when you handle conditional statements. Mostly it is attribute of the conditional tags.</p>
+      <p>This also follows <a href='#p-bloggersyntax-m-expr' onclick='sidebar_mc("p-bloggersyntax-m-expr")' title='expr:'>expr:</a>'s rules.</p>
+      
+      <h3>Syntax</h3>
+      
+      <table class='table-yesspace innerline'>
+        <tbody>
+          <tr>
+            <td style='text-align:right'><code>[A] == [B]</code></td>
+            <td>True when A and B are same</td>
+          </tr>
+          <tr>
+            <td style='text-align:right'><code>[A] != [B]</code></td>
+            <td>True when A and B are different (That mark is !=)</td>
+          </tr>
+          <tr>
+            <td style='text-align:right'><code>![A]</code></td>
+            <td>Inverts A's value (true → false, false → true)</td>
+          </tr>
+          <tr>
+            <td style='text-align:right'><code>[A] in {x,y,z}</code></td>
+            <td>True when A is one of the x y z (Whether be included or not in set)</td>
+          </tr>
+          <tr>
+            <td style='text-align:right'><code>[A] and [B]</code></td>
+            <td>True when A and B both are true</td>
+          </tr>
+          <tr>
+            <td style='text-align:right'><code>[A] or [B]</code></td>
+            <td>True when one of the A and B is true</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3>Using Tags</h3>
+      <ul>
+        <li><a href='#p-bloggersyntax-m-bif' onclick='sidebar_mc("p-bloggersyntax-m-bif")'>&lt;b:if&gt;</a></li>
+        <li>&lt;b:include&gt;</li>
+      </ul>
+      
+    </section>
+    <section hidden id='p-bloggersyntax-m-bif'>
+      
+      <h2>&lt;b:if&gt;</h2>
+      
+      <p>A if statement. Checks conditions in order.</p>
+      
+      <h3>Form</h3>
+      
+      <div class='script'>
+        <code>&lt;b:if cond='[condition]'&gt;<br>&nbsp;&nbsp;[detail]<br>&lt;b:elseif cond='[condition]/;&gt;<br>&nbsp;&nbsp;[detail]<br>&lt;b:else/&gt;<br>&nbsp;&nbsp;[detail]<br>&lt;/b:if&gt;</code>
+      </div>
+      
+      <h3>Explanation</h3>
+      
+      <p>Be executed when <code><a title="cond=' '" href='#p-bloggersyntax-m-cond' onclick='sidebar_mc("p-bloggersyntax-m-cond")'>cond=' '</a></code> is true. You might be used to this if you've coded.</p>
+      <img class='image' style='width:20em' src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb068GW%2Fbtrq6vgfZUW%2Fa8zwmdx6rYgFKT8N4BKb40%2Fimg.jpg'>
+      <p>Who don't know can find basic informations by <a title='if statement google search' href='https://www.google.com/search?q=if+statement' target='_blank' rel='noopener'>searching if statement</a>.</p>
+      
+    </section>
+    <section hidden id='p-bloggersyntax-m-bswitch'>
+      
+      <h2>&lt;b:switch&gt;</h2>
+      
+      <p>A swtich statement. You can set cases about a varable is specific value. Can say this is parallel conditional statement.</p>
+      
+      <h3>Form</h3>
+      
+      <div class='script'>
+        <code>&lt;b:switch var=[variable]&gt;<br>&nbsp;&nbsp;&lt;b:case value='[value1]'/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;[detail1]<br>&nbsp;&nbsp;&lt;b:case value='[value2]'/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;[detail2]<br>&nbsp;&nbsp;&lt;b:default/&gt;<br>&nbsp;&nbsp;&nbsp;&nbsp;[value3]<br>&lt;/b:switch&gt;</code>
+      </div>
+      
+      <h3>Explanation</h3>
+      
+      <p>Statement that executes [detail1] when [variable] is same with [value1], executes [detail2] when [value2], executes [detail3] when there's no same thing. Follows the <a title='expr:' href='#p-bloggersyntax-m-expr' onclick='sidebar_mc("p-bloggersyntax-m-expr")'>expr:</a>'s rules.</p>
+      
+      <h3>Caution</h3>
+      
+      <p>This doesn't work with url. I don't know why. Please share if you know how to fix...</p>
+      
+    </section>
+    <section hidden id='p-bloggersyntax-m-bloop'>
+      
+      <h2>&lt;b:loop&gt;</h2>
+      
+      <p>A loop statement.</p>
+      
+      <h3>Form</h3>
+      
+      <div class='script'>
+        <pre>&lt;b:loop values='[set(variable/["detail", "detail", ...])]' var='[variable_name1]' index='[variable_name2]' reverse='[true/false]'&gt;
+  [detail(contains variable_name1, variable_name2)]
+&lt;/b:loop&gt;</pre>
+      </div>
+      
+      <h3>Explanation</h3>
+      
+      <p>Repeats about amount of the <code>values</code>' details. You can use current "detail" with [variable_name1], can use loop count number with [variable_name2], reverses order to input true in <code>reverse=""</code></p>
+      <p>You can express sets with square brackets.(This square brackets are not for explanation. This is real code.) ["Apple", "Pear", "Banana"] like this. Let's see example with this.</p>
+      <div class='script'>
+        <pre>&lt;ul&gt;
+  &lt;b:loop values='["Apple", "Pear", "Banana"] var='fruit' index='number' reverse='true'&gt;
+    &lt;li&gt;&lt;eval expr='data:number + 1'/>th fruit is <data:fruit/>.&lt;/li&gt;
+  &lt;/b:loop&gt;
+&lt;/ul&gt;</pre>
+      </div>
+      <p>If you do this,</p>
+      <ul>
+        <li>1th fruit is Banana.</li>
+        <li>2th fruit is Pear.</li>
+        <li>3th fruit is Apple.</li>
+      </ul>
+      <p>you can make this.</p>
+      
+      <h3>Usable Set Variables Collection</h3>
+      
+      <p>You must add <code>data: </code> in front of these to use.</p>
+      
+      <table class='table-yesspace innerline'>
+        <tbody>
+          <tr>
+            <td style='text-align:right'>posts</td><td>Post list</td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </section>
+    <section hidden id='p-bloggersyntax-m-bcomment'>
+      
+      <h2>&lt;b:comment&gt;</h2>
+      
+      <p>Tag makes annotations.</p>
+      
+      <h3>Form</h3>
+      
+      <div class='script monospace'>&lt;b:comment render='[true/false]'&gt;<br>&nbsp;&nbsp;[detail]<br>&lt;/b:comment&gt;</div>
+      
+      <h3>Explanation</h3>
+      
+      <p>Annotation. Though not displayed in HTML but can see only in Blogger dashboard. But if you input <code>render='true'</code> displayed as HTML annotations.</p>
+      <p>There's very useful purpose. You can use this like a <code>console.log()</code> of the Javascript. You can check variable with annotation.</p>
+      
+    </section>
+  </main>
+</div>
+
+{%include neck.html content="home"%}
+
+<script src='/import/scripts/functions/sidebar.js'></script>
