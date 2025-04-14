@@ -53,7 +53,6 @@ h1.post::-webkit-selection{background-color:var(--color-theme-change);}
   border-color:transparent transparent var(--color-theme-change) transparent;
 }
 .footnote.t>:not(.n){
-  box-sizing:border-box;
   top:1.25rem;left:calc(0px - var(--left,0px));
   background-color:var(--color-theme-change);
   padding: 1em;
@@ -81,7 +80,7 @@ h1.post::-webkit-selection{background-color:var(--color-theme-change);}
 
 /* details */
 main details>summary{cursor:pointer;}
-main details>:not(summary){margin-left:1.5em;margin-right:1.5em;box-sizing:border-box;}
+main details>:not(summary){margin-left:1.5em;margin-right:1.5em;}
 main details>summary+*{margin-top:1em}
 main .index summary+*{margin-top:0}
 main details>:last-child{margin-bottom:0}
