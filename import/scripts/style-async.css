@@ -71,12 +71,12 @@ h1.post::-webkit-selection{background-color:var(--color-theme-change);}
   margin-bottom:1em;
   display:flex;justify-content:space-between;
   font-size:1rem;
-  background-color:var(--color-theme-change);
+  background-color:var(--color-theme-double-change);
   top:0;right:0;width:100%;
 }
 .footnote.t .bar a{
   border:hidden;cursor:pointer;text-align:center;
-  width:1.7em;
+  width:1.7em;box-shadow:none;padding:0;
 }
 
 /* details */

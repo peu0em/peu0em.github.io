@@ -16,11 +16,11 @@
 .sidebar-bar .index details{margin:0;border:none;}
 .sidebar-bar .index li>:not(details){margin-left:1rem}
 .sidebar-bar .index summary{cursor:pointer}
-.sidebar-container .sidebar-main{width:100%;margin-left:1rem}
+.sidebar-container .sidebar-main{width:100%;margin-left:1rem;padding:0 1.5rem;box-sizing:border-box;}
 
 @media screen and (max-width:45rem){
-  .sidebar-container{flex-direction:column}
-  .sidebar-container>main{margin-top:0}
-  .sidebar-bar{margin-left:auto;margin-right:auto;width:100%;position:static;max-width:unset;}
+  .sidebar-container{flex-direction:column;overflow:hidden}
+  .sidebar-container .sidebar-main{margin-top:0;margin-left:0}
+  .sidebar-bar{margin-left:auto;margin-right:auto;width:100%;position:static;max-width:unset;box-sizing:border-box;}
   .sidebar-bar nav .index{height:7rem}
 }

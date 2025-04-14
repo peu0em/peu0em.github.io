@@ -89,7 +89,6 @@ body{
   min-width:15rem;
   padding-bottom:1rem;
 }
-body.with-upbar{padding-top:3.5rem}
 h1{
   margin:0;padding:.25em 1em;width:100%;box-sizing:border-box;
   background-color:var(--color-theme-change);
@@ -331,11 +330,11 @@ table.innerline{border-collapse:collapse;border:hidden;}
 .footnote.t{display:inline;position:relative;}
 .footnote.b{
   padding-top:.3rem;padding-left:.6rem;
-  margin-top:calc(var(--size-font-p) * 5);
+  margin-top:var(--size-font-p);
   border-top:.2rem solid var(--color-theme-change);
 }
 .footnote.b>*{display:flex}
-.footnote.b:not(.n){font-size:.8em;}
+.footnote.b:not(.n){font-size:calc(var(--size-font-p * 0.8));}
 .footnote.t>:not(.n){
   display:none;
   z-index:3;position:absolute;
