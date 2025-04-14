@@ -10,5 +10,5 @@
 // language
 {
   let languageItem = window.localStorage.getItem("lang");
-  document.body.dataset.language = languageItem?languageItem:document.documentElement.getAttribute("lang")?document.documentElement.getAttribute("lang"):"ko";
+  document.body.dataset.lang = languageItem?languageItem:document.documentElement.getAttribute("lang")?document.documentElement.getAttribute("lang"):"ko";
 }
