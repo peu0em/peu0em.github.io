@@ -334,7 +334,7 @@ table.innerline{border-collapse:collapse;border:hidden;}
   border-top:.2rem solid var(--color-theme-change);
 }
 .footnote.b>*{display:flex}
-.footnote.b:not(.n){font-size:calc(var(--size-font-p * 0.8));}
+.footnote.b:not(.n){font-size:calc(var(--size-font-p) * 0.8);}
 .footnote.t>:not(.n){
   display:none;
   z-index:3;position:absolute;
