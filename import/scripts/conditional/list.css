@@ -13,7 +13,7 @@
   max-height:calc(var(--size-font-p) * 8);
   overflow:hidden;
   padding:1rem;
-  width:80%;max-width:var(--size-maxwidth);
+  width:80vw;max-width:var(--size-maxwidth);
 }
 
 #post-list .title{grid-row:1/2;grid-column:1/2}
