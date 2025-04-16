@@ -21,7 +21,7 @@
 #post-list .description{grid-row:2/3;grid-column:auto;}
 
 #post-list .title{
-  font-family:var(--font-sanserif);font-size:calc(var(--size-font-h1) * 1);font-weight:100;
+  font-family:var(--font-title);font-size:calc(var(--size-font-h1) * 1);font-weight:100;
   margin:auto 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
 #post-list .thumbnail {overflow:hidden;max-width:20vw;}
