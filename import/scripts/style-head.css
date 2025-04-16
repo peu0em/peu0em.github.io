@@ -49,10 +49,11 @@ body[data-theme="dark"]{
 
 /* fonts */
 :root{
-  --font-p: var(--font-nanummyeongjo);
+  --font-p: var(--font-score);
   --font-title: var(--font-ibm);
   --font-monospace: var(--font-nanumgothiccoding);
 
+  --font-score: 'S-CoreDream-3Light', san-serif;
   --font-nanummyeongjo:'NanumMyeongjo',serif;
   --font-ibm:'IBM Plex Sans KR',sans-serif;
   --font-nanumgothiccoding:'NanumGothicCodingLigature',monospace;
