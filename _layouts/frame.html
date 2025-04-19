@@ -2,7 +2,6 @@
 <html {%include html-attributes.html%}>
   <head>
     {%include scripts-head.html%}
-    {%include fonts.html%}
     {%include meta.html%}
   </head>
   <body>
@@ -10,6 +9,7 @@
 
     {{content}}
     
+    {%include fonts.html%}
     {%include scripts-postrender.html%}
   </body>
 </html>

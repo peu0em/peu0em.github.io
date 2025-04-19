@@ -54,7 +54,6 @@ body[data-theme="dark"]{
   --font-monospace: var(--font-nanumgothiccoding);
 
   --font-score: 'S-CoreDream-3Light', san-serif;
-  --font-nanummyeongjo:'NanumMyeongjo',serif;
   --font-ibm:'IBM Plex Sans KR',sans-serif;
   --font-nanumgothiccoding:'NanumGothicCodingLigature',monospace;
 }
