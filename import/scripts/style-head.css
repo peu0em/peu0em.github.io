@@ -94,14 +94,14 @@ body[data-theme="dark"]{
 }
 @font-face{
     font-family:'YESGothic';
-    src:local('YESGothic'),url('/import/fonts/YESGothic-Regular.woff') format('woff');
+    src:local('YESGothic'),url('/import/fonts/YESGothic-Regular.woff2') format('woff2'),url('/import/fonts/YESGothic-Regular.woff') format('woff');
     font-weight:normal;
     font-style:normal;
     font-display:swap;
 }
 @font-face{
     font-family:'YESGothic';
-    src:local('YESGothic'),url('/import/fonts/YESGothic-Bold.woff') format('woff');
+    src:local('YESGothic'),url('/import/fonts/YESGothic-Bold.woff2') format('woff2'),url('/import/fonts/YESGothic-Bold.woff') format('woff');
     font-weight:bold;
     font-style:normal;
     font-display:swap;
