@@ -49,13 +49,62 @@ body[data-theme="dark"]{
 
 /* fonts */
 :root{
-  --font-p: var(--font-score);
-  --font-title: var(--font-ibm);
-  --font-monospace: var(--font-nanumgothiccoding);
+  --font-p: var(--font-yesgothic);
+  --font-title: var(--font-ibmsans);
+  --font-monospace: var(--font-d2coding);
 
-  --font-score: 'S-CoreDream-3Light', san-serif;
-  --font-ibm:'IBM Plex Sans KR',sans-serif;
-  --font-nanumgothiccoding:'NanumGothicCodingLigature',monospace;
+  --font-ibmsans:'IBM Plex Sans KR',sans-serif;
+  --font-yesgothic:'YESGothic',sans-serif;
+  --font-d2coding:'D2Coding',monospace;
+}
+@font-face{
+  font-family:'IBM Plex Sans KR';
+  src:local('IBM Plex Sans KR'),url('/import/fonts/IBMPlexSansKR-ExtraLight.woff2') format('woff2'),url('/import/fonts/IBMPlexSansKR-ExtraLight.woff') format('woff');
+  font-weight:100;
+  font-style:normal;
+  font-display:swap;
+}
+@font-face{
+    font-family:'IBM Plex Sans KR';
+    src:local('IBM Plex Sans KR'),url('/import/fonts/IBMPlexSansKR-Light.woff2') format('woff2'),url('/import/fonts/IBMPlexSansKR-Light.woff') format('woff');
+    font-weight:200;
+    font-style:normal;
+    font-display:swap;
+}
+@font-face{
+    font-family:'IBM Plex Sans KR';
+    src:local('IBM Plex Sans KR'),url('/import/fonts/IBMPlexSansKR-Regular.woff2') format('woff2'),url('/import/fonts/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+}
+@font-face{
+    font-family:'IBM Plex Sans KR';
+    src:local('IBM Plex Sans KR'),url('/import/fonts/IBMPlexSansKR-Bold.woff2') format('woff2'),url('/import/fonts/IBMPlexSansKR-Bold.woff') format('woff');
+    font-weight:700;
+    font-style:normal;
+    font-display:swap;
+}
+@font-face {
+    font-family:'D2Coding';
+    src:local('D2Coding'),url('/import/fonts/D2Coding.woff') format('woff');
+    font-weight:normal bold;
+    font-style:normal;
+    font-display:swap;
+}
+@font-face{
+    font-family:'YESGothic';
+    src:local('YESGothic'),url('/import/fonts/YESGothic-Regular.woff') format('woff');
+    font-weight:normal;
+    font-style:normal;
+    font-display:swap;
+}
+@font-face{
+    font-family:'YESGothic';
+    src:local('YESGothic'),url('/import/fonts/YESGothic-Bold.woff') format('woff');
+    font-weight:bold;
+    font-style:normal;
+    font-display:swap;
 }
 
 /* preset */
@@ -163,7 +212,7 @@ div.post{
   display:flex;flex-wrap:wrap;
   column-gap:.75em;
 }
-.tags li a{word-break:keep-all;font-family:var(--font-title);font-weight:300;cursor:pointer;}
+.tags li a{word-break:keep-all;font-family:var(--font-title);font-weight:200;cursor:pointer;}
 .tags li::before{
   content:'#';color:var(--color-theme-double-change);
   display:inline;
@@ -278,11 +327,11 @@ h2,h3,h4,h5,h6{
   font-family:var(--font-title);
 }
 h2:first-child,h2+h3,h3+h4,h4+h5,h5+h6,h2.first,h3.first,h4.first,h5.first,h6.first{margin-top:0;}
-h2{font-size:calc(var(--size-font-h1) * 1.5);font-weight:200;}
-h3{font-size:calc(var(--size-font-h1) * 1);font-weight:200;}
-h4{font-size:calc(var(--size-font-h1) * .75);font-weight:300;}
-h5{font-size:calc(var(--size-font-h1) * .5);font-weight:300;}
-h6{font-size:clac(var(--size-font-h1) * .25);font-weight:300;}
+h2{font-size:calc(var(--size-font-h1) * 1.5);font-weight:100;}
+h3{font-size:calc(var(--size-font-h1) * 1);font-weight:100;}
+h4{font-size:calc(var(--size-font-h1) * .75);font-weight:200;}
+h5{font-size:calc(var(--size-font-h1) * .5);font-weight:200;}
+h6{font-size:clac(var(--size-font-h1) * .25);font-weight:200;}
 
 /* button */
 .button{
