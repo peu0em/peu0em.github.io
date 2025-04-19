@@ -1,6 +1,8 @@
 ---
 layout: frame
 ---
+{%include upbar.html%}
+{%include top-gap.html%}
 <a class='post' href='{{page.url}}'><h1 class='post'>{{page.title}}</h1></a>
 <div class='post'>
   {%include neck.html content='date'%}
@@ -10,3 +12,4 @@ layout: frame
   </div>
 </div>
 {%include neck.html content='home list'%}
+{%include footer.html%}

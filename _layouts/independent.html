@@ -1,14 +1,9 @@
-<!doctype html>
-<html {%include html-attributes.html%}>
-  <head>
-    {%include scripts-head.html%}
-    {%include fonts.html%}
-    {%include meta.html%}
-  </head>
-  <body>
-    {%include scripts-prerender.html%}
-    {{content}}
-    {%include footer.html%}
-    {%include scripts-postrender.html%}
-  </body>
-</html>
+---
+layout: frame
+---
+{%include upbar.html%}
+{%include top-gap.html%}
+
+{{content}}
+
+{%include footer.html%}
