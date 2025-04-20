@@ -49,60 +49,138 @@ body[data-theme="dark"]{
 
 /* fonts */
 :root{
-  --font-p: var(--font-yesgothic);
-  --font-title: var(--font-ibmsans);
-  --font-monospace: var(--font-d2coding);
-
-  --font-ibmsans:'IBM Plex Sans KR',sans-serif;
-  --font-yesgothic:'YESGothic',sans-serif;
-  --font-d2coding:'D2Coding',monospace;
+  --font-body: 'sanserif-body',sanserif;
+  --font-title: 'sanserif-title',sanserif;
+  --font-monospace: 'monospace',monospace;
 }
 @font-face{
-  font-family:'IBM Plex Sans KR';
-  src:local('IBM Plex Sans KR'),url('/import/fonts/IBMPlexSansKR-ExtraLight.woff2') format('woff2'),url('/import/fonts/IBMPlexSansKR-ExtraLight.woff') format('woff');
-  font-weight:100;
-  font-style:normal;
-  font-display:swap;
-}
-@font-face{
-    font-family:'IBM Plex Sans KR';
-    src:local('IBM Plex Sans KR'),url('/import/fonts/IBMPlexSansKR-Light.woff2') format('woff2'),url('/import/fonts/IBMPlexSansKR-Light.woff') format('woff');
-    font-weight:200;
-    font-style:normal;
-    font-display:swap;
-}
-@font-face{
-    font-family:'IBM Plex Sans KR';
-    src:local('IBM Plex Sans KR'),url('/import/fonts/IBMPlexSansKR-Regular.woff2') format('woff2'),url('/import/fonts/IBMPlexSansKR-Regular.woff') format('woff');
-    font-weight:400;
-    font-style:normal;
-    font-display:swap;
-}
-@font-face{
-    font-family:'IBM Plex Sans KR';
-    src:local('IBM Plex Sans KR'),url('/import/fonts/IBMPlexSansKR-Bold.woff2') format('woff2'),url('/import/fonts/IBMPlexSansKR-Bold.woff') format('woff');
-    font-weight:700;
-    font-style:normal;
-    font-display:swap;
-}
-@font-face {
-    font-family:'D2Coding';
-    src:local('D2Coding'),url('/import/fonts/D2Coding.woff') format('woff');
-    font-weight:normal bold;
-    font-style:normal;
-    font-display:swap;
-}
-@font-face{
-    font-family:'YESGothic';
-    src:local('YESGothic'),url('/import/fonts/YESGothic-Regular.woff2') format('woff2'),url('/import/fonts/YESGothic-Regular.woff') format('woff');
+    font-family:'sanserif-body';
+    src:
+      local('예스 고딕 레귤러'),
+      url('/import/fonts/YESGothic-Regular.woff2') format('woff2'),
+      url('/import/fonts/YESGothic-Regular.woff') format('woff'),
+      url('/import/fonts/YESGothic-Regular.ttf') format('ttf');
     font-weight:normal;
     font-style:normal;
     font-display:swap;
 }
 @font-face{
-    font-family:'YESGothic';
-    src:local('YESGothic'),url('/import/fonts/YESGothic-Bold.woff2') format('woff2'),url('/import/fonts/YESGothic-Bold.woff') format('woff');
+    font-family:'sanserif-body';
+    src:
+      local('예스 고딕 볼드'),
+      url('/import/fonts/YESGothic-Bold.woff2') format('woff2'),
+      url('/import/fonts/YESGothic-Bold.woff') format('woff'),
+      url('/import/fonts/YESGothic-Bold.ttf') format('ttf');
     font-weight:bold;
+    font-style:normal;
+    font-display:swap;
+}
+@font-face{
+    font-family:'sanserif-body';
+    src:
+      local('Zen Kaku Gothic New'),
+      url('/import/fonts/ZenKakuGothicNew-Regular.woff2') format('woff2'),
+      url('/import/fonts/ZenKakuGothicNew-Regular.woff') format('woff')
+      url('/import/fonts/ZenkakuGothicNew-Regular.ttf') format('ttf');
+    font-weight:normal;
+    font-style:normal;
+    font-display:swap;
+    unicode-range:U+4E00-U+9FBF,U+3040-U+309F,U+30A0-U+30FF;
+}
+@font-face{
+    font-family:'sanserif-body';
+    src:
+      local('Zen Kaku Gothic New'),
+      url('/import/fonts/ZenKakuGothicNew-Bold.woff2') format('woff2'),
+      url('/import/fonts/ZenKakuGothicNew-Bold.woff') format('woff')
+      url('/import/fonts/ZenkakuGothicNew-Bold.ttf') format('ttf');
+    font-weight:bold;
+    font-style:normal;
+    font-display:swap;
+    unicode-range:U+4E00-U+9FBF,U+3040-U+309F,U+30A0-U+30FF;
+}
+@font-face{
+  font-family:'sanserif-title';
+  src:
+    local('IBM Plex Sans KR'),
+    url('/import/fonts/IBMPlexSansKR-ExtraLight.woff2') format('woff2'),
+    url('/import/fonts/IBMPlexSansKR-ExtraLight.woff') format('woff');
+  font-weight:100;
+  font-style:normal;
+  font-display:swap;
+}
+@font-face{
+    font-family:'sanserif-title';
+    src:
+      local('IBM Plex Sans KR'),
+      url('/import/fonts/IBMPlexSansKR-Light.woff2') format('woff2'),
+      url('/import/fonts/IBMPlexSansKR-Light.woff') format('woff');
+    font-weight:200;
+    font-style:normal;
+    font-display:swap;
+}
+@font-face{
+    font-family:'sanserif-title';
+    src:
+      local('IBM Plex Sans KR'),
+      url('/import/fonts/IBMPlexSansKR-Regular.woff2') format('woff2'),
+      url('/import/fonts/IBMPlexSansKR-Regular.woff') format('woff');
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
+}
+@font-face{
+    font-family:'sanserif-title';
+    src:
+      local('IBM Plex Sans KR'),
+      url('/import/fonts/IBMPlexSansKR-Bold.woff2') format('woff2'),
+      url('/import/fonts/IBMPlexSansKR-Bold.woff') format('woff');
+    font-weight:700;
+    font-style:normal;
+    font-display:swap;
+}
+@font-face{
+  font-family:'sanserif-title';
+  src:
+    local('M PlUS 2 ExtraLight'),
+    url('/import/fonts/Mplus2-ExtraLight.woff2') format('woff2'),
+    url('/import/fonts/Mplus2-ExtraLight.woff') format('woff'),
+    url('/import/fonts/Mplus2-ExtraLight.ttf') format('ttf');
+  font-weight:100;
+  font-style:normal;
+  font-display:swap;
+  unicode-range:U+4E00-U+9FBF,U+3040-U+309F,U+30A0-U+30FF;
+}
+@font-face{
+  font-family:'sanserif-title';
+  src:
+    local('M PlUS 2 Light'),
+    url('/import/fonts/Mplus2-Light.woff2') format('woff2'),
+    url('/import/fonts/Mplus2-Light.woff') format('woff'),
+    url('/import/fonts/Mplus2-Light.ttf') format('ttf');
+  font-weight:200;
+  font-style:normal;
+  font-display:swap;
+  unicode-range:U+4E00-U+9FBF,U+3040-U+309F,U+30A0-U+30FF;
+}
+@font-face{
+  font-family:'sanserif-title';
+  src:
+    local('M PlUS 2 Medium'),
+    url('/import/fonts/Mplus2-Meidum.woff2') format('woff2'),
+    url('/import/fonts/Mplus2-Medium.woff') format('woff'),
+    url('/import/fonts/Mplus2-Meidum.ttf') format('ttf');
+  font-weight:400;
+  font-style:normal;
+  font-display:swap;
+  unicode-range:U+4E00-U+9FBF,U+3040-U+309F,U+30A0-U+30FF;
+}
+@font-face {
+    font-family:'monospace';
+    src:
+      local('D2Coding'),
+      url('/import/fonts/D2Coding.woff') format('woff');
+    font-weight:normal bold;
     font-style:normal;
     font-display:swap;
 }
@@ -137,7 +215,7 @@ mark{
 
 /* frame*/
 body{
-  font-family:var(--font-p);
+  font-family:var(--font-body);
   color:var(--color-font);font-size:1rem;
   color:var(--color-font);
   background-color:var(--color-background);
@@ -311,7 +389,7 @@ body[data-theme="dark"] #theme-button,body:not([data-theme="dark"]) #theme-butto
   padding:.2em .5rem .2em 1em;
   font-size:1rem;
   border:none;background-color:var(--color-theme-change);
-  font-family:var(--font-p);color:var(--color-font);
+  font-family:var(--font-body);color:var(--color-font);
   cursor:pointer;
 }
 #lang-select:hover{background-color:var(--color-theme-double-change)}
