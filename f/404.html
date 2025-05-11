@@ -5,8 +5,13 @@ layout: independent
 lang: all
 robots: none
 ---
-<div style='text-align:center;font-size:5em;margin-top:3rem' class='c-noDrag'>🤔</div>
+<main>
+  <div style='margin:5rem 0'>
+    <div style='text-align:center;font-size:5em;' class='noDrag'>🤔</div>
+    <p style='text-align:center;font-size:1.5em;;margin-top:0;' class='multilang' content-ko='길을 잃었어요...' content-en="We're lost...">길을 잃었어요...</p>
+  </div>
 
-<p style='text-align:center;font-size:1.5em;margin-bottom:3rem;' class='multilang' content-en="We're lost...">길을 잃었어요...</p>
+  <button class='button center multilang' style='font-size:3rem;' onclick='history.back()' type='button' content-ko='뒤로가기' content-en='Go Back'>뒤로가기</button>
+</main>
 
-<button class='button center multilang' style='font-size:3rem;' onclick='history.back()' type='button' content-en='Go Back'>뒤로가기</button>
+{%include neck.html content='home list'%}
