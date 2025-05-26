@@ -1,4 +1,4 @@
-var can_hover = window.matchMedia("(hover:hover)").matches;
+const can_hover = window.matchMedia("(hover:hover)").matches;
 
 {
   let url = window.location.href;
