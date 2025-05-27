@@ -72,6 +72,7 @@ function theme_change(){
     default:
       console.log("No Theme");
   }
+  createComments();
 }
 {
   let theme_button = document.getElementById('theme-button');
