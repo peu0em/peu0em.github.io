@@ -18,9 +18,6 @@ function createComments(){
   const parent = document.getElementsByClassName("comments")[0];
   let theme;
   let st = document.createElement("script");
-
-  parent.innerHTML = "";
-
   switch(document.body.dataset.theme){
     case "default": theme="github-light"; break;
     case "dark": theme = "github-dark"; break;
@@ -32,5 +29,6 @@ function createComments(){
   st.setAttribute("theme",theme);
   st.setAttribute("crossorigin","anonymous");
   st.setAttribute("async","");
+  parent.innerHTML = "";
   parent.appendChild(st);
 }
