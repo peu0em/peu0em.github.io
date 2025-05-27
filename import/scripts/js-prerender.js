@@ -20,7 +20,7 @@ function createComments(){
   let st = document.createElement("script");
   let loading = document.createElement("div");
 
-  loading.textContent = "&#x231B;";
+  loading.innerHTML = "&#x231B;";
   loading.style.textAlign = "center";
   loading.style.padding = "1rem";
 
@@ -37,7 +37,7 @@ function createComments(){
   st.setAttribute("async","");
   st.addEventListener("load",()=>{loading.remove();})
   st.addEventListener("error",()=>{
-    loading.textContent = "&#x274C;";
+    loading.innerHTML = "&#x274C;";
   });
 
   parent.innerHTML = "";
