@@ -32,7 +32,7 @@ fetch("/import/data/postlist.json")
     });
     if(filtered.length > 0) listing(filtered);
     else{
-      document.getElementById('loading').hidden=true;
+      document.getElementsByClassName('placeholder')[0].hidden=true;
       document.getElementById('no-result').hidden=false;
       document.getElementById('post-list').hidden=true;
     }
@@ -61,7 +61,7 @@ async function listing(list){
         observer.observe(space.lastElementChild);
       });
     }
-    document.getElementById('loading').hidden=true;
+    document.getElementsByClassName('placeholder')[0].hidden=true;
   }catch(error){
     console.log('listing error: '+error);
   }

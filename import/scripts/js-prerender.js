@@ -21,8 +21,7 @@ function createComments(){
   let loading = document.createElement("div");
 
   loading.innerHTML = "&#x231B;";
-  loading.style.textAlign = "center";
-  loading.style.padding = "1rem";
+  loading.className = "placeholder";
 
   switch(document.body.dataset.theme){
     case "default": theme="github-light"; break;

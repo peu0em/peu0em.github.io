@@ -69,6 +69,9 @@ a,nav{all:unset}
 /* scroll margin */
 body *{scroll-margin-top:4rem}
 
+/* placeholder */
+.placeholder{text-align:center;font-size:calc(var(--size-font-p) * 1.5)}
+
 /* anchor */
 main a{color:var(--color-font);cursor:pointer;}
 .highlight,main a:not(.no-deco,.no-deco a,.no-underline,.no-underline a,.footnote.t a,.footnote .n,.footnote .n *,.jump-link a,h1.post a,.index a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,a.image,.image a:not(figcaption *),.tags a){
