@@ -70,7 +70,11 @@ a,nav{all:unset}
 body *{scroll-margin-top:4rem}
 
 /* placeholder */
-.placeholder{text-align:center;font-size:calc(var(--size-font-p) * 1.5);margin:auto;}
+.placeholder{
+  text-align:center;
+  font-size:calc(var(--size-font-p) * 1.5);
+  margin:auto;height:fit-content;width:fit-content;
+}
 
 /* anchor */
 main a{color:var(--color-font);cursor:pointer;}
@@ -177,6 +181,7 @@ div.post{
   max-width:30em;
   margin:1.5rem auto;
 }
+.comments{min-height:16rem}
 
 /* upbar */
 #upbar-search-bar::placeholder{
