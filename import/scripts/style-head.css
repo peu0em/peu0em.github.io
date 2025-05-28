@@ -70,7 +70,7 @@ a,nav{all:unset}
 body *{scroll-margin-top:4rem}
 
 /* placeholder */
-.placeholder{text-align:center;font-size:calc(var(--size-font-p) * 1.5)}
+.placeholder{text-align:center;font-size:calc(var(--size-font-p) * 1.5);margin:auto;}
 
 /* anchor */
 main a{color:var(--color-font);cursor:pointer;}
