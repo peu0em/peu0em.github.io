@@ -1,31 +1,33 @@
 // footnote
 function footnoe_position(obj){
-  let pst = obj.getBoundingClientRect().left;
-  let blln = obj.parentNode.querySelector(":not(.n)");
-  let wdth = blln.offsetWidth;
-  let win = document.body.clientWidth;
+  const pst = obj.getBoundingClientRect().left;
+  const blln = obj.parentNode.querySelector(":not(.n)");
+  const wdth = blln.offsetWidth;
+  const win = document.body.clientWidth;
+  let left;
   if(wdth >= win-20){					//big
     blln.style.width = (win-20) + "px";
-    obj.parentNode.setAttribute("style","--left:"+(pst-10)+"px");
+    left = pst-10;
   } else if(wdth/2 > (pst-10)){		//left out
-    obj.parentNode.setAttribute("style","--left:"+(pst-10)+"px");
+    left = pst-10;
   } else if(wdth/2 > (win-pst-15)){	//right out
-    obj.parentNode.setAttribute("style","--left:"+(wdth-win+pst+15)+"px");
+    left = wdth-win+pst+15;
   } else {								//compact
-    obj.parentNode.setAttribute("style","--left:"+(wdth/2-10)+"px");
+    left = wdth/2-10;
   }
+  obj.parentNode.setAttribute("style","--left:"+left+"px");
 }
 {
-  let fnlist = document.querySelectorAll(".footnote.t");
+  const fnlist = document.querySelectorAll(".footnote.t");
   for(let i=0;i<fnlist.length;i++){
-    let fnnum = fnlist[i].getElementsByClassName("n")[0];
+    const fnnum = fnlist[i].getElementsByClassName("n")[0];
     if(fnnum){
-      let fnhref = fnnum.getAttribute("href");
+      const fnhref = fnnum.getAttribute("href");
       if(fnhref){
-        if(!fnlist[i].querySelector(":not(.n)")){
-          let fnid = document.getElementById(fnhref.replace("#",""));
+        if(!fnlist[i].getElementsByClassName("n")[0].nextElementSibling){
+          const fnid = document.getElementById(fnhref.replace("#",""));
           if(fnid){
-            let fndetail = fnid.querySelector(":scope>*:not(.n)");
+            const fndetail = fnid.parentElement.getElementsByClassName("n")[0].nextElementSibling;
             if(fndetail){
               let fninner = fndetail.innerHTML;
               if(fninner){
