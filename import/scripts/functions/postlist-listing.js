@@ -1,9 +1,9 @@
 let filtered, mode, term;
-let pdiv = document.currentScript.parentElement;
-let space = pdiv.getElementsByTagName("ul")[0];
-let params = new URLSearchParams(window.location.search);
-let placeholder = pdiv.getElementsByClassName("placeholder")[0];
-let noResult = pdiv.getElementsByClassName("no-result")[0];
+const pdiv = document.currentScript.parentElement;
+const space = pdiv.getElementsByTagName("ul")[0];
+const params = new URLSearchParams(window.location.search);
+const placeholder = pdiv.getElementsByClassName("placeholder")[0];
+const noResult = pdiv.getElementsByClassName("no-result")[0];
 
 if(params.has('search')){
   mode='search';
