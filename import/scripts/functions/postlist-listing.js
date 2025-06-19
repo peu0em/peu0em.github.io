@@ -5,15 +5,39 @@
   const params = new URLSearchParams(window.location.search);
   const placeholder = pdiv.getElementsByClassName("placeholder")[0];
   const noResult = pdiv.getElementsByClassName("no-result")[0];
+  const card = pdiv.getElementsByClassName("card")[0];
+
+  function cardText(mark,text){
+    var flex = document.createElement("div");
+    flex.style.display = "flex";
+    flex.style.justifyContent = "center";
+
+    var flexMark = document.createElement("div");
+    flexMark.innerHTML = mark;
+    flexMark.style.textAlign = "right";
+
+    var flexText = document.createElement("div");
+    flexText.innerHTML = text;
+    flexText.style.textAlign = "left";
+
+    flex.appendChild(flexMark);
+    flex.appendChild(flexText);
+
+    card.appendChild(flex);
+
+    card.hidden = false;
+  }
 
   if(params.has('search')){
     mode='search';
     let paramSearch = params.get('search').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     if(!/\s/.test(paramSearch)) term = new RegExp(paramSearch,'i');
     else term = new RegExp(paramSearch.split(' ').join('|'), 'i');
+    cardText("🔍&nbsp;",paramSearch);
   }else if(params.has('tag')){
     mode='tag';
     term = params.get('tag');
+    cardText("#",term);
   }else mode='all';
 
   fetch("/import/data/postlist.json")

@@ -375,6 +375,16 @@ li .flex{display:flex;flex-wrap:wrap;}
 li .flex>ol,li .flex>ul{margin-left:.5em}
 li .flex *{min-width:1px}
 
+/* card */
+.card{
+  user-select:none;-moz-user-select:none;-webkit-user-select:none;
+  margin:1em auto;
+  padding:1em;
+  background-color:var(--color-themetogray-c);
+  max-width:calc(100% - 2rem);
+  word-break:keep-all;
+}
+
 /* display */
 .display>*{
   display:block;position:relative;
