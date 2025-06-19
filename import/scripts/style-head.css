@@ -381,7 +381,7 @@ li .flex *{min-width:1px}
   margin:1em auto;
   padding:1em;
   background-color:var(--color-themetogray-c);
-  max-width:calc(100% - 2rem);
+  width:100%;max-width:calc(100% - 2rem);
   word-break:keep-all;
 }
 
