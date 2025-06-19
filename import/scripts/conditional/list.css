@@ -1,10 +1,10 @@
-#post-list{
+.post-list>ul{
   padding:1rem 0;
   max-width:var(--size-maxwidth);
   width:100%;
   margin:0 auto;
 }
-#post-list li{
+.post-list>ul li{
   display:grid;
   grid-template-columns:minmax(5rem,auto) auto;
   grid-template-rows:max(calc(var(--size-font-h1) * 1 * var(--number-lineheight))) auto;
@@ -16,14 +16,14 @@
   width:80vw;max-width:var(--size-maxwidth);
 }
 
-#post-list .title{grid-row:1/2;grid-column:1/2}
-#post-list .thumbnail{grid-column:2/3;grid-row:1/3}
-#post-list .description{grid-row:2/3;grid-column:auto;}
+.post-list .title{grid-row:1/2;grid-column:1/2}
+.post-list .thumbnail{grid-column:2/3;grid-row:1/3}
+.post-list .description{grid-row:2/3;grid-column:auto;}
 
-#post-list .title{
+.post-list .title{
   font-family:var(--font-title);font-size:calc(var(--size-font-h1) * 1);font-weight:100;
   margin:auto 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
-#post-list .thumbnail {overflow:hidden;max-width:20vw;}
-#post-list .thumbnail img{width:100%;height:100%;object-fit:cover;object-position:right top}
-#post-list .description{overflow:hidden;text-overflow:ellipsis;max-height:calc(1em * var(--number-lineheight) * 2);}
+.post-list .thumbnail {overflow:hidden;max-width:20vw;}
+.post-list .thumbnail img{width:100%;height:100%;object-fit:cover;object-position:right top}
+.post-list .description{overflow:hidden;text-overflow:ellipsis;max-height:calc(1em * var(--number-lineheight) * 2);}

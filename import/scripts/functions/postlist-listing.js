@@ -1,6 +1,10 @@
 let filtered, mode, term;
-let space = document.getElementById('post-list');
+let pdiv = document.currentScript.parentElement;
+let space = pdiv.getElementsByTagName("ul")[0];
 let params = new URLSearchParams(window.location.search);
+let placeholder = pdiv.getElementsByClassName("placeholder")[0];
+let noResult = pdiv.getElementsByClassName("no-result")[0];
+
 if(params.has('search')){
   mode='search';
   let paramSearch = params.get('search').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -32,9 +36,9 @@ fetch("/import/data/postlist.json")
     });
     if(filtered.length > 0) listing(filtered);
     else{
-      document.getElementsByClassName('placeholder')[0].hidden=true;
-      document.getElementById('no-result').hidden=false;
-      document.getElementById('post-list').hidden=true;
+      placeholder.hidden=true;
+      noResult.hidden=false;
+      space.hidden=true;
     }
 
   })
@@ -61,7 +65,7 @@ async function listing(list){
         observer.observe(space.lastElementChild);
       });
     }
-    document.getElementsByClassName('placeholder')[0].hidden=true;
+    placeholder.hidden=true;
   }catch(error){
     console.log('listing error: '+error);
   }

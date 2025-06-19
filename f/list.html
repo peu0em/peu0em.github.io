@@ -9,10 +9,11 @@ lang: all
 ---
 {%include neck.html content='home'%}
 <main>
-  <ul class='multilang' id='post-list' aria-label='글 목록' aria-label-ko='글 목록' aria-label-en='Post List'>
-  </ul>
-  <div class='placeholder'>⌛</div>
-  {%include no-result.html%}
+  <div class='multilang post-list' aria-label='글 목록' aria-label-ko='글 목록' aria-label-en='Post List'>
+    <ul></ul>
+    <div class='placeholder'>⌛</div>
+    {%include no-result.html%}
+    <script src='/import/scripts/functions/postlist-listing.js' type='text/javascript'></script>
+  </div>
 </main>
 
-<script src='/import/scripts/functions/postlist-listing.js' type='text/javascript'></script>
