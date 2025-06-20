@@ -106,7 +106,7 @@ function lang_refresh(){
       return arr;
     },[]);
     for(let j=0;attrs.length>j;j++){
-      if(attrs[j].startsWith("content-")) mltag[i].innerHTML = mltag[i].getAttribute(attrs[j]);
+      if(attrs[j].startsWith("data-content-")) mltag[i].innerHTML = mltag[i].getAttribute(attrs[j]);
       else mltag[i].setAttribute(attrs[j].replace(prefix,""),mltag[i].getAttribute(attrs[j]));
     }
   }

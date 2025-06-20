@@ -25,7 +25,14 @@
   {%assign robots = "index,follow"%}
 {%-endif-%}
 
-<title>{{title}}</title>
+
+<title {%if page.lang == "all" -%}
+  class='multilang'
+  {%-for t in page.lang-title-%}
+    {{" "}}
+    data-content-{{t[0]}}='{{t[1]}}'
+  {%-endfor%}
+{%-endif%}>{{title}}</title>
 <link href='/favicon.ico' rel='icon' type='image/x-icon'>
 
 <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0' name='viewport'/>
