@@ -23,11 +23,15 @@ function createComments(){
   loading.innerHTML = "&#x231B;";
   loading.className = "placeholder";
 
-  switch(document.body.dataset.theme){
-    case "default": theme="github-light"; break;
-    case "dark": theme = "github-dark"; break;
-    default: theme="github-light";
-  }
+  theme = (()=>{
+    if(document.body.dataset.theme){
+      switch(document.body.dataset.theme){
+        case "default": return "github-light";
+        case "dark": return "github-dark";
+        default: return "github-light";
+      }
+    }else return "github-light";
+  })();
   st.setAttribute("src","https://utteranc.es/client.js");
   st.setAttribute("repo","peu0em/jekyll-comment");
   st.setAttribute("issue-term","pathname");
