@@ -27,13 +27,16 @@ function footnoe_position(obj){
         if(!fnlist[i].getElementsByClassName("n")[0].nextElementSibling){
           const fnid = document.getElementById(fnhref.replace("#",""));
           if(fnid){
-            const fndetail = fnid.parentElement.getElementsByClassName("n")[0].nextElementSibling;
-            if(fndetail){
-              let fninner = fndetail.innerHTML;
-              if(fninner){
-                let span = document.createElement("span");
-                span.innerHTML = fninner;
-                fnlist[i].appendChild(span);
+            const fnbn = fnid.getElementsByClassName("n")[0];
+            if(fnbn){
+              const fndetail = fnbn.nextElementSibling;
+              if(fndetail){
+                const fninner = fndetail.innerHTML;
+                if(fninner){
+                  let span = document.createElement("span");
+                  span.innerHTML = fninner;
+                  fnlist[i].appendChild(span);
+                }
               }
             }
           }
