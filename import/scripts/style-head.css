@@ -80,10 +80,13 @@ body *{scroll-margin-top:4rem}
 
 /* anchor */
 main a{color:var(--color-font);cursor:pointer;}
-.highlight,main a:not(.no-deco,.no-deco a,.no-underline,.no-underline a,.footnote.t a,.footnote .n,.footnote .n *,.jump-link a,h1.post a,.index a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,a.image,.image a:not(figcaption *),.tags a){
+.highlight,main a:not(.no-deco,.no-deco a,.footnote .n,.footnote .n *,h1.post a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,a.image,.image a:not(figcaption *),.tags a){
   position:relative;
-  box-shadow:var(--preset-boxshadow-underline-2) var(--color-theme-change);padding-bottom:var(--size-linespace-half);
+  padding-bottom:var(--size-linespace-half);
+  box-shadow:var(--preset-boxshadow-underline-2) var(--variable-anchor-underlinecolor,var(--color-theme-change));
 }
+.index a:not(:hover),.no-underline:not(:hover),.no-underline a:not(:hover){--variable-anchor-underlinecolor:var(--color-background)}
+.card a:not(:hover),.footnote.t a:not(.n):not(:hover){--variable-anchor-underlinecolor:var(--color-theme-double-change)}
 
 /* mark */
 mark{

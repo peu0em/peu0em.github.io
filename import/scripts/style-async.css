@@ -42,8 +42,6 @@ h1.post::-webkit-selection{background-color:var(--color-theme-change);}
 .footnote .n,.footnote .n *{
   cursor:help;
 }
-.footnote.t>:not(.n) a{box-shadow:var(--preset-boxshadow-underline-2) var(--color-theme-double-change);padding-bottom:var(--size-linespace-half);}
-.footnote.t>:not(.n) a:hover{box-shadow:var(--preset-boxshadow-underline-2) var(--color-theme-triple-change);}
 .footnote.t>:not(.n)::before{
   content:'';
   position:absolute;
@@ -112,9 +110,8 @@ img.badge:not(.nothover):hover,svg.badge:not(.nothover):hover{
 /* interaction change */
 
 /* anchor */
-.highlight,main a:not(.no-deco,.no-deco *,.footnote.t a,.footnote .n,.footnote .n *,h1.post a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,a.image,.image a:not(figcaption *),.tags a):hover,.sidebar-bar a:hover{
-  box-shadow:var(--preset-boxshadow-underline-2) var(--color-theme-double-change);padding-bottom:var(--size-linespace-half);
-}
+main a:hover{--variable-anchor-underlinecolor:var(--variable-anchor-underlinehovercolor,var(--color-theme-double-change))}
+.footnote.t a:not(.n):hover,.card a:hover{--variable-anchor-underlinehovercolor:var(--color-theme-triple-change)}
 
 /* side border */
 main details:hover,.display:hover{
