@@ -390,7 +390,7 @@ dt+dt::before{content:"/";margin:0 1em;color:var(--color-gray-2);}
   user-select:none;-moz-user-select:none;-webkit-user-select:none;
   margin:var(--size-lineheight-1) auto;
   padding:1em;
-  background-color:var(--color-themetogray-c);
+  background-color:var(--color-theme-change);
   width:100%;max-width:calc(100% - 2rem);
   word-break:keep-all;
 }
