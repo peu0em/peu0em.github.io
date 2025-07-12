@@ -1,7 +1,9 @@
+const url = window.location.href;
+const lang_list = ["ko","en"];
+
 const can_hover = window.matchMedia("(hover:hover)").matches;
 
-{
-  let url = window.location.href;
+const id_from_url = (()=>{
   let idch = url.replace(/^.+\#/,"");
-  var id_from_url = (url==idch)?false:idch.replace(/[^(\w|\-)].*/,";");
-}
+  return (url==idch)?false:idch.replace(/[^(\w|\-)].*/,";");
+})();

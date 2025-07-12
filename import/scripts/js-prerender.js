@@ -9,8 +9,14 @@
 
 // language
 {
-  let languageItem = window.localStorage.getItem("lang");
-  document.body.dataset.lang = languageItem?languageItem:document.documentElement.getAttribute("lang")?document.documentElement.getAttribute("lang"):"ko";
+  const languageItem = window.localStorage.getItem("lang");
+  const parameter = new URLSearchParams(new URL(url).search).get("lang");
+  let result;
+  if(languageItem) result = languageItem;
+  else if(parameter) result = parameter;
+  else result = "ko";
+  result = (lang_list.includes(result))?result:"ko";
+  document.body.dataset.lang = result;
 }
 
 // comment 
