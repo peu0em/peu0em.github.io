@@ -1,156 +1,156 @@
 ---
 layout: post
-title: "Understanding Vim (Based On One Letter Commands)"
-description: For who knows keyboard shortcuts but something's fuzzy. Understanding vim's one letter commands system.
-tags: [information,vim]
-keywords: [vim]
+title: "vim 입문 말고 이해해 보기 (한 글자 명령 위주로)"
+description: 단축키는 다 외웠는데 뭔가 덜그럭거리는 분들을 위한 vim의 한 글자 명령 체계를 이해해보는 글.
+tags: [정보,vim]
+keywords: [vim,빔]
 lang:
-  current: en
-  ko: /p/2025/07/13/vim
+  current: ko
+  en: /p/2025/07/15/vim-en
 ---
-<p>I'm gonna organize mechanisms that I've understood using vim. Might be useful for those who're familiar with keyboard shortcuts but struggling with complicated actions so selecting with Visual Mode.</p>
-<p>First, I think Visual Mode(v) isn't mainstream. Sometimes we need this, but it blocks ways to efficiency while this can replace almost every function. I think vim's efficiency comes from the impossibility of being inefficient. So I will exclude Visual Mode from explanations after this.</p>
+<p>제가 vim 쓰면서 이해한 매커니즘을 정리해보려고 합니다. 단축키는 잘 알겠는데 복잡한 동작은 못하겠어서 자꾸 비주얼 모드로 선택하는 분들은 유용할 거예요.</p>
+<p>일단 저는 비주얼 모드(v)는 근본 없다고 생각합니다. 이게 꼭 필요할 때도 있는데, 이게 어지간한 기능을 다 대체할 수 있어서 효율로 가는 길을 막아요.  vim이 효율적인 건 효율적이지 않게 못하기 때문이라고 생각하거든요. 그래서 이후 설명에도 비주얼 모드는 최대한 배제하겠습니다.</p>
 
 <nav>
   <details>
-    <summary>Index</summary>
+    <summary>목차</summary>
     <ol class='index'>
-      <li><a href='#p-h-key'>Shortcuts</a>
+      <li><a href='#p-h-key'>단축키</a>
         <ol>
-          <li><a href='#p-h-link'>Link</a>
+          <li><a href='#p-h-link'>연결</a>
             <ol>
-              <li><a href='#p-h-link-reg'>Register</a></li>
-              <li><a href='#p-h-link-rep'>Repetition</a></li>
-              <li><a href='#p-h-link-command'>Command</a></li>
-              <li><a href='#p-h-link-scope'>Scope</a></li>
-              <li><a href='#p-h-link-all'>All At Once</a></li>
+              <li><a href='#p-h-link-reg'>레지스터</a></li>
+              <li><a href='#p-h-link-rep'>횟수</a></li>
+              <li><a href='#p-h-link-command'>명령</a></li>
+              <li><a href='#p-h-link-scope'>범위</a></li>
+              <li><a href='#p-h-link-all'>다 합쳐서</a></li>
             </ol>
           </li>
         </ol>
       </li>
-      <li><a href='#p-h-command'>Command-line Mode</a>
+      <li><a href='#p-h-command'>명령 모드</a>
         <ol>
-          <li><a href='#p-h-command-scope'>Scope</a></li>
-          <li><a href='#p-h-command-command'>Command</a></li>
-          <li><a href='#p-h-command-input'>Input</a></li>
-          <li><a href='#p-h-command-reg'>Register</a></li>
+          <li><a href='#p-h-command-scope'>범위</a></li>
+          <li><a href='#p-h-command-command'>명령</a></li>
+          <li><a href='#p-h-command-input'>입력</a></li>
+          <li><a href='#p-h-command-reg'>레지스터</a></li>
         </ol>
       </li>
-      <li><a href='p-h-end'>End</a></li>
+      <li><a href='p-h-end'>마무리</a></li>
     </ol>
   </details>
 </nav>
 
-<h2 id='p-h-key'><a href='#p-h-key'>Shortcuts</a></h2>
+<h2 id='p-h-key'><a href='#p-h-key'>단축키</a></h2>
 
-<p>When starting to learn, it seems easy to memorize if you think there's arrow keys and shortcuts in vim, but actually it is not. All actions in vim are shortcuts, and these shortcuts can be linked<span class='footnote t' id='p-fn-link-t'><a class='n' href='#p-fn-link-b'>1</a></span> by their function.</p>
-<p>First let me explain about all things are shortcuts. <code>HJKL</code> for move are also shortcuts. Whether these are shortcuts or not is important because these can be used in combinations.</p>
+<p>입문할 때는 방향키 있고 기능 있고 이렇게 이해를 하시고 외우면 편하긴 한데 사실 그렇지 않습니다. vim의 모든 동작은 단축키고, 이 단축키는 기능에 따라서 연결<span class='footnote t' id='p-fn-link-t'><a class='n' href='#p-fn-link-b'>1</a></span>이 됩니다.</p>
+<p>우선 모든 것이 단축키라는 것부터 설명드리겠습니다. 이동을 담당하는 <code>HJKL</code>도 사실 단축키입니다. 이게 단축키인지 아닌지가 왜 중요하냐면 조합에 쓰이기 때문입니다.</p>
 
-<h3 id='p-h-link'><a href='#p-h-link'>Link</a></h3>
+<h3 id='p-h-link'><a href='#p-h-link'>연결</a></h3>
 
-<p>The structure is as follows. Can be omitted depending on the type.</p>
+<p>구성은 이렇게 됩니다. 종류에 따라 생략이 가능합니다.</p>
 <div class='script'>
-  <code>[<a href='#p-h-link-reg' class='no-underline'>REGISTER</a>][<a href='#p-h-link-rep' class='no-underline'>REPETITION</a>][<a href='#p-h-link-command' class='no-underline'>COMMAND</a>][<a href='#p-h-link-scope' class='no-underline'>SCOPE</a>]</code>
+  <code>[<a href='#p-h-link-reg' class='no-underline'>레지스터</a>][<a href='#p-h-link-rep' class='no-underline'>횟수</a>][<a href='#p-h-link-command' class='no-underline'>명령</a>][<a href='#p-h-link-scope' class='no-underline'>범위</a>]</code>
 </div>
 
-<h4 id='p-h-link-reg'><a href='#p-h-link-reg'>Register</a></h4>
+<h4 id='p-h-link-reg'><a href='#p-h-link-reg'>레지스터</a></h4>
 
-<p>(Can be omitted.)</p>
-<p>Vim can store information somewhere. We can copy without this, but information will be stored at temporary register. Vim's all deletes includes copying. There's no just deletes. All cuts. So if you delete something between copy and paste, copied text will be overwritten.</p>
-<p>So we need register. Starts with <code>"</code>(double quotation mark), choose where to store after. This 'where' can be any letter of the aphabet. Seems like case-insensitive. Just to add, there's <code>+</code> register, clipboard. This can be used when you copy for external use or bring in from outside.</p>
+<p>(생략할 수 있습니다.)</p>
+<p>vim은 정보를 어딘가에 저장할 수 있습니다. 이거 없어도 복사가 되는데요, 이건 임시 레지스터에 저장되는 거예요. vim의 모든 삭제 동작에는 복사가 포함됩니다. 그냥 삭제는 없고 전부 잘라내기예요. 그래서 뭔가 복사하고 옮기는 과정 중간에 뭔가를 삭제하게 되면 복사해 놓은게 날라갑니다.</p>
+<p>그래서 레지스터가 필요합니다. <code>"</code>(쌍따옴표)로 시작하고 그 뒤에 어디에 저장할지 고릅니다. 이 '어디'는 알파벳 전부 될 수 있어요. 대소문자 구분은 안 되는 거 같습니다. 번외로 <code>+</code> 레지스터가 있는데요 이건 클립보드입니다. 외부로 복사하거나 외부에서 복사한 걸 가지고 올 때 써요.</p>
 <div class='script'>
   <code>"+</code>
 </div>
-<p>Would be like this if you use clipboard.</p>
+<p>클립보드를 지정하려면 저런 형태가 될 거예요.</p>
 
-<h4 id='p-h-link-rep'><a href='#p-h-link-rep'>Repetition</a></h4>
+<h4 id='p-h-link-rep'><a href='#p-h-link-rep'>횟수</a></h4>
 
-<p>(Can be omitted.)</p>
-<p>Decides how many times to repeat.</p>
-<p>But copied results are merged. For example, <code>2yy</code> copies two lines. It won't overwrite while repeating.</p>
-<p>If you repeat input type, multiple texts will be typed simultaneously like writing on paper with multiple pens in a hand.</p>
+<p>(생략할 수 있습니다.)</p>
+<p>몇 번 반복할지 정합니다.</p>
+<p>근데 복사 결과는 합쳐집니다. 예를 들어 <code>2yy</code>는 두 줄을 복사합니다. 반복이라고 덮어씌워지지는 않습니다.</p>
+<p>입력 계열을 반복하면 반성문 쓸 때 펜 여러 개로 썼던 경험처럼 같은 입력이 동시에 여러 개 됩니다.</p>
 
-<h4 id='p-h-link-command'><a href='#p-h-link-command'>Command</a></h4>
+<h4 id='p-h-link-command'><a href='#p-h-link-command'>명령</a></h4>
 
-<p>What to do. Just one letter. Shift or ctrl can be used together with but there's only one letter.</p>
-<p> Wait, but in other tutorial they teach me something like <code>dd</code> and <code>dw</code>? That latter part belongs to the <a href='#p-h-link-scope'>scope</a> right after.</p>
-<p>So there's no different behavior that have the same first letter. As far as I know. So you can consider only the first letter as the body of the command.</p>
+<p>동작입니다. 글자는 딱 하나입니다. 쉬프트나 커맨드가 첨가될 수는 있겠으나 여러 글자는 아닙니다.</p>
+<p>어라? 근데 명령어 목록에서는 <code>dd</code>, <code>dw</code> 이런 거 알려 주던데요? 그 뒷 부분은 바로 뒤에 나올 <a href='#p-h-link-scope'>범위</a>에 속합니다.</p>
+<p>그러니까 첫 글자가 같은데 뒷 글자로 아주 다른 동작이 되는 상황은 없습니다. 제가 아는 선에서는요. 그러니 이제부터 명령어 찾아보실 때는 첫 글자만 본체라고 보시면 되겠습니다.</p>
 
-<h4 id='p-h-link-scope'><a href='#p-h-link-scope'>Scope</a></h4>
+<h4 id='p-h-link-scope'><a href='#p-h-link-scope'>범위</a></h4>
 
-<p>Here's the point. Scope is decided by <mark>move commands</mark>. Do you remember that <code>HJKL</code> are also commands? They are used here.</p>
-<p>Typical move commands are <code>HJKL</code>, <code>w</code>, <code>b</code>, <code>b</code>, <code>f</code>. Combination with ctrl can't be used here as I just checked.</p>
-<p>Importantly, this can be repeated.</p>
-<p>I'll give you some examples. I'll show you from beginning to avoid confusion.</p>
+<p>여기가 핵심입니다. 범위는 <mark>이동 명령</mark>으로 정해집니다. 처음에 <code>HJKL</code>도 명령이라고 했던 거 기억나시나요? 여기서 쓰입니다.</p>
+<p>대표적인 이동 명령은 <code>HJKL</code>, <code>w</code>, <code>b</code>, <code>f</code> 같은 것이 있습니다. 지금 확인해 보니까 컨트롤 쓰는 이동은 안 되네요.</p>
+<p>중요한데요, 이거 반복도 할 수 있습니다.</p>
+<p>이건 예시를 좀 여러 개 드리겠습니다. 범위만 보여드리면 헷갈릴 수 있어서 앞 명령까지 보여드릴게요.</p>
 <ul>
-  <li><code>y2w</code>: Copy two words.</li>
-  <li><code>dl</code>: Cut letter at cursor.</li>
-  <li><code>d5k</code>: Cut 6 lines including recent line.</li>
-  <li><code>c3Fa</code>: Input after cut up to the 3rd nearest letter 'a' in the line, excluding the letter at the current cursor.</li>
+  <li><code>y2w</code>: 두 단어를 복사합니다.</li>
+  <li><code>dl</code>: 커서에 있는 글자를 잘라냅니다.</li>
+  <li><code>d5k</code>: 현재 줄 포함 위로 6줄을 잘라냅니다.</li>
+  <li><code>c3Fa</code>: 현재 커서를 제외하고 그 줄에 있고 커서 전에 있는 a 중에 3번째로 가까운 a까지 잘라내고 입력합니다.</li>
 </ul>
-<p>The last one is kind of bizarre, though it seems to start before the cursor when moving backwards in a line. So it's little bit confusing.</p>
-<p>You can select the entire line by double tapping the same command. I'm not sure which comes first, inability to select only one line with <code>JK</code> or the opposite case. So the <code>5k</code> above selects 6 lines. Because cursor goes up 5 times.</p>
+<p>마지막이 괴랄한데요, 한 줄 안에서 역방향으로 이동하는 경우에는 커서 전부터 시작인 것 같더라고요. 그래서 좀 헷갈립니다.</p>
+<p>같은 명령 따닥 하면 그 한 줄을 지정할 수 있습니다. <code>JK</code>로 한 줄만 선택할 수 없는 게 이유인지 순서가 반대인지는 모르겠네요. 그래서 위의 <code>5k</code>가 6줄을 선택합니다. 커서가 5번 올라가니까요.</p>
 
-<h4 id='p-h-link-all'><a href='#p-h-link-all'>All At Once</a></h4>
+<h4 id='p-h-link-all'><a href='#p-h-link-all'>다 합쳐서</a></h4>
 
-<p>Let's do all at once as complex as possible.</p>
+<p>최대한 복잡하게 다 합쳐서 해 볼까요?</p>
 <div class='script'>
   <code>"a3d3fb</code>
 </div>
-<p>This would be "Repeat a command that cut up to 3rd 'b' after cursor to register a 3 times". But you don't need to do like this. Just do <code>"ad6fb</code>.</p>
+<p>"레지스터 a에 현재 커서로부터 뒤에 있는 3번째 b까지 삭제하는 명령을 3번 반복한다"가 되겠네요. 근데 사실 이럴 필요 없어요. 그냥 <code>"ad6fb</code>하세요.</p>
 
-<h2 id='p-h-command'><a href='#p-h-command'>Command-line Mode</a></h2>
+<h2 id='p-h-command'><a href='#p-h-command'>명령 모드</a></h2>
 
-<p>You can change to the command-line mode by using <code>:</code>(colon) to do some complex things. There's plenty of commands but I'm not going to deal with it today. I will talk about use shortcuts in command line.</p>
-<p>Yes. You can use shortcuts as is in the command line. Except the move commands. You can tell just by looking at the save command <code>w</code>.</p>
-<p>If keys are same, is there a reason to use command line? In the command-line mode, you can use line number.</p>
-<p>You can use like this.</p>
+<p><code>:</code>(콜론)을 쓰면 명령 모드로 들어가서 더욱 구체적인 명령을 입력할 수 있게 됩니다. 정말 다양한 명령들이 있지만 오늘 그건 다루지 않을 거예요. 단축키를 명령줄에서 활용하는 법을 다룹니다.</p>
+<p>네. 단축키는 명령줄에서 그대로 쓸 수 있습니다. 이동 관련 빼고요. <code>w</code>가 저장인 것만 봐도 그렇습니다.</p>
+<p>같은 키로 입력하는 거면 명령 모드로 입력해야 할 이유가 있을까요? 네. 명령 모드에서는 줄번호를 활용할 수 있습니다.</p>
+<p>구성은 이렇게 됩니다.</p>
 <div class='script'>
-  <code>:[<a href='#p-h-command-scope' class='no-underline'>SCOPE</a>][<a href='#p-h-command-command' class='no-underline'>COMMAND</a>][<a href='#p-h-command-input' class='no-underline'>INPUT</a>][<a href='#p-h-command-reg' class='no-underline'>REGISTER</a>]</code>
+  <code>:[<a href='#p-h-command-scope' class='no-underline'>범위</a>][<a href='#p-h-command-command' class='no-underline'>명령</a>][<a href='#p-h-command-input' class='no-underline'>입력</a>][<a href='#p-h-command-reg' class='no-underline'>레지스터</a>]</code>
 </div>
 
-<h3 id='p-h-command-scope'><a href='#p-h-command-scope'>Scope</a></h3>
+<h3 id='p-h-command-scope'><a href='#p-h-command-scope'>범위</a></h3>
 
-<p>It can be not used depending on which command is.</p>
+<p>명령에 따라 쓰지 않을 수도 있습니다.</p>
 
 <div class='script'>
-  <code>[START LINE NUMBER],[END LINE NUMBER]</code>
+  <code>[시작 줄번호],[끝 줄번호]</code>
 </div>
-<p>It would be like this.</p>
-<p>You can use some symbols instead of numbers.</p>
+<p>이런 형태가 됩니다.</p>
+<p>또 실제 번호 대신 여러 기호를 쓸 수 있어요.</p>
 <ul>
-  <li><code>%</code>: Whole lines in the file</li>
-  <li><code>.</code>: The line where cursor is.</li>
-  <li><code>/[PHRASE]/</code>: The line where <code>[PHRASE]</code> is.</li>
+  <li><code>%</code>: 파일 전체 줄</li>
+  <li><code>.</code>: 커서가 있는 줄</li>
+  <li><code>/[문자]/</code>: [문자]가 있는 줄</li>
 </ul>
-<p>You can use something like this. Also you can do plus and minus calculations. For example <code>.+3</code> refers the 3rd line down from the line where cursor is. This can be used with <code>//</code>. But you must specify both start and end. This can't mean range by its own.</p>
+<p>이런 게 있습니다. 거기다가 숫자를 더하거나 뺄 수도 있어요. 예를 들어 <code>.+3</code>는 커서가 있는 줄의 3번째 아래 줄을 뜻합니다. 이건 <code>//</code>에도 할 수 있어요. 다만 이거 혼자서 범위를 지정하지는 못해서 꼭 시작과 끝을 적어 줘야 합니다.</p>
 
-<h3 id='p-h-command-command'><a href='#p-h-command-command'>Command</a></h3>
+<h3 id='p-h-command-command'><a href='#p-h-command-command'>명령</a></h3>
 
-<p>Usually a letter. Same as the shortcuts. There's commands not in the shortcuts, so look them up.</p>
+<p>보통 한 글자입니다. 단축키랑 같아요. 단축키에 없는 명령들도 있는데, 그건 찾아보시기 바랍니다.</p>
 
-<h3 id='p-h-command-input'><a href='#p-h-command-input'>Input</a></h3>
+<h3 id='p-h-command-input'><a href='#p-h-command-input'>입력</a></h3>
 
-<p>If the command needs parameters, write. For example a <code>s</code> command that replaces strings, put the string to find and replace.</p>
+<p>명령에 필요한 인자가 있다면 입력합니다. 예를 들어 문자열을 바꾸는 <code>s</code> 명령의 경우, 이 자리에 찾을 문자열과 바꿀 문자열을 넣습니다.</p>
 
-<h3 id='p-h-command-reg'><a href='#p-h-command-reg'>Register</a></h3>
+<h3 id='p-h-command-reg'><a href='#p-h-command-reg'>레지스터</a></h3>
 
-<p> You can type the register where to store when copying. Except that you don't use <code>"</code>(double quotation mark).</p>
+<p>복사의 경우 저장할 레지스터를 입력할 수 있습니다. 대신 <code>"</code>(따옴표)는 입력하지 않습니다.</p>
 
-<h3 id='p-h-command-all'><a href='#p-h-command-all'>All At Once</a></h3>
+<h3 id='p-h-command-all'><a href='#p-h-command-all'>다 합쳐서</a></h3>
 
 <div class='script'>
   <code>:12,/target/-3y+</code>
 </div>
-<p>This will be "Copy from the 12th line to 3rd line above from the line includes 'target' to clipboard register".</p>
+<p>이러면 "12번 줄부터 target이란 문자열이 포함된 줄의 3줄 위의 줄까지 클립보드 레지스터에 복사한다"가 될 거예요.</p>
 
-<h2 id='p-h-end'><a href='p-h-end'>End</a></h2>
+<h2 id='p-h-end'><a href='p-h-end'>마무리</a></h2>
 
-<p>You won't use Visual Mode even just knowing this much. Sometimes it comes out habitually but there's no inevitable situation for me. Can use more complex commands and macros as you go deeper, I don't know further so I'll wrap it up here.</p>
+<p>이 정도만 알고 계셔도 비주얼 모드는 거의 사용하지 않으실 거예요. 저도 습관적으로 튀어나오는 경우는 있지만 어쩔 수 없이 쓰는 경우는 거의 없어요. 더 심화로 가면 막 복잡한 명령 만들고 매크로 만들고 하는데, 그 정도까지는 제가 아직 몰라서 여기서 마치겠습니다.</p>
 
 <div class='footnote b'>
   <div id='p-fn-link-b'>
     <a class='n' href='#p-fn-link-t'>1</a>
-    <span>It might be simple if you think it's like the commands of fighting games, the chain of YuGiOh TCG.</span>
+    <span>격겜의 커맨드, 유희왕의 체인 이런 거 비슷하다고 생각하시면 쉬울 거 같습니다.</span>
   </div>
 </div>

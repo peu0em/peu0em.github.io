@@ -267,25 +267,25 @@ body[data-theme="dark"] #theme-button,body:not([data-theme="dark"]) #theme-butto
 #theme-button-m{margin:auto;width:2.3rem;height:2.3rem;stroke-width:0;fill:#ddd;}
 
 /* language button */
-#lang-select,#lang-select>select{background-color:var(--color-theme-change);cursor:pointer;}
-#lang-select{
+.lang-select,.lang-select>select{background-color:var(--color-theme-change);cursor:pointer;}
+.lang-select{
   padding:0;position:relative;width:fit-content;
   position:relative;
 }
-#lang-select>select{
+.lang-select>select{
   padding:1rem .5rem 1rem 2rem;
   font-size:1rem;
   border:none;
   font-family:var(--font-body);color:var(--color-font);
   height:100%;
 }
-#lang-select>span{
+.lang-select>span{
   font-size:1.2rem;
   position:absolute;
   left:.35rem;top:.95rem;
   user-select:none;-moz-user-select:none;-webkit-user-select:none;
 }
-#lang-select>select:hover,#lang-select:hover{background-color:var(--color-theme-double-change)}
+.lang-select>select:hover,.lang-select:hover{background-color:var(--color-theme-double-change)}
 
 /* dfn */
 dfn{all:unset}
