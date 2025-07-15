@@ -1,0 +1,156 @@
+---
+layout: post
+title: "Understanding Vim (Based On One Letter Commands)"
+description: For who knows keyboard shortcuts but something's fuzzy. Understanding vim's one letter commands system.
+tags: [information,vim]
+keywords: [vim]
+lang:
+  current: en
+  ko: /p/2025/07/13/vim
+---
+<p>I'm gonna organize mechanisms that I've understood using vim. Might be useful for those who're familiar with keyboard shortcuts but struggling with complicated actions so selecting with Visual Mode.</p>
+<p>First, I think Visual Mode(v) isn't mainstream. Sometimes we need this, but it blocks ways to efficiency while this can replace almost every function. I think vim's efficiency comes from the impossibility of being inefficient. So I will exclude Visual Mode from explanations after this.</p>
+
+<nav>
+  <details>
+    <summary>Index</summary>
+    <ol class='index'>
+      <li><a href='#p-h-key'>Shortcuts</a>
+        <ol>
+          <li><a href='#p-h-link'>Link</a>
+            <ol>
+              <li><a href='#p-h-link-reg'>Register</a></li>
+              <li><a href='#p-h-link-rep'>Repetition</a></li>
+              <li><a href='#p-h-link-command'>Command</a></li>
+              <li><a href='#p-h-link-scope'>Scope</a></li>
+              <li><a href='#p-h-link-all'>All At Once</a></li>
+            </ol>
+          </li>
+        </ol>
+      </li>
+      <li><a href='#p-h-command'>Command-line Mode</a>
+        <ol>
+          <li><a href='#p-h-command-scope'>Scope</a></li>
+          <li><a href='#p-h-command-command'>Command</a></li>
+          <li><a href='#p-h-command-input'>Input</a></li>
+          <li><a href='#p-h-command-reg'>Register</a></li>
+        </ol>
+      </li>
+      <li><a href='p-h-end'>End</a></li>
+    </ol>
+  </details>
+</nav>
+
+<h2 id='p-h-key'><a href='#p-h-key'>Shortcuts</a></h2>
+
+<p>When starting to learn, it seems easy to memorize if you think there's arrow keys and shortcuts in vim, but actually it is not. All actions in vim are shortcuts, and these shortcuts can be linked<span class='footnote t' id='p-fn-link-t'><a class='n' href='#p-fn-link-b'>1</a></span> by their function.</p>
+<p>First let me explain about all things are shortcuts. <code>HJKL</code> for move are also shortcuts. Whether these are shortcuts or not is important because these can be used in combinations.</p>
+
+<h3 id='p-h-link'><a href='#p-h-link'>Link</a></h3>
+
+<p>The structure is as follows. Can be omitted depending on the type.</p>
+<div class='script'>
+  <code>[<a href='#p-h-link-reg' class='no-underline'>REGISTER</a>][<a href='#p-h-link-rep' class='no-underline'>REPETITION</a>][<a href='#p-h-link-command' class='no-underline'>COMMAND</a>][<a href='#p-h-link-scope' class='no-underline'>SCOPE</a>]</code>
+</div>
+
+<h4 id='p-h-link-reg'><a href='#p-h-link-reg'>Register</a></h4>
+
+<p>(Can be omitted.)</p>
+<p>Vim can store information somewhere. We can copy without this, but information will be stored at temporary register. Vim's all deletes includes copying. There's no just deletes. All cuts. So if you delete something between copy and paste, copied text will be overwritten.</p>
+<p>So we need register. Starts with <code>"</code>(double quotation mark), choose where to store after. This 'where' can be any letter of the aphabet. Seems like case-insensitive. Just to add, there's <code>+</code> register, clipboard. This can be used when you copy for external use or bring in from outside.</p>
+<div class='script'>
+  <code>"+</code>
+</div>
+<p>Would be like this if you use clipboard.</p>
+
+<h4 id='p-h-link-rep'><a href='#p-h-link-rep'>Repetition</a></h4>
+
+<p>(Can be omitted.)</p>
+<p>Decides how many times to repeat.</p>
+<p>But copied results are merged. For example, <code>2yy</code> copies two lines. It won't overwrite while repeating.</p>
+<p>If you repeat input type, multiple texts will be typed simultaneously like writing on paper with multiple pens in a hand.</p>
+
+<h4 id='p-h-link-command'><a href='#p-h-link-command'>Command</a></h4>
+
+<p>What to do. Just one letter. Shift or ctrl can be used together with but there's only one letter.</p>
+<p> Wait, but in other tutorial they teach me something like <code>dd</code> and <code>dw</code>? That latter part belongs to the <a href='#p-h-link-scope'>scope</a> right after.</p>
+<p>So there's no different behavior that have the same first letter. As far as I know. So you can consider only the first letter as the body of the command.</p>
+
+<h4 id='p-h-link-scope'><a href='#p-h-link-scope'>Scope</a></h4>
+
+<p>Here's the point. Scope is decided by <mark>move commands</mark>. Do you remember that <code>HJKL</code> are also commands? They are used here.</p>
+<p>Typical move commands are <code>HJKL</code>, <code>w</code>, <code>b</code>, <code>b</code>, <code>f</code>. Combination with ctrl can't be used here as I just checked.</p>
+<p>Importantly, this can be repeated.</p>
+<p>I'll give you some examples. I'll show you from beginning to avoid confusion.</p>
+<ul>
+  <li><code>y2w</code>: Copy two words.</li>
+  <li><code>dl</code>: Cut letter at cursor.</li>
+  <li><code>d5k</code>: Cut 6 lines including recent line.</li>
+  <li><code>c3Fa</code>: Input after cut up to the 3rd nearest letter 'a' in the line, excluding the letter at the current cursor.</li>
+</ul>
+<p>The last one is kind of bizarre, though it seems to start before the cursor when moving backwards in a line. So it's little bit confusing.</p>
+<p>You can select the entire line by double tapping the same command. I'm not sure which comes first, inability to select only one line with <code>JK</code> or the opposite case. So the <code>5k</code> above selects 6 lines. Because cursor goes up 5 times.</p>
+
+<h4 id='p-h-link-all'><a href='#p-h-link-all'>All At Once</a></h4>
+
+<p>Let's do all at once as complex as possible.</p>
+<div class='script'>
+  <code>"a3d3fb</code>
+</div>
+<p>This would be "Repeat a command that cut up to 3rd 'b' after cursor to register a 3 times". But you don't need to do like this. Just do <code>"ad6fb</code>.</p>
+
+<h2 id='p-h-command'><a href='#p-h-command'>Command-line Mode</a></h2>
+
+<p>You can change to the command-line mode by using <code>:</code>(colon) to do some complex things. There's plenty of commands but I'm not going to deal with it today. I will talk about use shortcuts in command line.</p>
+<p>Yes. You can use shortcuts as is in the command line. Except the move commands. You can tell just by looking at the save command <code>w</code>.</p>
+<p>If keys are same, is there a reason to use command line? In the command-line mode, you can use line number.</p>
+<p>You can use like this.</p>
+<div class='script'>
+  <code>:[<a href='#p-h-command-scope' class='no-underline'>SCOPE</a>][<a href='#p-h-command-command' class='no-underline'>COMMAND</a>][<a href='#p-h-command-input' class='no-underline'>INPUT</a>][<a href='#p-h-command-reg' class='no-underline'>REGISTER</a>]</code>
+</div>
+
+<h3 id='p-h-command-scope'><a href='#p-h-command-scope'>Scope</a></h3>
+
+<p>It can be not used depending on which command is.</p>
+
+<div class='script'>
+  <code>[START LINE NUMBER],[END LINE NUMBER]</code>
+</div>
+<p>It would be like this.</p>
+<p>You can use some symbols instead of numbers.</p>
+<ul>
+  <li><code>%</code>: Whole lines in the file</li>
+  <li><code>.</code>: The line where cursor is.</li>
+  <li><code>/[PHRASE]/</code>: The line where <code>[PHRASE]</code> is.</li>
+</ul>
+<p>You can use something like this. Also you can do plus and minus calculations. For example <code>.+3</code> refers the 3rd line down from the line where cursor is. This can be used with <code>//</code>. But you must specify both start and end. This can't mean range by its own.</p>
+
+<h3 id='p-h-command-command'><a href='#p-h-command-command'>Command</a></h3>
+
+<p>Usually a letter. Same as the shortcuts. There's commands not in the shortcuts, so look them up.</p>
+
+<h3 id='p-h-command-input'><a href='#p-h-command-input'>Input</a></h3>
+
+<p>If the command needs parameters, write. For example a <code>s</code> command that replaces strings, put the string to find and replace.</p>
+
+<h3 id='p-h-command-reg'><a href='#p-h-command-reg'>Register</a></h3>
+
+<p> You can type the register where to store when copying. Except that you don't use <code>"</code>(double quotation mark).</p>
+
+<h3 id='p-h-command-all'><a href='#p-h-command-all'>All At Once</a></h3>
+
+<div class='script'>
+  <code>:12,/target/-3y+</code>
+</div>
+<p>This will be "Copy from the 12th line to 3rd line above from the line includes 'target' to clipboard register".</p>
+
+<h2 id='p-h-end'><a href='p-h-end'>End</a></h2>
+
+<p>You won't use Visual Mode even just knowing this much. Sometimes it comes out habitually but there's no inevitable situation for me. Can use more complex commands and macros as you go deeper, I don't know further so I'll wrap it up here.</p>
+
+<div class='footnote b'>
+  <div id='p-fn-link-b'>
+    <a class='n' href='#p-fn-link-t'>1</a>
+    <span>It might be simple if you think it's like the commands of fighting games, the chain of YuGiOh TCG.</span>
+  </div>
+</div>
