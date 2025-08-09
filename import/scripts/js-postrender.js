@@ -118,7 +118,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
     }
   }
   lang_refresh();
-  document.getElementById("lang-select").querySelector("[value='"+(document.body.dataset.lang?document.body.dataset.lang:(document.documentElement.getAttribute("lang")?document.documentElement.getAttribute("lang"):"ko"))+"']").setAttribute("selected","");
+  {
+    let langselect = document.getElementById("lang-select");
+    if(langselect) langselect.querySelector("[value='"+(document.body.dataset.lang?document.body.dataset.lang:(document.documentElement.getAttribute("lang")?document.documentElement.getAttribute("lang"):"ko"))+"']").setAttribute("selected","");
+  }
 
   // upbar 
   if(document.getElementById('upbar')){
