@@ -26,9 +26,9 @@
 {%-endif-%}
 
 
-<title {%if page.lang == "all" -%}
+<title {%if page.language.current == "all" -%}
   class='multilang'
-  {%-for t in page.lang-title-%}
+  {%-for t in page.language.title-%}
     {{" "}}
     data-content-{{t[0]}}='{{t[1]}}'
   {%-endfor%}

@@ -1,11 +1,13 @@
 {%assign langlist="ko en" | split:" "%}
 <script>
-  var lang_all = {%if page.lang=="all"%}true{%else%}false{%endif%};
-  {%for lang in langlist-%}
-    {%if page.lang[lang]!=null-%}
-      var lang_url_{{lang}}="{{page.lang[lang]|absolute_url}}";
-    {%else-%}
-      var lang_url_{{lang}}=false;
-    {%-endif%}
-  {%-endfor%}
+  var lang_all = {%if page.language.current=="all"%}true{%else%}false{%endif%};
+  {%-if page.language.current!="all"-%}
+    {%-for lang in langlist-%}
+      {%-if page.language.link[lang]!=null-%}
+        var lang_url_{{lang}} = "{{page.language.link[lang]|absolute_url}}";
+      {%-else-%}
+        var lang_url_{{lang}} = false;
+      {%-endif-%}
+    {%-endfor-%}
+  {%-endif-%}
 </script>
