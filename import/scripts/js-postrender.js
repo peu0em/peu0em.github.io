@@ -96,10 +96,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
           let urlto = window['lang_url_'+selector.value];
           window.localStorage.setItem("lang",selector.value);
           document.body.dataset.lang=selector.value;
-          if(document.documentElement.getAttribute('lang')!=selector.value){
-            if(!lang_all) window.location.href = (urlto)?urlto:"/404-language";
-            else lang_refresh();
-          }
+          if(!lang_all && (document.documentElement.getAttribute('lang')!=selector.value)) window.location.href = (urlto)?urlto:"/404-language";
+          else lang_refresh();
         }
       });
     }
