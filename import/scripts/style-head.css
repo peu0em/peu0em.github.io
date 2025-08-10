@@ -392,6 +392,7 @@ ul.horizontal>li,ol.horizontal>li{margin-right:2rem}
 li .flex{display:flex;flex-wrap:wrap;}
 li .flex>ol,li .flex>ul{margin-left:.5em}
 li .flex *{min-width:1px}
+li .flex>*{margin-top:0;margin-bottom:0;}
 dt:not(dt+dt){float:left;clear:left;}
 dd{clear:left}
 dt+dt::before{content:"/";margin:0 1em;color:var(--color-gray-2);}
