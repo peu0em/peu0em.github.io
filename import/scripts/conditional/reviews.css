@@ -1,5 +1,10 @@
 .card{text-align:center;font-size:1.2rem;font-family:var(--font-title);}
 .panel{--aspectratio:2/3;--gap:.5rem;--columns:5}
+.panel summary{
+  -webkit-list-style:none;list-style:none;
+  -moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;
+  text-align:center;
+}
 @media(min-width:1300px){
   .panel{--columns:7}
   }
