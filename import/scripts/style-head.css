@@ -389,7 +389,7 @@ ol.index li::before{
 ol:not(.no-deco){padding-left:1em}
 ul:not(.no-deco){padding-left:.75em;list-style-type:square;}
 li:not(.no-deco)::marker{color:var(--color-theme-double-change)}
-ul.horizontal,ol.horizontal{display:flex;justify-content:space-evenly;}
+ul.horizontal,ol.horizontal{display:flex;justify-content:center;}
 ul.horizontal>li,ol.horizontal>li{margin-right:2rem}
 li .flex{display:flex;flex-wrap:wrap;}
 li .flex>ol,li .flex>ul{margin-left:.5em}

@@ -7,4 +7,4 @@
   .panel{--columns:3}
 }
 h2{font-family:var(--font-title);font-size:2rem;text-align:center;font-weight:200;margin-bottom:.5rem;}
-ul.horizontal{font-size:1.3rem;justify-content:center;--size-linespace-half:.2em;margin:.5rem;}
+ul.horizontal{font-size:1.3rem;--size-linespace-half:.2em;margin:.5rem;}
