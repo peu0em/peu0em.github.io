@@ -1,17 +1,17 @@
 ---
 layout: display
-title: "후기: TV 시리즈"
-description: "TV 시리즈 후기"
+title: "후기: 드라마"
+description: "드라마 후기"
 language: 
   current: all
   title:
-    ko: "후기: TV 시리즈"
-    en: "Reviews: TV Serieses"
+    ko: "후기: 드라마"
+    en: "Reviews: Narrative Series"
 addhead:
   - "<link href='/import/scripts/conditional/reviews.css' rel='stylesheet'>"
 ---
 {%-for post in site.posts-%}
-  {%-if post.review.category=="tvseries"-%}
+  {%-if post.review.category=="narrativeseries"-%}
     {%-case post.review.rate-%}
       {%-when 1-%}
         {%-capture rate_1-%}
@@ -37,7 +37,7 @@ addhead:
   {%-endif-%}
 {%-endfor-%}
 
-<div class='card multilang' data-content-ko='TV 시리즈' data-content-en='TV Serieses'>TV 시리즈</div>
+<div class='card multilang' data-content-ko='드라마' data-content-en='Narrative Series'>드라마</div>
 
 <main>
 
