@@ -6,5 +6,11 @@
 @media(max-width:900px){
   .panel{--columns:3}
 }
-h2{font-family:var(--font-title);font-size:2rem;text-align:center;font-weight:200;margin-bottom:.5rem;}
+h2{
+  font-family:var(--font-title);font-size:2rem;text-align:center;font-weight:200;margin-bottom:.5rem;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+}
 ul.horizontal{font-size:1.3rem;--size-linespace-half:.2em;margin:.5rem;}
