@@ -10,78 +10,12 @@ language:
 addhead:
   - "<link href='/import/scripts/conditional/reviews.css' rel='stylesheet'>"
 ---
-{%-for post in site.posts-%}
-  {%-if post.review.category=="narrativeseries"-%}
-    {%-case post.review.rate-%}
-      {%-when 1-%}
-        {%-capture rate_1-%}
-        {{rate_1}}<li><a href='{{post.url|absolute_url}}'>{%if post.review.image%}<div class='i'>{{post.review.image}}</div>{%else%}<div class='t'><div><div>{{post.title}}</div></div></div>{%endif%}</a></li>
-        {%-endcapture-%}
-      {%-when 2-%}
-        {%-capture rate_2-%}
-          {{rate_2}}<li><a href='{{post.url|absolute_url}}'>{%if post.review.image%}<div class='i'>{{post.review.image}}</div>{%else%}<div class='t'><div><div>{{post.title}}</div></div></div>{%endif%}</a></li>
-        {%-endcapture-%}
-      {%-when 3-%}
-        {%-capture rate_3-%}
-          {{rate_3}}<li><a href='{{post.url|absolute_url}}'>{%if post.review.image%}<div class='i'>{{post.review.image}}</div>{%else%}<div class='t'><div><div>{{post.title}}</div></div></div>{%endif%}</a></li>
-        {%-endcapture-%}
-      {%-when 4-%}
-        {%-capture rate_4-%}
-          {{rate_4}}<li><a href='{{post.url|absolute_url}}'>{%if post.review.image%}<div class='i'>{{post.review.image}}</div>{%else%}<div class='t'><div><div>{{post.title}}</div></div></div>{%endif%}</a></li>
-        {%-endcapture-%}
-      {%-when 5-%}
-        {%-capture rate_5-%}
-          {{rate_5}}<li><a href='{{post.url|absolute_url}}'>{%if post.review.image%}<div class='i'>{{post.review.image}}</div>{%else%}<div class='t'><div><div>{{post.title}}</div></div></div>{%endif%}</a></li>
-        {%-endcapture-%}
-    {%-endcase-%}
-  {%-endif-%}
-{%-endfor-%}
-
-<div class='card multilang' data-content-ko='드라마' data-content-en='Narrative Series'>드라마</div>
+{%include reviews-rate-var.html category="narrativeseries"%}
 
 <main>
 
 <div class='panel'>
-<details>
-  <summary>★★★★★</summary>
-  <div>
-    <ul>
-      {{rate_5}}
-    </ul>
-  </div>
-</details>
-<details>
-  <summary>★★★★☆</summary>
-  <div>
-    <ul>
-      {{rate_4}}
-    </ul>
-  </div>
-</details>
-<details>
-  <summary>★★★☆☆</summary>
-  <div>
-    <ul>
-      {{rate_3}}
-    </ul>
-  </div>
-</details>
-<details>
-  <summary>★★☆☆☆</summary>
-  <div>
-    <ul>
-      {{rate_2}}
-    </ul>
-  </div>
-</details>
-<details>
-  <summary>★☆☆☆☆</summary>
-  <div>
-    <ul>
-      {{rate_1}}
-    </ul>
-  </div>
-</details>
+{%include reviews-rate-li.html%}
 </div>
 
 </main>
