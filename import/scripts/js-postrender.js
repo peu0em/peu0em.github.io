@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
           let urlto = window['lang_url_'+selector.value];
           window.localStorage.setItem("lang",selector.value);
           document.body.dataset.lang=selector.value;
-          if(!lang_all && (document.documentElement.getAttribute('lang')!=selector.value)) window.location.href = (urlto)?urlto:"/404-language";
+          if((typeof lang_all === "undefined" || !lang_all) && (document.documentElement.getAttribute('lang')!=selector.value)) window.location.href = (urlto)?urlto:"/404-language";
           else lang_refresh();
         }
       });
@@ -107,13 +107,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
     let mltag = document.getElementsByClassName("multilang");
     let prefix = "-"+lang_current;
     for(let i=0;mltag.length>i;i++){
-      let attrs = Array.from(mltag[i].attributes).filter(attr => attr.name.endsWith(prefix)).reduce((arr, attr) => {
+      let attrs = Array.from(mltag[i].attributes).filter(attr => attr.name.endsWith(prefix) && attr.name.startsWith("data-")).reduce((arr, attr) => {
         arr.push(attr.name);
         return arr;
       },[]);
       for(let j=0;attrs.length>j;j++){
         if(attrs[j].startsWith("data-content-")) mltag[i].innerHTML = mltag[i].getAttribute(attrs[j]);
-        else mltag[i].setAttribute(attrs[j].replace(prefix,""),mltag[i].getAttribute(attrs[j]));
+        else mltag[i].setAttribute(attrs[j].replace(/^data-/,"").replace(new RegExp(prefix+"$"),""),mltag[i].getAttribute(attrs[j]));
       }
     }
   }

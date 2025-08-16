@@ -4,11 +4,11 @@
       {%-capture attr-%}
         href='{{post.url|absolute}}'
         {%-if post.language-%}
-          {%-if post.language.current=="ko"%} href-ko='{{post.url|absolute_url}}'
-          {%-elsif post.language.link.ko%} href-ko='{{post.language.link.ko}}'
+          {%-if post.language.current=="ko"%} data-href-ko='{{post.url|absolute_url}}'
+          {%-elsif post.language.link.ko%} data-href-ko='{{post.language.link.ko}}'
           {%-endif-%}
-          {%-if post.language.current=="en"%} href-en='{{post.url|absolute_url}}'
-          {%-elsif post.language.link.en%} href-en='{{post.language.link.en}}'
+          {%-if post.language.current=="en"%} data-href-en='{{post.url|absolute_url}}'
+          {%-elsif post.language.link.en%} data-href-en='{{post.language.link.en}}'
           {%-endif%} class='multilang'
         {%-endif-%}
       {%-endcapture-%}
