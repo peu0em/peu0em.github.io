@@ -107,7 +107,7 @@ language:
 <p>If keys are same, is there a reason to use command line? In the command-line mode, you can use line number.</p>
 <p>You can use like this.</p>
 <div class='script'>
-  <code>:[<a href='#p-h-command-scope' class='no-underline'>SCOPE</a>][<a href='#p-h-command-command' class='no-underline'>COMMAND</a>][<a href='#p-h-command-input' class='no-underline'>INPUT</a>][<a href='#p-h-command-reg' class='no-underline'>REGISTER</a>]</code>
+  <code>:[<a href='#p-h-command-scope' class='no-underline'>SCOPE</a>][<a href='#p-h-command-command' class='no-underline'>COMMAND</a>][<a href='#p-h-command-input' class='no-underline'>INPUT</a>] [<a href='#p-h-command-reg' class='no-underline'>REGISTER</a>]</code>
 </div>
 
 <h3 id='p-h-command-scope'><a href='#p-h-command-scope'>Scope</a></h3>
@@ -136,12 +136,12 @@ language:
 
 <h3 id='p-h-command-reg'><a href='#p-h-command-reg'>Register</a></h3>
 
-<p> You can type the register where to store when copying. Except that you don't use <code>"</code>(double quotation mark).</p>
+<p> You can type the register where to store when copying. Except that you don't use <code>"</code>(double quotation mark). Instead, you have to place space.</p>
 
 <h3 id='p-h-command-all'><a href='#p-h-command-all'>All At Once</a></h3>
 
 <div class='script'>
-  <code>:12,/target/-3y+</code>
+  <code>:12,/target/-3y +</code>
 </div>
 <p>This will be "Copy from the 12th line to 3rd line above from the line includes 'target' to clipboard register".</p>
 
