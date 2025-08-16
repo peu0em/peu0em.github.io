@@ -90,10 +90,7 @@ details>ul,details>ol{padding-left:0}
 /* button */
 .button{
   cursor:pointer;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  -moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;
 }
 .button:hover{background-color:var(--color-theme-double-change)}
 
