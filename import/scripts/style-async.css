@@ -1,10 +1,12 @@
 /* selection */
-::selection{background-color:var(--color-theme-change);}
 ::-moz-selection{background-color:var(--color-theme-change);}
 ::-webkit-selection{background-color:var(--color-theme-change);}
-h1.post::selection{background-color:var(--color-theme-change);}
+::-ms-selection{background-color:var(--color-theme-change);}
+::selection{background-color:var(--color-theme-change);}
 h1.post::-moz-selection{background-color:var(--color-theme-change);}
 h1.post::-webkit-selection{background-color:var(--color-theme-change);}
+h1.post::-ms-selection{background-color:var(--color-theme-change);}
+h1.post::selection{background-color:var(--color-theme-change);}
 
 /* no user selection */
 .no-drag,.footnote .n,.badge
@@ -77,12 +79,12 @@ h1.post::-webkit-selection{background-color:var(--color-theme-change);}
 }
 
 /* details */
-main details>summary{cursor:pointer;}
-main details>:not(summary){margin-left:1.5em;margin-right:1.5em;}
-main details>summary+*{margin-top:1em}
-main .index summary+*{margin-top:0}
-main details>:last-child{margin-bottom:0}
-details>ul,details>ol{padding-left:0}
+details:not(.no-deco)>summary,details.deco>summary{cursor:pointer;}
+details:not(.no-deco)>:not(summary){margin-left:1.5em;margin-right:1.5em;}
+details:not(.no-deco)>summary+*{margin-top:1em}
+.index summary+*{margin-top:0}
+details:not(.no-deco)>:last-child{margin-bottom:0}
+details:not(.no-deco)>ul,details:not(.no-deco)>ol{padding-left:0}
 
 /* tags */
 .tags li:hover::before{color:var(--color-theme-triple-change)}
@@ -107,10 +109,10 @@ img.badge:not(.nothover):hover,svg.badge:not(.nothover):hover{
 /* interaction change */
 
 /* anchor */
-main a:hover{--variable-anchor-underlinecolor:var(--variable-anchor-underlinehovercolor,var(--color-theme-double-change))}
-.footnote.t a:not(.n):hover,.card a:hover{--variable-anchor-underlinehovercolor:var(--color-theme-triple-change)}
+a:not(.no-deco):hover{--variable-anchor-underlinecolor:var(--variable-anchor-underlinehovercolor,var(--color-theme-double-change))}
+.footnote.t a:not(.no-deco):not(.n):hover,.card a:hover{--variable-anchor-underlinehovercolor:var(--color-theme-triple-change)}
 
 /* side border */
-main details:hover,.display:hover{
+details:not(.no-deco):hover,.display:hover{
   border-left-color:var(--color-theme-double-change);border-right-color:var(--color-theme-double-change);
 }

@@ -1,17 +1,17 @@
 ---
 layout: display
-title: 후기
-description: "프엠: 후기"
+title: "후기: TV 시리즈"
+description: "TV 시리즈 후기"
 language: 
   current: all
   title:
-    ko: 후기
-    en: Reviews
+    ko: "후기: TV 시리즈"
+    en: "Reviews: TV Serieses"
 addhead:
   - "<link href='/import/scripts/conditional/reviews.css' rel='stylesheet'>"
 ---
 {%-for post in site.posts-%}
-  {%-if post.review!=null-%}
+  {%-if post.review.category=="tvseries"-%}
     {%-case post.review.rate-%}
       {%-when 1-%}
         {%-capture rate_1-%}
@@ -36,6 +36,8 @@ addhead:
     {%-endcase-%}
   {%-endif-%}
 {%-endfor-%}
+
+<div class='card multilang' data-content-ko='TV 시리즈' data-content-en='TV Serieses'>TV 시리즈</div>
 
 <main>
 
@@ -84,10 +86,8 @@ addhead:
 
 </main>
 
-
-<h2 class='no-deco'>종류별로 보기</h2>
-<ul class='horizontal no-underline'>
-  <li><a class='t multilang' href='/i/reviews/films' draggable='false' data-content-ko='영화' data-content-en='Films'>영화</a></li>
-  <li><a class='t multilang' href='/i/reviews/tvserieses' draggable='false' data-content-ko='TV 시리즈' data-content-en='TV Serieses'>TV 시리즈</a></li>
-  <li hidden><a class='t multilang' href='/i/reviews/animations' draggable='false' data-content-ko='애니메이션' data-content-en='Animations'>애니메이션</a></li>
-</ul>
+<div class='neck'>
+  <div class='flex'>
+    <a class='badge multilang' aria-label='전체' aria-label-ko='전체' aria-label-en='all' href='/i/reviews/all'>📑</a>
+  </div>
+</div>

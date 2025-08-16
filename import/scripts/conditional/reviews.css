@@ -1,0 +1,10 @@
+.card{text-align:center;font-size:1.2rem;font-family:var(--font-title);}
+.panel{--aspectratio:2/3;--gap:.5rem;--columns:5}
+@media(min-width:1300px){
+  .panel{--columns:7}
+  }
+@media(max-width:900px){
+  .panel{--columns:3}
+}
+h2{font-family:var(--font-title);font-size:2rem;text-align:center;font-weight:200;margin-bottom:.5rem;}
+ul.horizontal{font-size:1.3rem;justify-content:center;--size-linespace-half:.2em;margin:.5rem;}
