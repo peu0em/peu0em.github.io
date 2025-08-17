@@ -7,23 +7,24 @@ language:
   title:
     ko: 프엠
     en: PeuEM
-addheader:
-  - <link href='/import/scripts/conditional/index.css' rel='stylesheet'>
+addhead:
+  - "<link href='/import/scripts/conditional/index.css' rel='stylesheet'>"
 ---
 <div class='index'>
-  {%include logo.html%}
+  {% include logo.html %}
 
   <main>
+
     <img alt='Jerry Bowing GIF' class='image center' style='width:30em' width='498px' height='373px' src='https://media.tenor.com/pSuK_En8qoIAAAAC/jerry-thanks.gif'>
 
-    {%include neck.html content='list roundabout'%}
+    {% include neck.html content="list roundabout" %}
 
-    <ul aria-label='페이지' data-aria-label-ko='페이지' data-aria-label-en='Pages' class='horizontal no-underline multilang' style='--size-linespace-half:.05em;font-family:var(--font-title);font-size:1.3rem;'>
+    <ul aria-label='페이지' data-aria-label-ko='페이지' data-aria-label-en='Pages' class='horizontal no-underline multilang'>
       <li><a href='/i/reviews/all' class='multilang' data-content-ko='후기' data-content-en='Reviews'>후기</a></li>
       <li><a href='/i/blogger-syntax' data-href-ko='/i/blogger-syntax' data-href-en='https://peu0em-en.blogspot.com/p/blogger-syntax.html' class='multilang' data-content-ko='블로거 문법 정리' data-content-en='Blogger Syntax'>블로거 문법 정리</a></li>
     </ul>
 
-    {%include tags-all.html%}
+    {% include tags-all.html %}
 
   </main>
 </div>
