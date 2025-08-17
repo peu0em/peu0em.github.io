@@ -292,20 +292,21 @@ body[data-theme="dark"] #theme-button,body:not([data-theme="dark"]) #theme-butto
 /* dfn */
 dfn:not(.no-deco){font-style:unset;}
 
-/* h */
+/* heading */
 h2:not(.no-deco),h3:not(.no-deco),h4:not(.no-deco),h5:not(.no-deco),h6:not(.no-deco){
   letter-spacing:-.02em;word-spacing:.2em;line-height:1.2;
   overflow-wrap:break-word;
-  margin-top:1.5em;margin-bottom:calc(var(--size-font-p) * 1.5);
+  margin-bottom:calc(var(--size-font-p) * 3);
   font-family:var(--font-title);
   text-shadow:.05em 0 var(--color-theme-change);
 }
-h2:not(.no-deco):first-child,h2+h3:not(.no-deco),h3+h4:not(.no-deco),h4+h5:not(.no-deco),h5+h6:not(.no-deco),h2.first,h3.first,h4.first,h5.first,h6.first{margin-top:0;}
-h2:not(.no-deco){font-size:calc(var(--size-font-h1) * 1.5);font-weight:100;}
-h3:not(.no-deco){font-size:calc(var(--size-font-h1) * 1);font-weight:100;}
-h4:not(.no-deco){font-size:calc(var(--size-font-h1) * .75);font-weight:200;}
-h5:not(.no-deco){font-size:calc(var(--size-font-h1) * .5);font-weight:200;}
-h6:not(.no-deco){font-size:clac(var(--size-font-h1) * .25);font-weight:200;}
+h2:not(.no-deco){font-size:calc(var(--size-font-h1) * 1.5);font-weight:100;margin-top:1.5em;}
+h3:not(.no-deco){font-size:calc(var(--size-font-h1) * 1);font-weight:100;margin-top:1.5em;}
+h4:not(.no-deco){font-size:calc(var(--size-font-h1) * .75);font-weight:200;margin-top:calc(var(--size-font-p) * 3);}
+h5:not(.no-deco){font-size:calc(var(--size-font-h1) * .5);font-weight:200;margin-top:calc(var(--size-font-p) * 3);}
+h6:not(.no-deco){font-size:clac(var(--size-font-h1) * .25);font-weight:200;margin-top:calc(var(--size-font-p) * 3);}
+h2:not(.no-deco):first-child,h2.first,h3.first,h4.first,h5.first,h6.first{margin-top:0}
+h2+h3:not(.no-deco),h3+h4:not(.no-deco),h4+h5:not(.no-deco),h5+h6:not(.no-deco){margin-top:calc(0px - (var(--size-font-p) * 2))}
 
 /* button */
 .button{
