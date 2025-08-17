@@ -1,14 +1,14 @@
 <!doctype html>
-<html {%include html-attributes.html%}>
+<html {% include html-attributes.html %}>
   <head>
-    {%include scripts-head.html%}
-    {%include meta.html%}
+    {% include scripts-head.html %}
+    {% include meta.html %}
   </head>
   <body>
-    {%include scripts-prerender.html%}
+    {% include scripts-prerender.html %}
 
-    {{content}}
+    {{ content }}
     
-    {%include scripts-postrender.html%}
+    {% include scripts-postrender.html %}
   </body>
 </html>

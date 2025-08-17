@@ -1,74 +1,70 @@
-{%-if page.title==null-%}{%-assign title = "프엠"-%}
-{%-else-%}{%-assign title = {{page.title}}-%}
-{%-endif-%}
-{%-if page.description!=null-%}
-  {%-assign description = page.description | replace: '"',"&quot;"-%}
-{%-endif-%}
-{%-if page.thumbnail==null-%}{%-assign thumbnail = "/import/images/logo-default-square.jpg" | absolute_url-%}
-{%-else-%}{%-assign thumbnail = page.thumbnail | absolute_url-%}
-{%-endif-%}
-{%-assign url = page.url |  absolute_url-%}
-{%-if page.keywords!=null-%}
-  {%-capture keywords-%}
-    {%-for content in page.keywords-%}
-      {{content}}{%-unless forloop.last-%},{%-endunless-%}
-    {%-endfor-%}
-  {%-endcapture-%}
-{%-endif-%}
-{%-if page.robots!=null-%}
-  {%-capture robots-%}
-    {%-for content in page.robots-%}
-      {{content | replace:" ",","}}{%-unless forloop.last-%},{%-endunless-%}
-    {%-endfor-%}
-  {%-endcapture-%}
-{%-else-%}
-  {%assign robots = "index,follow"%}
-{%-endif-%}
+{%- assign title = page.title | default: "프엠" -%}
+{%- if page.description -%}
+  {%- assign description = page.description | replace: '"',"&quot;"-%}
+{%- endif -%}
+{%- assign thumbnail = page.thumbnail | default: "/import/images/logo-default-square.jpg" | absolute_url -%}
+{%- assign url = page.url |  absolute_url -%}
+{%- if page.keywords -%}
+  {%- capture keywords -%}
+    {%- for content in page.keywords -%}
+      {{ content }}{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+{%- endif -%}
+{%- if page.robots -%}
+  {%- capture robots -%}
+    {%- for content in page.robots -%}
+      {{ content | replace:" ","," }}{%- unless forloop.last -%},{%- endunless -%}
+    {%- endfor -%}
+  {%- endcapture -%}
+{%- else -%}
+  {% assign robots = "index,follow" %}
+{%- endif -%}
 
 
-<title {%if page.language.current == "all" -%}
+<title {% if page.language.current == "all" -%}
   class='multilang'
-  {%-for t in page.language.title-%}
-    {{" "}}
-    data-content-{{t[0]}}='{{t[1]}}'
-  {%-endfor%}
-{%-endif%}>{{title}}</title>
+  {%- for t in page.language.title -%}
+    {{" " }}
+    data-content-{{ t[0] }}='{{ t[1] }}'
+  {%- endfor %}
+{%- endif %}>{{ title }}</title>
 <link href='/favicon.ico' rel='icon' type='image/x-icon'>
 
 <meta content='width=device-width,initial-scale=1.0,minimum-scale=1.0' name='viewport'/>
-<meta name='robots' content='{{robots}}'>
+<meta name='robots' content='{{ robots }}'>
 
 <!--meta-->
 <meta charset='UTF-8'>
-<link rel='canonical' href='{{url}}'>
-<meta propery='og:url' content='{{url}}'>
-<meta name='twitter:url' content='{{url}}'>
-<meta property='og:title' content='{{title}}'>
-<meta property='twitter:title' content='{{title}}'>
-<meta property='og:site_name' content='{{site.title}}'>
-{%-if description!=null-%}
-  <meta name='description' content='{{description}}'>
-  <meta property='og:description' content='{{description}}'>
-  <meta name='twitter:description' content='{{description}}'>
-{%-endif-%}
-{%-if keywords!=null-%}
-  <meta name='keywords' content='{{keywords}}'>
-{%-endif-%}
-<meta property='og:image' content='{{thumbnail}}'>
-<meta name='twitter:image' content='{{thumbnail}}'>
+<link rel='canonical' href='{{ url }}'>
+<meta propery='og:url' content='{{ url }}'>
+<meta name='twitter:url' content='{{ url }}'>
+<meta property='og:title' content='{{ title }}'>
+<meta property='twitter:title' content='{{ title }}'>
+<meta property='og:site_name' content='{{ site.title }}'>
+{%- if description -%}
+  <meta name='description' content='{{ description }}'>
+  <meta property='og:description' content='{{ description }}'>
+  <meta name='twitter:description' content='{{ description }}'>
+{%- endif -%}
+{%- if keywords -%}
+  <meta name='keywords' content='{{ keywords }}'>
+{%- endif -%}
+<meta property='og:image' content='{{ thumbnail }}'>
+<meta name='twitter:image' content='{{ thumbnail }}'>
 <script type='application/ld+json'>
   {
     "@context": "http://schema.org",
-    "@type": "{%if page.type==null%}BlogPosting{%else%}{{page.type}}{%endif%}",
-    "name": "{{site.title}}",
-    "description": "{{description}}",
-    "image": "{{thumbnail}}",
-    {%if page.date!=null %}"datePublished": "{{page.date | date:"%Y-%m-d"}}",{%endif%}
+    "@type": "{{ page.type | default: "BlogPosting" }}",
+    "name": "{{ site.title }}",
+    "description": "{{ description }}",
+    "image": "{{ thumbnail }}",
+    {% if page.date %}"datePublished": "{{ page.date | date:"%Y-%m-d" }}",{% endif %}
     "mainEntityOfPage": {
-      "name": "{{title}}",
+      "name": "{{ title }}",
       "@type": "WebPage",
-      "@id": "{{url}}",
-      "url": "{{url}}"
+      "@id": "{{ url }}",
+      "url": "{{ url }}"
     },
     "inLanguage": "ko"
   }

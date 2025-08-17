@@ -4,9 +4,9 @@
 <script type='text/javascript' src='/import/scripts/js-postrender.js' defer></script>
 <link  href='/import/scripts/style-async.css' rel='stylesheet' media='print' onload='this.media="all"'>
 <link href='/import/scripts/font-face.css' rel='stylesheet' media='print' onload='this.media="all"'>
-{%include check-language.html%}
+{%- include check-language.html -%}
 <!---->
-{%if page.addhead!=none%}
-  {%for line in page.addhead%}{{line}}{%endfor%}
-{%endif%}
+{%- if page.addhead -%}
+  {%- for line in page.addhead -%}{{ line }}{%- endfor -%}
+{%- endif -%}
 <!---->

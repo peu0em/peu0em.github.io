@@ -10,13 +10,13 @@ lang-title:
   ko: 목록
   en: LIST
 ---
-{%include neck.html content='home'%}
+{% include neck.html content = "home" %}
 <main>
   <div class='multilang post-list' aria-label='글 목록' aria-label-ko='글 목록' aria-label-en='Post List'>
     <div hidden class='status card' style='width:var(--size-maxwidth)'></div>
     <ul></ul>
     <div class='placeholder'>⌛</div>
-    {%include no-result.html%}
+    {% include no-result.html %}
     <script src='/import/scripts/functions/postlist-listing.js' type='text/javascript'></script>
   </div>
 </main>

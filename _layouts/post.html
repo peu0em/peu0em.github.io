@@ -1,16 +1,16 @@
 ---
 layout: frame
 ---
-{%include upbar.html%}
-{%include top-gap.html%}
-<a class='post' href='{{page.url}}'><h1 class='post'>{{page.title}}</h1></a>
+{% include upbar.html %}
+{% include top-gap.html %}
+<a class='post' href='{{ page.url }}'><h1 class='post'>{{ page.title }}</h1></a>
 <div class='post widthlimit'>
-  {%include neck.html content='date'%}
-  <main>{{content}}</main>
+  {% include neck.html content="date" %}
+  <main>{{ content }}</main>
   <div class='bottom'>
-    {%include tags-current.html%}
-    {%include comments.html%}
+    {% include tags-current.html %}
+    {% include comments.html %}
   </div>
 </div>
-{%include neck.html content='home list'%}
-{%include footer.html%}
+{% include neck.html content="home list" %}
+{% include footer.html %}

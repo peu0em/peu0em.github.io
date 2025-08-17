@@ -1,7 +1,7 @@
-{%if page.tags!=null%}
-    <ul class='tags current multilang' aria-label='태그 목록' data-aria-label-ko='태그 목록' data-aria-label-en='Tag List'>
-      {%for tag in page.tags%}
-        <li><a href='/list?tag={{tag}}'>{{tag}}</a></li>
-      {%endfor%}
-    </ul>
-  {%endif%}
+{% if page.tags -%}
+  <ul class='tags current multilang' aria-label='태그 목록' data-aria-label-ko='태그 목록' data-aria-label-en='Tag List'>
+    {%- for tag in page.tags %}
+      <li><a href='/list?tag={{ tag }}'>{{ tag }}</a></li>
+    {%- endfor -%}
+  </ul>
+{%- endif -%}
