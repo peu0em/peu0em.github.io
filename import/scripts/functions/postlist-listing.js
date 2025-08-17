@@ -8,9 +8,10 @@
   const card = pdiv.getElementsByClassName("card")[0];
 
   function cardText(mark,text){
-    var flex = document.createElement("div");
+    var flex = document.createElement("h1");
     flex.style.display = "flex";
     flex.style.justifyContent = "center";
+    flex.classList.add("no-deco");
 
     var flexMark = document.createElement("div");
     flexMark.innerHTML = mark;

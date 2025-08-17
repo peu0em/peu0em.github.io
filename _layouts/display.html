@@ -3,12 +3,10 @@ layout: frame
 ---
 {% include upbar.html %}
 {% include top-gap.html %}
-{% include logo.html anchor=true %}
 
 <div style='margin:auto;width:100%;padding:0 1rem;'>
-
-  {{ content }}
-
+{{ content }}
+{% include neck.html content="home" %}
 </div>
 
 {% include footer.html %}

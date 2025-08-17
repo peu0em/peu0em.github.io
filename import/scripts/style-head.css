@@ -305,8 +305,7 @@ h3:not(.no-deco){font-size:calc(var(--size-font-h1) * 1);font-weight:100;margin-
 h4:not(.no-deco){font-size:calc(var(--size-font-h1) * .75);font-weight:200;margin-top:calc(var(--size-font-p) * 3);}
 h5:not(.no-deco){font-size:calc(var(--size-font-h1) * .5);font-weight:200;margin-top:calc(var(--size-font-p) * 3);}
 h6:not(.no-deco){font-size:clac(var(--size-font-h1) * .25);font-weight:200;margin-top:calc(var(--size-font-p) * 3);}
-h2:not(.no-deco):first-child,h2.first,h3.first,h4.first,h5.first,h6.first{margin-top:0}
-h2+h3:not(.no-deco),h3+h4:not(.no-deco),h4+h5:not(.no-deco),h5+h6:not(.no-deco){margin-top:calc(0px - (var(--size-font-p) * 2))}
+h2+h3:not(.no-deco),h3+h4:not(.no-deco),h4+h5:not(.no-deco),h5+h6:not(.no-deco){margin-top:calc(0px - (var(--size-font-p) * 1.5))}
 
 /* button */
 .button{
@@ -409,6 +408,7 @@ dt+dt:not(.no-deco)::before{content:"/";margin:0 1em;color:var(--color-gray-2);}
   width:100%;max-width:calc(100% - 2rem);
   word-break:keep-all;
 }
+.card .no-deco{font-size:inherit;font-weight:inherit;margin:0;padding:0;text-decoration:unset;}
 
 /* panel */
 .panel ul{
@@ -491,6 +491,9 @@ a.center,div.center{width:fit-content}
 /* group */
 .group{width:max-content;max-width:100%;height:auto;white-space:nowrap}
 .group>*{max-height:99%;}
+
+/* no margin */
+main>:first-child,h2.first{margin-top:0}
 
 /* side border */
 details:not(.no-deco),.neck,.display,.script, dl div{
