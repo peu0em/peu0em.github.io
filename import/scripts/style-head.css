@@ -83,7 +83,7 @@ body *{scroll-margin-top:4rem}
 
 /* anchor */
 a:not(.no-deco){color:var(--color-font);cursor:pointer;text-decoration:none;}
-.highlight,a:not(.no-deco,.no-deco-a a,.footnote .n,.footnote .n *,h1.post a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,a.image,.image a:not(figcaption *),.tags a,.panel li a){
+.highlight,a:not(.no-deco,.no-deco-a a,.footnote .n,.footnote .n *,h1.post a,h2>a,h3>a,h4>a,h5>a,h6>a,.badge,a.image,.tags a,.panel li a){
   position:relative;
   padding-bottom:var(--size-linespace-half);
   box-shadow:var(--preset-boxshadow-underline-2) var(--variable-anchor-underlinecolor,var(--color-theme-change));
