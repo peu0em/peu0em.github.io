@@ -361,7 +361,7 @@ table.innerline{border-collapse:collapse;border:hidden;}
 .footnote.t{display:inline;position:relative;}
 .footnote.b{
   padding-top:.3rem;padding-left:.6rem;
-  margin-top:var(--size-font-p);
+  margin-top:var(--size-lineheight-1-fix);
   border-top:.2rem solid var(--color-theme-change);
 }
 .footnote.b>*{display:flex}
