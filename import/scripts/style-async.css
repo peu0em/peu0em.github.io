@@ -83,7 +83,8 @@ details:not(.no-deco)>summary,details.deco>summary{cursor:pointer;}
 details:not(.no-deco)>:not(summary){margin-left:1.5em;margin-right:1.5em;}
 details:not(.no-deco)>summary+*{margin-top:1em}
 .index summary+*{margin-top:0}
-details:not(.no-deco)>:last-child{margin-bottom:0}
+details:not(.no-deco)>:last-child,details:not(.no-deco)>summary+:last-child>:last-child{margin-bottom:0}
+details:not(.no-deco)>summary+:last-child>:first-child{margin-top:0}
 details:not(.no-deco)>ul,details:not(.no-deco)>ol{padding-left:0}
 
 /* tags */

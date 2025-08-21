@@ -1,0 +1,29 @@
+---
+layout: display
+title: "후기: 애니메이션"
+description: "애니메이션 후기"
+language: 
+  current: all
+  title:
+    ko: "후기: 애니메이션"
+    en: "Reviews: Animation Series"
+addhead:
+  - "<link href='/import/scripts/conditional/reviews.css' rel='stylesheet'>"
+---
+{% include reviews-rate-var.html category="animationseries" %}
+
+<main>
+
+<div class='card'><h1 class='no-deco multilang' data-content-ko='애니메이션' data-content-en='Animation Series'>애니메이션</h1></div>
+
+<div class='panel'>
+{% include reviews-rate-li.html %}
+</div>
+
+</main>
+
+<div class='neck'>
+  <div class='flex'>
+    <a class='badge multilang' aria-label='전체' data-aria-label-ko='전체' data-aria-label-en='all' href='/i/reviews/all'>🗺️</a>
+  </div>
+</div>
