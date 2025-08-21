@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
 
   // footnote
-  function footnoe_position(obj){
+  function footnote_position(obj){
     const pst = obj.getBoundingClientRect().left;
     const blln = obj.parentNode.querySelector(":not(.n)");
     const wdth = blln.offsetWidth;
@@ -38,28 +38,50 @@ document.addEventListener("DOMContentLoaded", ()=>{
                   if(fninner){
                     let span = document.createElement("span");
                     span.innerHTML = fninner;
+                    span.setAttribute("aria-hidden","true");
                     fnlist[i].appendChild(span);
                   }
                 }
               }
             }
           }
-          if(!can_hover){
-            let fnbar = document.createElement("span");
-            fnbar.setAttribute("class","bar");
-            fnbar.innerHTML = "<a href=\'"+fnhref+"\' onclick=\'this.parentNode.parentNode.style.display = \"none\"\;\'>↓</a><a onclick=\'this.parentNode.parentNode.style.display = \"none\"\;\'>×</a>";
-            fnlist[i].querySelector(":not(.n)").prepend(fnbar);
+        }
+        const balloon = fnlist[i].getElementsByClassName("n")[0].nextElementSibling;
+        function ariahiddenSwitch(toggle){
+          if(balloon){
+            switch(toggle){
+              case true: balloon.setAttribute("aria-hidden","true"); break;
+              case false: balloon.setAttribute("aria-hidden","false"); break;
+            }
           }
         }
         switch(can_hover){
-          case true: fnlist[i].addEventListener("mouseover",()=>{footnoe_position(fnnum);}); break;
+          case true:{ 
+            fnlist[i].addEventListener("mouseover",()=>{
+              ariahiddenSwitch(false);
+              footnote_position(fnnum);
+            });
+            fnlist[i].addEventListener("mouseout",()=>{ariahiddenSwitch(true);});
+           } break;
           case false:{
+            let fnbar = document.createElement("span");
+            fnbar.setAttribute("class","bar");
+            fnbar.innerHTML = "<a href=\'"+fnhref+"\'>↓</a><a>×</a>";
+            fnlist[i].querySelector(":not(.n)").prepend(fnbar);
             fnnum.removeAttribute("href");
             fnnum.addEventListener("click",()=>{
-              let fnbl = fnlist[i].querySelector(":not(.n)");
-              if(fnbl) fnbl.style.display = "block";
-              footnoe_position(fnnum);
+              if(balloon) balloon.style.display = "block";
+              ariahiddenSwitch(false);
+              footnote_position(fnnum);
             });
+            fnbar.firstElementChild.addEventListener("click",()=>{
+              balloon.style.display = "none";
+              ariahiddenSwitch(true);
+            })
+            fnbar.lastElementChild.addEventListener("click",()=>{
+              balloon.style.display = "none";
+              ariahiddenSwitch(true);
+            })
           } break;
         }
       }
