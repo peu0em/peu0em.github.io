@@ -482,6 +482,10 @@ details:not(.no-deco)>summary{
   color:var(--color-font);
 }
 
+/* mask */
+.mask{background-color:var(--maskcolor,var(--color-font))}
+.mask>*{visibility:hidden}
+
 /* center */
 .center:not(table,.flex){display:block}
 .center{margin-left:auto;margin-right:auto;}

@@ -1,5 +1,32 @@
 document.addEventListener("DOMContentLoaded", ()=>{
 
+  //mask
+  {
+    const maskList = document.getElementsByClassName("mask");
+    for(let i=0; i<maskList.length; i++){
+      const tag = maskList[i];
+
+      const t = document.createDocumentFragment();
+      while (tag.firstChild) t.appendChild(tag.firstChild);
+      const wrapper = document.createElement("span");
+      wrapper.appendChild(t);
+      tag.appendChild(wrapper);
+
+      tag.style.cursor = "pointer";
+      tag.setAttribute("aria-hidden","true");
+      tag.setAttribute("tabindex","0");
+      tag.setAttribute("role","button");
+
+      function d(){
+          wrapper.style.visibility = "visible";
+          tag.style.backgroundColor = "unset";
+          tag.style.cursor = "";
+          tag.setAttribute("aria-hidden","false");
+      }
+      tag.addEventListener("click",()=>{d();});
+      tag.addEventListener("keydown",(event)=>{if(event.key==="Enter" || event.key===" ") d();});
+    }
+  }
 
   // footnote
   function footnote_position(obj){
