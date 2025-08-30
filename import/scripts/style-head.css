@@ -457,7 +457,8 @@ dt+dt:not(.no-deco)::before{content:"/";margin:0 1em;color:var(--color-gray-2);}
 .display>*{
   display:block;position:relative;
   margin:0 auto;
-  width:100%; height:100%;
+  width:fit-content;height:fit-content;
+  max-width:100%;
 }
 .display{
   width:auto;
