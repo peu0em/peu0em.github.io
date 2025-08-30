@@ -6,24 +6,24 @@ language:
   current: all
   title:
     ko: "후기: 영화"
-    en: "Reviews: Films"
+    en: "Ratings: Films"
 addhead:
-  - "<link href='/import/scripts/conditional/reviews.css' rel='stylesheet'>"
+  - "<link href='/import/scripts/conditional/ratings.css' rel='stylesheet'>"
 ---
-{% include reviews-rate-var.html category="films" %}
+{% include ratings-rate-var.html category="films" %}
 
 <main>
 
 <div class='card'><h1 class='no-deco multilang' data-content-ko='영화' data-content-en='Films'>영화</h1></div>
 
 <div class='panel'>
-{% include reviews-rate-li.html %}
+{% include ratings-rate-li.html %}
 </div>
 
 </main>
 
 <div class='neck'>
   <div class='flex'>
-    <a class='badge multilang' aria-label='전체' data-aria-label-ko='전체' data-aria-label-en='all' href='/i/reviews/all'>🗺️</a>
+    <a class='badge multilang' aria-label='전체' data-aria-label-ko='전체' data-aria-label-en='all' href='/i/ratings/all'>🗺️</a>
   </div>
 </div>

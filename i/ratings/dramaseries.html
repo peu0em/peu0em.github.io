@@ -1,0 +1,29 @@
+---
+layout: display
+title: "후기: 드라마"
+description: "드라마 후기"
+language: 
+  current: all
+  title:
+    ko: "후기: 드라마"
+    en: "Ratings: Drama Series"
+addhead:
+  - "<link href='/import/scripts/conditional/ratings.css' rel='stylesheet'>"
+---
+{% include ratings-rate-var.html category="dramaseries" %}
+
+<main>
+
+<div class='card'><h1 class='no-deco multilang' data-content-ko='드라마' data-content-en='Drama Series'>드라마</h1></div>
+
+<div class='panel'>
+{% include ratings-rate-li.html %}
+</div>
+
+</main>
+
+<div class='neck'>
+  <div class='flex'>
+    <a class='badge multilang' aria-label='전체' data-aria-label-ko='전체' data-aria-label-en='all' href='/i/ratings/all'>🗺️</a>
+  </div>
+</div>

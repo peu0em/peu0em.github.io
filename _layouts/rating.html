@@ -1,0 +1,26 @@
+---
+layout: post
+---
+<div class='display poster'>
+  {{ page.rating.image }}
+</div>
+<div class='script'>
+  <div class='symbol'>
+    {% case page.rating.rate %}
+      {% when 1 %}★
+      {% when 1.5 %}★☆
+      {% when 2 %}★★
+      {% when 2.5 %}★★☆
+      {% when 3 %}★★★
+      {% when 3.5 %}★★★☆
+      {% when 4 %}★★★★
+      {% when 4.5 %}★★★★☆
+      {% when 5 %}★★★★★
+    {% endcase %}
+  </div>
+  <div>{{ page.rating.comment }}</div>
+</div>
+
+{{ content }}
+
+<a class='button center' href='/i/ratings/all'>모든 후기 보기</a>
