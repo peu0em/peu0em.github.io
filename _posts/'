@@ -1,0 +1,16 @@
+---
+layout: rating
+title: "브레이브 하트"
+tags: 평점
+robots: noindex
+rating:
+  rate: 3.5
+  image: "<picture>
+      <source srcset='/files/braveheart-1995-poster.avif'>
+      <img loading='lazy' src='/files/braveheart-1995-poster.webp' alt='Braveheart' width='1000' height='1500'>
+    </picture>"
+  category: films
+thumbnail: /files/braveheart-1995-poster.webp
+keywords: ["Braveheart","브레이브 하트"]
+---
+<p>(별점만 기록한 게시물입니다.)</p>
