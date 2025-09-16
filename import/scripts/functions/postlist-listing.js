@@ -31,7 +31,7 @@
 
   if(params.has('search')){
     mode='search';
-    let paramSearch = params.get('search').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    var paramSearch = params.get('search').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     if(!/\s/.test(paramSearch)) term = new RegExp(paramSearch,'i');
     else term = new RegExp(paramSearch.split(' ').join('|'), 'i');
     cardText("🔍&nbsp;",paramSearch);
@@ -46,20 +46,26 @@
       if(response.ok) return response.json();
     })
     .then(data => {
-      filtered = data.posts.filter(post=>{
+      let listOrder1 = [];
+      let listOrder2 = [];
+
+      data.posts.forEach(post=>{
         switch(mode){
           case 'search':
-            return term.test(post.title) || term.test(post.description) || term.test(post.tags) || term.test(post.keywords);
+            const table = [post.title || '',post.description || '',(post.tags || []).join(' '),(post.keywords || []).join(' ')].join(' ').toLowerCase();
+            if(table.includes(paramSearch.toLowerCase())) listOrder1.push(post);
+            else if(term.test(table)) listOrder2.push(post);
           break;
           case 'tag':
-            return post.tags.includes(term);
+            if(post.tags.includes(term)) listOrder1.push(post);
           break;
           case 'all':
-            return true;
+            listOrder1.push(post);
           break;
           default: console.log('error');
         }
       });
+      const filtered = [...listOrder1,...listOrder2];
       if(filtered.length > 0) listing(filtered);
       else{
         placeholder.hidden=true;
