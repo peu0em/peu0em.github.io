@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
   //mask
   {
     const maskList = document.getElementsByClassName("mask");
+    const wrapperList = [];
     for(let i=0; i<maskList.length; i++){
       const tag = maskList[i];
 
@@ -11,17 +12,24 @@ document.addEventListener("DOMContentLoaded", ()=>{
       const wrapper = document.createElement("span");
       wrapper.appendChild(t);
       tag.appendChild(wrapper);
+      
+      wrapperList.push(wrapper);
 
       tag.style.cursor = "pointer";
-      tag.setAttribute("aria-hidden","true");
       tag.setAttribute("tabindex","0");
       tag.setAttribute("role","button");
+      tag.setAttribute("aria-label","[가려짐]");
+      tag.classList.add("multilang");
+      tag.dataset.ariaLabelKo = "[가려짐]";
+      tag.dataset.ariaLabelEn = "[masked]";
 
       function d(){
-          wrapper.style.visibility = "visible";
-          tag.style.backgroundColor = "unset";
-          tag.style.cursor = "";
-          tag.setAttribute("aria-hidden","false");
+          for(let j=0;j<maskList.length;j++){
+            wrapperList[j].style.visibility = "visible";
+            maskList[j].style.backgroundColor = "unset";
+            maskList[j].style.cursor = "";
+            maskList[j].setAttribute("aria-hidden","false");
+          }
       }
       tag.addEventListener("click",()=>{d();});
       tag.addEventListener("keydown",(event)=>{if(event.key==="Enter" || event.key===" ") d();});

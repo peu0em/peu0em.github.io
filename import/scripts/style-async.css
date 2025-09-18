@@ -40,6 +40,9 @@ h1.post::selection{background-color:var(--color-theme-change);}
 }
 .noti.v{opacity:1}
 
+/* mask */
+.mask:not[background-color="unset"]:focus{outline: .2rem solid var(--color-theme-triple-change)}
+
 /* footnote */
 .footnote .n,.footnote .n *{
   cursor:help;
