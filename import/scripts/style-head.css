@@ -397,8 +397,10 @@ ol.index li::before{
 ol:not(.no-deco){padding-left:1em}
 ul:not(.no-deco){padding-left:.75em;list-style-type:square;}
 li:not(.no-deco)::marker{color:var(--color-theme-double-change)}
-ul.horizontal,ol.horizontal{display:flex;justify-content:center;}
-ul.horizontal>li,ol.horizontal>li{margin-right:2rem}
+ul.horizontal,ol.horizontal{
+  display:flex;justify-content:center;flex-wrap:wrap;
+  padding-left:1.5em;padding-right:1em;column-gap:2em;
+}
 li .flex{display:flex;flex-wrap:wrap;}
 li .flex>ol,li .flex>ul{margin-left:.5em}
 li .flex *{min-width:1px}
@@ -521,7 +523,7 @@ details:not(.no-deco),.neck,.display,.script, dl div{
 /* mobile */
 @media screen and (max-width:15rem){
   body.with-upbar{padding-top:0;}
-  #upbar{display:none;}
+  #upbar,.upbar-gap{display:none;}
 }
 @media screen and (max-width:20rem){
   #upbar-search-button{display:none;}
