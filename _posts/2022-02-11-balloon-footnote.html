@@ -3,7 +3,7 @@ layout: post
 title: 마우스 올리면 말풍선처럼 내용 보여주는 각주/주석 만들기 (나무위키 스타일)
 description: 제 블로그에 추가한 말풍선형 각주 코드를 보여드립니다. 디자인이 마음에 드시면 그냥 전체 복사 붙여넣기 하시는게 편하실 지도..? 마우스 오버 시 말풍선으로 각주 내용을 보여주고 클릭시 본문 아래의 각주로 이동합니다. 역으로도 이동합니다.
 tags: [CSS,정보,HTML,자바스크립트]
-thumbnail: /files/balloon_footenote-example-hover.jpg
+thumbnail: /files/balloon_footenote-example-hover.webp
 ---
 <p>여러분 각주를 아시나요? 저는 좋아합니다. 맥락에 맞지 않는 TMI를 쓰고 싶을 때 그냥 각주로 우겨넣으면 되거든요. 이번 글에서는 그 각주, 특히 나무위키에서 사용 중인 마우스를 올리면 말풍선으로 표시해주는 그 방식을 HTML 기반에서 CSS와 자바스크립트로 어떻게 구현하는지 설명드리겠습니다.</p>
 <p>시작하기에 앞서서 직접 보여드리는게 좋겠습니다. 이런<span class='footnote t' id='p-220211r-fn-1-t'><a class='n' href='#p-220211r-fn-1-b'>1</a></span>거예요.</p>
@@ -11,38 +11,36 @@ thumbnail: /files/balloon_footenote-example-hover.jpg
 <div class='center' style='text-align:center;'>
     <p style="font-size:.8em;text-align:center">※블로그가 점점 유지보수 되어감에 따라 모습이 변할 수도 있습니다.</p>
   <figure class='image'>
-    <a href='/files/balloon_footenote-example-default.jpg' target='_blank'>
+    <a href='/files/balloon_footenote-example-default.avif' target='_blank'>
       <picture>
         <source srcset='/files/balloon_footenote-example-default.avif' type='image/avif'>
         <source srcset='/files/balloon_footenote-example-default.webp' type='image/webp'>
-        <img style="width:25em;" alt="기본 모습" height="163" width="736" src="/files/balloon_footenote-example-default.jpg">
+        <img style="width:25em;" alt="기본 모습" height="163" width="736" src="/files/balloon_footenote-example-default.avif">
       </picture>
     </a>
     <figcaption>기본 모습</figcaption>
   </figure>
   <figure class='image'>
-    <a href='/files/balloon_footenote-example-hover.jpg' target='_blank'>
+    <a href='/files/balloon_footenote-example-hover.avif' target='_blank'>
       <picture>
         <source srcset='/files/balloon_footenote-example-hover.avif' type='image/avif'>
         <source srcset='/files/balloon_footenote-example-hover.webp' type-'image/webp'>
-        <img style="width:25em;" alt="마우스 올렸을 때 모습" height="186" width="736" src="/files/balloon_footenote-example-hover.jpg">
+        <img style="width:25em;" alt="마우스 올렸을 때 모습" height="186" width="736" src="/files/balloon_footenote-example-hover.avif">
       </picture>
     </a>
     <figcaption>마우스를 올렸을 때</figcaption>
   </figure>
   <figure class='image'>
-    <a href='/files/balloon_footenote-example-bottom.jpg' target='_blank'>
+    <a href='/files/balloon_footenote-example-bottom.avif' target='_blank'>
       <picture>
         <source srcset='/files/balloon_footenote-example-bottom.avif' type='image/avif'>
         <source srcset='/files/balloon_footenote-example-bottom.webp' type='image/webp'>
-        <img style="width:25em;" alt="각주" height="209" width="652" src="/files/balloon_footenote-example-bottom.jpg">
+        <img style="width:25em;" alt="각주" height="209" width="652" src="/files/balloon_footenote-example-bottom.avif">
       </picture>
     </a>
     <figcaption>하단 각주의 모습</figcaption>
   </figure>
 </div>
-
-<!--more-->
 
 <details>
   <summary>목차</summary>

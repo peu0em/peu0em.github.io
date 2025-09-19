@@ -3,7 +3,7 @@ layout: post
 title: Voicemeeter Banana로 VB Cable에 딜레이 주기
 description: VB Cable로 마이크 소리를 섞어 쓰려고 할 때 마이크 레이턴시 때문에 소리 타이밍이 맞지 않는 문제를 해결하는 방법.
 tags: [음향,정보]
-thumbnail: /files/vb_banana-monitoring_synchro_delay.jpg
+thumbnail: /files/vb_banana-monitoring_synchro_delay.webp
 ---
 <p class='card' style='text-align:center'>※주의※<br>해당 방법에는 만 원 이하의 과금이 필요할 수 있습니다.</p>
 
@@ -63,11 +63,11 @@ thumbnail: /files/vb_banana-monitoring_synchro_delay.jpg
 
 <p>가상 케이블 레이턴시는 <code>C:\Program Files\VB</code>의 폴더(C+D를 구입한 경우 <code>C:\Program Files (x86)\VB\VBCABLE_CD_Pack</code>)에 <mark>ControlPanel</mark>이란 이름이 포함된 뻘건색 실행 파일로 설정할 수 있습니다. <strong>꼭 관리자 권한으로 실행해 주세요!</strong> <a href='https://peu0em.blogspot.com/2023/06/obs-sound-separation.html#p-230617-h3-5' target='_blank' title='Virtual Audio Cable 설정 (딜레이)' rel='noopener'>여기</a>서 좀 디테일하게 설명해놨습니다. 정 모르시겠으면 <mark>Options</mark>에서 <mark>Set Max Latency: 3072 smp</mark>와 <mark>Internal Sampling Rate: 48000 Hz</mark>를 한 번씩 클릭해주세요. 그리고 재부팅해주세요.</p>
 <p>Voicemeeter Banana에서도 Stereo Input 세 개 오른쪽에 있는 두 AUX 채널의 레이턴시를 설정할 수 있습니다. 아래 kHz 정보 적혀있는 곳을 우클릭하고 아까 가상 케이블에서 찾은 최적 레이턴시를 선택해주시면 되겠습니다.</p>
-<a class='image center' href='/files/vb_banana-auxlatency.jpg' target='_blank' rel='noopener'>
+<a class='image center' href='/files/vb_banana-auxlatency.avif' target='_blank' rel='noopener'>
   <picture>
     <source srcset='/files/vb_banana-auxlatency.avif' type='image/avif'>
     <source srcset='/files/vb_banana-auxlatency.webp' type='image/webp'>
-    <img src='/files/vb_banana-auxlatency.jpg' alt='aux 레이턴시 설정' style='width:20em' width='547' height='930'>
+    <img src='/files/vb_banana-auxlatency.avif' alt='aux 레이턴시 설정' style='width:20em' width='547' height='930'>
   </picture>
 </a>
 
@@ -89,11 +89,11 @@ thumbnail: /files/vb_banana-monitoring_synchro_delay.jpg
 <h4 content='딜레이 설정을 하기 위해 사용법을 먼저' id='p-241204-h-beforedelayset'><a href='#p-241204-h-beforedelayset'>딜레이 설정을 하기 위해 사용법을 먼저</a></h4>
 
 <p>내보내고 싶은 소리를 재생하는 프로그램의 소리 출력을 Voicemeeter AUX로 바꿔주세요. 이 프로그램은 브라우저, 동영상 플레이어 등 뭐든지 가능합니다. 예를 들어 유튜브로 노래방 반주를 틀 거라면 사용하는 브라우저(크롬, 엣지 등)가 될거예요. 프로그램의 소리 출력을 바꾸는 방법은 여러가지가 있습니다. <a href='https://peu0em.blogspot.com/2023/06/obs-sound-separation.html#p-230617-h3-3' target='_blank' rel='noopener' title='프로그램 소리 넘기기'>여기</a>에서 설명했지만 간단하게 다시 말씀드릴게요. 윈도우 설정에서 바꿀 수는 있지만 이게 좀 귀찮아요. 그래서 EarTrumpet 같이 소리를 조절하는 프로그램을 사용하시면 편합니다. AUX 채널에 소리가 들어가는지 확인하려면 여기를 보면 됩니다.</p>
-<a href='/files/vb_banana-aux_vol.jpg' class='image center' target='_blank' rel='noopener'>
+<a href='/files/vb_banana-aux_vol.avif' class='image center' target='_blank' rel='noopener'>
   <picture>
     <source srcset='/files/vb_banana-aux_vol.avif' type='image/avif'>
     <source srcset='/files/vb_banana-aux_vol.webp' type='image/webp'>
-    <img alt='AUX 볼륨' src='/files/vb_banana-aux_vol.jpg' width='328' height='122'>
+    <img alt='AUX 볼륨' src='/files/vb_banana-aux_vol.avif' width='328' height='122'>
   </picture>
 </a>
 <p>왼쪽에는 소리가 들어가고 있고, 오른쪽에는 소리가 들어가고 있지 않습니다. 뭔가 문제가 발생하면 이런 식으로 원인을 찾을 수 있습니다.</p>
@@ -102,11 +102,11 @@ thumbnail: /files/vb_banana-monitoring_synchro_delay.jpg
 <h4 content='딜레이 설정' id='p-241204-h-delayset'><a href='#p-241204-h-delayset'>딜레이 설정</a></h4>
 
 <p>대망의 딜레이입니다. <mark>Menu &gt; System settings... &gt; Monitoring Synchro Delay</mark>로 가주세요. 여기서 VB Cable(연결용)을 설정했던 아웃에다가 숫자를 적어줄 거예요.</p>
-<a href='/files/vb_banana-monitoring_synchro_delay.jpg' target='_blank' class='image center' rel='noopener'>
+<a href='/files/vb_banana-monitoring_synchro_delay.avif' target='_blank' class='image center' rel='noopener'>
   <picture>
     <source srcset='/files/vb_banana-monitoring_synchro_delay.avif' type='image/avif'>
     <source srcset='/files/vb_banana-monitoring_synchro_delay.webp' type='image/webp'>
-    <img src='/files/vb_banana-monitoring_synchro_delay.jpg' style='width:10em' alt='Monitoring Synchro Delay' width='234' height='212'>
+    <img src='/files/vb_banana-monitoring_synchro_delay.avif' style='width:10em' alt='Monitoring Synchro Delay' width='234' height='212'>
   </picture>
 </a>
 <p>적당한 값을 찾는 과정이 굉장히 귀찮습니다. 제가 썼던 방식을 설명드릴게요.</p>
