@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
       function d(){
           for(let j=0;j<maskList.length;j++){
+            if(tag.dataset.maskGroup!=maskList[j].dataset.maskGroup) continue;
             wrapperList[j].style.visibility = "visible";
             maskList[j].style.backgroundColor = "unset";
             maskList[j].style.cursor = "";
