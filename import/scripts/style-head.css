@@ -13,7 +13,8 @@
   --size-lineheight-1half:calc(var(--size-lineheight-1) * 1.5);
   --size-lineheight-1-fix: calc(var(--size-font-p) * var(--number-lineheight));
   --size-lineheight-1half-fix: calc(var(--size-lineheight-1-fix) * 1.5);
-  --size-linespace-half:.2em;
+  --size-linespace:calc((var(--size-lineheight-1) - 1em) / 2);
+  --size-linespace-half:calc(var(--size-linespace) / 2);
   --size-maxwidth:50rem;
 }
 
@@ -384,7 +385,7 @@ table.innerline{border-collapse:collapse;border:hidden;}
 .script{padding:0 1em;}
 
 /* list */
-ul:not(.no-deco):not(li>ul),ol:not(.no-deco):not(li>ol),dl:not(.no-deco){margin-top:var(--size-lineheight-1);margin-bottom:var(--size-lineheight-1);}
+ul:not(.no-deco,li>ul,.index summary+ul),ol:not(.no-deco,li>ol,.index summary+ol),dl:not(.no-deco){margin-top:var(--size-lineheight-1);margin-bottom:var(--size-lineheight-1);}
 li:not(.no-deco){white-space:normal;overflow-wrap:break-word;}
 ol:not(.no-deco)>li::marker{font-weight:bold;}
 ol.index,.index ol{counter-reset:index;list-style-type:none;}
