@@ -10,7 +10,7 @@
   grid-template-rows:max(calc(var(--size-font-h1) * 1 * var(--number-lineheight))) auto;
   column-gap:.5rem;row-gap:.5rem;
   margin:.5rem auto;
-  max-height:calc(var(--size-font-p) * 8);
+  max-height:calc(var(--size-font-p) * 9);
   overflow:hidden;
   padding:1rem;
   width:80vw;max-width:var(--size-maxwidth);
@@ -24,6 +24,5 @@
   font-family:var(--font-title);font-size:calc(var(--size-font-h1) * 1);font-weight:100;
   margin:auto 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
-.post-list .thumbnail {overflow:hidden;width:100%;max-width:20vw;justify-self:end;}
-.post-list .thumbnail img{width:100%;height:100%;object-fit:cover;object-position:right top}
-.post-list .description{overflow:hidden;text-overflow:ellipsis;max-height:calc(1em * var(--number-lineheight) * 2);}
+.post-list .thumbnail {overflow:hidden;width:15em;max-width:20vw;justify-self:end;background-size:cover;}
+.post-list .description{overflow:hidden;text-overflow:ellipsis;max-height:calc(var(--size-lineheight-1) * 2 + var(--size-linespace));}

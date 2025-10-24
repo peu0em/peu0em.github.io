@@ -82,7 +82,7 @@
     try{
       for(let post of list){
         let a_tag = document.createElement('a');
-        a_tag.innerHTML = "<li class='badge'>"+(post.thumbnail?"<div class='thumbnail'><img src='"+post.thumbnail+"'></div>":"")+"<h2 class='title'>"+post.title+"</h2><div class='description'>"+post.description+"</div></li>";
+        a_tag.innerHTML = "<li class='badge'>"+(post.thumbnail?"<div class='thumbnail' style='background-image:url("+'"'+post.thumbnail+'"'+")'></div>":"")+"<h2 class='title'>"+post.title+"</h2><div class='description'>"+post.description+"</div></li>";
         a_tag.setAttribute('href',post.url);
         space.appendChild(a_tag);
         await new Promise((resolve)=>{
