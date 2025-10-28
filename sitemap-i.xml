@@ -1,0 +1,16 @@
+---
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url> 
+ {%-for page in site.pages-%}
+    {%-assign dir = page.dir | split:"/"%}
+    {%-if dir[1] == "i"%}
+	  {%- capture c %}{{page.url | absolute_url | xml_escape}}{% endcapture -%}
+	  {%- if c contains ".html" %}{% assign c = c | replace: ".html", "/" %}{%endif%}
+  <url>
+    <loc>{{ c }}</loc>
+  </url>
+	{% endif %}
+  {% endfor %}
+  </urlset>
