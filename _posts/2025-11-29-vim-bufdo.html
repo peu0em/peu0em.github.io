@@ -1,0 +1,58 @@
+---
+title: "vim으로 여러 파일 한번에 처리하기"
+layout: post
+description: "vim bufdo에 대하여"
+tags: ["vim","정보"]
+keywords: ["vim","빔"]
+---
+<p>vim에는 <code>bufdo</code>라는 기능이 있습니다. 버퍼에 있는 파일들에 일괄 명령을 내리는 기능이에요.</p>
+<p>이런 일괄 기능이 <code>bufdo</code>밖에 없는 것은 아닙니다. <code>windo</code> 같은 것도 있는데요, <code>windo</code>의 경우는 매개가 '창'입니다. 근데 gvim의 경우 이 창은 윈도우 새 창이 아니라 하나의 창에서 여러 칸으로 나뉘는 gvim의 자체 기능입니다. 저는 저거 못 쓰겠더라고요. 반면에 버퍼에 추가한다면 겉으로 보이지 않습니다. 게다가 무려 파일을 드래그 앤 드롭으로 추가할 수 있습니다! 정말 편하죠.</p>
+
+<h2 id='p-h-basic'><a href='#p-h-basic'>기본</a></h2>
+
+<p>기본 사용은 다음과 같습니다.</p>
+<div class='script'>
+  <code>bufdo [명령]</code>
+</div>
+<p>명령줄(:로 여는 그것)에 입력하는 형태고, 파이프로 연결할 수 있습니다. 연결하면 이렇게 됩니다.</p>
+<div class='script'>
+  <code>bufdo [명령] | [명령] | [명령] | ...</code>
+</div>
+<p>이게 핵심입니다! 이걸로 명령을 무한정 이을 수 있기 때문에 이론상 모든 작업을 모든 파일에 한번에 할 수 있게 됩니다. 잘 코딩만 해준다면요.</p>
+<p>또 중요한 부분이 있습니다. <code>update</code>입니다. 변경된 사항이 있으면 저장해주는 명령이에요. 마지막에 써주면 됩니다.</p>
+
+<h2 id='p-h-use'><a href='#p-h-use'>활용</a></h2>
+
+<p>모든 작업을 명령줄 안에서만 해결하기 위해서는 좀 복잡한 명령이 필요합니다. <code>bufdo</code>와 함께 쓰면 유용한 명령 몇 가지를 소개합니다.</p>
+
+<h3 id='p-h-c-let'><a href='#p-h-c-let'><code>let</code></a></h3>
+
+<p>레지스터에 문자열을 넣는 명령어입니다.</p>
+<div class='script'>
+  <code>let @a = "[문자열]"</code>
+</div>
+<p>이렇게 하면 <code>"ay</code>와 기타 등등의 명령으로 레지스터에 뭔가 넣은 효과와 같습니다. 이게 왜 중요하냐면, vim의 명령에서 직접 문자열을 넣어줄 수 없기 때문입니다. 또 이 과정에서 그 문자열을 변형할 수 있습니다.</p>
+<p>예를 들어 <code>let @a = substitute(@b,"[문자1]","[문자2]","g")</code> 이렇게 하면 [문자1]을 [문자2]로 바꿉니다. 예를 들어 레지스터 b에 "[문자1]입니다"라는 문장이 있다면 a에는 "[문자2]입니다"가 들어갑니다. 이런 식으로 함수()의 형태로 쓸 수 있는 기능들이 있습니다.</p>
+
+<h3 id='p-h-c-execute'><a href='#p-h-c-execute'><code>execute</code></a></h3>
+
+<p>파이프라인 뒤에 넘어가면 그냥은 실행되지 않는 명령이 있어서 필요합니다.<p>
+<p>예를 들어 특정 문자열을 찾는다고 하면</p>
+<div class='script'>
+  <code>execute "g/[패턴]/"</code>
+</div>
+<p>이렇게 할 수 있습니다. 아마 그냥 <code>g//</code>는 못 쓸 거예요.</p>
+<p><code>normal</code> 명령도 있습니다. 그 뒤의 문자를 그대로 키보드로 누르는 효과가 있습니다.</p>
+<div class='script'>
+  <code>normal /[패턴]/</code>
+</div>
+<p>이렇게 하면 동일하게 패턴을 찾을 수 있어요.</p>
+
+<h2 id='p-h-log'><a href='#p-h-log'>로그</a></h2>
+
+<p>다만 파일이 너무 많으면 로그가 밀리면서 멈추게 됩니다. 이걸 계속 진행시키려면 엔터를 쭉 눌러줘야 합니다.</p>
+<p>이걸 없애려면 마지막 <code>update</code>에 <code>silent</code>를 붙여주면 됩니다.</p>
+<div class='script'>
+  <code>... | silent update</code>
+</div>
+<p>이렇게요. 근데 이거 저도 지금 발견한 거라서 검증은 못해봤는데요, 아마 될 거예요.</p>
