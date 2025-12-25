@@ -23,14 +23,14 @@ defaults:
             type: "posts"
         values:
             layout: "post"
-            permalink: "/p/:year/:month/:day/:title/"
+            permalink: "/p/:year/:month/:day/:title"
     -
         scope:
             path: "/i"
         values:
-            permalink: ":path/:title/"
+            permalink: ":path/:title"
     -
         scope:
             path: "/f"
         values:
-            permalink: ":path/:title/"
+            permalink: ":path/:title"
