@@ -5,8 +5,15 @@
   {%- if post.language.link -%}
     {%- unless post.language.current == language -%}{% assign show = false %}{%- endunless -%}
   {%- endif -%}
-  {%- if include.category -%}
-    {%- if post.rating.category != include.category -%}{%- assign show = false -%}{%- endif -%}
+  {%- if include.filter -%}
+    {% assign filters = include.filter | split: " " %}
+    {% assign filter_check = true %}
+    {% for f in filters %}
+      {% unless post.rating.filter contains f %}
+        {% assign filter_check = false %}
+      {% endunless %}
+    {% endfor %}
+    {%- unless filter_check -%}{%- assign show = false -%}{%- endunless -%}
   {%- endif -%}
   {%- if show -%}
     {%- capture attr -%}href='{{ post.url | absolute_url }}' aria-label='{{ post.title }}'{%- endcapture -%}
