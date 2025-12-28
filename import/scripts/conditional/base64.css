@@ -1,32 +1,46 @@
 div.container{
   display: flex;
+  flex-direction: column;
   width: 100%;
-  height:20rem;
-  padding:1rem;
+  padding: 1rem;
   gap: .5rem;
-  align-items:center;
+  height: auto;
+  overflow: auto;
 }
 h2.which{
   text-align:center;
   margin:0;
   font-size:2rem;
   flex-shrink:0;
-  width:2rem;
   font-family:var(--font-title);
   font-weight:100;
+  width:100%;
 }
 .box{
-  height:100%;
-  flex: 1;
+  height:10rem;
   font-size:var(--size-font-p);
   font-family:var(--font-p);
   padding:.5em;
+  min-height:3rem;
+  max-width:100%;
+  resize: vertical;
+  width:100%;
+}
+div.buttons{
+  display:flex;
+  justify-content:center;
+}
+.text div.buttons{ margin-top: -.4rem }
+.base64 div.buttons{ margin-bottom: -.4rem }
+div.buttons .badge{
+  font-size:1.7rem;
+  cursor:pointer;
 }
 div.arrow{
   font-family:var(--font-title);
   font-size:3rem;
   text-align:center;
   width:100%;height:auto;
-  margin:1rem auto;
-  font-weight:200;
+  margin:-.5rem auto;
+  font-weight:100;
 }

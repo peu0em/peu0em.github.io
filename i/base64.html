@@ -1,19 +1,30 @@
 ---
-title: base64
+title: BASE64
 layout: independent
 addhead:
   - "<script src='/import/scripts/functions/base64.js'></script>"
   - "<link rel='stylesheet' href='/import/scripts/conditional/base64.css'>"
+language:
+  current: all
 ---
+<main>
+  <div class='container text'>
+    <h2 class='which no-deco'>TEXT</h2>
+    <textarea class='box multilang' id='text-box' placeholder='일반 텍스트를 입력하세요.' data-placeholder-ko='일반 텍스트를 입력하세요.' data-placeholder-en='Input plain text.'></textarea>
+    <div class='buttons'>
+      <div class='badge multilang' id='text-copy' title='복사' data-title-ko='복사' data-title-en='Copy'>📑</div>
+      <div class='badge multilang' id='text-paste' title='붙여넣기' data-title-ko='붙여넣기' data-title-en='Paste'>📥</div>
+    </div>
+  </div>
 
-<div class='container'>
-  <h2 class='which no-deco'>T<br>E<br>X<br>T</h2>
-  <textarea class='box' id='encode-box'></textarea>
-</div>
+  <div class='arrow'>↕</div>
 
-<div class='arrow'>↕</div>
-
-<div class='container'>
-  <h2 class='which no-deco'>B<br>A<br>S<br>E<br>6<br>4</h2>
-  <textarea class='box' id='decode-box'></textarea>
-</div>
+  <div class='container base64'>
+    <div class='buttons'>
+      <div class='badge multilang' id='base64-copy' title='복사' data-title-ko='복사' data-title-en='Copy'>📑</div>
+      <div class='badge multilang' id='base64-paste' title='붙여넣기' data-title-ko='붙여넣기' data-title-en='Paste'>📥</div>
+    </div>
+    <textarea class='box multilang' id='base64-box' placeholder='BASE64 문자열을 입력하세요.' data-placeholder-ko='BASE64 문자열을 입력하세요.' data-placeholder-en='Input BASE64 string.'></textarea>
+    <h2 class='which no-deco'>BASE64</h2>
+  </div>
+</main>
