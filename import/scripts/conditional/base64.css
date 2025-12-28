@@ -44,3 +44,11 @@ div.arrow{
   margin:-.5rem auto;
   font-weight:100;
 }
+h1{
+  font-weight: 600;
+  background-color:var(--color-theme-change);
+  color: var(--color-background);
+  display:flex;
+  justify-content: space-evenly;
+  width: 100%;
+}

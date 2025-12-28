@@ -7,14 +7,14 @@ addhead:
 language:
   current: all
 ---
-<main>
+<main style='margin-top:1rem;'>
   <div class='container text'>
     <h2 class='which no-deco'>TEXT</h2>
     <textarea class='box multilang' id='text-box' placeholder='일반 텍스트를 입력하세요.' data-placeholder-ko='일반 텍스트를 입력하세요.' data-placeholder-en='Input plain text.'></textarea>
     <div class='buttons'>
-      <div class='badge multilang' id='text-copy' title='복사' data-title-ko='복사' data-title-en='Copy'>📑</div>
-      <div class='badge multilang' id='text-paste' title='붙여넣기' data-title-ko='붙여넣기' data-title-en='Paste'>📥</div>
-      <div class='badge multilang' id='text-delete' title='지우기' data-title-ko='지우기' data-title-en='Delete'>🗑️</div>
+      <div role='button' class='badge multilang' id='text-copy' title='복사' data-title-ko='복사' data-title-en='Copy'>📑</div>
+      <div role='button' class='badge multilang' id='text-paste' title='붙여넣기' data-title-ko='붙여넣기' data-title-en='Paste'>📥</div>
+      <div role='button' class='badge multilang' id='text-delete' title='지우기' data-title-ko='지우기' data-title-en='Delete'>🗑️</div>
     </div>
   </div>
 
@@ -22,11 +22,22 @@ language:
 
   <div class='container base64'>
     <div class='buttons'>
-      <div class='badge multilang' id='base64-copy' title='복사' data-title-ko='복사' data-title-en='Copy'>📑</div>
-      <div class='badge multilang' id='base64-paste' title='붙여넣기' data-title-ko='붙여넣기' data-title-en='Paste'>📥</div>
-      <div class='badge multilang' id='base64-delete' title='지우기' data-title-ko='지우기' data-title-en='Delete'>🗑️</div>
+      <div role='button' class='badge multilang' id='base64-copy' title='복사' data-title-ko='복사' data-title-en='Copy'>📑</div>
+      <div role='button' class='badge multilang' id='base64-paste' title='붙여넣기' data-title-ko='붙여넣기' data-title-en='Paste'>📥</div>
+      <div role='button' class='badge multilang' id='base64-delete' title='지우기' data-title-ko='지우기' data-title-en='Delete'>🗑️</div>
     </div>
     <textarea class='box multilang' id='base64-box' placeholder='BASE64 문자열을 입력하세요.' data-placeholder-ko='BASE64 문자열을 입력하세요.' data-placeholder-en='Input BASE64 string.'></textarea>
     <h2 class='which no-deco'>BASE64</h2>
   </div>
 </main>
+
+<h1 class='no-deco'>
+  <span>B</span>
+  <span>A</span>
+  <span>S</span>
+  <span>E</span>
+  <span>6</span>
+  <span>4</span>
+</h1>
+
+{% include neck.html content="home" %}

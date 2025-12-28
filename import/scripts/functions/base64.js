@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     (async ()=>{
       const paste = await navigator.clipboard.readText();
       textBox.value = paste;
+      textBox.dispatchEvent(new Event('input',{ bubbles: true }));
     })();
   });
   document.getElementById('text-delete').addEventListener('click',()=>{
@@ -66,6 +67,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     (async ()=>{
       const paste = await navigator.clipboard.readText();
       base64Box.value = paste;
+      base64Box.dispatchEvent(new Event('input',{ bubbles: true }));
     })();
   });
   document.getElementById('base64-delete').addEventListener('click',()=>{
