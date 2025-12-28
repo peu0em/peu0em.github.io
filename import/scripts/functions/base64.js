@@ -55,13 +55,21 @@ document.addEventListener("DOMContentLoaded",()=>{
       textBox.value = paste;
     })();
   });
+  document.getElementById('text-delete').addEventListener('click',()=>{
+    textBox.value = "";
+    textBox.focus();
+  });
   document.getElementById('base64-copy').addEventListener('click',()=>{
     if(base64Box.value){ navigator.clipboard.writeText(base64Box.value); }
   });
-  document.getElementById('text-paste').addEventListener('click',()=>{
+  document.getElementById('base64-paste').addEventListener('click',()=>{
     (async ()=>{
       const paste = await navigator.clipboard.readText();
       base64Box.value = paste;
     })();
+  });
+  document.getElementById('base64-delete').addEventListener('click',()=>{
+    base64Box.value = "";
+    base64Box.focus();
   });
 });
