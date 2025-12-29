@@ -4,10 +4,12 @@
 {%- endif -%}
 {%- assign thumbnail = page.thumbnail | default: "/import/images/logo-default-square.jpg" | absolute_url -%}
 {%- assign url = page.url  | absolute_url -%}
-{%- if (url | slice: -5, 5) == ".html" -%}
-  {%- assign urlLen = url | size | minus: 5 -%}
-  {%- assign url = url | slice: 0, urlLen -%}
-{%- endif -%}
+{%- assign urlExt = url | split: "." | last -%}
+{% case urlExt %}
+  {% when "html" %}
+    {%- assign urlLen = url | size | minus: 5 -%}
+    {%- assign url = url | slice: 0, urlLen -%}
+{%- endcase -%}
 {%- if page.keywords -%}
   {%- capture keywords -%}
     {%- for content in page.keywords -%}
