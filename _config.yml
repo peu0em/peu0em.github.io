@@ -3,6 +3,7 @@ title: 프엠
 
 #setting
 future: true
+trailing_slash: false
 
 #plugins:
 

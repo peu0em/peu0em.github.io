@@ -3,7 +3,7 @@
   {%- assign description = page.description | replace: '"',"&quot;"-%}
 {%- endif -%}
 {%- assign thumbnail = page.thumbnail | default: "/import/images/logo-default-square.jpg" | absolute_url -%}
-{%- assign url = page.url |  absolute_url -%}
+{%- assign url = page.url | absolute_url -%}
 {%- if page.keywords -%}
   {%- capture keywords -%}
     {%- for content in page.keywords -%}
