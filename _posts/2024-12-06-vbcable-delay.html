@@ -35,7 +35,7 @@ thumbnail: /files/vb_banana-monitoring_synchro_delay.webp
 
 <p>인게임 마이크로 내가 원하는 소리를 적절히 내보내고 싶었습니다. 근데 생각보다 마이크 레이턴시가 문제였습니다.</p>
 
-<p>사실 레이턴시 생각 안하면 그냥 간단합니다. 그냥 <a href='https://vb-audio.com/Voicemeeter/index.htm' title='Voicemeeter' rel='noopener' target='_blank'>Voicemeeter Banana</a>(이하 바나나)와 <a href='https://vb-audio.com/Cable/index.htm' title='VB-CABLE' target='_blank' rel='noopener'>VB Cable</a>(이하 케이블)만 있으면 됩니다. Virtual AUX로 원하는 소리 내보내고, 최종 출력을 케이블로 해서 케이블을 마이크로 쓰는 거죠. 이 원리에 대해 자세히 알고 싶으시면 <a href='/p/2022/09/06/mic-in-with-vst/' target='_blank' title='VST 적용시킨 마이크를 입력 기기로 쓰기 / Voicemeeter Banana + Carla' rel='noopener'>이 포스트</a>를 참고하세요.</p>
+<p>사실 레이턴시 생각 안하면 그냥 간단합니다. 그냥 <a href='https://vb-audio.com/Voicemeeter/index.htm' title='Voicemeeter' rel='noopener' target='_blank'>Voicemeeter Banana</a>(이하 바나나)와 <a href='https://vb-audio.com/Cable/index.htm' title='VB-CABLE' target='_blank' rel='noopener'>VB Cable</a>(이하 케이블)만 있으면 됩니다. Virtual AUX로 원하는 소리 내보내고, 최종 출력을 케이블로 해서 케이블을 마이크로 쓰는 거죠. 이 원리에 대해 자세히 알고 싶으시면 <a href='/p/2022/09/06/mic-in-with-vst' target='_blank' title='VST 적용시킨 마이크를 입력 기기로 쓰기 / Voicemeeter Banana + Carla' rel='noopener'>이 포스트</a>를 참고하세요.</p>
 <p>문제는 타이밍입니다. 보편적으로는 모르겠지만 저처럼 오디오 인터페이스를 통해서 마이크 입력을 받을 경우 마이크에 레이턴시가 생깁니다. 딜레이가 생긴다고도 할 수 있겠습니다. 만약 위 방법을 사용해서 음악을 틀고 따라부른다면 박자가 밀려서 디스코드로 합창하는 듯한 소리<span class='footnote t' id='p-241204-fn-discordchoir-t'><a class='n' href='#p-241204-fn-discordchoir-b'>1</a></span>가 날 거예요.</p>
 <p>그래서 우리의 목적은 재생하고자 하는 소리와 마이크의 타이밍을 맞추면서 모니터링 싱크에는 영향이 가지 않도록 하는 것입니다.</p>
 <p>사실 생각보다 간단할 줄 알았습니다. DAW는 아니지만 이것도 나름 믹싱 콘솔같은 느낌이니까요. 근데 레이턴시 관련 설정이 아웃풋에만 있더라고요. 이것 저것 실험해보다가 방법을 찾았습니다.</p>
