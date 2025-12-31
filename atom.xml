@@ -15,7 +15,7 @@
   <entry>
     <title>{%if post.title!=null%}{{post.title | xml_escape}}{%else%}{{post.name | xml_escape}}{%endif%}</title>
     <link href="{{post.url | absolute_url}}"/>
-    <updated>{{post.date | date_to_rfc3339}}</updated>
+    <published>{{ post.date | date: "%Y-%m-%dT00:00:00Z" }}</published>
     {%if post.description!=null%}<summary>{{post.description | xml_escape}}</summary>{%endif%}
     <content type="html">{{post.content | xml_escape}}</content>
   </entry>
