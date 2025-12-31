@@ -5,79 +5,71 @@ description: Voicemeeter Banana와 Carla를 이용해 인게임 보이스나 디
 tags: [음향,정보]
 thumbnail: /files/vb_cable-official.avif
 ---
+
 <p>이 글은 다이나믹 마이크의 게인이 너무 작아서 그걸 올리는 방법이 없을까 고민하던 중에 발견한 방법을 기록한 것입니다.</p>
 <p>이 방법은 총 세 개의 프로그램으로 구성되어 있습니다. <a href="//vb-audio.com/Cable/" target="_blank" rel='noopener'>VB Cable</a>, <a href="//vb-audio.com/Voicemeeter/banana.htm" target="_blank" rel='noopener'>Voicemeeter Banana</a>, <a href="//kx.studio/Applications:Carla" target="_blank" rel='noopener'>Carla</a> 전부 무료니까 안심하셔도 됩니다.</p>
 
-<h2 content="VB Cable">VB Cable</h2>
+<nav>
+  <details>
+    <summary>목차</summary>
+    <ol class='index'>
+      <li><a href='#p-h-vbcable'>VB Cable</a></li>
+      <li><a href='#p-h-voicemeeterbanan'>Voicemeeter Banana</a></li>
+      <li><a href='#p-h-carla'>Carla</a></li>
+      <li><a href='#p-h-howtouse'>사용법</a></li>
+      <li><a href='#p-h-caution'>주의사항</a></li>
+    </ol>
+  </details>
+</nav>
+
+<h2 id='p-h-vbcable'><a href='#p-h-vbcable'>VB Cable</a></h2>
+
 <div class="display">
-  <img alt="Image: VB Cable" style="max-width:15rem;" height="550" width="678" src="/files/vb_cable-official.avif"/>
+  <img alt="VB Cable" style="max-width:15rem;" height="550" width="678" src="/files/vb_cable-official.avif">
 </div>
-<p>
-  <a href="//vb-audio.com/Cable/" target="_blank" rel='noopener'>VB Cable</a>은 가상 입력/출력 장치를 만들어줍니다.<br>
-  프로세스된 사운드를 가상 출력으로 보내면 그 소리를 입력 장치로 내보냅니다. 게임이나 디스코드 입력 장치 설정에서 선택할 수 있는 가상의 장치가 생기고, 이걸 선택하면 <a href="//vb-audio.com/Cable/" target="_blank" rel='noopener'>VB Cable</a>로 보낸 사운드를 입력시킬 수 있게 됩니다.
-</p>
+<p><a href="//vb-audio.com/Cable/" target="_blank" rel='noopener'>VB Cable</a>은 가상 입력/출력 장치를 만들어줍니다. 프로세스된 사운드를 가상 출력으로 보내면 그 소리를 입력 장치로 내보냅니다. 게임이나 디스코드 입력 장치 설정에서 선택할 수 있는 가상의 장치가 생기고, 이걸 선택하면 <a href="//vb-audio.com/Cable/" target="_blank" rel='noopener'>VB Cable</a>로 보낸 사운드를 입력시킬 수 있게 됩니다.</p>
 
-<h2 id="p-voicemeeter_banana" content="Voicemeeter Banana">Voicemeeter Banana</h2>
+<h2 id="p-h-voicemeeterbanana"><a href='#p-h-voicemeeterbanan'>Voicemeeter Banana</a></h2>
+
 <div class="display">
-  <img style="max-width:15rem;" alt="Image: Voicemeeter Banana" height="810" width="900" src="/files/voicemeeterbanana.avif"/>
+  <img style="max-width:15rem;" alt="Voicemeeter Banana" height="810" width="900" src="/files/voicemeeterbanana.avif">
 </div>
+<p><a href="//vb-audio.com/Voicemeeter/banana.htm" target="_blank" rel='noopener'>Voicemeeter Banana</a>는 가상의 믹서입니다. 여러 입력들을 받고 여러 출력으로 내보내는 역할입니다. 볼륨 조절이나 패닝 등의 기능이 있지만 사실 <a href="//kx.studio/Applications:Carla" target="_blank" rel='noopener'>Carla</a>를 사용하기 위한 엔진 용도로만 쓸 겁니다.</p>
+<p>이 장치를 Carla와 함께 쓰기 위해서는 설정값을 변경해야 합니다.</p>
+<img class='image center' style="width:70rem;" alt="Voicemeeter Banana setting" height="1084" width="1728" src="/files/voicemeeterbanana-setting.avif">
+<p>설정에 들어갑니다.</p>
+<img class='image center' style="width:30rem;" alt="Voicemeeter Banana patch setting" height="1049" width="821" src="/files/voicemeeterbanana-setting-1.avif">
+<p>사용할 라인을 클릭해서 켜줍니다. 장치가 하나라면 첫번째 left, right만 켜도 무방합니다.</p>
+<img class='image center' alt="Voicemeeter Banana Input line set" style="width:50rem;" height="925" width="1528" src="/files/voicemeeterbanana-line1.avif">
+<p>방금 전 열었던 트랙에서 자신의 마이크를 선택합니다.</p>
+<p>WDM이랑 MME가 있는데 WDM은 System settings...에서 버퍼를 조절해줘야 끊기지 않습니다.</p>
+<p>같은 방법으로 맨 오른쪽 HARDWARE OUT의 A1에서 <mark>CABLE Input(VB-Audio Virtual Cable)</mark>을 선택합니다.</p>
 
-<p>
-  <a href="//vb-audio.com/Voicemeeter/banana.htm" target="_blank" rel='noopener'>Voicemeeter Banana</a>는 가상의 믹서입니다. 여러 입력들을 받고 여러 출력으로 내보내는 역할입니다. 볼륨 조절이나 패닝 등의 기능이 있지만 사실 <a href="//kx.studio/Applications:Carla" target="_blank" rel='noopener'>Carla</a>를 사용하기 위한 엔진 용도로만 쓸 겁니다.<br>
-  이 장치를 Carla와 함께 쓰기 위해서는 설정값을 변경해야 합니다.
-</p>
-  <img class='image center' style="width:70rem;" alt="Image: Voicemeeter Banana setting" height="1084" width="1728" src="/files/voicemeeterbanana-setting.avif"/>
-<p>
-  설정에 들어갑니다.
-</p>
-<img class='image center' style="width:30rem;" alt="Image: Voicemeeter Banana patch setting" height="1049" width="821" src="/files/voicemeeterbanana-setting-1.avif"/>
-<p>
-  사용할 라인을 클릭해서 켜줍니다. 장치가 하나라면 첫번째 left, right만 켜도 무방합니다.
-</p>
-<img class='image center' alt="Image: Voicemeeter Banana Input line set" style="max-width:50rem;" height="925" width="1528" src="/files/voicemeeterbanana-line1.avif"/>
-<p>
-  방금 전 열었던 트랙에서 자신의 마이크를 선택합니다.<br>
-  WDM이랑 MME가 있는데 WDM은 System settings...에서 버퍼를 조절해줘야 끊기지 않습니다.</p>
-  같은 방법으로 맨 오른쪽 HARDWARE OUT의 A1에서 <mark>CABLE Input(VB-Audio Virtual Cable)</mark>을 선택합니다.
-</p>
+<h2 id='p-h-carla' ><a href='#p-h-carla'>Carla</a></h2>
 
-<h2 id="p-carla" content="Carla">Carla</h2>
 <div class="display">
-  <img alt="Image: Carla" style="max-width:30rem;" height="974" width="1000" src="/files/carla.avif"/>
+  <img alt="Carla" style="width:30rem;" height="974" width="1000" src="/files/carla.avif">
 </div>
-<p>
-  <a href="//kx.studio/Applications:Carla" target="_blank" rel='noopener'>Carla</a>는 vsthost 프로그램입니다. 어떤 엔진 내부의 소리에 VST를 적용할 수 있게 해줍니다. 여기서는 그 엔진이 <a href="//vb-audio.com/Voicemeeter/banana.htm" target="_blank" rel='noopener'>Voicemeeter Banana</a>가 됩니다.
-</p>
-<img class='image center' alt="Image: Carla configuration" style="width:30rem;" height="138" width="473" src="/files/carla-configure.avif"/>
-<p>
-  이걸 눌러서 설정에 들어갑니다.
-</p>
-<img class='image center' style="width:40em;" alt="Image: Carla engine setting ..." height="1347" width="1191" src="/files/carla-setting-engine.avif"/>
-<img class='image center' style="width:40em;" alt="Image: Carla engine select" height="338" width="590" src="/files/carla-engine_select.avif"/>
-<p>
-  <mark>Voicemeeter Insert Virtual ASIO</mark>를 선택합니다.
-</p>
-<img class='image center' style="width:70rem;" alt="Image: Carla patchbay" height="1108" width="1845" src="/files/carla-patchbay.avif"/>
-<p>
-  저는 지금 VST들이 많지만 처음에는 Audio Input과 Adio Output 두 종류 밖에 없습니다.<br>
-  아까 라인 1을 열고 A1에 아웃풋 설정을 했기 때문에 시작과 끝을 1과 2에 연결해야 합니다. 1은 왼쪽, 2는 오른쪽 트랙이 될 것입니다.<br>
-  VST 폴더 위치는 상관없습니다. 자동으로 스캔하는 기능이 있긴 하지만, 왼쪽 파일 브라우저로 직접 선택해서 넣는게 더 편해요.<br>
-  드래그 해서 각 VST끼리 연결할 수 있습니다. 더블클릭하면 조정 UI가 나옵니다.<br>
-  <br>
-  전부 조정했으면 꼭 저장을 해주셔야 합니다. 다른 설정들은 유지되지만 VST 관련 설정들은 다 날라가요.<br>
-</p>
+<p><a href="//kx.studio/Applications:Carla" target="_blank" rel='noopener'>Carla</a>는 vsthost 프로그램입니다. 어떤 엔진 내부의 소리에 VST를 적용할 수 있게 해줍니다. 여기서는 그 엔진이 <a href="//vb-audio.com/Voicemeeter/banana.htm" target="_blank" rel='noopener'>Voicemeeter Banana</a>가 됩니다.</p>
+<img class='image center' alt="Carla configuration" style="width:30rem;" height="138" width="473" src="/files/carla-configure.avif">
+<p>이걸 눌러서 설정에 들어갑니다.</p>
+<img class='image center' style="width:40em;" alt="Carla engine setting ..." height="1347" width="1191" src="/files/carla-setting-engine.avif">
+<img class='image center' style="width:40em;" alt="Carla engine select" height="338" width="590" src="/files/carla-engine_select.avif">
+<p><mark>Voicemeeter Insert Virtual ASIO</mark>를 선택합니다.</p>
+<img class='image center' style="width:70rem;" alt="Carla patchbay" height="1108" width="1845" src="/files/carla-patchbay.avif">
+<p>저는 지금 VST들이 많지만 처음에는 Audio Input과 Adio Output 두 종류 밖에 없습니다. 아까 라인 1을 열고 A1에 아웃풋 설정을 했기 때문에 시작과 끝을 1과 2에 연결해야 합니다. 1은 왼쪽, 2는 오른쪽 트랙이 될 것입니다. VST 폴더 위치는 상관없습니다. 자동으로 스캔하는 기능이 있긴 하지만, 왼쪽 파일 브라우저로 직접 선택해서 넣는게 더 편해요.</p>
+<p>드래그 해서 각 VST끼리 연결할 수 있습니다. 더블클릭하면 조정 UI가 나옵니다.</p>
+<p>전부 조정했으면 꼭 저장을 해주셔야 합니다. 다른 설정들은 유지되지만 VST 관련 설정들은 다 날라가요.</p>
 
-<h2 content="사용법">사용법</h2>
-<p>
-  우선 <a href="//vb-audio.com/Voicemeeter/banana.htm" target="_blank" rel='noopener'>Voicemeeter Banana</a>를 켭니다. 오른쪽 위 로딩이 완료된 후에 <a href="//kx.studio/Applications:Carla" target="_blank" rel='noopener'>Carla</a>를 켭니다. 기다리지 않으면 제대로 작동하지 않습니다.<br>
- 이제 우리는 마이크 볼륨이 작으면 키울 수도 있고, 리미터를 걸 수도 있고, 심지어 기타 앰프를 연결할 수도 있습니다. 심지어 미디 키보드를 사용해서 악기를 연주할 수도 있어요!
-</p>
+<h2 id='p-h-howtouse'><a href='#p-h-howtouse'>사용법</a></h2>
 
-<h2 content="주의사항">주의사항</h2>
+<p>우선 <a href="//vb-audio.com/Voicemeeter/banana.htm" target="_blank" rel='noopener'>Voicemeeter Banana</a>를 켭니다. 오른쪽 위 로딩이 완료된 후에 <a href="//kx.studio/Applications:Carla" target="_blank" rel='noopener'>Carla</a>를 켭니다. 기다리지 않으면 제대로 작동하지 않습니다.</p>
+<p>이제 우리는 마이크 볼륨이 작으면 키울 수도 있고, 리미터를 걸 수도 있고, 심지어 기타 앰프를 연결할 수도 있습니다. 심지어 미디 키보드를 사용해서 악기를 연주할 수도 있어요!</p>
 
-<p>
-  특정 상황에 소리가 끊겨 들리는 현상을 발견했습니다.<br>
-  OBS에서 여러번 테스트해보고 알아낸 대처법은 이렇습니다.<br>
-  1. 적용될 프로그램<span style="font-size:.6em;">ex)OBS</span>보다 <mark>먼저</mark> 작동시킬 것!<br>
-  2. 부득이하게 1번을 지키지 못했다면, <a href="#p-voicemeeter_banana">Voicemeeter Banana</a>를 먼저 닫고, <a href="#p-carla">Carla</a>를 닫은 후 다시 올바른 순서로 켜 주세요.
-</p>
+<h2 id='p-h-caution'><a href='#p-h-caution'>주의사항</a></h2>
+
+<p>특정 상황에 소리가 끊겨 들리는 현상을 발견했습니다. OBS에서 여러번 테스트해보고 알아낸 대처법은 이렇습니다.</p>
+<ul>
+  <li>적용될 프로그램<span style="font-size:.6em;">ex)OBS</span>보다 <strong>먼저</strong> 작동시킬 것!</li>
+  <li>부득이하게 1번을 지키지 못했다면, <a href="#p-h-voicemeeterbanana">Voicemeeter Banana</a>를 먼저 닫고, <a href="#p-h-carla">Carla</a>를 닫은 후 다시 올바른 순서로 켜 주세요.</li>
+</ul>
