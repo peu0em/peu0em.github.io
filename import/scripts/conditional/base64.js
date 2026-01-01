@@ -5,21 +5,21 @@
   let base64Wsm;
 
   function listenerOn(){
-    const encodeBox = document.getElementById('text-box'), decodeBox = document.getElementById('base64-box');
+    const textBox = document.getElementById('text-box'), base64Box = document.getElementById('base64-box');
     if(base64Wsm){
       const heapBase = base64Wsm.exports.getHeapBase()?base64Wsm.exports.getHeapBase():0;
-      encodeBox.addEventListener('input',()=>{
-        let textOrg = encodeBox.value;
+      textBox.addEventListener('input',()=>{
+        let textOrg = textBox.value;
         if(textOrg.length > 0){
           const text = new TextEncoder().encode((textOrg.length > MAXLEN)?textOrg.slice(0,MAXLEN):textOrg);
           const len = text.length;
           new Uint8Array(memory.buffer,heapBase+TEXT_PTR,len).set(text);
 
-          decodeBox.value = new TextDecoder().decode(new Uint8Array(memory.buffer,heapBase+BASE64_PTR,base64Wsm.exports.base64Encode(BASE64_PTR,TEXT_PTR,len)));
+          base64Box.value = new TextDecoder().decode(new Uint8Array(memory.buffer,heapBase+BASE64_PTR,base64Wsm.exports.base64Encode(BASE64_PTR,TEXT_PTR,len)));
         }
       });
-      decodeBox.addEventListener('input',()=>{
-        let textOrg = decodeBox.value;
+      base64Box.addEventListener('input',()=>{
+        let textOrg = base64Box.value;
         if(textOrg.length > 0){
           const text = new TextEncoder().encode((textOrg.length > MAXLEN)?textOrg.slice(0,MAXLEN):textOrg);
           const len = text.length;
@@ -27,14 +27,24 @@
 
           outLen = base64Wsm.exports.base64Decode(TEXT_PTR,BASE64_PTR,len);
 
-          encodeBox.value = new TextDecoder().decode(new Uint8Array(memory.buffer,heapBase+TEXT_PTR,outLen));
+          textBox.value = new TextDecoder().decode(new Uint8Array(memory.buffer,heapBase+TEXT_PTR,outLen));
         }
       });
+
+      const params = new URLSearchParams(window.location.search);
+      if(params.has('text')){
+        textBox.value = params.get('text');
+        textBox.dispatchEvent(new Event('input',{ bubbles: true }));
+      }
+      if(params.has('base64')){
+        base64Box.value = params.get('base64');
+        base64Box.dispatchEvent(new Event('input',{ bubbles: true }));
+      }
     }
   }
 
   (async ()=>{
-    const {instance} = await WebAssembly.instantiateStreaming(await fetch('/import/scripts/functions/base64.wasm'), { env: { memory } });
+    const {instance} = await WebAssembly.instantiateStreaming(await fetch('/import/scripts/conditional/base64.wasm'), { env: { memory } });
     base64Wsm = instance;
     
     if(document.readyState == "loading"){
