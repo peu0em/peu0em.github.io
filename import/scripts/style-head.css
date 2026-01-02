@@ -140,14 +140,11 @@ kbd:not(.no-deco){
   box-shadow:.1rem .1rem .1rem var(--color-theme-double-change);
   border-radius:.4em;
 }
-kbd:not(.no-deco)>kbd{
-  padding-top:0; padding-bottom:0;
-  margin:0;
-  font-size:inherit;
-  box-shadow: none;
+kbd:not(.no-deco):has(kbd){
+  padding:0; margin:0 .2em;
+  box-shadow:none;
 }
-kbd:not(.no-deco)>kbd:first-child{ padding-left:0; }
-kbd:not(.no-deco)>kbd:last-child{ padding-right:0; }
+kbd:not(.no-deco)>kbd{ font-size:inherit; }
 
 /* post title */
 h1.post{text-align:center}
