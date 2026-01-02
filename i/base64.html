@@ -8,27 +8,27 @@ addhead:
 language:
   current: all
 ---
-<main style='margin-top:1rem;'>
-  <div class='container text'>
-    <h2 class='which no-deco'>TEXT</h2>
-    <textarea class='box multilang' id='text-box' placeholder='일반 텍스트를 입력하세요.' data-placeholder-ko='일반 텍스트를 입력하세요.' data-placeholder-en='Input plain text.'></textarea>
-    <div class='buttons'>
+<main class='p-main'>
+  <div class='p-container p-text'>
+    <h2 class='p-which no-deco'>TEXT</h2>
+    <textarea class='p-box multilang' id='text-box' placeholder='일반 텍스트를 입력하세요.' data-placeholder-ko='일반 텍스트를 입력하세요.' data-placeholder-en='Input plain text.'></textarea>
+    <div class='p-buttons'>
       <div role='button' class='badge multilang' id='text-copy' title='복사' data-title-ko='복사' data-title-en='Copy'>📑</div>
       <div role='button' class='badge multilang' id='text-paste' title='붙여넣기' data-title-ko='붙여넣기' data-title-en='Paste'>📥</div>
       <div role='button' class='badge multilang' id='text-delete' title='지우기' data-title-ko='지우기' data-title-en='Delete'>🗑️</div>
     </div>
   </div>
 
-  <div class='arrow no-drag'>↕</div>
+  <div class='p-arrow no-drag'>↕</div>
 
-  <div class='container base64'>
-    <div class='buttons'>
+  <div class='p-container p-base64'>
+    <div class='p-buttons'>
       <div role='button' class='badge multilang' id='base64-copy' title='복사' data-title-ko='복사' data-title-en='Copy'>📑</div>
       <div role='button' class='badge multilang' id='base64-paste' title='붙여넣기' data-title-ko='붙여넣기' data-title-en='Paste'>📥</div>
       <div role='button' class='badge multilang' id='base64-delete' title='지우기' data-title-ko='지우기' data-title-en='Delete'>🗑️</div>
     </div>
-    <textarea class='box multilang' id='base64-box' placeholder='BASE64 문자열을 입력하세요.' data-placeholder-ko='BASE64 문자열을 입력하세요.' data-placeholder-en='Input BASE64 string.'></textarea>
-    <h2 class='which no-deco'>BASE64</h2>
+    <textarea class='p-box multilang' id='base64-box' placeholder='BASE64 문자열을 입력하세요.' data-placeholder-ko='BASE64 문자열을 입력하세요.' data-placeholder-en='Input BASE64 string.'></textarea>
+    <h2 class='p-which no-deco'>BASE64</h2>
   </div>
 </main>
 
@@ -40,5 +40,46 @@ language:
   <span>6</span>
   <span>4</span>
 </h1>
+
+<div class='p-botdoc default-text multilang tag'>
+
+  <h2 class='multilang' data-content-ko='설명서' data-content-en='Document'>설명서</h2>
+
+  <p class='multilang-tag ko'>TEXT 칸에 문자열을 입력하세요. 실시간으로 아래 BASE64 칸에 결과가 나타납니다.</p>
+  <p class='multilang-tag en' hidden>Input plain text in TEXT box. Result appears in BASE64 box at bottom.</p>
+  <p class='multilang-tag ko'>BASE64 칸에 base64 문자열을 입력하면 실시간으로 위 TEXT 칸에 결과가 나타납니다.</p>
+  <p class='multilang-tag en' hidden>If you input base64 string in BASE64 box, result appears in TEXT box at top.</p>
+
+  <h3 class='multilang' data-content-ko='입력 방식' data-content-en='Input Methods'>입력 방식</h3>
+  
+  <h4 class='multilang' data-content-ko='직접 입력' data-content-en='Direct Typing'>직접 입력</h4>
+
+  <p class='multilang-tag ko'>사각형 텍스트 박스에 문자를 직접 입력할 수 있습니다.</p>
+  <p class='multilang-tag en' hidden>You can type directly in the rectangle box.</p>
+  
+  <h4 class='multilang' data-conetent-ko='붙여넣기' data-content-en='Paste'>붙여넣기</h4>
+
+  <p class='multilang-tag ko'>사각형 텍스트 박스에 직접 붙여넣을 수 있습니다.</p>
+  <p class='multilang-tag en' hidden>You can pase directly into the rectangle text box.</p>
+  <p class='multilang-tag ko'>또는 📥 버튼을 눌러 클립보드에서 바로 붙여넣을 수 있습니다.</p>
+  <p class='multilang-tag en' hidden>Or you can paste from clipboard by pressing 📥 button.</p>
+
+  <h4 class='multilang' data-content-ko='URL 플래그' data-content-en='URL Flags'>URL 플래그</h4>
+
+  <p class='multilang-tag ko'>URL 뒤에 플래그를 붙이면 미리 내용을 입력한 채로 페이지를 로드할 수 있습니다.</p>
+  <p class='multilang-tag en' hidden>By adding flags at the URL's tail, the page can be loaded with the string already filled.</p>
+  <p class='multilang-tag ko'>플래그는 <code>text</code>와 <code>base64</code>가 있으며,</p>
+  <p class='multilang-tag en' hidden>The flags are <code>text</code> and <code>base64</code>, you can use as</p>
+  <div class='script'>
+    <code>https://peu0em.com/i/base64?text=<span class='multilang' data-content-ko='내용' data-content-en='CONTENT'>내용</span></code>
+  </div>
+  <p class='multilang-tag ko'>혹은</p>
+  <p class='multilang-tag en' hidden>or like</p>
+  <div class='script'>
+    <code>https://peu0em.com/i/base64?base64=<span class='multilang' data-content-ko='내용' data-content-en='CONTENT'>내용</span></code>
+  </div>
+  <p class='multilang-tag ko'>이렇게 사용할 수 있습니다.</p>
+
+</div>
 
 {% include neck.html content="home" %}

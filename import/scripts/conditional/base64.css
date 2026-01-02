@@ -1,5 +1,8 @@
-main{ max-width: 70rem; }
-div.container{
+body{
+  --p-maxwidth: 70rem;
+}
+main.p-main{ max-width:var(--p-maxwidth); margin-top:1rem; }
+div.p-container{
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -8,7 +11,7 @@ div.container{
   height: auto;
   overflow: auto;
 }
-h2.which{
+h2.p-which{
   text-align:center;
   margin:0;
   font-size:2rem;
@@ -17,7 +20,7 @@ h2.which{
   font-weight:100;
   width:100%;
 }
-.box{
+.p-box{
   height:10rem;
   font-size:var(--size-font-p);
   font-family:var(--font-p);
@@ -27,17 +30,17 @@ h2.which{
   resize: vertical;
   width:100%;
 }
-div.buttons{
+div.p-buttons{
   display:flex;
   justify-content:center;
 }
-.text div.buttons{ margin-top: -.4rem }
+.p-text div.buttons{ margin-top: -.4rem }
 .base64 div.buttons{ margin-bottom: -.4rem }
-div.buttons .badge{
+div.p-buttons .badge{
   font-size:1.7rem;
   cursor:pointer;
 }
-div.arrow{
+div.p-arrow{
   font-family:var(--font-title);
   font-size:3rem;
   text-align:center;
@@ -52,4 +55,8 @@ h1{
   display:flex;
   justify-content: space-evenly;
   width: 100%;
+}
+div.p-botdoc{
+  max-width:var(--p-maxwidth);
+  margin:auto; padding:0 1rem;
 }
