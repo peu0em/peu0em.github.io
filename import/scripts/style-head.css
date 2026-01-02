@@ -129,11 +129,25 @@ h1.logo svg>*{fill:var(--color-theme-change)}
 h1.logo svg{background-color:var(--color-font)}
 
 /* monospace */
-.monospace,pre:not(.no-deco),code:not(.no-deco){
+.monospace,pre:not(.no-deco),code:not(.no-deco),kbd:not(.no-deco){
   font-family:var(--font-monospace);
   letter-spacing:0;
   overflow-wrap:break-word;white-space:preserve;
 }
+kbd:not(.no-deco){
+  padding:.1em .5em; font-size:.9em;
+  margin:0 .3em;
+  box-shadow:.1rem .1rem .1rem var(--color-theme-double-change);
+  border-radius:.4em;
+}
+kbd:not(.no-deco)>kbd{
+  padding-top:0; padding-bottom:0;
+  margin:0;
+  font-size:inherit;
+  box-shadow: none;
+}
+kbd:not(.no-deco)>kbd:first-child{ padding-left:0; }
+kbd:not(.no-deco)>kbd:last-child{ padding-right:0; }
 
 /* post title */
 h1.post{text-align:center}
