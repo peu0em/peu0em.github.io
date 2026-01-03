@@ -134,17 +134,23 @@ h1.logo svg{background-color:var(--color-font)}
   letter-spacing:0;
   overflow-wrap:break-word;white-space:preserve;
 }
+
+/* kbd */
 kbd:not(.no-deco){
   padding:.1em .5em; font-size:.9em;
   margin:0 .3em;
   box-shadow:.1rem .1rem .1rem var(--color-theme-double-change);
   border-radius:.4em;
 }
+kbd+kbd:not(.no-deco){ margin-left:0; }
 kbd:not(.no-deco):has(kbd){
   padding:0; margin:0 .2em;
   box-shadow:none;
 }
 kbd:not(.no-deco)>kbd{ font-size:inherit; }
+
+/* var */
+var{ font-family:var(--font-monospace); }
 
 /* post title */
 h1.post{text-align:center}

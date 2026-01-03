@@ -10,7 +10,7 @@ language:
     ko: /p/2025/07/13/vim
 ---
 <p>I'm gonna organize mechanisms that I've understood using vim. Might be useful for those who're familiar with keyboard shortcuts but struggling with complicated actions so selecting with Visual Mode.</p>
-<p>First, I think Visual Mode(v) isn't mainstream. Sometimes we need this, but it blocks ways to efficiency while this can replace almost every function. I think vim's efficiency comes from the impossibility of being inefficient. So I will exclude Visual Mode from explanations after this.</p>
+<p>First, I think Visual Mode(<kbd>v</kbd>) isn't mainstream. Sometimes we need this, but it blocks ways to efficiency while this can replace almost every function. I think vim's efficiency comes from the impossibility of being inefficient. So I will exclude Visual Mode from explanations after this.</p>
 
 <nav>
   <details>
@@ -45,13 +45,13 @@ language:
 <h2 id='p-h-key'><a href='#p-h-key'>Shortcuts</a></h2>
 
 <p>When starting to learn, it seems easy to memorize if you think there's arrow keys and shortcuts in vim, but actually it is not. All actions in vim are shortcuts, and these shortcuts can be linked<span class='footnote t' id='p-fn-link-t'><a class='n' href='#p-fn-link-b'>1</a></span> by their function.</p>
-<p>First let me explain about all things are shortcuts. <code>HJKL</code> for move are also shortcuts. Whether these are shortcuts or not is important because these can be used in combinations.</p>
+<p>First let me explain about all things are shortcuts. <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> for move are also shortcuts. Whether these are shortcuts or not is important because these can be used in combinations.</p>
 
 <h3 id='p-h-link'><a href='#p-h-link'>Link</a></h3>
 
 <p>The structure is as follows. Can be omitted depending on the type.</p>
 <div class='script'>
-  <code>[<a href='#p-h-link-reg' class='no-underline'>REGISTER</a>][<a href='#p-h-link-rep' class='no-underline'>REPETITION</a>][<a href='#p-h-link-command' class='no-underline'>COMMAND</a>][<a href='#p-h-link-scope' class='no-underline'>SCOPE</a>]</code>
+  <code><var>[<a href='#p-h-link-reg' class='no-underline'>REGISTER</a>]</var><var>[<a href='#p-h-link-rep' class='no-underline'>REPETITION</a>]</var><var>[<a href='#p-h-link-command' class='no-underline'>COMMAND</a>]</var><var>[<a href='#p-h-link-scope' class='no-underline'>SCOPE</a>]</var></code>
 </div>
 
 <h4 id='p-h-link-reg'><a href='#p-h-link-reg'>Register</a></h4>
@@ -60,7 +60,7 @@ language:
 <p>Vim can store information somewhere. We can copy without this, but information will be stored at temporary register. Vim's all deletes includes copying. There's no just deletes. All cuts. So if you delete something between copy and paste, copied text will be overwritten.</p>
 <p>So we need register. Starts with <code>"</code>(double quotation mark), choose where to store after. This 'where' can be any letter of the aphabet. Seems like case-insensitive. Just to add, there's <code>+</code> register, clipboard. This can be used when you copy for external use or bring in from outside.</p>
 <div class='script'>
-  <code>"+</code>
+  <kbd>"</kbd><kbd>+</kbd>
 </div>
 <p>Would be like this if you use clipboard.</p>
 
@@ -68,37 +68,37 @@ language:
 
 <p>(Can be omitted.)</p>
 <p>Decides how many times to repeat.</p>
-<p>But copied results are merged. For example, <code>2yy</code> copies two lines. It won't overwrite while repeating.</p>
+<p>But copied results are merged. For example, <kbd>2</kbd><kbd>y</kbd><kbd>y</kbd> copies two lines. It won't overwrite while repeating.</p>
 <p>If you repeat input type, multiple texts will be typed simultaneously like writing on paper with multiple pens in a hand.</p>
 
 <h4 id='p-h-link-command'><a href='#p-h-link-command'>Command</a></h4>
 
 <p>What to do. Just one letter. Shift or ctrl can be used together with but there's only one letter.</p>
-<p> Wait, but in other tutorial they teach me something like <code>dd</code> and <code>dw</code>? That latter part belongs to the <a href='#p-h-link-scope'>scope</a> right after.</p>
+<p> Wait, but in other tutorial they teach me something like <kbd>d</kbd><kbd>d</kbd> and <kbd>d</kbd><kbd>w</kbd>? That latter part belongs to the <a href='#p-h-link-scope'>scope</a> right after.</p>
 <p>So there's no different behavior that have the same first letter. As far as I know. So you can consider only the first letter as the body of the command.</p>
 
 <h4 id='p-h-link-scope'><a href='#p-h-link-scope'>Scope</a></h4>
 
-<p>Here's the point. Scope is decided by <mark>move commands</mark>. Do you remember that <code>HJKL</code> are also commands? They are used here.</p>
-<p>Typical move commands are <code>HJKL</code>, <code>w</code>, <code>b</code>, <code>b</code>, <code>f</code>. Combination with ctrl can't be used here as I just checked.</p>
+<p>Here's the point. Scope is decided by <mark>move commands</mark>. Do you remember that <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd> are also commands? They are used here.</p>
+<p>Typical move commands are <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd>, <kbd>w</kbd>, <kbd>b</kbd>, <kbd>b</kbd>, <kbd>f</kbd>. Combination with ctrl can't be used here as I just checked.</p>
 <p>Importantly, this can be repeated.</p>
 <p>I'll give you some examples. I'll show you from beginning to avoid confusion.</p>
 <ul>
-  <li><code>y2w</code>: Copy two words.</li>
-  <li><code>dl</code>: Cut letter at cursor.</li>
-  <li><code>d5k</code>: Cut 6 lines including recent line.</li>
-  <li><code>c3Fa</code>: Input after cut up to the 3rd nearest letter 'a' in the line, excluding the letter at the current cursor.</li>
+  <li><kbd>y</kbd><kbd>2</kbd><kbd>w</kbd>: Copy two words.</li>
+  <li><kbd>d</kbd><kbd>l</kbd>: Cut letter at cursor.</li>
+  <li><kbd>d</kbd><kbd>5</kbd><kbd>k</kbd>: Cut 6 lines including recent line.</li>
+  <li><kbd>c</kbd><kbd>3</kbd><kbd>F</kbd><kbd>a</kbd>: Input after cut up to the 3rd nearest letter 'a' in the line, excluding the letter at the current cursor.</li>
 </ul>
 <p>The last one is kind of bizarre, though it seems to start before the cursor when moving backwards in a line. So it's little bit confusing.</p>
-<p>You can select the entire line by double tapping the same command. I'm not sure which comes first, inability to select only one line with <code>JK</code> or the opposite case. So the <code>5k</code> above selects 6 lines. Because cursor goes up 5 times.</p>
+<p>You can select the entire line by double tapping the same command. I'm not sure which comes first, inability to select only one line with <kbd>J</kbd><kbd>K</kbd> or the opposite case. So the <kbd>5</kbd><kbd>k</kbd> above selects 6 lines. Because cursor goes up 5 times.</p>
 
 <h4 id='p-h-link-all'><a href='#p-h-link-all'>All At Once</a></h4>
 
 <p>Let's do all at once as complex as possible.</p>
 <div class='script'>
-  <code>"a3d3fb</code>
+  <kbd>"</kbd><kbd>a</kbd><kbd>3</kbd><kbd>d</kbd><kbd>3</kbd><kbd>f</kbd><kbd>b</kbd>
 </div>
-<p>This would be "Repeat a command that cut up to 3rd 'b' after cursor to register a 3 times". But you don't need to do like this. Just do <code>"ad6fb</code>.</p>
+<p>This would be "Repeat a command that cut up to 3rd 'b' after cursor to register a 3 times". But you don't need to do like this. Just do <kbd>"</kbd><kbd>a</kbd><kbd>d</kbd><kbd>6</kbd><kbd>f</kbd><kbd>b</kbd>.</p>
 
 <h2 id='p-h-command'><a href='#p-h-command'>Command-line Mode</a></h2>
 
@@ -107,7 +107,7 @@ language:
 <p>If keys are same, is there a reason to use command line? In the command-line mode, you can use line number.</p>
 <p>You can use like this.</p>
 <div class='script'>
-  <code>:[<a href='#p-h-command-scope' class='no-underline'>SCOPE</a>][<a href='#p-h-command-command' class='no-underline'>COMMAND</a>][<a href='#p-h-command-input' class='no-underline'>INPUT</a>] [<a href='#p-h-command-reg' class='no-underline'>REGISTER</a>]</code>
+  <code>:<var>[<a href='#p-h-command-scope' class='no-underline'>SCOPE</a>]</var><var>[<a href='#p-h-command-command' class='no-underline'>COMMAND</a>]</var><var>[<a href='#p-h-command-input' class='no-underline'>INPUT</a>]</var> <var>[<a href='#p-h-command-reg' class='no-underline'>REGISTER</a>]</var></code>
 </div>
 
 <h3 id='p-h-command-scope'><a href='#p-h-command-scope'>Scope</a></h3>
@@ -115,14 +115,14 @@ language:
 <p>It can be not used depending on which command is.</p>
 
 <div class='script'>
-  <code>[START LINE NUMBER],[END LINE NUMBER]</code>
+  <code><var>[START LINE NUMBER]</var>,<var>[END LINE NUMBER]</var></code>
 </div>
 <p>It would be like this.</p>
 <p>You can use some symbols instead of numbers.</p>
 <ul>
   <li><code>%</code>: Whole lines in the file</li>
   <li><code>.</code>: The line where cursor is.</li>
-  <li><code>/[PHRASE]/</code>: The line where <code>[PHRASE]</code> is.</li>
+  <li><code>/<var>[PHRASE]</var>/</code>: The line where <code><var>[PHRASE]</var></code> is.</li>
 </ul>
 <p>You can use something like this. Also you can do plus and minus calculations. For example <code>.+3</code> refers the 3rd line down from the line where cursor is. This can be used with <code>//</code>. But you must specify both start and end. This can't mean range by its own.</p>
 

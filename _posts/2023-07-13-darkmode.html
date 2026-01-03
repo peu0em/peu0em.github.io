@@ -38,8 +38,6 @@ tags: [CSS,정보,HTML,자바스크립트]
   이 글은 제가 어두운 테마를 완성시키기 위한 과정, 그리고 그 안에서 만난 애로사항들과 해결법을 주제로 합니다.
 </p>
 
-<!--more-->
-
 <h2 content='간략 설명' id='p-230713-h2-short'>간략 설명</h2>
 
 <p>
@@ -63,11 +61,11 @@ tags: [CSS,정보,HTML,자바스크립트]
         <div class='script'>
           <pre>&lt;script type='text/javascript'&gt;
   function themeChange() {
-    if( document.body.getAttribute('data-theme') == 'light' ) {
-      document.body.setAttribute('data-theme', 'dark');
+    if( document.body.getAttribute('data-<var>theme</var>') == 'light' ) {
+      document.body.setAttribute('data-<var>theme</var>', 'dark');
       window.localStorage.setItem(&#39;theme&#39;,&#39;dark&#39;);
     } else if( document.body.getAttribute(&#39;cm-theme&#39;) == &#39;dark&#39; ) {
-      document.body.setAttribute('data-theme', 'light');
+      document.body.setAttribute('data-<var>theme</var>', 'light');
       window.localStorage.setItem(&#39;theme&#39;, &#39;light&#39;);
     }
   }
@@ -81,11 +79,11 @@ tags: [CSS,정보,HTML,자바스크립트]
         <div class='script'>
           <pre>&lt;script type='text/javascript'&gt;
   if( window.localStorage.getItem(&#39;theme&#39;) ) {
-    document.body.setAttribute(&#39;data-theme&#39;, window.localStorage.getItem(&#39;theme&#39;));
+    document.body.setAttribute(&#39;data-<var>theme</var>&#39;, window.localStorage.getItem(&#39;theme&#39;));
   } else if( window.matchMedia(&#39;(prefers-color-scheme: dark)&#39;).matches ) {
-    document.body.setAttribute(&#39;data-theme&#39;,&#39;dark&#39;);
+    document.body.setAttribute(&#39;data-<var>theme</var>&#39;,&#39;dark&#39;);
   } else {
-    document.body.setAttribute(&#39;data-theme&#39;,&#39;light&#39;);
+    document.body.setAttribute(&#39;data-<var>theme</var>&#39;,&#39;light&#39;);
   }
 &lt;/script&gt;</pre>
         </div>
@@ -107,177 +105,111 @@ tags: [CSS,정보,HTML,자바스크립트]
 
 <h3 content='CSS의 색상값을 변수로' id='p-230713-h3-cssvar'>CSS의 색상값을 변수로</h3>
 
-<p>
-  여러가지 색깔을 일괄적으로 변환시키기 위해서는 색상값들을 변수로 대체하는 것이 편합니다.
-  <br>물론 필수는 아니지만, 향후 유지보수 측면에서도 변수로 관리하는 것이 편할 것입니다.
-</p>
-<p>
-  작업 전에, 다크 모드로 전환 시에 바뀔 색깔들을 분류해보시는 것이 좋습니다.
-  <br>가장 쉬운 방법은 다크 모드에서의 색상들을 임의로 골라보시고, 같은 색에서 같은 색으로 변하는 부분끼리 모아보는 것입니다.
-  <br>아마 비슷한 역할의 부분들끼리 자연스레 모일 것으로 예상됩니다.
-</p>
-<p>
-  CSS에 <font face='monospace'>:root{}</font>를 만들어 변수를 지정할 겁니다.
-  <br>최상위 요소가 <font face='monospace'>:root</font>인거지, <font face='monospace'>html{}</font>이나 <font face='monospace'>body{}</font>도 가능합니다. 취향이나 상황에 맞는 것으로 고르시면 됩니다. 왼쪽에서부터 순서대로 적용 범위가 작아집니다.
-</p>
-<p>
-  우선 예시를 보여드리겠습니다.
-</p>
+<p>여러가지 색깔을 일괄적으로 변환시키기 위해서는 색상값들을 변수로 대체하는 것이 편합니다.</p>
+<p>물론 필수는 아니지만, 향후 유지보수 측면에서도 변수로 관리하는 것이 편할 것입니다.</p>
+<p>작업 전에, 다크 모드로 전환 시에 바뀔 색깔들을 분류해보시는 것이 좋습니다. 가장 쉬운 방법은 다크 모드에서의 색상들을 임의로 골라보시고, 같은 색에서 같은 색으로 변하는 부분끼리 모아보는 것입니다. 아마 비슷한 역할의 부분들끼리 자연스레 모일 것으로 예상됩니다.</p>
+<p>CSS에 <code>:root{}</code>를 만들어 변수를 지정할 겁니다. 최상위 요소가 <code>:root</code>인거지, <code>html{}</code>이나 <code>body{}</code>도 가능합니다. 취향이나 상황에 맞는 것으로 고르시면 됩니다. 왼쪽에서부터 순서대로 적용 범위가 작아집니다.</p>
+<p>우선 예시를 보여드리겠습니다.</p>
 <div class='script'>
   <pre>:root {
-  --background: white;
+  <var>--background</var>: white;
 }</pre>
 </div>
-<p>
-  이렇게 하면 '<font face='monospace'>--background</font>'에 '<font face='monospace'>white</font>'이 저장됩니다. 여기서 <font face='monospace'>'--background'</font>는 변수 이름이고, <font face='monospace'>'white'</font>은 저장되는 값입니다.
-  <br>변수 이름은 무조건 '<font face='monospace'>--</font>'(대시 두 개)로 시작해야 합니다.
-</p>
-<p>
-  이제 교체할 색상값을 변수로 교체합니다.
-</p>
+<p>이렇게 하면 '<code><var>--background</var></code>'에 '<code>white</code>'이 저장됩니다. 여기서 <code>'<var>--background</var>'</code>는 변수 이름이고, <code>'white'</code>은 저장되는 값입니다.</p>
+<p>변수 이름은 무조건 '<code>--</code>'(대시 두 개)로 시작해야 합니다.</p>
+<p>이제 교체할 색상값을 변수로 교체합니다.</p>
 <div class='script'>
   <pre>body {
-  background-color: var(--background);
+  background-color: var(<var>--background</var>);
 }</pre>
 </div>
-<p> 
-  위와 같이 색상값 대신 <font face='monospace'>var()</font>안에 변수 이름을 넣으면 위에서 저장한 값이 됩니다. '<font face='monospace'>background-color: white;</font>'과 동일한 결과를 보여줍니다.
-</p>
-<p>
-  동일한 방법으로 바뀌게 할 모든 색상값을 변수로 교체해주세요.
-</p>
+<p>위와 같이 색상값 대신 <code>var()</code>안에 변수 이름을 넣으면 위에서 저장한 값이 됩니다. '<code>background-color: white;</code>'과 동일한 결과를 보여줍니다.</p>
+<p>동일한 방법으로 바뀌게 할 모든 색상값을 변수로 교체해주세요.</p>
 
 <h3 content='다크 모드일 때 색상 설정' id='p-230713-h3-cssdark'>다크 모드일 때 색상 설정</h3>
 
-<p>
-  뒤에 나올 스크립트를 이용해 저희는 <font face='monospace'>&lt;body&gt;</font>에 <font face='monospace'>data-theme</font> 속성을 추가할 것입니다.
-  <br>이것을 이용해서 다크 모드일 때의 색상을 입력해보겠습니다.
-</p>
+<p>뒤에 나올 스크립트를 이용해 저희는 <code>&lt;body&gt;</code>에 <code>data-<var>theme</var></code> 속성을 추가할 것입니다.</p>
+<p>이것을 이용해서 다크 모드일 때의 색상을 입력해보겠습니다.</p>
 <div class='script'>
-  <pre>body[data-theme="dark"] {
-  --background: black;
+  <pre>body[data-<var>theme</var>="dark"] {
+  <var>--background</var>: black;
 }</pre>
 </div>
-<p>
-  위와 같은 형태입니다.
-  <br>속성 선택자를 이용해서 '<font face='monospace'>data-theme</font>'의 값이 '<font face='monospace'>dark</font>'일 때만 아래의 색깔을 적용합니다.
-</p>
-<p>
-  위치는 꼭 <font face='monospace'>:root{}</font> 다음이어야 합니다.
-  <br>혹은 <font face='monospace'>:root</font> 대신 <font face='monospace'>body:not([data-theme="dark"])</font>를 사용해서 완전 분리해버릴 수도 있습니다.
-</p>
+<p>위와 같은 형태입니다.</p>
+<p>속성 선택자를 이용해서 '<code>data-<var>theme</var></code>'의 값이 '<code>dark</code>'일 때만 아래의 색깔을 적용합니다.</p>
+<p>위치는 꼭 <code>:root{}</code> 다음이어야 합니다. 혹은 <code>:root</code> 대신 <code>body:not([data-<var>theme</var>="dark"])</code>를 사용해서 완전 분리해버릴 수도 있습니다.</p>
 
 <h2 content='스크립트' id='p-230713-h2-script'>스크립트</h2>
 
 <h3 content='테마 인식' id='p-230713-h3-themerecognize'>테마 인식</h3>
 
-<p>
-  우리에게는 세 가지 상황이 있습니다.
-</p>
+<p>우리에게는 세 가지 상황이 있습니다.</p>
 <ul>
   <li>사용자가 한 번이라도 버튼을 눌렀을 경우</li>
   <li>사용자가 버튼을 누른 적이 없고, 선호하는 테마를 설정한 경우</li>
   <li>사용자가 버튼을 누른 적이 없고, 선호하는 테마를 설정하지 않은 경우</li>
 </ul>
-<p>
-  들어가기에 앞서, 버튼에서 등장할 한 기능에 대해서 설명드리겠습니다.
-</p>
+<p>들어가기에 앞서, 버튼에서 등장할 한 기능에 대해서 설명드리겠습니다.</p>
 <div class='script'>
-  <pre>window.localStorage.setItem('theme','dark');</pre>
+  <pre>window.localStorage.setItem('<var>theme</var>','<var>dark</var>');</pre>
 </div>
-<p>
-  이 코드는 브라우저에 정보를 저장해놓습니다.
-  <br>만약 버튼을 눌렀다면, 선호하는 테마를 결정한 것이나 다름이 없으니 그것을 기억해 놓으려는 의도입니다.
-  <br>방식은 CSS 때와 비슷합니다.
-  <br><font face='monospace'>'theme'</font>은 변수 이름이고 <font face='monospace'>'dark'</font>는 저장값으로 생각하시면 됩니다. 물론 그 이름과 값들은 마음대로 하셔도 됩니다.
-</p>
-<p>
-  다시 위의 세 가지 상황으로 돌아가면, 이것을 이용해 '사용자가 한 번이라도 버튼을 눌렀을 경우'를 판단할 수 있습니다.
-</p>
+<p>이 코드는 브라우저에 정보를 저장해놓습니다.</p>
+<p>만약 버튼을 눌렀다면, 선호하는 테마를 결정한 것이나 다름이 없으니 그것을 기억해 놓으려는 의도입니다.</p>
+<p>방식은 CSS 때와 비슷합니다. <code>'<var>theme</var>'</code>은 변수 이름이고 <code>'<var>dark</var>'</code>는 저장값으로 생각하시면 됩니다. 물론 그 이름과 값들은 마음대로 하셔도 됩니다.</p>
+<p>다시 위의 세 가지 상황으로 돌아가면, 이것을 이용해 '사용자가 한 번이라도 버튼을 눌렀을 경우'를 판단할 수 있습니다.</p>
 <div class='script'>
-  <pre>if( window.localStorage.getItem('theme') );</pre>
+  <pre>if( window.localStorage.getItem('<var>theme</var>') );</pre>
 </div>
-<p>
-  원래라면 '<font face='monospace'>window.locaStorage.getItem('theme')</font>'은 위에서 저장했던 '<font face='monospace'>dark</font>'라는 값을 얻기 위해 사용하는 구문입니다.
-  <br>이것을 <font face='monospace'>if</font>의 조건으로 사용해서 이 값의 존재 여부를 판단합니다.
-</p>
-<p>
-  두 번째 조건문입니다.
-</p>
+<p>원래라면 '<code>window.locaStorage.getItem('<var>theme</var>')</code>'은 위에서 저장했던 '<code><var>dark</var></code>'라는 값을 얻기 위해 사용하는 구문입니다. 이것을 <code>if</code>의 조건으로 사용해서 이 값의 존재 여부를 판단합니다.</p>
+<p>두 번째 조건문입니다.</p>
 <div class='script'>
   <pre>if( window.matchMedia(&#39;(prefers-color-scheme: dark)&#39;).matches )</pre>
 </div>
-<p>
-  이건 사용자가 브라우저 설정을 어두운 테마로 설정했는지 확인합니다.
-  <br>사용자가 밝은 테마로 설정한 경우와 아예 설정하지 않은 경우는 결과가 같아도 됩니다. 기본이 밝은 테마니까요.
-</p>
-<p>
-  각 상황별로 맞는 속성값을 <font face='monospace'>&lt;body&gt;</font>에 추가합니다.
-  <font face='monospace'>setAttribute()</font>를 이용해서요.
-</p>
-<p>
-  이제까지의 모든 구문을 종합하면 이렇습니다.
-</p>
+<p>이건 사용자가 브라우저 설정을 어두운 테마로 설정했는지 확인합니다.</p>
+<p>사용자가 밝은 테마로 설정한 경우와 아예 설정하지 않은 경우는 결과가 같아도 됩니다. 기본이 밝은 테마니까요.</p>
+<p>각 상황별로 맞는 속성값을 <code>&lt;body&gt;</code>에 추가합니다. <code>setAttribute()</code>를 이용해서요.</p>
+<p>이제까지의 모든 구문을 종합하면 이렇습니다.</p>
 <div class='script'>
-  <pre>if( window.localStorage.getItem(&#39;theme&#39;) ) {
-    document.body.setAttribute(&#39;data-theme&#39;, window.localStorage.getItem(&#39;theme&#39;));
+  <pre>if( window.localStorage.getItem(&#39;<var>theme</var>&#39;) ) {
+    document.body.setAttribute(&#39;data-<var>theme</var>&#39;, window.localStorage.getItem(&#39;<var>theme</var>&#39;));
   } else if( window.matchMedia(&#39;(prefers-color-scheme: dark)&#39;).matches ) {
-    document.body.setAttribute(&#39;data-theme&#39;,&#39;dark&#39;);
+    document.body.setAttribute(&#39;data-<var>theme</var>&#39;,&#39;<var>dark</var>&#39;);
   } else {
-    document.body.setAttribute(&#39;data-theme&#39;,&#39;light&#39;);
+    document.body.setAttribute(&#39;data-<var>theme</var>&#39;,&#39;<var>light</var>&#39;);
   }</pre>
 </div>
 
 <h4 content='깜빡임 문제' id='p-230713-h4-flicker'>깜빡임 문제</h4>
 
-<p>
-  그런데 이것을 그냥 <font face='monospace'>&lt;head&gt;</font>에 <font face='monospace'>&lt;script&gt;</font>로 넣으면 작동이 안되고, 함수로 만들어 <font face='monospace'>onload</font>를 사용하거나, <font face='monospace'>&lt;script type='module'&gt;</font>을 사용하거나 하면 깜빡임이 발생합니다.
-  <br>스크립트를 기다리지 않고 본문부터 출력해서 그렇습니다.
-  <br>이것을 해결하기 위해서는 <font face='monospace'>&lt;script&gt;</font>를 <font face='monospace'>&lt;body&gt;</font> 안에 넣어야 합니다.
-  <br><font face='monospace'>&lt;body&gt;</font> 안 가장 위에 넣으면 내용이 로드되기 전에 스크립트가 실행되면서 깜빡임이 사라집니다.
-</p>
+<p>그런데 이것을 그냥 <code>&lt;head&gt;</code>에 <code>&lt;script&gt;</code>로 넣으면 작동이 안되고, 함수로 만들어 <code>onload</code>를 사용하거나, <code>&lt;script type='module'&gt;</code>을 사용하거나 하면 깜빡임이 발생합니다. 스크립트를 기다리지 않고 본문부터 출력해서 그렇습니다.</p>
+<p>이것을 해결하기 위해서는 <code>&lt;script&gt;</code>를 <code>&lt;body&gt;</code> 안에 넣어야 합니다. <code>&lt;body&gt;</code> 안 가장 위에 넣으면 내용이 로드되기 전에 스크립트가 실행되면서 깜빡임이 사라집니다.</p>
 
 <h3 content='테마 전환 기능' id='p-230713-h3-themechange'>테마 전환 기능</h3>
 
-<p>
-  이제 테마를 전환하는 함수입니다. 버튼의 기능이기도 하죠.
-</p>
-<p>
-  매커니즘은 단순합니다.
-  <br>현재 어떤 테마인지 보고, <font face='monospace'>&lt;body&gt;</font>의 '<font face='monospace'>data-theme</font>' 속성을 반대로 바꾸고, 브라우저에 그 값을 저장합니다.
-</p>
-<p>
-  이걸 전부 합하면 이런 형태가 됩니다.
-</p>
+<p>이제 테마를 전환하는 함수입니다. 버튼의 기능이기도 하죠.</p>
+<p>매커니즘은 단순합니다. 현재 어떤 테마인지 보고, <code>&lt;body&gt;</code>의 '<code>data-<var>theme</var></code>' 속성을 반대로 바꾸고, 브라우저에 그 값을 저장합니다.</p>
+<p>이걸 전부 합하면 이런 형태가 됩니다.</p>
 <div class='script'>
-  <pre>function themeChange() {
-  if( document.body.getAttribute('data-theme') == 'light' ) {
-    document.body.setAttribute('data-theme', 'dark');
-    window.localStorage.setItem(&#39;theme&#39;,&#39;dark&#39;);
-  } else if( document.body.getAttribute(&#39;data-theme&#39;) == &#39;dark&#39; ) {
-    document.body.setAttribute('data-theme', 'light');
-    window.localStorage.setItem(&#39;theme&#39;, &#39;light&#39;);
+  <pre>function <var>themeChange</var>() {
+  if( document.body.getAttribute('data-<var>theme</var>') == '<var>light</var>' ) {
+    document.body.setAttribute('data-<var>theme</var>', '<var>dark</var>');
+    window.localStorage.setItem(&#39;<var>theme</var>&#39;,&#39;<var>dark</var>&#39;);
+  } else if( document.body.getAttribute(&#39;data-<var>theme</var>&#39;) == &#39;<var>dark</var>&#39; ) {
+    document.body.setAttribute('data-<var>theme</var>', '<var>light</var>');
+    window.localStorage.setItem(&#39;<var>theme</var>&#39;, &#39;<var>light</var>&#39;);
   }
 }</pre>
 </div>
-<p>
-  이것을 외부 스크립트나 스크립트 태그로 넣어주세요.
-</p>
+<p>이것을 외부 스크립트나 스크립트 태그로 넣어주세요.</p>
 
 <h2 content='테마 바꾸는 버튼' id='p-230713-h2-button'>테마 바꾸는 버튼</h2>
 
-<p>
-  이건 간단합니다.
-</p>
+<p>이건 간단합니다.</p>
 <div class='script'>
-  <pre>&lt;button onclick='themeChange();'&gt;&lt;/button&gt;</pre>
+  <pre>&lt;button onclick='<var>themeChange</var>();'&gt;&lt;/button&gt;</pre>
 </div>
-<p>
-  버튼만 추가해주면 끝입니다.
-</p>
+<p>버튼만 추가해주면 끝입니다.</p>
 
 <h2 content='팁' id='p-230713-h2-tip'>팁</h2>
 
-<p>
-  완전히 흰색이나 완전히 검은색은 좋지 않다고 합니다. 무작정 어두운 색을 사용한다는 느낌보다는 채도가 낮은, 눈이 편한 색을 사용한다는 느낌인 것 같아요.
-</p>
+<p>완전히 흰색이나 완전히 검은색은 좋지 않다고 합니다. 무작정 어두운 색을 사용한다는 느낌보다는 채도가 낮은, 눈이 편한 색을 사용한다는 느낌인 것 같아요.</p>

@@ -131,10 +131,10 @@ language:
 
 <h3 content='&lt;a&gt; Form' id='p-240810-h-anchor'><a href='#p-240810-h-anchor'>&lt;a&gt; Form</a></h3>
 
-<p>Now you have to run the <code>sidebar("[id of wanted page]")</code> function when you view other pages. Plus you have to contain <code>href='#[id]'</code> attribute.</p>
+<p>Now you have to run the <code>sidebar("<var>id of wanted page</var>")</code> function when you view other pages. Plus you have to contain <code>href='#<var>id</var>'</code> attribute.</p>
 
 <div class='script' translate='no'>
-  <pre>&lt;a href='#[id]' onclick='sidebar("[id]")'&gt;&lt;/a&gt;</pre>
+  <pre>&lt;a href='#<var>id</var>' onclick='sidebar("<var>id</var>")'&gt;&lt;/a&gt;</pre>
 </div>
 
 <p>So when you anchor inner links, you have to do like this.</p>
@@ -155,18 +155,18 @@ language:
 
 &lt;div class='sidebar-container'&gt;
   &lt;aside class='sidebar'&gt;
-    &lt;a href='#[id1]' onclick='sidebar("[id1]")'&gt;[main]&lt;/a&gt;
-    &lt;a href='#[id2]' onclick='sidebar("[id2]")'&gt;[1]&lt;/a&gt;
-    &lt;a href='#[id3]' onclick='sidebar("[id3]")'&gt;[2]&lt;/a&gt;
+    &lt;a href='#<var>id1</var>' onclick='sidebar("<var>id1</var>")'&gt;[main]&lt;/a&gt;
+    &lt;a href='#<var>id2</var>' onclick='sidebar("<var>id2</var>")'&gt;[1]&lt;/a&gt;
+    &lt;a href='#<var>id3</var>' onclick='sidebar("<var>id3</var>")'&gt;[2]&lt;/a&gt;
   &lt;/aside&gt;
-  &lt;main data-display='[id1]'&gt;
-    &lt;section id='[id1]'&gt;
+  &lt;main data-display='<var>id1</var>'&gt;
+    &lt;section id='<var>id1</var>'&gt;
       [details]
     &lt;/section&gt;
-    &lt;section id='[id2]' hidden&gt;
+    &lt;section id='<var>id2</var>' hidden&gt;
       [details]
     &lt;/section&gt;
-    &lt;section id='[id3]' hidden&gt;
+    &lt;section id='<var>id3</var>' hidden&gt;
       [details]
     &lt;/section&gt;
   &lt;/main&gt;

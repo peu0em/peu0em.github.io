@@ -10,8 +10,6 @@ language:
 ---
 <p>이 사이드바는 평범한 사이드바가 아닙니다. 페이지 구조까지는 건드릴 수 없는 게시물 형태 안에서도 <a title='HTML' href='https://developer.mozilla.org/ko/docs/Web/HTML' target='_blank' rel='noopener'>mdn web docs</a> 같은 아카이브 형태를 구현하고 싶었습니다. 그렇게 해서 나온 결과물이 <a title='블로거 문법 정리' href='/i/blogger-syntax'>이 페이지</a>입니다.</p>
 
-<!--more-->
-
 <details>
   <summary>목차</summary>
   <ol class='index'>
@@ -134,10 +132,10 @@ language:
 
 <h3 content='&lt;a&gt; 구성' id='p-240810-h-anchor'><a href='#p-240810-h-anchor'>&lt;a&gt; 구성</a></h3>
 
-<p>이제부터는 다른 페이지를 볼 때 <code translate='no'>sidebar("[보고싶은 페이지 아이디]")</code> 함수를 실행시켜야 합니다. 더해서 <code translate='no'>href='#[<span translate='yes'>아이디</span>]'</code> 속성도 있어야 하고요.</p>
+<p>이제부터는 다른 페이지를 볼 때 <code translate='no'>sidebar("<var>보고싶은 페이지 아이디</var>")</code> 함수를 실행시켜야 합니다. 더해서 <code translate='no'>href='#<var translate='yes'>아이디</var>'</code> 속성도 있어야 하고요.</p>
 
 <div class='script' translate='no'>
-  <pre>&lt;a href='#[<span translate='yes'>아이디</span>]' onclick='sidebar("[<span translate='yes'>아이디</span>]")'&gt;&lt;/a&gt;</pre>
+  <pre>&lt;a href='#<var translate='yes'>아이디</var>' onclick='sidebar("<var translate='yes'>아이디</var>")'&gt;&lt;/a&gt;</pre>
 </div>
 
 <p>그래서 링크 걸 때는 이렇게 걸어야 합니다.</p>
@@ -158,18 +156,18 @@ language:
 
 &lt;div class='sidebar-container'&gt;
   &lt;aside class='sidebar'&gt;
-    &lt;a href='#[<span translate='yes'>아이디1</span>]' onclick='sidebar("[<span translate='yes'>아이디1</span>>]")'&gt;[<span translate='yes'>대문</span>]&lt;/a&gt;
-    &lt;a href='#[<span translate='yes'>아이디2</span>]' onclick='sidebar("[<span translate='yes'>아이디2</span>]")'&gt;[1]&lt;/a&gt;
-    &lt;a href='#[<span translate='yes'>아이디3</span>]' onclick='sidebar("[<span translate='yes'>아이디3</span>]")'&gt;[2]&lt;/a&gt;
+    &lt;a href='#[<span translate='yes'>아이디1</span>]' onclick='sidebar("<var translate='yes'>아이디1</var>")'&gt;[<span translate='yes'>대문</span>]&lt;/a&gt;
+    &lt;a href='#<var translate='yes'>아이디2</var>' onclick='sidebar("<var translate='yes'>아이디2</var>")'&gt;[1]&lt;/a&gt;
+    &lt;a href='#<var translate='yes'>아이디3</var>' onclick='sidebar("<var translate='yes'>아이디3</var>")'&gt;[2]&lt;/a&gt;
   &lt;/aside&gt;
-  &lt;main data-display='[<span translate='yes'>아이디1</span>]'&gt;
-    &lt;section id='[<span translate='yes'>아이디1</span>]'&gt;
+  &lt;main data-display='<var translate='yes'>아이디1</var>'&gt;
+    &lt;section id='<var translate='yes'>아이디1</var>'&gt;
       [대문]
     &lt;/section&gt;
-    &lt;section id='[<span translate='yes'>아이디2</span>]' hidden&gt;
+    &lt;section id='<var translate='yes'>아이디2</var>' hidden&gt;
       [내용]
     &lt;/section&gt;
-    &lt;section id='[<span translate='yes'>아이디3</span>]' hidden&gt;
+    &lt;section id='<var translate='yes'>아이디3</var>' hidden&gt;
       [내용]
     &lt;/section&gt;
   &lt;/main&gt;

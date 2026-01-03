@@ -10,7 +10,7 @@ language:
     en: /p/2025/07/15/vim-en
 ---
 <p>제가 vim 쓰면서 이해한 매커니즘을 정리해보려고 합니다. 단축키는 잘 알겠는데 복잡한 동작은 못하겠어서 자꾸 비주얼 모드로 선택하는 분들은 유용할 거예요.</p>
-<p>일단 저는 비주얼 모드(v)는 근본 없다고 생각합니다. 이게 꼭 필요할 때도 있는데, 이게 어지간한 기능을 다 대체할 수 있어서 효율로 가는 길을 막아요.  vim이 효율적인 건 효율적이지 않게 못하기 때문이라고 생각하거든요. 그래서 이후 설명에도 비주얼 모드는 최대한 배제하겠습니다.</p>
+<p>일단 저는 비주얼 모드(<kbd>v</kbd>)는 근본 없다고 생각합니다. 이게 꼭 필요할 때도 있는데, 이게 어지간한 기능을 다 대체할 수 있어서 효율로 가는 길을 막아요.  vim이 효율적인 건 효율적이지 않게 못하기 때문이라고 생각하거든요. 그래서 이후 설명에도 비주얼 모드는 최대한 배제하겠습니다.</p>
 
 <nav>
   <details>
@@ -45,13 +45,13 @@ language:
 <h2 id='p-h-key'><a href='#p-h-key'>단축키</a></h2>
 
 <p>입문할 때는 방향키 있고 기능 있고 이렇게 이해를 하시고 외우면 편하긴 한데 사실 그렇지 않습니다. vim의 모든 동작은 단축키고, 이 단축키는 기능에 따라서 연결<span class='footnote t' id='p-fn-link-t'><a class='n' href='#p-fn-link-b'>1</a></span>이 됩니다.</p>
-<p>우선 모든 것이 단축키라는 것부터 설명드리겠습니다. 이동을 담당하는 <code>HJKL</code>도 사실 단축키입니다. 이게 단축키인지 아닌지가 왜 중요하냐면 조합에 쓰이기 때문입니다.</p>
+<p>우선 모든 것이 단축키라는 것부터 설명드리겠습니다. 이동을 담당하는 <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd>도 사실 단축키입니다. 이게 단축키인지 아닌지가 왜 중요하냐면 조합에 쓰이기 때문입니다.</p>
 
 <h3 id='p-h-link'><a href='#p-h-link'>연결</a></h3>
 
 <p>구성은 이렇게 됩니다. 종류에 따라 생략이 가능합니다.</p>
 <div class='script'>
-  <code>[<a href='#p-h-link-reg' class='no-underline'>레지스터</a>][<a href='#p-h-link-rep' class='no-underline'>횟수</a>][<a href='#p-h-link-command' class='no-underline'>명령</a>][<a href='#p-h-link-scope' class='no-underline'>범위</a>]</code>
+  <code><var>[<a href='#p-h-link-reg' class='no-underline'>레지스터</a>]</var><var>[<a href='#p-h-link-rep' class='no-underline'>횟수</a>]</var><var>[<a href='#p-h-link-command' class='no-underline'>명령</a>]</var><var>[<a href='#p-h-link-scope' class='no-underline'>범위</a>]</var></code>
 </div>
 
 <h4 id='p-h-link-reg'><a href='#p-h-link-reg'>레지스터</a></h4>
@@ -60,7 +60,7 @@ language:
 <p>vim은 정보를 어딘가에 저장할 수 있습니다. 이거 없어도 복사가 되는데요, 이건 임시 레지스터에 저장되는 거예요. vim의 모든 삭제 동작에는 복사가 포함됩니다. 그냥 삭제는 없고 전부 잘라내기예요. 그래서 뭔가 복사하고 옮기는 과정 중간에 뭔가를 삭제하게 되면 복사해 놓은게 날라갑니다.</p>
 <p>그래서 레지스터가 필요합니다. <code>"</code>(쌍따옴표)로 시작하고 그 뒤에 어디에 저장할지 고릅니다. 이 '어디'는 알파벳 전부 될 수 있어요. 대소문자 구분은 안 되는 거 같습니다. 번외로 <code>+</code> 레지스터가 있는데요 이건 클립보드입니다. 외부로 복사하거나 외부에서 복사한 걸 가지고 올 때 써요.</p>
 <div class='script'>
-  <code>"+</code>
+  <kbd>"</kbd><kbd>+</kbd>
 </div>
 <p>클립보드를 지정하려면 저런 형태가 될 거예요.</p>
 
@@ -68,37 +68,37 @@ language:
 
 <p>(생략할 수 있습니다.)</p>
 <p>몇 번 반복할지 정합니다.</p>
-<p>근데 복사 결과는 합쳐집니다. 예를 들어 <code>2yy</code>는 두 줄을 복사합니다. 반복이라고 덮어씌워지지는 않습니다.</p>
+<p>근데 복사 결과는 합쳐집니다. 예를 들어 <kbd>2</kbd><kbd>y</kbd><kbd>y</kbd>는 두 줄을 복사합니다. 반복이라고 덮어씌워지지는 않습니다.</p>
 <p>입력 계열을 반복하면 반성문 쓸 때 펜 여러 개로 썼던 경험처럼 같은 입력이 동시에 여러 개 됩니다.</p>
 
 <h4 id='p-h-link-command'><a href='#p-h-link-command'>명령</a></h4>
 
 <p>동작입니다. 글자는 딱 하나입니다. 쉬프트나 컨트롤이 첨가될 수는 있겠으나 여러 글자는 아닙니다.</p>
-<p>어라? 근데 명령어 목록에서는 <code>dd</code>, <code>dw</code> 이런 거 알려 주던데요? 그 뒷 부분은 바로 뒤에 나올 <a href='#p-h-link-scope'>범위</a>에 속합니다.</p>
+<p>어라? 근데 명령어 목록에서는 <kbd>d</kbd><kbd>d</kbd>, <kbd>d</kbd><kbd>w</kbd> 이런 거 알려 주던데요? 그 뒷 부분은 바로 뒤에 나올 <a href='#p-h-link-scope'>범위</a>에 속합니다.</p>
 <p>그러니까 첫 글자가 같은데 뒷 글자로 아주 다른 동작이 되는 상황은 없습니다. 제가 아는 선에서는요. 그러니 이제부터 명령어 찾아보실 때는 첫 글자만 본체라고 보시면 되겠습니다.</p>
 
 <h4 id='p-h-link-scope'><a href='#p-h-link-scope'>범위</a></h4>
 
-<p>여기가 핵심입니다. 범위는 <mark>이동 명령</mark>으로 정해집니다. 처음에 <code>HJKL</code>도 명령이라고 했던 거 기억나시나요? 여기서 쓰입니다.</p>
-<p>대표적인 이동 명령은 <code>HJKL</code>, <code>w</code>, <code>b</code>, <code>f</code> 같은 것이 있습니다. 지금 확인해 보니까 컨트롤 쓰는 이동은 안 되네요.</p>
+<p>여기가 핵심입니다. 범위는 <mark>이동 명령</mark>으로 정해집니다. 처음에 <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd>도 명령이라고 했던 거 기억나시나요? 여기서 쓰입니다.</p>
+<p>대표적인 이동 명령은 <kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd>, <kbd>w</kbd>, <kbd>b</kbd>, <kbd>f</kbd> 같은 것이 있습니다. 지금 확인해 보니까 컨트롤 쓰는 이동은 안 되네요.</p>
 <p>중요한데요, 이거 반복도 할 수 있습니다.</p>
 <p>이건 예시를 좀 여러 개 드리겠습니다. 범위만 보여드리면 헷갈릴 수 있어서 앞 명령까지 보여드릴게요.</p>
 <ul>
-  <li><code>y2w</code>: 두 단어를 복사합니다.</li>
-  <li><code>dl</code>: 커서에 있는 글자를 잘라냅니다.</li>
-  <li><code>d5k</code>: 현재 줄 포함 위로 6줄을 잘라냅니다.</li>
-  <li><code>c3Fa</code>: 현재 커서를 제외하고 그 줄에 있고 커서 전에 있는 a 중에 3번째로 가까운 a까지 잘라내고 입력합니다.</li>
+  <li><kbd>y</kbd><kbd>2</kbd><kbd>w</kbd>: 두 단어를 복사합니다.</li>
+  <li><kbd>d</kbd><kbd>l</kbd>: 커서에 있는 글자를 잘라냅니다.</li>
+  <li><kbd>d</kbd><kbd>5</kbd><kbd>k</kbd>: 현재 줄 포함 위로 6줄을 잘라냅니다.</li>
+  <li><kbd>c</kbd><kbd>3</kbd><kbd>F</kbd><kbd>a</kbd>: 현재 커서를 제외하고 그 줄에 있고 커서 전에 있는 a 중에 3번째로 가까운 a까지 잘라내고 입력합니다.</li>
 </ul>
 <p>마지막이 괴랄한데요, 한 줄 안에서 역방향으로 이동하는 경우에는 커서 전부터 시작인 것 같더라고요. 그래서 좀 헷갈립니다.</p>
-<p>같은 명령 따닥 하면 그 한 줄을 지정할 수 있습니다. <code>JK</code>로 한 줄만 선택할 수 없는 게 이유인지 순서가 반대인지는 모르겠네요. 그래서 위의 <code>5k</code>가 6줄을 선택합니다. 커서가 5번 올라가니까요.</p>
+<p>같은 명령 따닥 하면 그 한 줄을 지정할 수 있습니다. <kbd>J</kbd><kbd>K</kbd>로 한 줄만 선택할 수 없는 게 이유인지 순서가 반대인지는 모르겠네요. 그래서 위의 <kbd>5</kbd><kbd>k</kbd>가 6줄을 선택합니다. 커서가 5번 올라가니까요.</p>
 
 <h4 id='p-h-link-all'><a href='#p-h-link-all'>다 합쳐서</a></h4>
 
 <p>최대한 복잡하게 다 합쳐서 해 볼까요?</p>
 <div class='script'>
-  <code>"a3d3fb</code>
+  <kbd>"</kbd><kbd>a</kbd><kbd>3</kbd><kbd>d</kbd><kbd>3</kbd><kbd>f</kbd><kbd>b</kbd>
 </div>
-<p>"레지스터 a에 현재 커서로부터 뒤에 있는 3번째 b까지 삭제하는 명령을 3번 반복한다"가 되겠네요. 근데 사실 이럴 필요 없어요. 그냥 <code>"ad6fb</code>하세요.</p>
+<p>"레지스터 a에 현재 커서로부터 뒤에 있는 3번째 b까지 삭제하는 명령을 3번 반복한다"가 되겠네요. 근데 사실 이럴 필요 없어요. 그냥 <kbd>"</kbd><kbd>a</kbd><kbd>d</kbd><kbd>6</kbd><kbd>f</kbd><kbd>b</kbd>하세요.</p>
 
 <h2 id='p-h-command'><a href='#p-h-command'>명령 모드</a></h2>
 
@@ -107,7 +107,7 @@ language:
 <p>같은 키로 입력하는 거면 명령 모드로 입력해야 할 이유가 있을까요? 네. 명령 모드에서는 줄번호를 활용할 수 있습니다.</p>
 <p>구성은 이렇게 됩니다.</p>
 <div class='script'>
-  <code>:[<a href='#p-h-command-scope' class='no-underline'>범위</a>][<a href='#p-h-command-command' class='no-underline'>명령</a>][<a href='#p-h-command-input' class='no-underline'>입력</a>] [<a href='#p-h-command-reg' class='no-underline'>레지스터</a>]</code>
+  <code>:<var>[<a href='#p-h-command-scope' class='no-underline'>범위</a>]</var><var>[<a href='#p-h-command-command' class='no-underline'>명령</a>]</var><var>[<a href='#p-h-command-input' class='no-underline'>입력</a>]</var> <var>[<a href='#p-h-command-reg' class='no-underline'>레지스터</a>]</var></code>
 </div>
 
 <h3 id='p-h-command-scope'><a href='#p-h-command-scope'>범위</a></h3>
@@ -115,14 +115,14 @@ language:
 <p>명령에 따라 쓰지 않을 수도 있습니다.</p>
 
 <div class='script'>
-  <code>[시작 줄번호],[끝 줄번호]</code>
+  <code><var>[시작 줄번호]</var>,<var>[끝 줄번호]</var></code>
 </div>
 <p>이런 형태가 됩니다.</p>
 <p>또 실제 번호 대신 여러 기호를 쓸 수 있어요.</p>
 <ul>
   <li><code>%</code>: 파일 전체 줄</li>
   <li><code>.</code>: 커서가 있는 줄</li>
-  <li><code>/[문자]/</code>: [문자]가 있는 줄</li>
+  <li><code>/<var>[문자]</var>/</code>: <var>[문자]</var>가 있는 줄</li>
 </ul>
 <p>이런 게 있습니다. 거기다가 숫자를 더하거나 뺄 수도 있어요. 예를 들어 <code>.+3</code>는 커서가 있는 줄의 3번째 아래 줄을 뜻합니다. 이건 <code>//</code>에도 할 수 있어요. 다만 이거 혼자서 범위를 지정하지는 못해서 꼭 시작과 끝을 적어 줘야 합니다.</p>
 
@@ -143,7 +143,7 @@ language:
 <div class='script'>
   <code>:12,/target/-3y +</code>
 </div>
-<p>이러면 "12번 줄부터 target이란 문자열이 포함된 줄의 3줄 위의 줄까지 클립보드 레지스터에 복사한다"가 될 거예요.</p>
+<p>이러면 "12번 줄부터 'target'이란 문자열이 포함된 줄의 3줄 위의 줄까지 클립보드 레지스터에 복사한다"가 될 거예요.</p>
 
 <h2 id='p-h-end'><a href='#p-h-end'>마무리</a></h2>
 

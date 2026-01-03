@@ -14,7 +14,7 @@ description: 여러 언어에 대응하는 시스템을 만들어봤습니다.
 <h2>포인트</h2>
 
 <div class='script'>
-  <pre>Array.from(태그.attributes).filter(attr => attr.name.endsWith(문구)).reduce((arr, attr) => {
+  <pre>Array.from(<var>태그</var>.attributes).filter(attr => attr.name.endsWith(<var>문구</var>)).reduce((arr, attr) => {
   arr.push(attr.name);
   return arr;
 },[])</pre>
