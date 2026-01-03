@@ -29,7 +29,9 @@ h2.p-which{
   max-width:100%;
   resize: vertical;
   width:100%;
+  background-color:var(--color-background);
 }
+.p-box::placeholder{ color:var(--color-gray-5) }
 div.p-buttons{
   display:flex;
   justify-content:center;

@@ -231,6 +231,7 @@ main:not(.no-deco){
   background-color:var(--color-whitetogray);color:var(--color-font);
   outline:none;
 }
+#upbar-search-bar::placeholder{ color: var(--color-gray-5) }
 #upbar-search-button{
   background-color:var(--color-whitetogray);
   width:2.5rem;height:2.5rem; border:0;margin:.25rem .5rem .25rem 0;
