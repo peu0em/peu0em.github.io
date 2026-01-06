@@ -6,7 +6,7 @@ url: "https://peu0em.com"
 future: true
 trailing_slash: false
 
-#plugins:
+#plugins
 
 kramdwon:
     auto_ids: false
