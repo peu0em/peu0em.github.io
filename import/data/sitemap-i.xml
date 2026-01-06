@@ -5,8 +5,13 @@
  {%-for page in site.pages-%}
     {%-assign dir = page.dir | split:"/"%}
     {%-if dir[1] == "i"%}
-	  {%- capture c %}{{page.url | absolute_url | xml_escape}}{% endcapture -%}
-	  {%- if c contains ".html" %}{% assign c = c | replace: ".html", "" %}{%endif%}
+	  {%- assign c = page.url | absolute_url | xml_escape -%}
+    {%- assign cExt = c | split: "." | last -%}
+    {%- case cExt %}
+      {% when "html" %}
+        {%- assign cLen = c | size | minus: 5 -%}
+        {%- assign c = c | slice: 0, cLen -%}
+    {%- endcase -%}
   <url>
     <loc>{{ c }}</loc>
   </url>
