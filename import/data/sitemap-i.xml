@@ -6,7 +6,7 @@
     {%-assign dir = page.dir | split:"/"%}
     {%-if dir[1] == "i"%}
 	  {%- capture c %}{{page.url | absolute_url | xml_escape}}{% endcapture -%}
-	  {%- if c contains ".html" %}{% assign c = c | replace: ".html", "/" %}{%endif%}
+	  {%- if c contains ".html" %}{% assign c = c | replace: ".html", "" %}{%endif%}
   <url>
     <loc>{{ c }}</loc>
   </url>
