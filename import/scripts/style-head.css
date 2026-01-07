@@ -282,17 +282,17 @@ main:not(.no-deco){
 
 /* theme button */
 #theme-button>svg{display:none;}
-body:not([data-theme="dark"]) #theme-button-s,body[data-theme="dark"] #theme-button:hover #theme-button-s,
-body[data-theme="dark"] #theme-button-m,body:not([data-theme="dark"]) #theme-button:hover #theme-button-m{
+html:not([data-theme="dark"]) #theme-button-s,html[data-theme="dark"] #theme-button:hover #theme-button-s,
+html[data-theme="dark"] #theme-button-m,html:not([data-theme="dark"]) #theme-button:hover #theme-button-m{
   display:block;
 }
-body[data-theme="dark"] #theme-button:hover #theme-button-m,body:not([data-theme="dark"]) #theme-button:hover #theme-button-s{
+html[data-theme="dark"] #theme-button:hover #theme-button-m,html:not([data-theme="dark"]) #theme-button:hover #theme-button-s{
   display:none;
 }
-body:not([data-theme="dark"]) #theme-button,body[data-theme="dark"] #theme-button:hover{background-color:var(--color-theme-static);}
+html:not([data-theme="dark"]) #theme-button,html[data-theme="dark"] #theme-button:hover{background-color:var(--color-theme-static);}
 #theme-button-s{margin:auto;width:2.5rem;height:2.5rem;fill:black;stroke-width:0;}
-body[data-theme="dark"] #theme-button-s,body:not([data-theme="dark"]) #theme-button:hover #theme-button-s{display:none;}
-body[data-theme="dark"] #theme-button,body:not([data-theme="dark"]) #theme-button:hover{background-color:#333333;}
+html[data-theme="dark"] #theme-button-s,html:not([data-theme="dark"]) #theme-button:hover #theme-button-s{display:none;}
+html[data-theme="dark"] #theme-button,html:not([data-theme="dark"]) #theme-button:hover{background-color:#333333;}
 #theme-button-m{margin:auto;width:2.3rem;height:2.3rem;stroke-width:0;fill:#ddd;}
 
 /* language button */

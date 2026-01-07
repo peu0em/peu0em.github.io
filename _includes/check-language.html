@@ -1,13 +1,13 @@
 {% assign langlist="ko en" | split:" " %}
 <script>
-  let langUrl = {};
-  let langAll = {% if page.language.current=="all" %}true{% else %}false{% endif %};
+  let lang_url = {};
+  let lang_all = {% if page.language.current=="all" %}true{% else %}false{% endif %};
   {%- if page.language.current!="all"-%}
     {%- for lang in langlist -%}
       {%- if page.language.link[lang] -%}
-        langUrl.{{ lang }} = "{{ page.language.link[lang] | absolute_url }}";
+        lang_url.{{ lang }} = "{{ page.language.link[lang] | absolute_url }}";
       {%- else -%}
-        langUrl.{{ lang }} = false;
+        lang_url.{{ lang }} = false;
       {%- endif -%}
     {%- endfor -%}
   {%- endif -%}
