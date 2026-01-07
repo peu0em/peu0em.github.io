@@ -24,7 +24,7 @@
   --color-theme-double-static:#ffd1db;
   --color-theme-triple-static:#ffb7c7;
 }
-body:not([data-theme="dark"]){
+html:not([data-theme="dark"]){
   --color-background:white;
   --color-font:black;
   --color-theme-change:var(--color-theme-static);
@@ -38,7 +38,7 @@ body:not([data-theme="dark"]){
   --color-themetogray-c:#ffe7ee;
   --color-themetogray-7:#ffe7ee;
 }
-body[data-theme="dark"]{
+html[data-theme="dark"]{
   --color-background:#1a1a1a;
   --color-font:#ddd;
   --color-theme-change:#404040;

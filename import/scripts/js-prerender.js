@@ -1,7 +1,7 @@
 // theme
 {
   let themeItem = window.localStorage.getItem("theme");
-  document.body.dataset.theme =
+  document.documentElement.dataset.theme =
     themeItem?
       themeItem:(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"default")
   ;
@@ -16,7 +16,7 @@
   else if(parameter) result = parameter;
   else result = "ko";
   result = (lang_list.includes(result))?result:"ko";
-  document.body.dataset.lang = result;
+  document.documentElement.dataset.lang = result;
 }
 
 // comment 
@@ -30,8 +30,9 @@ function createComments(){
   loading.className = "placeholder";
 
   theme = (()=>{
-    if(document.body.dataset.theme){
-      switch(document.body.dataset.theme){
+    const themeAttr = document.documentElement.dataset.theme;
+    if(themeAttr){
+      switch(themeAttr){
         case "default": return "github-light";
         case "dark": return "github-dark";
         default: return "github-light";

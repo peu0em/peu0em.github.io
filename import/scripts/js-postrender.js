@@ -126,13 +126,13 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
   // theme
   function theme_change(){
-    switch(document.body.dataset.theme){
+    switch(htmlData.theme){
       case "default":
-        document.body.dataset.theme = "dark";
+        htmlData.theme = "dark";
         window.localStorage.setItem("theme","dark");
       break;
       case "dark":
-        document.body.dataset.theme = "default";
+        htmlData.theme = "default";
         window.localStorage.setItem("theme","default");
       break;
       default:
@@ -146,22 +146,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
   }
 
   // language
-  {
-    let selector = document.getElementById("lang-select");
-    if(selector){
-      selector.addEventListener("change",()=>{
-        if(selector.value!=document.body.dataset.lang){
-          let urlto = window['lang_url_'+selector.value];
-          window.localStorage.setItem("lang",selector.value);
-          document.body.dataset.lang=selector.value;
-          if((typeof lang_all === "undefined" || !lang_all) && (document.documentElement.getAttribute('lang')!=selector.value)) window.location.href = (urlto)?urlto:"/404-language";
-          else lang_refresh();
-        }
-      });
-    }
-  }
-  function lang_refresh(){
-    const langCurrent = document.body.dataset.lang;
+  function langRefresh(){
+    const langCurrent = htmlData.lang;
     const mltag = document.getElementsByClassName("multilang");
     const prefix = "-"+langCurrent;
     for(const tag of mltag){
@@ -182,10 +168,27 @@ document.addEventListener("DOMContentLoaded", ()=>{
       }
     }
   }
-  lang_refresh();
+  {
+    const selector = document.getElementById("lang-select");
+    if(selector){
+      selector.addEventListener("change",()=>{
+        const sValue = selector.value;
+        if(sValue != htmlData.lang){
+          const urlto = langUrl[sValue]?langUrl[sValue]:false;
+          window.localStorage.setItem("lang",sValue);
+          htmlData.lang = sValue;
+          if((typeof langAll === "undefined" || !langAll) && (document.documentElement.getAttribute('lang')!=sValue)) window.location.href = (urlto)?urlto:"/404-language";
+          else langRefresh();
+        }
+      });
+    }
+  }
+  langRefresh();
   {
     const langselect = document.getElementById("lang-select");
-    if(langselect) langselect.querySelector("[value='"+(document.body.dataset.lang?document.body.dataset.lang:(document.documentElement.getAttribute("lang")?document.documentElement.getAttribute("lang"):"ko"))+"']").setAttribute("selected","");
+    const langAttr = htmlData.lang;
+    const langHtml = document.documentElement.getAttribute("lang");
+    if(langselect) langselect.querySelector("[value='"+(langAttr?langAttr:(langHtml?langHtml:"ko"))+"']").setAttribute("selected","");
   }
 
   // upbar 
