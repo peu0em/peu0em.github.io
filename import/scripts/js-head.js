@@ -1,10 +1,10 @@
 const url = window.location.href;
 const lang_list = ["ko","en"];
-const hover_possible = window.matchMedia("(hover:hover)").matches;
-const id_fromurl = (()=>{
+function hover_possible(){ return window.matchMedia("(hover:hover)").matches; }
+function id_fromurl(){
   const idch = url.replace(/^.+\#/,"");
   return (url==idch)?false:idch.replace(/[^(\w|\-)].*/,";");
-})();
+};
 
 const html_data = document.documentElement.dataset;
 

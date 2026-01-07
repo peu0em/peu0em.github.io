@@ -91,7 +91,7 @@
               }
             }
           }
-          switch(hover_possible){
+          switch(hover_possible()){
             case true:{ 
               fnlist[i].addEventListener("mouseover",()=>{
                 ariahiddenSwitch(false);
