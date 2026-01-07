@@ -1,6 +1,6 @@
 const url = window.location.href;
 const lang_list = ["ko","en"];
-const can_hover = window.matchMedia("(hover:hover)").matches;
+const hover_possible = window.matchMedia("(hover:hover)").matches;
 const id_fromurl = (()=>{
   const idch = url.replace(/^.+\#/,"");
   return (url==idch)?false:idch.replace(/[^(\w|\-)].*/,";");
