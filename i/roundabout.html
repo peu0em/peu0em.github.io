@@ -1,6 +1,10 @@
 ---
-layout: frame
 title: 회전교차로
+layout: independent
+independent:
+  contents: [logo,content,footer]
+  logo:
+    anchor: false
 language: 
   current: all
   title:
@@ -10,8 +14,6 @@ thumbnail: /import/images/logo-default-square.jpg
 addhead:
   - <link rel='stylesheet' href='/import/scripts/conditional/roundabout.css'>
 ---
-{%include logo.html anchor=false%}
-
 <main class='no-deco-a'>
 
   <div class='p-roundabout-icon'>
@@ -140,5 +142,3 @@ addhead:
   </div>
 
 </main>
-
-{%include footer.html%}

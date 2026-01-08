@@ -1,6 +1,10 @@
 ---
-layout: independent
 title: 목록
+layout: independent
+independent:
+  contents: [upbar,neck,content,footer]
+  neck:
+    content: home
 robots: [none,noindex]
 permalink: /list
 addhead:
@@ -10,7 +14,6 @@ lang-title:
   ko: 목록
   en: LIST
 ---
-{% include neck.html content = "home" %}
 <main>
   <div class='multilang post-list' aria-label='글 목록' aria-label-ko='글 목록' aria-label-en='Post List'>
     <div hidden class='status card' style='width:var(--size-maxwidth)'></div>
@@ -20,4 +23,3 @@ lang-title:
     <script src='/import/scripts/conditional/postlist-listing.js' type='text/javascript'></script>
   </div>
 </main>
-

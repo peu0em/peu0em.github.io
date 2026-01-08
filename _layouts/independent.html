@@ -1,9 +1,37 @@
 ---
 layout: frame
 ---
-{% include upbar.html %}
-{% include top-gap.html %}
+{%- if page.independent.contents -%}
+  {%- for con in page.independent.contents -%}
 
-{{ content }}
+    {%- if con == "content" %}{{ content }}{% endif -%}
 
-{% include footer.html %}
+    {%- if con == "logo" -%}
+      {%- if page.independent.logo.anchor -%}
+        {%- include logo.html anchor=page.independent.logo.anchor -%}
+      {%- else -%}
+        {%- include logo.html -%}
+      {%- endif -%}
+    {%- endif -%}
+
+    {%- if con == "title" %}{% include title-post.html %}{% endif -%}
+
+    {% if con == "upbar" -%}
+      {%- include upbar.html -%}
+      {%- include top-gap.html -%}
+    {%- endif -%}
+
+    {% if con == "neck" -%}
+      {%- if page.independent.neck.content -%}
+        {%- include neck.html content=page.independent.neck.content -%}
+      {%- else -%}
+        {%- include neck.html -%}
+      {%- endif -%}
+    {%- endif %}
+    
+    {%- if con == "footer" -%}{% include footer.html %}{%- endif -%}
+
+  {%- endfor -%}
+{%- else -%}
+  {{ content }}
+{%- endif -%}

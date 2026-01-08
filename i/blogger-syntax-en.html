@@ -1,12 +1,17 @@
 ---
-layout: post-independent
 title: Blogger Syntax
+layout: independent
+independent:
+  contents: [title,content,neck,footer]
+  neck:
+    content: home
 language:
   current: en
   link:
-    ko: /p/2024/08/03/blogger-syntax
-addhead: <link href='/import/scripts/conditional/sidebar.css' rel='stylesheet'>
-tags: [information,syntax,Blogspot]
+    ko: /i/blogger-syntax
+addhead:
+  - <link href='/import/scripts/conditional/sidebar.css' rel='stylesheet'>
+  - <script src='/import/scripts/conditional/sidebar.js' async></script>
 description: "Amateurish organization about Google Blogger syntax."
 ---
 <div class='sidebar-container'>
@@ -15,23 +20,23 @@ description: "Amateurish organization about Google Blogger syntax."
       <div style='text-align:center'>Index</div>
       <hr class='line' style='width:50%'>
       <ul class='index' style='padding:1rem 0'>
-        <li><a href='#p-bloggersyntax-m-main' onclick='sidebar_mc("p-bloggersyntax-m-main")'>Main</a></li>
-       <li><a href='#p-bloggersyntax-m-explain' onclick='sidebar_mc("p-bloggersyntax-m-explain")'>Explanation</a></li>
-        <li><a href='#p-bloggersyntax-m-data' onclick='sidebar_mc("p-bloggersyntax-m-data")'>data:</a></li>
-        <li><a href='#p-bloggersyntax-m-expr' onclick='sidebar_mc("p-bloggersyntax-m-expr")'>expr:</a></li>
-        <li><a href='#p-bloggersyntax-m-beval' onclick='sidebar_mc("p-bloggersyntax-m-beval")'>&lt;b:eval&gt;</a></li>
+        <li><a href='#p-bloggersyntax-m-main' class='sidebar-link'>Main</a></li>
+       <li><a href='#p-bloggersyntax-m-explain' class='sidebar-link'>Explanation</a></li>
+        <li><a href='#p-bloggersyntax-m-data' class='sidebar-link'>data:</a></li>
+        <li><a href='#p-bloggersyntax-m-expr' class='sidebar-link'>expr:</a></li>
+        <li><a href='#p-bloggersyntax-m-beval' class='sidebar-link'>&lt;b:eval&gt;</a></li>
         <li>
           <details>
             <summary>Conditional</summary>
             <ul>
-              <li><a href='#p-bloggersyntax-m-cond' onclick='sidebar_mc("p-bloggersyntax-m-cond")'>cond=' '</a></li>
-              <li><a href='#p-bloggersyntax-m-bif' onclick='sidebar_mc("p-bloggersyntax-m-bif")'>&lt;b:if&gt;</a></li>
-              <li><a href='#p-bloggersyntax-m-bswitch' onclick='sidebar_mc("p-bloggersyntax-m-bswitch")'>&lt;b:switch&gt;</a></li>
+              <li><a href='#p-bloggersyntax-m-cond' class='sidebar-link'>cond=' '</a></li>
+              <li><a href='#p-bloggersyntax-m-bif' class='sidebar-link'>&lt;b:if&gt;</a></li>
+              <li><a href='#p-bloggersyntax-m-bswitch' class='sidebar-link'>&lt;b:switch&gt;</a></li>
             </ul>
           </details>
         </li>
-        <li><a href='#p-bloggersyntax-m-bloop' onclick='sidebar_mc("p-bloggersyntax-m-bloop")'>&lt;b:loop&gt;</a></li>
-        <li><a href='#p-bloggersyntax-m-bcomment' onclick='sidebar_mc("p-bloggersyntax-m-bcomment")'>&lt;b:comment&gt;</a></li>
+        <li><a href='#p-bloggersyntax-m-bloop' class='sidebar-link'>&lt;b:loop&gt;</a></li>
+        <li><a href='#p-bloggersyntax-m-bcomment' class='sidebar-link'>&lt;b:comment&gt;</a></li>
       </ul>
     </nav>
   </div>
@@ -81,7 +86,7 @@ description: "Amateurish organization about Google Blogger syntax."
       <h3>Description</h3>
       
       <p>If you write in tag form, this will be replaced with value. For example, <code>blog.title</code> is blog name, if you write down <code>&lt;p&gt;&lt;data:blog.title/&gt;&lt;/p&gt;</code> blog name will be in p tag.</p>
-      <p>But <code>expr:</code> is more important. If you add this in front of tag's attribute, you can use <code>data:</code>inside. For example, if you do  <code>&lt;meta property='og:site_name' expr:content='data:blog.title'&gt;</code> you can input blog name automatically in meta tag. Syntax information about <code>expr:</code> is <a title='expr:' href='#p-bloggersyntax-m-expr' onclick='sidebar_mc("p-bloggersyntax-m-expr")'>here</a>.</p>
+      <p>But <code>expr:</code> is more important. If you add this in front of tag's attribute, you can use <code>data:</code>inside. For example, if you do  <code>&lt;meta property='og:site_name' expr:content='data:blog.title'&gt;</code> you can input blog name automatically in meta tag. Syntax information about <code>expr:</code> is <a title='expr:' href='#p-bloggersyntax-m-expr' class='sidebar-link'>here</a>.</p>
       
       <h3>Caution</h3>
       <p>In my guess usable position goes different by prefix. You can use everywhere when it starts by <code>blog.</code>, can use only in post tag when it starts by <code>post.</code>. (Technically inside of <code>&lt;b:includable id='post' var='post'&gt;&lt;/b:includable&gt;</code>.)</p>
@@ -255,7 +260,7 @@ description: "Amateurish organization about Google Blogger syntax."
       
       <h3>Explanation</h3>
       
-      <p>You can input variables and texts in [expression]. <code>data:blog.title</code> represents for blog name, if you want to write "~ blog" in meta tag just write down <code>&lt;meta property='og:site_name' expr:content='data:blog.title + " blog"'&gt;</code>. Just write variables, text in quotation marks, then link these with +. (If you want to know more about <code>data:</code>, go to <a href='#p-bloggersyntax-m-data' onclick='sidebar_mc("p-bloggersyntax-m-data")'>here</a></p>
+      <p>You can input variables and texts in [expression]. <code>data:blog.title</code> represents for blog name, if you want to write "~ blog" in meta tag just write down <code>&lt;meta property='og:site_name' expr:content='data:blog.title + " blog"'&gt;</code>. Just write variables, text in quotation marks, then link these with +. (If you want to know more about <code>data:</code>, go to <a href='#p-bloggersyntax-m-data' class='sidebar-link'>here</a></p>
       
       <h3>Caution</h3>
       
@@ -269,7 +274,7 @@ description: "Amateurish organization about Google Blogger syntax."
       
       <h2>&lt;b:eval&gt;</h2>
       
-      <p>The tag prints result of a <a href='#p-bloggersyntax-m-expr' onclick='sidebar_mc("p-bloggersyntax-m-expr")' title='expr:'>expr:</a>.</p>
+      <p>The tag prints result of a <a href='#p-bloggersyntax-m-expr' class='sidebar-link' title='expr:'>expr:</a>.</p>
       
       <h3>Form</h3>
       
@@ -279,7 +284,7 @@ description: "Amateurish organization about Google Blogger syntax."
       
       <h3>Explanation</h3>
       
-      <p>Really just prints <a href='#p-bloggersyntax-m-expr' onclick='sidebar_mc("p-bloggersyntax-m-expr")' title='expr:'>expr:</a>. It is same with <a href='#p-bloggersyntax-m-data' onclick='sidebar_mc("p-bloggersyntax-m-data")' title='data:'>&lt;data:&gt;</a> when you just put <a href='#p-bloggersyntax-m-data' onclick='sidebar_mc("p-bloggersyntax-m-data")' title='data:'>data:</a>.</p>
+      <p>Really just prints <a href='#p-bloggersyntax-m-expr' class='sidebar-link' title='expr:'>expr:</a>. It is same with <a href='#p-bloggersyntax-m-data' class='sidebar-link' title='data:'>&lt;data:&gt;</a> when you just put <a href='#p-bloggersyntax-m-data' class='sidebar-link' title='data:'>data:</a>.</p>
       
     </section>
     <section hidden id='p-bloggersyntax-m-cond'>
@@ -287,7 +292,7 @@ description: "Amateurish organization about Google Blogger syntax."
       <h2 content="cond=' '">cond=' '</h2>
       
       <p>Use when you handle conditional statements. Mostly it is attribute of the conditional tags.</p>
-      <p>This also follows <a href='#p-bloggersyntax-m-expr' onclick='sidebar_mc("p-bloggersyntax-m-expr")' title='expr:'>expr:</a>'s rules.</p>
+      <p>This also follows <a href='#p-bloggersyntax-m-expr' class='sidebar-link' title='expr:'>expr:</a>'s rules.</p>
       
       <h3>Syntax</h3>
       
@@ -322,7 +327,7 @@ description: "Amateurish organization about Google Blogger syntax."
       
       <h3>Using Tags</h3>
       <ul>
-        <li><a href='#p-bloggersyntax-m-bif' onclick='sidebar_mc("p-bloggersyntax-m-bif")'>&lt;b:if&gt;</a></li>
+        <li><a href='#p-bloggersyntax-m-bif' class='sidebar-link'>&lt;b:if&gt;</a></li>
         <li>&lt;b:include&gt;</li>
       </ul>
       
@@ -341,7 +346,7 @@ description: "Amateurish organization about Google Blogger syntax."
       
       <h3>Explanation</h3>
       
-      <p>Be executed when <code><a title="cond=' '" href='#p-bloggersyntax-m-cond' onclick='sidebar_mc("p-bloggersyntax-m-cond")'>cond=' '</a></code> is true. You might be used to this if you've coded.</p>
+      <p>Be executed when <code><a title="cond=' '" href='#p-bloggersyntax-m-cond' class='sidebar-link'>cond=' '</a></code> is true. You might be used to this if you've coded.</p>
       <img class='image' style='width:20em' src='https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb068GW%2Fbtrq6vgfZUW%2Fa8zwmdx6rYgFKT8N4BKb40%2Fimg.jpg'>
       <p>Who don't know can find basic informations by <a title='if statement google search' href='https://www.google.com/search?q=if+statement' target='_blank' rel='noopener'>searching if statement</a>.</p>
       
@@ -360,7 +365,7 @@ description: "Amateurish organization about Google Blogger syntax."
       
       <h3>Explanation</h3>
       
-      <p>Statement that executes [detail1] when [variable] is same with [value1], executes [detail2] when [value2], executes [detail3] when there's no same thing. Follows the <a title='expr:' href='#p-bloggersyntax-m-expr' onclick='sidebar_mc("p-bloggersyntax-m-expr")'>expr:</a>'s rules.</p>
+      <p>Statement that executes [detail1] when [variable] is same with [value1], executes [detail2] when [value2], executes [detail3] when there's no same thing. Follows the <a title='expr:' href='#p-bloggersyntax-m-expr' class='sidebar-link'>expr:</a>'s rules.</p>
       
       <h3>Caution</h3>
       
@@ -431,5 +436,3 @@ description: "Amateurish organization about Google Blogger syntax."
     </section>
   </main>
 </div>
-
-<script src='/import/scripts/conditional/sidebar.js'></script>

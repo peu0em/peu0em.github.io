@@ -2,6 +2,10 @@
 permalink: /404.html
 title: 404
 layout: independent
+independent:
+  contents: [upbar,logo,content,neck,footer]
+  neck:
+    content: "home list"
 lang: all
 robots: none
 ---
@@ -13,5 +17,3 @@ robots: none
 
   <button class='button center multilang' style='font-size:3rem;' onclick='history.back()' type='button' data-content-ko='뒤로가기' data-content-en='Go Back'>뒤로가기</button>
 </main>
-
-{% include neck.html content="home list" %}
