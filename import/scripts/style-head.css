@@ -6,7 +6,7 @@
 
 /* size */
 :root{
-  --size-font-p:1.15rem;
+  --size-font-p:1.25rem;
   --size-font-h1:2.5rem;
   --size-line-thick:.5rem;
   --size-lineheight-1:calc(var(--number-lineheight) * 1em);

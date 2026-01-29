@@ -1,24 +1,22 @@
 @font-face{
-    font-family:'sanserif-body';
-    src:
-      local('예스 고딕 레귤러'),
-      url('/import/fonts/YESGothic-Regular.woff2') format('woff2'),
-      url('/import/fonts/YESGothic-Regular.woff') format('woff'),
-      url('/import/fonts/YESGothic-Regular.ttf') format('ttf');
-    font-weight:normal;
-    font-style:normal;
-    font-display:swap;
+  font-family: 'sanserif-body';
+  src:
+    local('SUIT Light'),
+    url('/import/fonts/SUIT-Light.woff2') format('woff2'),
+    url('/import/fonts/SUIT-Light.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 @font-face{
-    font-family:'sanserif-body';
-    src:
-      local('예스 고딕 볼드'),
-      url('/import/fonts/YESGothic-Bold.woff2') format('woff2'),
-      url('/import/fonts/YESGothic-Bold.woff') format('woff'),
-      url('/import/fonts/YESGothic-Bold.ttf') format('ttf');
-    font-weight:bold;
-    font-style:normal;
-    font-display:swap;
+  font-family: 'sanserif-body';
+  src:
+    local('SUIT SemiBold'),
+    url('/import/fonts/SUIT-SemiBold.woff2') format('woff2'),
+    url('/import/fonts/SUIT-SemiBold.ttf') format('ttf');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
 }
 @font-face{
     font-family:'sanserif-body';
